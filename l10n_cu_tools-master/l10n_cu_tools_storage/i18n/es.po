@@ -1,0 +1,172 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* l10n_cu_tools_storage
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 11.0-20190312\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-13 22:52+0000\n"
+"PO-Revision-Date: 2020-06-13 22:52+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: l10n_cu_tools_storage
+#: model:ir.model.fields,field_description:l10n_cu_tools_storage.field_tools_storage_active
+msgid "Active"
+msgstr "Activo"
+
+#. module: l10n_cu_tools_storage
+#: model:ir.ui.view,arch_db:l10n_cu_tools_storage.view_tools_storage_filter
+msgid "Archived"
+msgstr "Archivado"
+
+#. module: l10n_cu_tools_storage
+#: model:ir.actions.act_window,help:l10n_cu_tools_storage.l10n_cu_tools_storage_action_window
+msgid "Click here to create a new tools storage."
+msgstr "Clic aquí para crear un Pañol de Útiles y herramientas"
+
+#. module: l10n_cu_tools_storage
+#: model:ir.model.fields,field_description:l10n_cu_tools_storage.field_tools_storage_default_code
+msgid "Code"
+msgstr "Código"
+
+#. module: l10n_cu_tools_storage
+#: model:ir.model.fields,field_description:l10n_cu_tools_storage.field_tools_storage_company_id
+msgid "Company"
+msgstr "Compañía"
+
+#. module: l10n_cu_tools_storage
+#: model:ir.ui.view,arch_db:l10n_cu_tools_storage.view_tools_storage_filter_kanban_view
+msgid "Company:"
+msgstr "Compañía:"
+
+#. module: l10n_cu_tools_storage
+#: model:ir.model.fields,field_description:l10n_cu_tools_storage.field_tools_storage_create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: l10n_cu_tools_storage
+#: model:ir.model.fields,field_description:l10n_cu_tools_storage.field_tools_storage_create_date
+msgid "Created on"
+msgstr "Creado el"
+
+#. module: l10n_cu_tools_storage
+#: model:ir.model.fields,field_description:l10n_cu_tools_storage.field_tools_storage_display_name
+msgid "Display Name"
+msgstr "Nombre a Mostrar"
+
+#. module: l10n_cu_tools_storage
+#: model:ir.model.fields,field_description:l10n_cu_tools_storage.field_tools_storage_id
+msgid "ID"
+msgstr "No de ID"
+
+#. module: l10n_cu_tools_storage
+#: model:ir.model.fields,help:l10n_cu_tools_storage.field_tools_storage_active
+msgid "If unchecked, it will allow you to hide the storage without removing it."
+msgstr "Sí desmarca, le permitirá ocultar este pañol sin tener que eliminarlo."
+
+#. module: l10n_cu_tools_storage
+#: model:ir.model.fields,field_description:l10n_cu_tools_storage.field_tools_storage_image
+msgid "Image"
+msgstr "Imagen"
+
+#. module: l10n_cu_tools_storage
+#: model:ir.model.fields,field_description:l10n_cu_tools_storage.field_tools_storage___last_update
+msgid "Last Modified on"
+msgstr "Última modificación el"
+
+#. module: l10n_cu_tools_storage
+#: model:ir.model.fields,field_description:l10n_cu_tools_storage.field_tools_storage_write_uid
+msgid "Last Updated by"
+msgstr "Última actualización por"
+
+#. module: l10n_cu_tools_storage
+#: model:ir.model.fields,field_description:l10n_cu_tools_storage.field_tools_storage_write_date
+msgid "Last Updated on"
+msgstr "Última actualización el"
+
+#. module: l10n_cu_tools_storage
+#: model:ir.model.fields,field_description:l10n_cu_tools_storage.field_tools_storage_image_medium
+msgid "Medium-sized image"
+msgstr "Imagen de mediano tamaño"
+
+#. module: l10n_cu_tools_storage
+#: model:ir.model.fields,help:l10n_cu_tools_storage.field_tools_storage_image_medium
+msgid "Medium-sized image of the the tools storage. It is automatically resized as a 128x128px image, with aspect ratio preserved, only when the image exceeds one of those sizes. Use this field in form views or some kanban views."
+msgstr "Imagen de mediano tamaño del pañol. Esta imagen es ajustada automáticamente a una imagen de 128x128px, preservando el radio del aspecto, solo cuando la imagen excede una de estas medidas. Use este campo en las vistas formulario o alguna vista kanban."
+
+#. module: l10n_cu_tools_storage
+#: model:ir.model.fields,field_description:l10n_cu_tools_storage.field_tools_storage_name
+msgid "Name"
+msgstr "Nombre"
+
+#. module: l10n_cu_tools_storage
+#: model:ir.model.fields,field_description:l10n_cu_tools_storage.field_tools_storage_image_small
+msgid "Small-sized image"
+msgstr "Imagen de pequeño tamaño"
+
+#. module: l10n_cu_tools_storage
+#: model:ir.model.fields,help:l10n_cu_tools_storage.field_tools_storage_image_small
+msgid "Small-sized image of the the tools storage. It is automatically resized as a 64x64px image, with aspect ratio preserved. Use this field anywhere a small image is required."
+msgstr "Imagen de pequeño tamaño del pañol. Esta imagen es ajustada automáticamente a una imagen de 64x64px, preservando el radio del aspecto. Use este campo dondequiera que una pequeña imagen sea requerida."
+
+#. module: l10n_cu_tools_storage
+#: model:ir.ui.menu,name:l10n_cu_tools_storage.menu_storage_manage
+msgid "Storage"
+msgstr "Pañol"
+
+#. module: l10n_cu_tools_storage
+#: sql_constraint:tools.storage:0
+msgid "The code of the tools storage must be unique in company!"
+msgstr "¡El código del pañol debe ser único por compañía!"
+
+#. module: l10n_cu_tools_storage
+#: sql_constraint:tools.storage:0
+msgid "The name of the tools storage must be unique in company!"
+msgstr "¡El nombre del pañol debe ser único por compañía!"
+
+#. module: l10n_cu_tools_storage
+#: model:ir.model.fields,help:l10n_cu_tools_storage.field_tools_storage_image
+msgid "This field holds the image used as image for the tools storage, limited to 1024x1024px."
+msgstr "Este campo tiene la imagen usada como imagen para el pañol, limitada a 1024x1024px."
+
+#. module: l10n_cu_tools_storage
+#: model:ir.actions.act_window,name:l10n_cu_tools_storage.l10n_cu_tools_storage_action_window
+#: model:ir.ui.view,arch_db:l10n_cu_tools_storage.tools_storage_form
+msgid "Tools Storage"
+msgstr "Pañol de Útiles"
+
+#. module: l10n_cu_tools_storage
+#: model:ir.ui.view,arch_db:l10n_cu_tools_storage.tools_storage_form
+msgid "Tools Storage's Name"
+msgstr "Nombre del Pañol de Útiles"
+
+#. module: l10n_cu_tools_storage
+#: model:ir.ui.view,arch_db:l10n_cu_tools_storage.view_tools_storage_filter
+msgid "Tools storage"
+msgstr "Pañol de Útiles"
+
+#. module: l10n_cu_tools_storage
+#: model:ir.ui.view,arch_db:l10n_cu_tools_storage.tools_storage_form
+msgid "e.g. ID Number"
+msgstr "ej. Numero de ID"
+
+#. module: l10n_cu_tools_storage
+#: model:ir.model,name:l10n_cu_tools_storage.model_tools_storage
+msgid "tools.storage"
+msgstr "Pañol de Útiles"
+
+#. module: l10n_cu_tools_storage
+#: model:ir.module.module,shortdesc:base.module_l10n_cu_tools_storage
+msgid "Cuban - Tools Storage"
+msgstr "Cuba - Pañol de Utiles y herramientas"
+
+#. module: l10n_cu_tools_storage
+#: model:ir.module.module,description:base.module_l10n_cu_tools_storage
+msgid "Tools Storage"
+msgstr "Pañol de Utiles y herramientas."

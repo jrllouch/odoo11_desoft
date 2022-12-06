@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_l10n_cu_asset_modify_info" model="ir.ui.view">
+            <field name="name">l10n_cu.asset.modify.info.form</field>
+            <field name="model">l10n_cu.asset.modify.info</field>
+            <field name="arch" type="xml">
+                <form string="Modify information">
+                    <group colspan="4">
+                        <label string="In this wizard the ability to modify the asset information is provided." colspan="4"/>
+                        <newline/>
+                        <separator colspan="4"/>
+                    </group>
+                    <group>
+	                    <group>
+	                        <field name="asset_id" readonly="1"/>
+	                        <field name="modification_type"/>
+	                        <field name="company_id" invisible="1"/>
+	                        <field name="done" invisible="1"/>
+	                        <field name="user_id" invisible="1"/>
+	                        <field name="account_asset_id" attrs="{'required':[('modification_type', 'in', (2, 8))],
+	                                                               'invisible':[('modification_type', 'not in', (2, 8))]}"/>
+	                    </group>
+	                    <group>
+	                    	<field name="update_date"/>
+	                        <field name="category_id" attrs="{'required':[('modification_type', '=', 1)],
+	                                                          'invisible':[('modification_type', '!=', 1)]}"
+                                   options="{'no_create': true, 'no_open': true}"/>
+	                        <field name="value" attrs="{'required':[('modification_type', '=', 2)],
+	                                                             'invisible':[('modification_type', '!=', 2)]}"/>
+	                        <field name="value_amount_depreciation" attrs="{'required':[('modification_type', '=', 8)],
+	                                                                        'invisible':[('modification_type', '!=', 8)]}"/>
+	                        <field name="asset_category_group" invisible="1"/>
+	                    </group>
+                        <notebook colspan="4">
+                            <page string="Depreciation data" attrs="{'invisible':[('modification_type', '!=', 3)]}">
+                            	<group>
+	                            	<group string="Depreciation data">
+				                    	<field name="depreciated" invisible="1"/>
+				                    	<field name="paralyzed" />
+                                        <field name="method_period" attrs="{'invisible':[('paralyzed', '=', True)],
+                                                                            'required':[('paralyzed', '=', False),
+                                                                                        ('modification_type', '=', 3)]}"/>
+				                    	<field name="depreciation_tax" attrs="{'invisible':[('paralyzed', '=', True)],
+                                                                               'required':[('paralyzed', '=', False),
+                                                                                           ('modification_type', '=', 3)]}"/>
+				                    </group>
+				                    <group string="Depreciation method" attrs="{'invisible':[('paralyzed', '=', True)]}">
+				                    	<field name="method" attrs="{'required':[('paralyzed', '=', False),
+                                                                                 ('modification_type', '=', 3)]}" />
+				                    	<field name="method_progress_factor" attrs="{'invisible':[('method', 'in', ('linear',False))],
+				                    	                                             'required':[('method', '=', 'degressive')]}"/>
+				                    </group>	
+			                    </group>	
+                            </page>
+                            <page string="Others data" attrs="{'invisible':[('modification_type', '!=', 4)]}">
+                            	<group>
+	                            	<group>
+	                            		<field name="asset_name" attrs="{'required':[('modification_type', '=', 4)]}"/>
+	                            		<field name="purchase_date" attrs="{'required':[('modification_type', '=', 4)]}"/>
+				                    </group>	
+	                            	<group>
+	                            		<field name="inventory_number" attrs="{'required':[('modification_type', '=', 4)]}"/>
+				                    </group>	
+			                    </group>	
+                            </page>
+                            <page string="Machinery in general" attrs="{'invisible': ['|',('modification_type', '!=', 1),('asset_category_group','in', ('0','1','2','5','6','7','8'))]}">
+                                <group colspan="4">
+                                    <group>
+                                        <field name="transport_country" options="{'no_create': true, 'no_open': true}"/>
+                                        <field name="equipment_type" options="{'no_create': true, 'no_open': true}"/>
+                                        <field name="transport_serial_number"/>
+                                        <field name="transport_chassis_number"/>
+                                        <field name="transport_number_motor"/>
+                                        <field name="transport_power"/>
+                                    </group>
+                                    <group>
+                                        <field name="transport_model"/>
+                                        <field name="transport_mark"/>
+                                        <field name="transport_tonnage"/>
+                                        <field name="transport_manufacture_date"/>
+                                        <field name="transport_fuel_type" />
+                                        <field name="transport_chapa"/>
+                                    </group>
+                                    <group colspan="4">
+                                        <label for="transport_add_ids" />
+                                        <newline/>
+                                        <field name="transport_add_ids" nolabel="1">
+                                            <tree options="{'no_create': true}">
+                                                <field name="additions"/>
+                                                <field name="replacements"/>
+                                            </tree>
+                                        </field>
+                                    </group>
+                                </group>
+                            </page>
+                            <page string="Furniture, fixtures and office equipment" attrs="{'invisible': ['|',('modification_type', '!=', 1),('asset_category_group','in', ('0','1','3','4','5','6','7','8'))]}">
+                                <group colspan="4">
+                                    <group>
+                                        <field name="furniture_country" options="{'no_create': true, 'no_open': true}"/>
+                                        <field name="furniture_type" options="{'no_create': true, 'no_open': true}"/>
+                                        <field name="furniture_serial_number"/>
+                                    </group>
+                                    <group>
+                                        <field name="furniture_model"/>
+                                        <field name="furniture_mark"/>
+                                    </group>
+                                </group>     
+                            </page>
+                            <page string="Animals" attrs="{'invisible': ['|',('modification_type', '!=', 1),('asset_category_group','in', ('0','1','2','3','4','5','7','8'))]}">
+                                <group colspan= "4">
+                                    <group>
+                                        <field name="animals_purpose"/>
+                                    </group>
+                                    <group>     
+                                        <field name="animals_identification"/>
+                                    </group>
+                                </group>
+                            </page>
+                            <page string="Buildings and other constructions" attrs="{'invisible': ['|',('modification_type', '!=', 1),('asset_category_group','in', ('0','2','3','4','5','6','7','8'))]}">
+                                <group>
+                                    <group colspan= "4">
+                                        <label for="expansions_modernizations"/>
+                                        <newline/>
+                                        <field name="expansions_modernizations" nolabel="1" />
+                                    </group>    
+                                </group>
+                            </page>
+                        </notebook>
+                        <group string="Cause" colspan="4">
+                            <field name="cause" nolabel="1" placeholder="Add a description here about the cause of modification..."/>
+                        </group>
+                    </group>
+                    <footer>
+                        <button name="modify_info" string="Modify" type="object" class="oe_highlight"/>
+                        or
+                        <button special="cancel" string="Cancel" class="oe_link"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="view_additions_replacements_form">
+            <field name="name">l10n_cu.additions.replacements.form</field>
+            <field name="model">l10n_cu.additions.replacements</field>
+            <field name="arch" type="xml">
+                <form string="Additions and replacements">
+                    <group>
+                        <group>
+                            <field name="asset_id" invisible="1"/>
+                            <field name="additions"/>
+                        </group>
+                        <group>
+                            <field name="replacements"/>
+                        </group>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+    </data>
+</odoo>

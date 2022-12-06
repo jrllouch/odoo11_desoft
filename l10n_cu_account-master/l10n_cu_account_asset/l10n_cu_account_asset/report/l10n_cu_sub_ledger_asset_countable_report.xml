@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Custom report.-->
+<odoo>
+    <data>
+        <template id="l10n_cu_subldgr_asset_count_report">
+            <t t-call="web.html_container">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <div class="row" style="font-size:12px;">
+                            <span class="pull-right"><span t-esc="time.strftime('%d/%m/%Y %H:%M:%S')"/></span>
+                        </div>
+                        <div class="row text-center">
+                            <h4><strong>Accounting sub major</strong></h4>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12"><strong>Entity: </strong><spam><t t-esc="res_company.name"/></spam></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <strong>Address: </strong>Calle <t t-esc="res_company.street"/>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <strong>Responsibility Area: </strong> <t t-esc="data['area']"/>
+                            </div>
+                        </div>
+                        <t t-if="data['initial_date'] and data['final_date']">
+                            <div class="row">
+                                <strong>Desde: <t t-esc="data['initial_date']"/> Hasta: <t t-esc="data['final_date']"/></strong>
+                            </div>
+                        </t>
+                        <div class="row">
+                            <table class="table table-bordered" style="width: 100%">
+                                <thead>
+                                    <tr>
+                                        <th class="text-center" style="width: 20%">Inventory Number</th>
+                                        <th colspan="3" class="text-center" >Asset Name</th>
+                                        <th class="text-center" style="width: 20%">Subscribe Date</th>
+                                        <th class="text-center" style="width: 20%">State</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <t t-if="asset">
+                                            <!--<t t-set="asset" t-value="asset.name"/>-->
+                                            <td class="text-center" style="padding:2px;"><t t-esc="asset.inventory_number"/></td>
+                                            <td colspan="3" class="text-center" style="padding:2px;"><t t-esc="asset.name"/></td>
+                                            <td class="text-center" style="padding:2px;"><t t-esc="asset.subscribe_date"/></td>
+                                            <td class="text-center" style="padding:2px;">
+                                                <t t-if="asset.state == 'open'">
+                                                    En Uso
+                                                </t>
+                                                <t t-if="asset.state == 'idler'">
+                                                    Ocioso
+                                                </t>
+                                                <t t-if="asset.state == 'stop'">
+                                                    Paralizado
+                                                </t>
+                                                <t t-if="asset.state == 'close'">
+                                                    Baja
+                                                </t>
+                                            </td>
+                                        </t>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                         <div class="row">
+                            <table class="table table-condensed" style="width: 100%">
+                                <thead>
+                                    <tr>
+                                        <th colspan="3" style="width: 40%"/>
+                                        <th colspan="2" class="text-center" style="width: 20%">Increases</th>
+                                        <th colspan="2" class="text-center" style="width: 20%">Decreases</th>
+                                        <th colspan="2" class="text-center" style="width: 20%">Total Balance</th>
+                                    </tr>
+                                    <tr>
+                                        <th style="width: 15%">Operation Date</th>
+                                        <th style="width: 10%">Doc No</th>
+                                        <th style="width: 15%">Concept</th>
+                                        <th class="text-center" style="width: 10%">Value Increase</th>
+                                        <th class="text-center" style="width: 10%">Depreciation Increase</th>
+                                        <th class="text-center" style="width: 10%">Value Decrease</th>
+                                        <th class="text-center" style="width: 10%">Depreciation Decrease</th>
+                                        <th class="text-center" style="width: 10%">Value</th>
+                                        <th class="text-center" style="width: 10%">Depreciation</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <t t-if="final_list">
+                                        <t t-set="history" t-value="final_list"/>
+                                        <t t-if="history">
+                                            <t t-set="total_value" t-value="history[0]['value']"/>
+                                            <t t-set="total_depreciation" t-value="history[0]['total_depreciation']"/>
+                                        </t>
+                                        <t t-foreach="history" t-as="line">
+                                            <tr>
+                                                <td style="padding:1px;"><t t-esc="line['date']"/></td>
+                                                <td style="padding:1px;"><t t-esc="line['doc_number']"/></td>
+                                                <t t-if="line['concept'] == '01'">
+                                                    <td style="padding:1px;">Alta de Activo</td>
+                                                </t>
+                                                <t t-if="line['concept'] == '02'">
+                                                    <td style="padding:1px;">Compra de Activo</td>
+                                                </t>
+                                                <t t-if="line['concept'] == '03'">
+                                                    <td style="padding:1px;">Venta de Activo</td>
+                                                </t>
+                                                <t t-if="line['concept'] == '05'">
+                                                    <td style="padding:1px;">Ajuste por Faltante</td>
+                                                </t>
+                                                <t t-if="line['concept'] == '06'">
+                                                    <td style="padding:1px;">Ajuste por Pérdida</td>
+                                                </t>
+                                                <t t-if="line['concept'] == '07'">
+                                                    <td style="padding:1px;">Ajuste por Sobrante</td>
+                                                </t>
+                                                <t t-if="line['concept'] == '12'">
+                                                    <td style="padding:1px;">Baja de Activo</td>
+                                                </t>
+                                                <t t-if="line['concept'] == '13'">
+                                                    <td style="padding:1px;">Reevaluación del Activo</td>
+                                                </t>
+                                                <t t-if="line['concept'] == '14'">
+                                                    <td style="padding:1px;">Carga inicial</td>
+                                                </t>
+                                                <t t-if="line['concept'] == '15'">
+                                                    <td style="padding:1px;">Depreciación de activo</td>
+                                                </t>
+                                                <t t-if="line['concept'] == '16'">
+                                                    <td style="padding:1px;">Reevaluación de depreciación</td>
+                                                </t>
+                                                <t t-if="line_first">
+                                                    <td class="text-right" style="padding:1px;"><t t-esc="line['value']"/></td>
+                                                    <td class="text-right" style="padding:1px;"><t t-esc="line['depreciation']"/></td>
+                                                    <td class="text-right" style="padding:1px;"><t t-esc="line['total_depreciation']"/></td>
+                                                    <td class="text-right" style="padding:1px;">0.00</td>
+                                                    <td class="text-right" style="padding:1px;"><t t-esc="abs(total_value - total_depreciation)"/></td>
+                                                    <td class="text-right" style="padding:1px;"><t t-esc="line['total_depreciation']"/></td>
+                                                </t>
+                                                <t t-if="not line_first and line['concept'] in ('15', '16')">
+                                                    <td class="text-right" style="padding:1px;">0.00</td>
+                                                    <t t-if="line['inc_depre']">
+                                                        <t t-if="line['concept'] == '15'">
+                                                            <td class="text-right" style="padding:1px;"><t t-esc="line['depreciation']"/></td>
+                                                        </t>
+                                                        <t t-if="line['concept'] == '16'">
+                                                            <td class="text-right" style="padding:1px;"><t t-esc="abs(line['total_depreciation'] - total_depreciation)"/></td>
+                                                        </t>
+                                                    </t>
+                                                    <t t-if="not line['inc_depre']">
+                                                        <td class="text-right" style="padding:1px;">0.00</td>
+                                                    </t>
+                                                    <td class="text-right" style="padding:1px;">0.00</td>
+                                                    <t t-if="not line['inc_depre']">
+                                                        <t t-if="line['concept'] == '15'">
+                                                            <td class="text-right" style="padding:1px;"><t t-esc="line['depreciation']"/></td>
+                                                        </t>
+                                                        <t t-if="line['concept'] == '16'">
+                                                            <td class="text-right" style="padding:1px;"><t t-esc="abs(total_depreciation - line['total_depreciation'])"/></td>
+                                                        </t>
+                                                    </t>
+                                                    <t t-if="line['inc_depre']">
+                                                        <td class="text-right" style="padding:1px;">0.00</td>
+                                                    </t>
+                                                    <td class="text-right" style="padding:1px;"><t t-esc="total_value"/></td>
+                                                    <td class="text-right" style="padding:1px;"><t t-esc="line['total_depreciation']"/></td>
+                                                    <t t-set="total_depreciation" t-value="line['total_depreciation']" />
+                                                </t>
+                                                <t t-if="not line_first and line['concept'] not in ('15', '16')">
+                                                    <t t-set="inc" t-value="abs(line['value'] - total_value)"/>
+                                                    <t t-set="total_value" t-value="line['value']"/>
+                                                    <t t-if="line['inc_val']">
+                                                        <td class="text-right" style="padding:1px;"><t t-esc="inc"/></td>
+                                                    </t>
+                                                    <t t-if="not line['inc_val']">
+                                                        <td class="text-right" style="padding:1px;">0.00</td>
+                                                    </t>
+                                                    <td class="text-right" style="padding:1px;"><t t-esc="line['depreciation']"/></td>
+                                                    <t t-if="not line['inc_val']">
+                                                        <td class="text-right" style="padding:1px;"><t t-esc="inc"/></td>
+                                                    </t>
+                                                    <t t-if="line['inc_val']">
+                                                        <td class="text-right" style="padding:1px;">0.00</td>
+                                                    </t>
+                                                    <td class="text-right" style="padding:1px;">0.00</td>
+                                                    <td class="text-right" style="padding:1px;"><t t-esc="total_value"/></td>
+                                                    <td class="text-right" style="padding:1px;"><t t-esc="line['total_depreciation']"/></td>
+                                                </t>
+                                            </tr>
+                                        </t>
+                                    </t>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>

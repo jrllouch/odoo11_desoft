@@ -1,0 +1,18 @@
+<odoo>
+  <data>
+      <record id="tools_storage_hr_view" model="ir.ui.view">
+            <field name="name">tools_storage_hr view</field>
+            <field name="model">tools.storage</field>
+            <field name="inherit_id" ref="l10n_cu_tools_storage.tools_storage_form"/>
+            <field name="arch" type="xml">
+                <group id="general" position="after">
+                    <group id="responsible">
+                        <group>
+                            <field name="responsible"/>
+                        </group>
+                    </group>
+                </group>
+            </field>
+        </record>
+  </data>
+</odoo>

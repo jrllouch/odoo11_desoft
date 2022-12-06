@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<record id="l10n_cu_automatic_depreciation_asset_form_view" model="ir.ui.view">
+		<field name="model">l10n_cu.automatic.depreciation.asset</field>
+		<field name="type">form</field>
+		<field name="arch" type="xml">
+			<form>
+				<!-- <separator string="Automatic Asset Depreciation" colspan="4"/>
+                <label string="This wizard depreciates all assets of the company in the current month. In case can not depreciate any assets will be shown an informational message and you must depreciate these assets manually in the window of assets." colspan="4"/>
+                <newline/>
+                <field name="company_id" colspan="4" on_change="onchange_company_id(company_id)"
+                       groups="base.group_multi_company" options="{'no_create': 1}"/> -->
+
+				<label string="Depreciate until" colspan="4"/>
+				<field name="depreciate_until_date" />
+
+				<separator colspan="4"/>
+				<footer>
+					<button name="next" string="Next" type="object" class="oe_highlight"/>
+					or
+					<button special="cancel" string="Cancel" class="oe_link"/>
+				</footer>
+			</form>
+		</field>
+	</record>
+
+	<record id="action_automatic_depreciation_asset" model="ir.actions.act_window">
+		<field name="name">Automatic Asset Depreciation</field>
+		<field name="type">ir.actions.act_window</field>
+		<field name="res_model">l10n_cu.automatic.depreciation.asset</field>
+		<field name="view_type">form</field>
+		<field name="view_mode">form</field>
+		<field name="target">new</field>
+	</record>
+
+	<record id="l10n_cu_asset_depreciation_error_form_view" model="ir.ui.view">
+		<field name="model">l10n_cu.asset.depreciation.error</field>
+		<field name="type">form</field>
+		<field name="arch" type="xml">
+			<form>
+				<field name="state" invisible='1'/>
+				<group col="4" colspan="4" attrs="{'invisible': [('state','!=', 'three')]}">
+					<label string="Automatic depreciation was successful." colspan="4"/>
+					<newline/>
+				</group>
+				<group col="4" colspan="4" attrs="{'invisible': [('state','!=', 'two')]}">
+					<label string="There are not assets which depreciate in this month." colspan="4"/>
+					<newline/>
+				</group>
+				<group col="4" colspan="4" attrs="{'invisible': [('state','!=', 'one')]}">
+					<label string="Below lines depreciation could not depreciate, so you must depreciate these assets manually." colspan="4"/>
+					<newline/>
+					<field name="depreciation_line_ids" nolabel="1" readonly="True">
+						<tree string="Asset Depreciation Line" editable="bottom">
+							<field name="asset_id"/>
+							<field name="depreciation_date"/>
+							<field name="depreciated_value"/>
+							<field name="amount"/>
+							<field name="remaining_value"/>
+						</tree>
+						<form>
+							<field name="asset_id"/>
+							<field name="depreciation_date"/>
+							<field name="depreciated_value"/>
+							<field name="amount"/>
+							<field name="remaining_value"/>
+						</form>
+					</field>
+				</group>
+				<separator colspan="4"/>
+				<group col="2" colspan="2">
+					<button icon="terp-dialog-close" string="Close" name="go_account_asset_asset" type="object"/>
+				</group>
+			</form>
+		</field>
+	</record>
+
+	<record id="action_asset_depreciation_error" model="ir.actions.act_window">
+		<field name="name">The Depreciation line with error</field>
+		<field name="type">ir.actions.act_window</field>
+		<field name="res_model">l10n_cu.asset.depreciation.error</field>
+		<field name="view_type">form</field>
+		<field name="view_mode">form</field>
+		<field name="target">new</field>
+	</record>
+
+</odoo>

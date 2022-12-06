@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <odoo>
+
+    <!-- Add template field to existing view -->
+    <record model="ir.ui.view" id="view_package_form">
+        <field name="name">view.package.form</field>
+        <field name="model">stock.quant.package</field>
+        <field name="inherit_id" ref="stock.view_quant_package_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//group" position="after">
+                <separator string="Transportación en contenedores" />
+                <group>
+                    <field name="abbr" />
+                    <field name="number" />
+                    <field name="seal_number" />
+                    <field name="weight" />
+                    <field name="rate" />
+                </group>
+                <separator string="Importaciones transportadas en contenedores" />
+                <group>
+                    <field name="consignee_name" />
+                    <field name="location" />
+                    <field name="manifest_number" />
+                    <field name="departure" />
+                    <field name="boarding" />
+                    <field name="destination" />
+                    <field name="origin" />
+                </group>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

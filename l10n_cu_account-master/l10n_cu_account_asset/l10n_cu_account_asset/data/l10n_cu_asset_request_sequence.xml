@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <record forcecreate="1" id="seq_asset_request_id" model="ir.sequence">
+            <field name="name">Asset request</field>
+            <field name="code">asset_request_sequence</field>
+        </record>
+
+        <record forcecreate="1" id="seq_asset_request_code_id" model="ir.sequence">
+            <field name="name">Asset request sequence</field>
+            <field name="code">asset_request_sequence</field>
+            <field name="type" ref="seq_asset_request_id"/>
+            <field name="padding">4</field>
+            <field name="number_increment">1</field>
+            <field name="prefix">SA_%(year)s/</field>
+        </record>
+
+    </data>
+</odoo>

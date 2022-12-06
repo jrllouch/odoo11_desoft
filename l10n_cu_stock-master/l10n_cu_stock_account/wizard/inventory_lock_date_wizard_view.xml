@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!-- Add template field to existing view -->
+    <record model="ir.ui.view" id="inventory_lock_date_form">
+        <field name="name">inventory.lock.date.form</field>
+        <field name="model">inventory.lock.date.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Invoice" class="o_invoice_form">
+                <group>
+                    <field name="inventory_lock_date"/>
+                </group>
+                <field name="message" nolabel="1" readonly="1" style='color:red'/>
+                <group>
+                    <field name="item_ids" nolabel="1" readonly="1" attrs="{'invisible':[('item_ids','=',[])]}">
+                        <tree decoration-danger="difference&gt;0">
+                            <field name="product_category"/>
+                            <field name="account_id"/>
+                            <field name="inventory_balance"/>
+                            <field name="account_balance"/>
+                            <field name="difference"/>
+                        </tree>
+                    </field>
+                </group>
+                <footer>
+                    <button string="Set Inventory Lock Date" name="set_inventory_lock_date" type="object"
+                            attrs="{'invisible':[('message','!=','')]}" class="btn-primary"/>
+                    <button string="Cancel" class="btn-default" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+</odoo>

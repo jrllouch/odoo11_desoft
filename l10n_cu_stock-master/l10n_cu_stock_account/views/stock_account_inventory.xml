@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <!--Formato del Papel-->
+        <record id="l10n_cu_format" model="report.paperformat">
+            <field name="name">Paper Format</field>
+            <field name="default" eval="True"/>
+            <field name="format">Letter</field>
+            <field name="orientation">Landscape</field>
+            <field name="margin_top">10</field>
+            <field name="margin_bottom">10</field>
+            <field name="margin_left">20</field>
+            <field name="margin_right">20</field>
+            <field name="header_line" eval="True"/>
+            <field name="header_spacing">100</field>
+        </record>
+
+        <report
+            string="Physical Inventory"
+            id="action_report_physical_inventory"
+            model="stock.inventory"
+            report_type="qweb-pdf"
+            paperformat="l10n_cu_format"
+            name="l10n_cu_stock_account.l10n_cu_report_physical_inventory"
+            file="l10n_cu_stock_account.l10n_cu_report_physical_inventory"
+        />
+
+        <report
+            string="Blind Report Inventory"
+            id="blind_report_inventory"
+            model="stock.inventory"
+            report_type="qweb-pdf"
+            menu="False"
+            paperformat="l10n_cu_format"
+            name="l10n_cu_stock_account.l10n_cu_blind_report_inventory"
+            file="l10n_cu_stock_account.l10n_cu_blind_report_inventory"
+        />
+
+        <record id='stock_account_view_inventory_form' model='ir.ui.view'>
+            <field name="name">stock.account.inventory.form</field>
+            <field name="model">stock.inventory</field>
+            <field name="inherit_id" ref="stock.view_inventory_form"/>
+            <field name="arch" type="xml">
+                <button name="action_cancel_draft" position="after">
+                    <button
+                            name="%(blind_report_inventory)d"
+                            string="Blind Report Inventory"
+                            class="oe_highlight"
+                            type="action"
+                            attrs="{'invisible': [('state', 'not in', 'confirm')]}"
+                    />
+                </button>
+                <field name="exhausted" position="replace">
+                     <field name="exhausted" attrs="{'invisible': [('filter', 'in', ('owner', 'product_owner','lot','pack','partial', 'product','percent' ))]}"/>
+                </field>
+                <field name="exhausted" position="after">
+                    <field name="percent_number" attrs="{'invisible': [('filter', 'not in','percent')], 'required': [('filter', 'in', 'percent')]}"/>
+                </field>
+                <field name="filter" position="after">
+                    <field name="stock_inventory_picking_in" attrs="{'invisible': [('state', 'not in', ('confirm', 'done'))]}"/>
+                    <field name="stock_inventory_picking_out" attrs="{'invisible': [('state', 'not in', ('confirm', 'done'))]}"/>
+                </field>
+            </field>
+        </record>
+
+
+    </data>
+</odoo>

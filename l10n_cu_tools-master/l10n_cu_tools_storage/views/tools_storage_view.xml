@@ -1,0 +1,111 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+    <record model="ir.ui.view" id="l10n_cu_tools_storage.tools_storage_list">
+      <field name="name">l10n_cu_tools_storage list</field>
+      <field name="model">tools.storage</field>
+      <field name="arch" type="xml">
+        <tree>
+            <field name="default_code"/>
+            <field name="name"/>
+            <field name="company_id" groups="base.group_multi_company"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="l10n_cu_tools_storage.tools_storage_form">
+      <field name="name">l10n_cu_tools_storage form</field>
+      <field name="model">tools.storage</field>
+      <field name="arch" type="xml">
+        <form string="Tools Storage">
+          <sheet>
+            <div class="oe_button_box" name="button_box">
+                <button name="toggle_active" type="object"
+                        class="oe_stat_button" icon="fa-archive">
+                    <field name="active" widget="boolean_button"
+                        options='{"terminology": "archive"}'/>
+                </button>
+            </div>
+            <div id="o_tools_storage_container">
+            <field name="image_medium" widget='image' class="oe_avatar"/>
+            <div class="oe_title">
+                <label for="name" class="oe_edit_only"/>
+                <h2>
+                    <field name="name" placeholder="Tools Storage's Name"/>
+                </h2>
+            </div>
+            </div>
+            <group id="general">
+                <group>
+                    <field name="default_code" placeholder="e.g. ID Number"/>
+                </group>
+                <group>
+                    <field name="company_id" groups="base.group_multi_company"/>
+                </group>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <record id="view_tools_storage_filter" model="ir.ui.view">
+        <field name="name">l10n_cu_tools_storage filter</field>
+        <field name="model">tools.storage</field>
+        <field name="arch" type="xml">
+            <search string="Tools storage">
+                <field name="name"/>
+                <field name="default_code"/>
+                <filter string="Archived" name="inactive" domain="[('active','=',False)]"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_tools_storage_filter_kanban_view" model="ir.ui.view">
+        <field name="name">l10n_cu_tools_storage kanban</field>
+        <field name="model">tools.storage</field>
+        <field name="arch" type="xml">
+            <kanban>
+                <field name="id"/>
+                <field name="image_small"/>
+                <field name="company_id"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global_click">
+                            <div class="o_kanban_image">
+                                <img t-att-src="kanban_image('l10n_cu_tools_storage.tools_storage', 'image_small', record.id.raw_value)"/>
+                            </div>
+                            <div class="oe_kanban_details">
+                                <strong class="o_kanban_record_title">
+                                    <field name="name"/>
+                                    <small t-if="record.default_code.value">[<field name="default_code"/>]</small>
+                                </strong>
+                                <div name="tags"/>
+                                <ul>
+                                    <li>Company: <field name="company_id" groups="base.group_multi_company"></field></li>
+                                </ul>
+                                <div name="tags"/>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="l10n_cu_tools_storage_action_window">
+        <field name="name">Tools Storage</field>
+        <field name="res_model">tools.storage</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">kanban,tree,form</field>
+        <field name="search_view_id" ref="view_tools_storage_filter"/>
+        <field name="help" type="html">
+          <p class="oe_view_nocontent_create">
+            Click here to create a new tools storage.
+          </p>
+        </field>
+    </record>
+
+  </data>
+</odoo>

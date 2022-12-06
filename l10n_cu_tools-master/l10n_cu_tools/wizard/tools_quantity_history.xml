@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_tools_quantity_history" model="ir.ui.view">
+        <field name="name">Inventory Report</field>
+        <field name="model">tools.quantity.history</field>
+        <field name="arch" type="xml">
+            <form string="Choose your date">
+                <group>
+                    <group>
+                        <field name="compute_at_date" widget="radio"/>
+                        <field name="date" attrs="{'invisible': [('compute_at_date', '=', 0)]}"/>
+                    </group>
+                </group>
+                <footer>
+                    <button name="open_table" string="Retrieve the Inventory Quantities" type="object" class="btn-primary"/>
+                    <button string="Cancel" class="btn-default" special="cancel" />
+                </footer>
+            </form>
+        </field>
+    </record>
+    <record id="action_tools_quantity_history" model="ir.actions.act_window">
+        <field name="name">Inventory Report</field>
+        <field name="res_model">tools.quantity.history</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_tools_quantity_history"/>
+        <field name="target">new</field>
+        <field name="context">{'default_compute_at_date': 0}</field>
+    </record>
+</odoo>
+

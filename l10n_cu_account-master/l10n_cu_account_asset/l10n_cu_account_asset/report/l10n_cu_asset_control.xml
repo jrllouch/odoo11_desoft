@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Custom report.-->
+<odoo>
+    <data>
+        <template id="report_asset_control_view">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="doc">
+                    <t t-call="web.external_layout">
+                    <!-- <div class="header">
+                        <div class="row">
+                            <span>Page </span><span class="page"/> of <span class="topage"/>
+                            <span class="pull-right"><span t-esc="time.strftime('%d/%m/%Y %H:%M:%S')"/></span>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12 text-center">
+                                <h5><strong>MODELO SC-1-07 CONTROL DE ACTIVOS FIJOS TANGIBLES</strong></h5>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12"><strong>Entidad: </strong><span t-field="doc.company_id.name"/></div>
+                            <div class="col-xs-12"><strong>REEUP: </strong><span t-field="doc.company_id.reup_code"/></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-6"><strong>Área: </strong><span t-field="doc.name"/></div>
+                            <div class="col-xs-3"><strong>Código: </strong><span t-field="doc.code"/></div>
+                            <div class="col-xs-3"><strong>No: </strong><span t-field="doc.number"/></div>
+                        </div>
+                        </div> -->
+                        <div class="page">
+                            <div class="row" style="font-size:12px;">
+                                <span class="pull-right"><span t-esc="time.strftime('%d/%m/%Y %H:%M:%S')"/></span>
+                            </div>
+                            <div class="row text-center">
+                                <h4><strong>MODELO SC-1-07 CONTROL DE ACTIVOS FIJOS TANGIBLES</strong></h4>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-12"><strong>Entity: </strong><span><t t-esc="res_company.name"/></span></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-6"><strong>Área: </strong><span t-esc="doc.name"/></div>
+                                <div class="col-xs-3"><strong>Código: </strong><span t-field="doc.code"/></div>
+                                <div class="col-xs-3"><strong>No: </strong><span t-field="doc.number"/></div>
+                            </div>
+                            <table class="table table-condensed">
+                                <thead>
+                                    <tr style="height:15px;font-size:12px;">
+                                        <th style="width:100px;">No inventario</th>
+                                        <th colspan="2">Nombre del activo</th>
+                                        <th class="text-center">Fecha de alta</th>
+                                        <th class="text-right">Valor</th>
+                                        <th class="text-center">Fecha de baja</th>
+                                        <th colspan="2">Observaciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <t t-set="total" t-value="0.00"/>
+                                    <t t-foreach="doc.account_asset_asset_ids" t-as="asset">
+                                        <t t-if="asset.type != 'intangible' and not asset.parent_id">
+                                            <t t-set="total" t-value="total + asset.value"/>
+                                            <tr style="height:15px;padding:1px;font-size:12px;">
+                                                <td style="width:100px;padding:1px;"><t t-esc="asset.inventory_number"/></td>
+                                                <td style="padding:1px;" colspan="2"><t t-esc="asset.name"/></td>
+                                                <td style="padding:1px;" class="text-center"><t t-esc="asset.subscribe_date"/></td>
+                                                <td style="padding:1px;" class="text-right"><t t-esc="asset.value"/></td>
+                                                <td style="padding:1px;" class="text-center"><t t-esc="asset.unsubscribe_date"/></td>
+                                                <td colspan="2"></td>
+                                            </tr>
+                                        </t>
+                                    </t>
+                                    <tr style="height:15px;font-size:12px;">
+                                        <td colspan="3"></td>
+                                        <td class="text-center"><strong>Total</strong></td>
+                                        <td class="text-right"><t t-esc="total"/></td>
+                                        <td/>
+                                        <td/>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="footer" style="font-size: 12px;">
+                            <div class="row">
+                                <div class="col-xs-3 text-left">
+                                    <strong>Confeccionado por: </strong>
+                                </div>
+                                <div class="col-xs-4">________________________</div>
+                                <div class="col-xs-2 text-left">
+                                    <strong>Controla: </strong>
+                                </div>
+                                <div class="col-xs-3">________________________</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <strong>Firma del responsable del área:</strong>
+                                </div>
+                                <div class="col-xs-4">________________________</div>
+                                <div class="col-xs-2 text-left">
+                                    <strong>Contabiliza: </strong>
+                                </div>
+                                <div class="col-xs-3">________________________</div>
+                            </div>
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>

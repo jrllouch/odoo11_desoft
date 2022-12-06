@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+        <record forcecreate="1" id="seq_asset_sequence_id" model="ir.sequence">
+            <field name="name">asset_sequence</field>
+            <field name="code">asset_sequence</field>
+        </record>
+
+        <record forcecreate="1" id="seq_asset_move_sequence_id" model="ir.sequence">
+            <field name="name">move_asset_sequence</field>
+            <field name="code">move_asset_sequence</field>
+        </record>
+
+        <record forcecreate="1" id="seq_asset_move_id" model="ir.sequence">
+            <field name="name">Move Asset</field>
+            <field name="code">move_asset_sequence</field>
+            <field name="type" ref="seq_asset_sequence_id"/>
+            <field name="padding" eval="1"/>
+            <field name="prefix">MAS_%(year)s</field>
+        </record>
+
+        <record forcecreate="1" id="seq_asset_move_depreciation_sequence_id" model="ir.sequence">
+            <field name="name">move_depreciation_asset_sequence</field>
+            <field name="code">move_depreciation_asset_sequence</field>
+        </record>
+
+        <record forcecreate="1" id="seq_asset_move_depreciation_id" model="ir.sequence">
+            <field name="name">Move Depreciation Asset</field>
+            <field name="code">move_depreciation_asset_sequence</field>
+            <field name="type" ref="seq_asset_sequence_id"/>
+            <field name="padding" eval="1"/>
+            <field name="prefix">DAS_%(year)s</field>
+        </record>
+
+        <record forcecreate="1" id="seq_asset_control_id" model="ir.sequence">
+            <field name="name">Asset Control</field>
+            <field name="code">asset_control_sequence</field>
+        </record>
+
+        <record forcecreate="1" id="seq_asset_control_seq_id" model="ir.sequence">
+            <field name="name">Asset Control Sequence</field>
+            <field name="code">asset_control_sequence</field>
+            <field name="type" ref="seq_asset_sequence_id"/>
+            <field name="padding" eval="6"/>
+            <field name="prefix">AR/</field>
+        </record>
+
+        <record forcecreate="1" id="seq_asset_code_id" model="ir.sequence">
+            <field name="name">Asset Code</field>
+            <field name="code">asset_sequence_code</field>
+        </record>
+
+        <record forcecreate="1" id="seq_asset_seq_id" model="ir.sequence">
+            <field name="name">Asset Sequence</field>
+            <field name="code">asset_sequence_code</field>
+            <field name="type" ref="seq_asset_code_id"/>
+            <field name="padding" eval="1"/>
+            <field name="prefix">AS_</field>
+        </record>
+
+<!--
+        <record forcecreate="1" id="seq_asset_initial_load_id" model="ir.sequence.type">
+            <field name="name">Asset Initial Load</field>
+            <field name="code">asset_initial_load_sequence</field>
+        </record>
+
+        <record forcecreate="1" id="seq_asset_initial_load_seq_id" model="ir.sequence">
+            <field name="name">Asset Initial Load Sequence</field>
+            <field name="code">asset_initial_load_sequence</field>
+            <field name="type" ref="seq_asset_initial_load_id"/>
+            <field name="padding" eval="1"/>
+            <field name="prefix">AIL_</field>
+        </record> 
+-->
+
+    </data>
+</odoo>

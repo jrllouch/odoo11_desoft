@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="operation_report_integration" inherit_id="l10n_cu_stock_account.operation_report">
+            <xpath expr='//div[@id="opii"]/div/t[2]/div' position="inside">
+                <div style="margin-bottom:15px; clear: both; font-weight:bold" t-if="doc.custodian_dest_id">
+                    <b>Receiving custodian:</b>
+                    <span t-field="doc.custodian_dest_id" />
+                </div>
+            </xpath>
+        </template>
+    </data>
+</odoo>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+		<record id="account_close_form_view" model="ir.ui.view">
+			<field name="name">l10n_cu.account.close</field>
+			<field name="model">l10n_cu.account.close</field>
+			<field name="arch" type="xml">
+				<form>
+					<field name="message" nolabel="1" readonly="1"/>
+					<group>
+						<field name="message" nolabel="1" readonly="1" style='color:red'/>
+						<group>
+							<field name="asset_lock_date" required="1" attrs="{'invisible':[('close_valid','=',False)]}"/>
+						</group>
+						<field name="state" invisible="1"/>
+						<field name="module_id" invisible="1"/>
+						<field name="close_valid" invisible="1"/>
+						<field name="balance_ids" nolabel="1" readonly="1" options="{'save_readonly': 1}" attrs="{'invisible':['|',('balance_ids','=',[]),('state','=','done')]}">
+							<tree colors="red:difference != 0" editable="top">
+								<field name="account_id"/>
+								<field name="account_balance"/>
+								<field name="module_balance"/>
+								<field name="difference"/>
+							</tree>
+						</field>
+					</group>
+					<footer>
+						<button name="confirm_close" string="Confirm" type="object" class="oe_highlight" attrs="{'invisible':['|',('close_valid','=',False),('state','=','done')]}"/>
+						<button special="cancel" string="Cancel" class="oe_highlight" states="draft"/>
+						<button special="cancel" string="Close" class="oe_highlight" states="done"/>
+					</footer>
+				</form>
+			</field>
+		</record>
+
+
+		<record id="action_close_initial_loading_asset" model="ir.actions.act_window">
+			<field name="name">Close Asset Initial Loading</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">l10n_cu.account.close</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">form</field>
+			<field name="context" eval="{'default_module_id': ref('base.module_account_asset'),
+            'title':  'Asset'
+				}" />
+			<field name="target">new</field>
+		</record>
+
+		<!--<record id="action_close_period_asset" model="ir.actions.act_window">-->
+			<!--<field name="name">Close asset period</field>-->
+			<!--<field name="type">ir.actions.act_window</field>-->
+			<!--<field name="res_model">l10n_cu.account.close</field>-->
+			<!--<field name="view_type">form</field>-->
+			<!--<field name="view_mode">form</field>-->
+			<!--<field name="context" eval="{-->
+					<!--'default_close_type': 'period',-->
+					<!--'default_module_id': ref('base.module_account_asset'),-->
+					<!--'title':  'Asset'-->
+				<!--}" />-->
+			<!--<field name="target">new</field>-->
+		<!--</record>-->
+
+	</data>
+</odoo>

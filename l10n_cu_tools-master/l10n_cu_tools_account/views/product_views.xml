@@ -1,0 +1,14 @@
+<odoo>
+  <data>
+      <record id="view_tools_account_product_tree" model="ir.ui.view">
+        <field name="name">product.tools.account.tree.inherit</field>
+        <field name="model">product.product</field>
+        <field name="inherit_id" ref="l10n_cu_tools.view_tools_product_tree"/>
+        <field name="arch" type="xml">
+            <field name="tools_qty_available" position="after">
+                <field name="tools_value" sum="Tools Valuation" widget="monetary"/>
+            </field>
+        </field>
+      </record>
+  </data>
+</odoo>

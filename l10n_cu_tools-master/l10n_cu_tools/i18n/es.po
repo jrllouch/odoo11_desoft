@@ -1,0 +1,1760 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* l10n_cu_tools
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 11.0-20190312\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-17 23:25+0000\n"
+"PO-Revision-Date: 2020-06-17 23:25+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+
+#. module: l10n_cu_tools
+#: code:addons/l10n_cu_tools/models/operation_type.py:56
+#, python-format
+msgid " (copy)"
+msgstr " (copia)"
+
+#. module: l10n_cu_tools
+#: model:ir.model.fields,help:l10n_cu_tools.field_tools_picking_state
+msgid ""
+" * Draft: not confirmed yet and will not be scheduled until confirmed.\n"
+" * Waiting Another Operation: waiting for another move to proceed /before it becomes automatically available (e.g. in Make-To-Order flows).\n"
+" * Waiting: if it is not ready to be sent because the required products/ could not be reserved.\n"
+" * Ready: products are reserved and ready to be sent. If the shipping policy/ is 'As soon as possible' this happens as soon as anything is reserved.\n"
+" * Pending For Accounting: has been processed and pending for accounting.\n"
+" * Done: has been processed, can't be modified or cancelled anymore.\n"
+" * Cancelled: has been cancelled, can't be confirmed anymore."
+msgstr ""
+"* Borrador: aún no confirmado y no se programará hasta que se confirme.\n"
+"  * Esperando otra operación: esperando que otro movimiento continúe / antes de que esté disponible automáticamente (por ejemplo, en los flujos de pedido por pedido).\n"
+"  * En espera: si no está listo para ser enviado porque los productos requeridos / no se pudieron reservar.\n"
+"  * Listo: los productos están reservados y listos para ser enviados. Si la política de envío / es 'Tan pronto como sea posible', esto sucede tan pronto como se reserve algo.\n"
+"  * Pendiente de contabilidad: ha sido procesado y pendiente de contabilidad.\n"
+"  * Hecho: se ha procesado, ya no se puede modificar ni cancelar.\n"
+"  * Cancelado: ha sido cancelado, ya no se puede confirmar."
+
+#. module: l10n_cu_tools
+#: model:ir.model.fields,help:l10n_cu_tools.field_tools_move_state
+msgid ""
+"* New: When the tools move is created and not yet confirmed.\n"
+"* Waiting Another Move: This state can be seen when a move is waiting  /for another one, for example in a chained flow.\n"
+"* Waiting Availability: This state is reached when the procurement resolution /is not straight forward. It may need the scheduler to run, a component to be manufactured...\n"
+"* Available: When products are reserved, it is set to 'Available'.\n"
+"* Done: When the shipment is processed, the state is 'Done'."
+msgstr ""
+"* Nuevo: cuando el movimiento de útiles se crea y aún no se confirma.\n"
+"* Esperando otro movimiento: este estado se puede ver cuando un movimiento está esperando / por otro, por ejemplo, en un flujo encadenado.\n"
+"* Disponibilidad en espera: este estado se alcanza cuando la resolución de adquisición / no es sencilla. Es posible que necesite que se ejecute el planificador, que se fabrique un componente ...\n"
+"* Disponible: cuando los productos están reservados, se establece en 'Disponible'.\n"
+"* Listo: cuando se procesa el envío, el estado es 'Listo'."
+
+#. module: l10n_cu_tools
+#: model:ir.ui.view,arch_db:l10n_cu_tools.tools_blind_inventory_report
+msgid "<br/>\n"
+"                                                     <br/>\n"
+"                                                     <br/>\n"
+"                                                    <br/>______________________________"
+msgstr "<br/>\n"
+"                                                     <br/>\n"
+"                                                     <br/>\n"
+"                                                    <br/>______________________________"
+
+#. module: l10n_cu_tools
+#: model:ir.ui.view,arch_db:l10n_cu_tools.tools_blind_inventory_report
+msgid "<br/>\n"
+"                                                <br/>\n"
+"                                                <br/>\n"
+"                                                <br/>______________________________"
+msgstr "<br/>\n"
+"                                                <br/>\n"
+"                                                <br/>\n"
+"                                                <br/>______________________________"
+
+#. module: l10n_cu_tools
+#: model:ir.ui.view,arch_db:l10n_cu_tools.tools_blind_inventory_report
+msgid "<br/>\n"
+"                                                <br/>\n"
+"                                                <br/>\n"
+"                                               <br/>______________________________"
+msgstr "<br/>\n"
+"                                                <br/>\n"
+"                                                <br/>\n"
+"                                               <br/>______________________________"
+
+#. module: l10n_cu_tools
+#: model:ir.ui.view,arch_db:l10n_cu_tools.view_inventory_form
+msgid "<span class=\"o_stat_text\">Details</span>"
+msgstr "<span class=\"o_stat_text\">Detalles</span>"
+
+
+#. module: l10n_cu_tools
+#: model:ir.ui.view,arch_db:l10n_cu_tools.report_tools_delivery_document
+msgid "<span><strong>Customer Address:</strong></span>"
+msgstr "<span><strong>Dirección del cliente:</strong></span>"
+
+#. module: l10n_cu_tools
+#: model:ir.ui.view,arch_db:l10n_cu_tools.report_tools_delivery_document
+msgid "<span>CI:</span>"
+msgstr "<span>CI:</span>"
+
+#. module: l10n_cu_tools
+#: model:ir.ui.view,arch_db:l10n_cu_tools.report_tools_delivery_document
+msgid "<span>Charge:</span>"
+msgstr "<span>Carga:</span>"
+
+#. module: l10n_cu_tools
+#: model:ir.ui.view,arch_db:l10n_cu_tools.report_tools_delivery_document
+msgid "<span>Date:</span>"
+msgstr "<span>Fecha:</span>"
+
+#. module: l10n_cu_tools
+#: model:ir.ui.view,arch_db:l10n_cu_tools.report_tools_delivery_document
+msgid "<span>Name:</span>"
+msgstr "<span>Nombre:</span>"
+
+#. module: l10n_cu_tools
+#: model:ir.ui.view,arch_db:l10n_cu_tools.tools_picking_type_kanban
+msgid "<span>New</span>"
+msgstr "Nuevo"
+
+#. module: l10n_cu_tools
+#: model:ir.ui.view,arch_db:l10n_cu_tools.report_tools_delivery_document
+msgid "<span>Sign:</span>"
+msgstr "<span>Firma:</span>"
+
+#. module: l10n_cu_tools
+#: model:ir.ui.view,arch_db:l10n_cu_tools.tools_picking_type_kanban
+msgid "<span>View</span>"
+msgstr "Ver"
+
+#. module: l10n_cu_tools
+#: model:ir.ui.view,arch_db:l10n_cu_tools.report_tools_delivery_document
+msgid "<strong>Accounted by:</strong>"
+msgstr "<strong>Contabilizado por:</strong>"
+
+#. module: l10n_cu_tools
+#: model:ir.ui.view,arch_db:l10n_cu_tools.tools_blind_inventory_report
+msgid "<strong>Custodian</strong>"
+msgstr "<strong>Custodio/Pañol</strong>"
+
+#. module: l10n_cu_tools
+#: model:ir.ui.view,arch_db:l10n_cu_tools.report_tools_delivery_document
+#: model:ir.ui.view,arch_db:l10n_cu_tools.tools_blind_inventory_report
+msgid "<strong>Date</strong>"
+msgstr "<strong>Fecha</strong>"
+
+#. module: l10n_cu_tools
+#: model:ir.ui.view,arch_db:l10n_cu_tools.report_tools_delivery_document
+msgid "<strong>Delivered by:</strong>"
+msgstr "<strong>Entregado por:</strong>"
+
+#. module: l10n_cu_tools
+#: model:ir.ui.view,arch_db:l10n_cu_tools.tools_blind_inventory_report
+msgid "<strong>Inventory</strong>"
+msgstr "<strong>Inventario</strong>"
+
+#. module: l10n_cu_tools
+#: model:ir.ui.view,arch_db:l10n_cu_tools.report_tools_delivery_document
+msgid "<strong>Made by:</strong>"
+msgstr "<strong>Hecho por:</strong>"
+
+#. module: l10n_cu_tools
+#: model:ir.ui.view,arch_db:l10n_cu_tools.report_tools_delivery_document
+msgid "<strong>Order (Origin)</strong>"
+msgstr "<strong>Orden (origen)</strong>"
+
+#. module: l10n_cu_tools
+#: model:ir.ui.view,arch_db:l10n_cu_tools.report_tools_delivery_document
+#: model:ir.ui.view,arch_db:l10n_cu_tools.tools_blind_inventory_report
+msgid "<strong>Product</strong>"
+msgstr "<strong>Producto</strong>"
+
+#. module: l10n_cu_tools
+#: model:ir.ui.view,arch_db:l10n_cu_tools.report_tools_delivery_document
+#: model:ir.ui.view,arch_db:l10n_cu_tools.tools_blind_inventory_report
+msgid "<strong>Quantity</strong>"
+msgstr "<strong>Cantidad</strong>"
+
+#. module: l10n_cu_tools
+#: model:ir.ui.view,arch_db:l10n_cu_tools.report_tools_delivery_document
+msgid "<strong>Received by:</strong>"
+msgstr "<strong>Recibido por:</strong>"
+
+#. module: l10n_cu_tools
+#: model:ir.ui.view,arch_db:l10n_cu_tools.tools_blind_inventory_report
+msgid "<strong>Total Quantity</strong>"
+msgstr "<strong>Cantidad Total</strong>"
+
+#. module: l10n_cu_tools
+#: model:ir.ui.view,arch_db:l10n_cu_tools.tools_blind_inventory_report
+msgid "<strong>UoM</strong>"
+msgstr "<strong>UM</strong>"
+
+#. module: l10n_cu_tools
+#: model:ir.model.fields,help:l10n_cu_tools.field_tools_move_product_type
+msgid ""
+"A stockable product is a product for which you manage stock. The \"Inventory\" app has to be installed.\n"
+"A consumable product, on the other hand, is a product for which stock is not managed.\n"
+"A service is a non-material product you provide.\n"
+"A digital content is a non-material product you sell online. The files attached to the products are the one that are sold on the e-commerce such as e-books, music, pictures,... The \"Digital Product\" module has to be installed."
+msgstr ""
+"Un producto almacenable es un producto para el que usted gestiona el stock. La aplicación \"Inventario\" debe instalarse.\n"
+"Por el contrario, un producto consumible es un producto para el que no se gestiona el stock.\n"
+"Un servicio es un producto no material que usted proporciona.\n"
+"Un contenido digital es un producto no material que vende en línea. Los archivos adjuntos a los productos son los que se venden en el comercio electrónico, tales como libros electrónicos, música, fotos, ... El módulo \"Producto Digital\" debe instalado."
+
+#. module: l10n_cu_tools
+#: model:ir.model.fields,field_description:l10n_cu_tools.field_tools_custodian_active
+#: model:ir.model.fields,field_description:l10n_cu_tools.field_tools_picking_type_active
+msgid "Active"
+msgstr "Activo"
+
+#. module: l10n_cu_tools
+#: model:ir.ui.view,arch_db:l10n_cu_tools.view_tools_picking_form
+msgid "Additional Info"
+msgstr "Información adicional"
+
+#. module: l10n_cu_tools
+#: model:ir.ui.view,arch_db:l10n_cu_tools.tools_picking_type_kanban
+msgid "All"
+msgstr "Todos"
+
+#. module: l10n_cu_tools
+#: model:ir.actions.act_window,name:l10n_cu_tools.action_tools_picking_type_list
+msgid "All Operations"
+msgstr "Todas las Operaciones"
+
+#. module: l10n_cu_tools
+#: model:ir.actions.act_window,name:l10n_cu_tools.stock_tools_picking_action_picking_type
+msgid "All Transfers"
+msgstr "Todas las Tranferencia"
+
+#. module: l10n_cu_tools
+#: code:addons/l10n_cu_tools/models/tools_inventory.py:108
+#, python-format
+msgid "All products"
+msgstr "Todos los productos"
+
+#. module: l10n_cu_tools
+#: model:ir.ui.view,arch_db:l10n_cu_tools.tool_custodian_search
+msgid "Archived"
+msgstr "Archivado"
+
+#. module: l10n_cu_tools
+#: selection:tools.quantity.history,compute_at_date:0
+msgid "At a Specific Date"
+msgstr "En una fecha específica"
+
+#. module: l10n_cu_tools
+#: model:ir.ui.menu,name:l10n_cu_tools.menu_attribute_action
+#: model:ir.ui.view,arch_db:l10n_cu_tools.res_config_settings_view_form_tools
+msgid "Attributes"
+msgstr "Atributos"
+
+#. module: l10n_cu_tools
+#: model:ir.ui.menu,name:l10n_cu_tools.menu_attribute_action_value
+msgid "Attributes Value"
+msgstr "Valor de atributos"
+
+#. module: l10n_cu_tools
+#: model:ir.actions.report,name:l10n_cu_tools.report_tools_blind_inventory_report
+#: model:ir.ui.view,arch_db:l10n_cu_tools.view_inventory_form
+msgid "Blind Inventory Report"
+msgstr "Reporte de Inventario a Ciegas"
+
+#. module: l10n_cu_tools
+#: code:addons/l10n_cu_tools/models/tools_inventory.py:112
+#, python-format
+msgid "By Percent"
+msgstr "Por porciento"
+
+#. module: l10n_cu_tools
+#: model:ir.model.fields,help:l10n_cu_tools.field_res_config_settings_module_l10n_cu_dualcurrency_tools_account
+msgid "By checking this option, the /l10n_cu_dualcurrency_tools_account /module will be installed"
+msgstr "Al marcar esta opción, se instalará / l10n_cu_dualcurrency_tools_account / module"
+
+#. module: l10n_cu_tools
+#: model:ir.model.fields,help:l10n_cu_tools.field_res_config_settings_module_l10n_cu_tools_storage
+msgid "By checking this option, the /l10n_cu_tools_storage /module will be installed"
+msgstr "Al marcar esta opción, se instalará / l10n_cu_tools_storage / module"
+
+#. module: l10n_cu_tools
+#: model:ir.model.fields,help:l10n_cu_tools.field_res_config_settings_module_l10n_cu_tools_hr
+msgid "By checking this option, the l10n_cu_tools_hr module /will be installed"
+msgstr "Al marcar esta opción, se instalará el módulo l10n_cu_tools_hr /"
+
+#. module: l10n_cu_tools
+#: model:ir.ui.view,arch_db:l10n_cu_tools.tools_picking_calendar
+msgid "Calendar View"
+msgstr "Vista de calendario"
+
+#. module: l10n_cu_tools
+#: model:ir.ui.view,arch_db:l10n_cu_tools.tools_picking_type_kanban
+#: model:ir.ui.view,arch_db:l10n_cu_tools.view_tools_picking_form
+#: model:ir.ui.view,arch_db:l10n_cu_tools.view_tools_quantity_history
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: l10n_cu_tools
+#: model:ir.ui.view,arch_db:l10n_cu_tools.view_inventory_form
+msgid "Cancel Inventory"
+msgstr "Cancelar Inventario"
+
+#. module: l10n_cu_tools
+#: model:ir.actions.act_window,name:l10n_cu_tools.action_tools_picking_tree_cancel
+msgid "Cancel Transfers"
+msgstr "Transferencias Canceladas"
+
+#. module: l10n_cu_tools
+#: selection:tools.inventory,state:0
+#: selection:tools.move,state:0
+#: selection:tools.picking,state:0
+msgid "Cancelled"
+msgstr "Cancelado"
+
+#. module: l10n_cu_tools
+#: model:ir.ui.view,arch_db:l10n_cu_tools.report_tools_delivery_document
+msgid "Charge:"
+msgstr "Carga:"
+
+#. module: l10n_cu_tools
+#: model:ir.model.fields,field_description:l10n_cu_tools.field_tools_inventory_line_product_qty
+msgid "Checked Quantity"
+msgstr "Cantidad Verificada"
+
+#. module: l10n_cu_tools
+#: model:ir.model.fields,help:l10n_cu_tools.field_tools_quantity_history_date
+msgid "Choose a date to get the inventory at that date"
+msgstr "Elija una fecha para obtener el inventario en esa fecha"
+
+#. module: l10n_cu_tools
+#: model:ir.model.fields,help:l10n_cu_tools.field_tools_quantity_history_compute_at_date
+msgid "Choose to analyze the current inventory or from a specific date in the past."
+msgstr "Elija analizar el inventario actual o a partir de una fecha específica en el pasado."
+
+#. module: l10n_cu_tools
+#: model:ir.ui.view,arch_db:l10n_cu_tools.view_tools_quantity_history
+msgid "Choose your date"
+msgstr "Elige tu fecha"
+
+#. module: l10n_cu_tools
+#: model:ir.actions.act_window,help:l10n_cu_tools.action_tools_picking_form
+#: model:ir.actions.act_window,help:l10n_cu_tools.action_tools_picking_tree_account
+#: model:ir.actions.act_window,help:l10n_cu_tools.action_tools_picking_tree_all
+#: model:ir.actions.act_window,help:l10n_cu_tools.action_tools_picking_tree_cancel
+#: model:ir.actions.act_window,help:l10n_cu_tools.action_tools_picking_tree_done
+#: model:ir.actions.act_window,help:l10n_cu_tools.action_tools_picking_tree_done_grouped
+#: model:ir.actions.act_window,help:l10n_cu_tools.action_tools_picking_tree_draft
+#: model:ir.actions.act_window,help:l10n_cu_tools.stock_tools_picking_action_picking_type
+msgid "Click here to create a new transfer."
+msgstr "Haga clic aquí para crear una nueva transferencia."
+
+#. module: l10n_cu_tools
+#: model:ir.actions.act_window,help:l10n_cu_tools.tool_custodian_action
+msgid "Click to add a custodian in your custodian directory."
+msgstr "Haga clic para agregar un Custodio en su directorio de custodios."
+
+#. module: l10n_cu_tools
+#: model:ir.actions.act_window,help:l10n_cu_tools.action_tools_picking_tree
+msgid "Click to create a stock operation."
+msgstr "Haga clic para crear una operación de utiles."
+
+#. module: l10n_cu_tools
+#: model:ir.actions.act_window,help:l10n_cu_tools.product_normal_action
+#: model:ir.actions.act_window,help:l10n_cu_tools.product_template_action
+msgid "Click to define a new product."
+msgstr "Clic para definir un nuevo producto."
+
+#. module: l10n_cu_tools
+#: model:ir.actions.act_window,help:l10n_cu_tools.action_tools_picking_type_kanban
+#: model:ir.actions.act_window,help:l10n_cu_tools.action_tools_picking_type_list
+msgid "Click to define a new transfer type."
+msgstr "Haga clic para definir un nuevo tipo de transferencia."
+
+#. module: l10n_cu_tools
+#: model:ir.actions.act_window,help:l10n_cu_tools.action_inventory_form
+msgid "Click to start an inventory."
+msgstr "Clic para comenzar el inventario."
+
+#. module: l10n_cu_tools
+#: model:ir.model.fields,field_description:l10n_cu_tools.field_tools_move_picking_code
+#: model:ir.model.fields,field_description:l10n_cu_tools.field_tools_picking_picking_type_code
+#: model:ir.model.fields,field_description:l10n_cu_tools.field_tools_picking_type_code
+msgid "Code"
+msgstr "Código"
+
+#. module: l10n_cu_tools
+#: model:ir.model.fields,field_description:l10n_cu_tools.field_tools_picking_type_color
+msgid "Color"
+msgstr "Color"
+
+#. module: l10n_cu_tools
+#: model:ir.model.fields,field_description:l10n_cu_tools.field_tools_custodian_company_id
+#: model:ir.model.fields,field_description:l10n_cu_tools.field_tools_inventory_company_id
+#: model:ir.model.fields,field_description:l10n_cu_tools.field_tools_inventory_line_company_id
+#: model:ir.model.fields,field_description:l10n_cu_tools.field_tools_move_company_id
+#: model:ir.model.fields,field_description:l10n_cu_tools.field_tools_picking_company_id
+#: model:ir.model.fields,field_description:l10n_cu_tools.field_tools_picking_type_company_id
+#: model:ir.model.fields,field_description:l10n_cu_tools.field_tools_quant_company_id
+#: model:ir.ui.view,arch_db:l10n_cu_tools.tools_quant_search_view
+msgid "Company"
+msgstr "Compañía"
+
+#. module: l10n_cu_tools
+#: model:ir.model.fields,field_description:l10n_cu_tools.field_tools_quantity_history_compute_at_date
+msgid "Compute"
+msgstr "Calcular"
+
+#. module: l10n_cu_tools
+#: model:ir.ui.menu,name:l10n_cu_tools.menu_tools_configuration
+msgid "Configuration"
+msgstr "Configuración"
+
+#. module: l10n_cu_tools
+#: model:ir.ui.view,arch_db:l10n_cu_tools.tools_picking_type_kanban
+#: model:ir.ui.view,arch_db:l10n_cu_tools.view_tools_picking_internal_search
+#: selection:tools.move,state:0
+#: selection:tools.picking,state:0
+msgid "Confirmed"
+msgstr "Confirmado"
+
+#. module: l10n_cu_tools
+#: model:ir.ui.view,arch_db:l10n_cu_tools.view_tools_picking_internal_search
+msgid "Confirmed Moves"
+msgstr "Movimientos Confirmados"
+
+#. module: l10n_cu_tools
+#: model:ir.model.fields,field_description:l10n_cu_tools.field_tools_picking_partner_id
+#: selection:tools.custodian,custodian_id:0
+msgid "Contact"
+msgstr "Contacto"
+
+#. module: l10n_cu_tools
+#: model:ir.model.fields,help:l10n_cu_tools.field_tools_quant_price
+msgid "Cost used for tools valuation in standard priceExpressed in the default unit of measure of the tools."
+msgstr "Costo utilizado para la valoración de útiles en precio estándar Expresado en la unidad de medida predeterminada de los útiles."
+
+#. module: l10n_cu_tools
+#: model:ir.model.fields,field_description:l10n_cu_tools.field_tools_picking_type_count_picking_cancel
+msgid "Count Picking Cancel"
+msgstr "Cantidad de Movimientos Cancelados"
+
+#. module: l10n_cu_tools
+#: model:ir.model.fields,field_description:l10n_cu_tools.field_tools_picking_type_count_picking_confirmed
+msgid "Count Picking Confirmed"
+msgstr "Cantidad de Movimientos Confirmados"
+
+#. module: l10n_cu_tools
+#: model:ir.model.fields,field_description:l10n_cu_tools.field_tools_picking_type_count_picking_done
+msgid "Count Picking Done"
+msgstr "Cantidad de Movimientos Terminados"
+
+#. module: l10n_cu_tools
+#: model:ir.model.fields,field_description:l10n_cu_tools.field_tools_picking_type_count_picking_draft
+msgid "Count Picking Draft"
+msgstr "Cantidad de Movimientos Borrador"
+
+#. module: l10n_cu_tools
+#: model:ir.model.fields,field_description:l10n_cu_tools.field_tools_inventory_move_ids
+msgid "Created Moves"
+msgstr "Movimientos Creados"
+
+#. module: l10n_cu_tools
+#: model:ir.model.fields,field_description:l10n_cu_tools.field_tools_custodian_create_uid
+#: model:ir.model.fields,field_description:l10n_cu_tools.field_tools_inventory_create_uid
+#: model:ir.model.fields,field_description:l10n_cu_tools.field_tools_inventory_line_create_uid
+#: model:ir.model.fields,field_description:l10n_cu_tools.field_tools_move_create_uid
+#: model:ir.model.fields,field_description:l10n_cu_tools.field_tools_picking_create_uid
+#: model:ir.model.fields,field_description:l10n_cu_tools.field_tools_picking_type_create_uid
+#: model:ir.model.fields,field_description:l10n_cu_tools.field_tools_quant_create_uid
+#: model:ir.model.fields,field_description:l10n_cu_tools.field_tools_quantity_history_create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: l10n_cu_tools
+#: model:ir.model.fields,field_description:l10n_cu_tools.field_tools_custodian_create_date
+#: model:ir.model.fields,field_description:l10n_cu_tools.field_tools_inventory_create_date
+#: model:ir.model.fields,field_description:l10n_cu_tools.field_tools_inventory_line_create_date
+#: model:ir.model.fields,field_description:l10n_cu_tools.field_tools_move_create_date
+#: model:ir.model.fields,field_description:l10n_cu_tools.field_tools_picking_create_date
+#: model:ir.model.fields,field_description:l10n_cu_tools.field_tools_picking_type_create_date
+#: model:ir.model.fields,field_description:l10n_cu_tools.field_tools_quant_create_date
+#: model:ir.model.fields,field_description:l10n_cu_tools.field_tools_quantity_history_create_date
+msgid "Created on"
+msgstr "Creado en"
+
+#. module: l10n_cu_tools
+#: model:ir.model.fields,field_description:l10n_cu_tools.field_tools_move_date
+#: model:ir.model.fields,field_description:l10n_cu_tools.field_tools_picking_date
+msgid "Creation Date"
+msgstr "Fecha de creación"
+
+#. module: l10n_cu_tools
+#: model:ir.model.fields,help:l10n_cu_tools.field_tools_move_date
+#: model:ir.model.fields,help:l10n_cu_tools.field_tools_picking_date
+msgid "Creation Date, usually the time of the order"
+msgstr "Fecha de creación, generalmente la hora del pedido"
+
+#. module: l10n_cu_tools
+#: model:ir.ui.view,arch_db:l10n_cu_tools.res_config_settings_view_form_tools
+msgid "Currency"
+msgstr "Moneda"
+
+#. module: l10n_cu_tools
+#: selection:tools.quantity.history,compute_at_date:0
+msgid "Current Inventory"
+msgstr "Inventario actual"
+
+#. module: l10n_cu_tools
+#: model:ir.model.fields,help:l10n_cu_tools.field_product_product_tools_qty_available
+#: model:ir.model.fields,help:l10n_cu_tools.field_product_template_tools_qty_available
+msgid ""
+"Current quantity of products.\n"
+"In a context with a single Stock Location, this includes goods stored at this Location, or any of its children.\n"
+"In a context with a single Warehouse, this includes goods stored in the Stock Location of this Warehouse, or any of its children.\n"
+"stored in the Stock Location of the Warehouse of this Shop, or any of its children.\n"
+"Otherwise, this includes goods stored in any Stock Location with 'internal' type."
+msgstr ""
+"Cantidad actual de utiles y herramientas.\n"
+"Esto incluye los utiles y herramientas en posecion de custodios trabajadores o pañoles declarados en la unidad."
+
+#. module: l10n_cu_tools
+#: model:ir.model.fields,field_description:l10n_cu_tools.field_tools_custodian_custodian_id
+#: model:ir.model.fields,field_description:l10n_cu_tools.field_tools_inventory_custodian_id
+#: model:ir.model.fields,field_description:l10n_cu_tools.field_tools_inventory_line_custodian_id
+#: model:ir.model.fields,field_description:l10n_cu_tools.field_tools_quant_custodian_id
+#: model:ir.ui.menu,name:l10n_cu_tools.menu_custodian
+#: model:ir.ui.view,arch_db:l10n_cu_tools.tools_quant_search_view
+msgid "Custodian"
+msgstr "Custodio"
+
+#. module: l10n_cu_tools
+#: model:ir.model.fields,field_description:l10n_cu_tools.field_tools_move_custodian_dest_id
+#: model:ir.model.fields,field_description:l10n_cu_tools.field_tools_picking_custodian_dest_id
+msgid "Custodian Dest"
+msgstr "Custodio Dest"
+
+#. module: l10n_cu_tools
+#: model:ir.model.fields,field_description:l10n_cu_tools.field_tools_custodian_name
+msgid "Custodian Name"
+msgstr "Nombre del custodio"
+
+#. module: l10n_cu_tools
+#: model:ir.model.fields,field_description:l10n_cu_tools.field_tools_move_custodian_orig_id
+#: model:ir.model.fields,field_description:l10n_cu_tools.field_tools_picking_custodian_orig_id
+msgid "Custodian Orig"
+msgstr "Custodio Orig"
+
+#. module: l10n_cu_tools
+#: model:ir.actions.act_window,name:l10n_cu_tools.tool_custodian_action
+#: model:ir.ui.view,arch_db:l10n_cu_tools.tool_custodian_search
+msgid "Custodians"
+msgstr "Custodios"
+
+#. module: l10n_cu_tools
+#: model:ir.ui.menu,name:l10n_cu_tools.tools_picking_type_menu
+msgid "Dashboard"
+msgstr "Tablero"
+
+#. module: l10n_cu_tools
+#: model:ir.ui.view,arch_db:l10n_cu_tools.report_tools_delivery_document
+msgid "Date:"
+msgstr "Fecha:"
+
+#. module: l10n_cu_tools
+#: model:ir.model.fields,help:l10n_cu_tools.field_tools_quant_product_uom_id
+msgid "Default Unit of Measure used for all stock operation."
+msgstr "Unidad de medida por defecto utilizada para todas las operaciones de utiles."
+
+#. module: l10n_cu_tools
+#: model:ir.actions.report,name:l10n_cu_tools.action_report_delivery_tools
+msgid "Delivery Slip"
+msgstr "Documento de entrega"
+
+#. module: l10n_cu_tools
+#: model:ir.model.fields,field_description:l10n_cu_tools.field_tools_custodian_display_name
+#: model:ir.model.fields,field_description:l10n_cu_tools.field_tools_inventory_display_name
+#: model:ir.model.fields,field_description:l10n_cu_tools.field_tools_inventory_line_display_name
+#: model:ir.model.fields,field_description:l10n_cu_tools.field_tools_move_display_name
+#: model:ir.model.fields,field_description:l10n_cu_tools.field_tools_picking_display_name
+#: model:ir.model.fields,field_description:l10n_cu_tools.field_tools_picking_type_display_name
+#: model:ir.model.fields,field_description:l10n_cu_tools.field_tools_quant_display_name
+#: model:ir.model.fields,field_description:l10n_cu_tools.field_tools_quantity_history_display_name
+msgid "Display Name"
+msgstr "Nombre mostrado"
+
+#. module: l10n_cu_tools
+#: model:ir.ui.view,arch_db:l10n_cu_tools.tools_move_tree
+#: model:ir.ui.view,arch_db:l10n_cu_tools.tools_picking_type_kanban
+#: model:ir.ui.view,arch_db:l10n_cu_tools.view_tools_picking_form
+#: model:ir.ui.view,arch_db:l10n_cu_tools.view_tools_picking_internal_search
+#: selection:tools.move,state:0
+#: selection:tools.picking,state:0
+msgid "Done"
+msgstr "Hecho"
+
+#. module: l10n_cu_tools
+#: model:ir.actions.act_window,name:l10n_cu_tools.action_tools_picking_tree_done
+msgid "Done Transfers"
+msgstr "Transferencias realizadas"
+
+#. module: l10n_cu_tools
+#: model:ir.actions.act_window,name:l10n_cu_tools.action_tools_picking_tree_done_grouped
+msgid "Done Transfers by Date"
+msgstr "Transferencias realizadas por fecha"
+
+#. module: l10n_cu_tools
+#: model:ir.ui.view,arch_db:l10n_cu_tools.tools_picking_type_kanban
+#: model:ir.ui.view,arch_db:l10n_cu_tools.view_tools_picking_internal_search
+#: selection:tools.inventory,state:0
+#: selection:tools.picking,state:0
+msgid "Draft"
+msgstr "Borrador"
+
+#. module: l10n_cu_tools
+#: model:ir.ui.view,arch_db:l10n_cu_tools.view_tools_picking_internal_search
+msgid "Draft Moves"
+msgstr "Movimientos de borrador"
+
+#. module: l10n_cu_tools
+#: model:ir.actions.act_window,name:l10n_cu_tools.action_tools_picking_tree_draft
+msgid "Draft Transfers"
+msgstr "Transferencias Borrador"
+
+#. module: l10n_cu_tools
+#: model:ir.model.fields,field_description:l10n_cu_tools.field_res_config_settings_module_l10n_cu_dualcurrency_tools_account
+msgid "Dual currency management"
+msgstr "Gestión doble moneda"
+
+#. module: l10n_cu_tools
+#: selection:tools.custodian,custodian_id:0
+msgid "Employee"
+msgstr "Empleado"
+
+#. module: l10n_cu_tools
+#: selection:tools.picking.type,code:0
+msgid "Entrance"
+msgstr "Entrada"
+
+#. module: l10n_cu_tools
+#: selection:tools.picking.type,code:0
+msgid "Entry for Surplus"
+msgstr "Entrada por excedente"
+
+#. module: l10n_cu_tools
+#: model:ir.ui.view,arch_db:l10n_cu_tools.view_tools_picking_internal_search
+msgid "Future Activities"
+msgstr "Actividades Futuras"
+
+#. module: l10n_cu_tools
+#: model:ir.ui.view,arch_db:l10n_cu_tools.view_tools_inventory_filter
+#: model:ir.ui.view,arch_db:l10n_cu_tools.view_tools_picking_internal_search
+msgid "Group By"
+msgstr "Agrupar por"
+
+#. module: l10n_cu_tools
+#: model:ir.ui.view,arch_db:l10n_cu_tools.tools_quant_search_view
+msgid "Group by..."
+msgstr "Agrupar por..."
+
+#. module: l10n_cu_tools
+#: model:ir.ui.view,arch_db:l10n_cu_tools.res_config_settings_view_form_tools
+msgid "Guardian can be a Employee"
+msgstr "El Custodio puede ser un empleado"
+
+#. module: l10n_cu_tools
+#: model:ir.module.category,description:l10n_cu_tools.module_category_l10n_cu_tools
+msgid "Help your manager supplies, main data and your reports."
+msgstr "Le ayuda a gestionar los útiles, los datos principales y sus informes."
+
+#. module: l10n_cu_tools
+#: model:ir.model.fields,field_description:l10n_cu_tools.field_tools_custodian_id
+#: model:ir.model.fields,field_description:l10n_cu_tools.field_tools_inventory_id
+#: model:ir.model.fields,field_description:l10n_cu_tools.field_tools_inventory_line_id
+#: model:ir.model.fields,field_description:l10n_cu_tools.field_tools_move_id
+#: model:ir.model.fields,field_description:l10n_cu_tools.field_tools_picking_id
+#: model:ir.model.fields,field_description:l10n_cu_tools.field_tools_picking_type_id
+#: model:ir.model.fields,field_description:l10n_cu_tools.field_tools_quant_id
+#: model:ir.model.fields,field_description:l10n_cu_tools.field_tools_quantity_history_id
+msgid "ID"
+msgstr "ID (identificación)"
+
+#. module: l10n_cu_tools
+#: code:addons/l10n_cu_tools/models/tools_inventory.py:421
+#, python-format
+msgid "INV:"
+msgstr "INV"
+
+#. module: l10n_cu_tools
+#: model:ir.ui.view,arch_db:l10n_cu_tools.view_inventory_form
+msgid "If a product is not at the right place, set the checked quantity to 0 and create a new line with correct location."
+msgstr "Si el producto no está en el lugar correcto, teclee 0 en la Cantidad verificada y cree una nueva línea con la localización correcta"
+
+#. module: l10n_cu_tools
+#: model:ir.model.fields,help:l10n_cu_tools.field_tools_custodian_active
+msgid "If unchecked, it will allow you to hide the custodian without removing it."
+msgstr "Al desmarcar, le permitira ocultar el custodio sin tener que eliminarlo."
+
+#. module: l10n_cu_tools
+#: model:ir.model.fields,help:l10n_cu_tools.field_tools_inventory_filter
+msgid "If you do an entire inventory, you can choose 'All Products' and it will prefill the inventory with the current stock.  If you only do some products  (e.g. Cycle Counting) you can choose 'Manual Selection of Products' and the system won't propose anything.  You can also let the system propose for a single product / lot /... "
+msgstr "Si realiza un inventario total, puede escoger 'Todos los productos' y le prefijará un inventario con la existencia actual. Si solo desea algunos productos (Ej. Conteo ciclico) puede seleccionar 'Selección manual de productos' el sistema no le propondrá nada. Usted puede también desear que el sistema le proponga un producto / lote / ..."
+
+#. module: l10n_cu_tools
+#: model:ir.ui.view,arch_db:l10n_cu_tools.tools_picking_type_kanban
+msgid "Immediate Transfer"
+msgstr "Movimiento de Utiles"
+
+#. module: l10n_cu_tools
+#: model:ir.model.fields,field_description:l10n_cu_tools.field_tools_inventory_line_import_physical_count
+msgid "Import Product Physical Count"
+msgstr "Importe segun conteo físico"
+
+#. module: l10n_cu_tools
+#: model:ir.model.fields,field_description:l10n_cu_tools.field_tools_inventory_line_import_theoretical_count
+msgid "Import Product Theoretical Count"
+msgstr "Importe según submayor de inventario"
+
+#. module: l10n_cu_tools
+#: model:ir.model.fields,field_description:l10n_cu_tools.field_tools_inventory_line_import_surplus
+msgid "Import Surplus"
+msgstr "Importe de Faltante o Sobrante"
+
+#. module: l10n_cu_tools
+#: model:ir.model.fields,field_description:l10n_cu_tools.field_tools_inventory_import_total
+msgid "Import Total"
+msgstr "Importe Total"
+
+#. module: l10n_cu_tools
+#: selection:tools.inventory,state:0
+msgid "In Progress"
+msgstr "En progreso"
+
+#. module: l10n_cu_tools
+#: selection:tools.picking.type,code:0
+msgid "Income Dependencies Transfer"
+msgstr "Transferencia de dependencias de ingresos"
+
+#. module: l10n_cu_tools
+#: model:ir.model.fields,help:l10n_cu_tools.field_product_category_tool_category
+#: model:ir.model.fields,help:l10n_cu_tools.field_product_product_tool_category
+#: model:ir.model.fields,help:l10n_cu_tools.field_product_template_tool_category
+msgid "Informs if the category of products will be used or not by tools and tools in use."
+msgstr "Informa si la categoría de productos será utilizada o no por útiles y herramientas en uso."
+
+#. module: l10n_cu_tools
+#: model:ir.model.fields,field_description:l10n_cu_tools.field_res_config_settings_module_l10n_cu_tools_hr
+msgid "Integration with Hr management"
+msgstr "Integración con la gestión de recursos humanos"
+
+#. module: l10n_cu_tools
+#: selection:tools.picking.type,code:0
+msgid "Internal Transfer"
+msgstr "Transferencia entre Custodios"
+
+#. module: l10n_cu_tools
+#: model:ir.ui.view,arch_db:l10n_cu_tools.tools_blind_inventory_report
+msgid "Inventor's signature"
+msgstr "Firma del que realiza el Inventario"
+
+#. module: l10n_cu_tools
+#: model:ir.model.fields,field_description:l10n_cu_tools.field_tools_inventory_category_id
+msgid "Inventoried Category"
+msgstr "Categoría inventariada"
+
+#. module: l10n_cu_tools
+#: model:ir.model.fields,field_description:l10n_cu_tools.field_tools_inventory_product_id
+msgid "Inventoried Product"
+msgstr "Producto inventariado"
+
+#. module: l10n_cu_tools
+#: model:ir.model.fields,field_description:l10n_cu_tools.field_tools_inventory_line_ids
+msgid "Inventories"
+msgstr "Inventarios"
+
+#. module: l10n_cu_tools
+#: model:ir.ui.view,arch_db:l10n_cu_tools.view_tools_inventory_filter
+msgid "Inventories Month"
+msgstr "Inventarios del mes"
+
+#. module: l10n_cu_tools
+#: model:ir.actions.act_window,name:l10n_cu_tools.toolsquantsact
+#: model:ir.model.fields,field_description:l10n_cu_tools.field_tools_inventory_line_inventory_id
+#: model:ir.model.fields,field_description:l10n_cu_tools.field_tools_move_inventory_id
+#: model:ir.ui.menu,name:l10n_cu_tools.menu_action_inventory_form
+#: model:ir.ui.menu,name:l10n_cu_tools.menu_valuation
+msgid "Inventory"
+msgstr "Inventario"
+
+#. module: l10n_cu_tools
+#: model:ir.ui.view,arch_db:l10n_cu_tools.view_inventory_form
+msgid "Inventory Adjustments"
+msgstr "Ajustes del Inventario de Útiles"
+
+#. module: l10n_cu_tools
+#: model:ir.model.fields,field_description:l10n_cu_tools.field_tools_inventory_date
+#: model:ir.model.fields,field_description:l10n_cu_tools.field_tools_quant_in_date
+msgid "Inventory Date"
+msgstr "Fecha de inventario"
+
+#. module: l10n_cu_tools
+#: model:ir.ui.view,arch_db:l10n_cu_tools.tools_inventory_line_tree2
+#: model:ir.ui.view,arch_db:l10n_cu_tools.view_inventory_form
+msgid "Inventory Details"
+msgstr "Detalles del inventario"
+
+#. module: l10n_cu_tools
+#: model:ir.model,name:l10n_cu_tools.model_tools_inventory_line
+msgid "Inventory Line"
+msgstr "Linea del inventario"
+
+#. module: l10n_cu_tools
+#: model:ir.actions.act_window,name:l10n_cu_tools.action_inventory_line_tree
+msgid "Inventory Lines"
+msgstr "Lineas de inventario"
+
+#. module: l10n_cu_tools
+#: model:ir.ui.view,arch_db:l10n_cu_tools.view_tools_inventory_filter
+msgid "Inventory Product"
+msgstr "Producto del inventarios"
+
+#. module: l10n_cu_tools
+#: model:ir.model.fields,field_description:l10n_cu_tools.field_tools_inventory_name
+#: model:ir.ui.view,arch_db:l10n_cu_tools.view_tools_inventory_filter
+msgid "Inventory Reference"
+msgstr "Referencia del inventario"
+
+#. module: l10n_cu_tools
+#: model:ir.actions.act_window,name:l10n_cu_tools.action_tools_quantity_history
+msgid "Inventory Report"
+msgstr "Reporte de Inventario"
+
+#. module: l10n_cu_tools
+#: model:ir.ui.view,arch_db:l10n_cu_tools.view_tools_quant_tree
+msgid "Inventory Valuation"
+msgstr "Valoración de inventario"
+
+#. module: l10n_cu_tools
+#: model:ir.ui.view,arch_db:l10n_cu_tools.view_inventory_form
+msgid "Inventory adjustments will be made by comparing the theoretical and the checked quantities."
+msgstr "El Ajuste de inventario será hecho comprando la cantidad chequeada y según submayor del producto."
+
+#. module: l10n_cu_tools
+#: model:ir.model.fields,field_description:l10n_cu_tools.field_tools_quantity_history_date
+msgid "Inventory at Date"
+msgstr "Inventario en la fecha"
+
+#. module: l10n_cu_tools
+#: model:ir.model.fields,field_description:l10n_cu_tools.field_tools_inventory_filter
+#: model:ir.ui.view,arch_db:l10n_cu_tools.view_inventory_form
+msgid "Inventory of"
+msgstr "Inventario de"
+
+#. module: l10n_cu_tools
+#: model:ir.model.fields,field_description:l10n_cu_tools.field_tools_custodian___last_update
+#: model:ir.model.fields,field_description:l10n_cu_tools.field_tools_inventory___last_update
+#: model:ir.model.fields,field_description:l10n_cu_tools.field_tools_inventory_line___last_update
+#: model:ir.model.fields,field_description:l10n_cu_tools.field_tools_move___last_update
+#: model:ir.model.fields,field_description:l10n_cu_tools.field_tools_picking___last_update
+#: model:ir.model.fields,field_description:l10n_cu_tools.field_tools_picking_type___last_update
+#: model:ir.model.fields,field_description:l10n_cu_tools.field_tools_quant___last_update
+#: model:ir.model.fields,field_description:l10n_cu_tools.field_tools_quantity_history___last_update
+msgid "Last Modified on"
+msgstr "Última modificación en"
+
+#. module: l10n_cu_tools
+#: model:ir.model.fields,field_description:l10n_cu_tools.field_tools_custodian_write_uid
+#: model:ir.model.fields,field_description:l10n_cu_tools.field_tools_inventory_line_write_uid
+#: model:ir.model.fields,field_description:l10n_cu_tools.field_tools_inventory_write_uid
+#: model:ir.model.fields,field_description:l10n_cu_tools.field_tools_move_write_uid
+#: model:ir.model.fields,field_description:l10n_cu_tools.field_tools_picking_type_write_uid
+#: model:ir.model.fields,field_description:l10n_cu_tools.field_tools_picking_write_uid
+#: model:ir.model.fields,field_description:l10n_cu_tools.field_tools_quant_write_uid
+#: model:ir.model.fields,field_description:l10n_cu_tools.field_tools_quantity_history_write_uid
+msgid "Last Updated by"
+msgstr "Última actualización de"
+
+#. module: l10n_cu_tools
+#: model:ir.model.fields,field_description:l10n_cu_tools.field_tools_custodian_write_date
+#: model:ir.model.fields,field_description:l10n_cu_tools.field_tools_inventory_line_write_date
+#: model:ir.model.fields,field_description:l10n_cu_tools.field_tools_inventory_write_date
+#: model:ir.model.fields,field_description:l10n_cu_tools.field_tools_move_write_date
+#: model:ir.model.fields,field_description:l10n_cu_tools.field_tools_picking_type_write_date
+#: model:ir.model.fields,field_description:l10n_cu_tools.field_tools_picking_write_date
+#: model:ir.model.fields,field_description:l10n_cu_tools.field_tools_quant_write_date
+#: model:ir.model.fields,field_description:l10n_cu_tools.field_tools_quantity_history_write_date
+msgid "Last Updated on"
+msgstr "Última actualización en"
+
+#. module: l10n_cu_tools
+#: model:ir.ui.view,arch_db:l10n_cu_tools.view_tools_picking_internal_search
+msgid "Late Activities"
+msgstr "Actividades tardías"
+
+#. module: l10n_cu_tools
+#: model:ir.ui.view,arch_db:l10n_cu_tools.view_inventory_form
+msgid "List view of lines"
+msgstr "Vista lista de lineas "
+
+#. module: l10n_cu_tools
+#: model:ir.ui.view,arch_db:l10n_cu_tools.view_tools_inventory_tree
+msgid "Lot/Serial Number Inventory"
+msgstr "Número Lot/Serie"
+
+#. module: l10n_cu_tools
+#: model:ir.ui.menu,name:l10n_cu_tools.menu_tools_manage
+msgid "Manage Tools & Storage"
+msgstr "Gestionar útiles y pañoles"
+
+#. module: l10n_cu_tools
+#: model:res.groups,name:l10n_cu_tools.group_tools_manager
+msgid "Manager"
+msgstr "Responsable"
+
+#. module: l10n_cu_tools
+#: model:ir.model.fields,help:l10n_cu_tools.field_tools_quant_percent_save_point
+msgid "Mark inventory percent status"
+msgstr "Establece el estado en porciento del inventario realizado"
+
+#. module: l10n_cu_tools
+#: model:ir.actions.act_window,help:l10n_cu_tools.action_tools_picking_tree
+msgid ""
+"Most operations are prepared automatically by Odoo according\n"
+"                to your preconfigured logistics rules, but you can also record\n"
+"                manual stock movements."
+msgstr ""
+"La mayoría de las operaciones son preparadas automáticamente por Odoo según\n"
+"                 a sus reglas logísticas preconfiguradas, pero también puede grabar\n"
+"                 movimientos manuales de utiles."
+
+#. module: l10n_cu_tools
+#: model:ir.ui.view,arch_db:l10n_cu_tools.view_tools_picking_internal_search
+msgid "My Activities"
+msgstr "Mis actividades"
+
+#. module: l10n_cu_tools
+#: model:ir.ui.view,arch_db:l10n_cu_tools.report_tools_delivery_document
+msgid "Name:"
+msgstr "Nombre:"
+
+#. module: l10n_cu_tools
+#: selection:tools.move,state:0
+msgid "New"
+msgstr "Nuevo"
+
+#. module: l10n_cu_tools
+#: model:ir.actions.act_window,name:l10n_cu_tools.action_tools_picking_form
+msgid "New Transfer"
+msgstr "Nueva transferencia"
+
+#. module: l10n_cu_tools
+#: code:addons/l10n_cu_tools/models/tools_picking.py:75
+#, python-format
+msgid "No hay existencias de ese útil para el custodio de origen"
+msgstr "No hay existencias de ese útil para el custodio de origen"
+
+#. module: l10n_cu_tools
+#: code:addons/l10n_cu_tools/models/tools_picking.py:153
+#, python-format
+msgid "No puede confirmar el documento sin utiles que procesar"
+msgstr "No puede confirmar el documento sin utiles que procesar"
+
+#. module: l10n_cu_tools
+#: code:addons/l10n_cu_tools/models/tools_picking.py:141
+#, python-format
+msgid "No puede procesar utiles con cantidades en 0"
+msgstr "No puede procesar utiles con cantidades en 0"
+
+#. module: l10n_cu_tools
+#: model:ir.model.fields,field_description:l10n_cu_tools.field_tools_move_note
+#: model:ir.model.fields,field_description:l10n_cu_tools.field_tools_picking_note
+#: model:ir.ui.view,arch_db:l10n_cu_tools.view_inventory_form
+msgid "Notes"
+msgstr "Notas"
+
+#. module: l10n_cu_tools
+#: model:ir.actions.act_window,help:l10n_cu_tools.tool_custodian_action
+msgid "Odoo helps you easily track all activities related to\n"
+"            a custodian: inventory, history of moves,\n"
+"            documents, etc."
+msgstr ""
+"Odoo le ayuda a rastrear fácilmente toda la actividad relacionada a\n"
+"un Custodio: Inventarios, historia de los movimientos de utiles,\n"
+"documentos, etc."
+
+#. module: l10n_cu_tools
+#: model:ir.ui.view,arch_db:l10n_cu_tools.view_tools_quant_tree
+msgid "On Hand"
+msgstr "En mano"
+
+#. module: l10n_cu_tools
+#: code:addons/l10n_cu_tools/models/tools_inventory.py:109
+#, python-format
+msgid "One product category"
+msgstr "Un producto de la categoría"
+
+#. module: l10n_cu_tools
+#: code:addons/l10n_cu_tools/models/tools_inventory.py:110
+#, python-format
+msgid "One product only"
+msgstr "Un solo producto"
+
+#. module: l10n_cu_tools
+#: model:ir.model.fields,field_description:l10n_cu_tools.field_tools_move_picking_type_id
+#: model:ir.model.fields,field_description:l10n_cu_tools.field_tools_picking_picking_type_id
+#: model:ir.ui.view,arch_db:l10n_cu_tools.view_tools_picking_internal_search
+msgid "Operation Type"
+msgstr "Tipo de operación"
+
+#. module: l10n_cu_tools
+#: model:ir.ui.view,arch_db:l10n_cu_tools.view_tools_picking_type_form
+#: model:ir.ui.view,arch_db:l10n_cu_tools.view_tools_picking_type_list
+msgid "Operation Types"
+msgstr "Tipos de operación"
+
+#. module: l10n_cu_tools
+#: model:ir.model.fields,field_description:l10n_cu_tools.field_tools_picking_type_name
+msgid "Operation Types Name"
+msgstr "Nombre de los tipos de operación"
+
+#. module: l10n_cu_tools
+#: model:ir.actions.act_window,name:l10n_cu_tools.action_tools_picking_type_kanban
+#: model:ir.ui.menu,name:l10n_cu_tools.menu_operations
+#: model:ir.ui.view,arch_db:l10n_cu_tools.view_tools_picking_form
+msgid "Operations"
+msgstr "Operaciones"
+
+#. module: l10n_cu_tools
+#: model:ir.ui.menu,name:l10n_cu_tools.menu_picking_type
+msgid "Operations Types"
+msgstr "Tipos de operaciones"
+
+#. module: l10n_cu_tools
+#: model:ir.ui.view,arch_db:l10n_cu_tools.view_tools_picking_internal_search
+msgid "Order Date"
+msgstr "Fecha de orden"
+
+#. module: l10n_cu_tools
+#: model:ir.ui.view,arch_db:l10n_cu_tools.view_tools_picking_internal_search
+msgid "Origin"
+msgstr "Origen"
+
+#. module: l10n_cu_tools
+#: selection:tools.picking.type,code:0
+msgid "Out"
+msgstr "Baja"
+
+#. module: l10n_cu_tools
+#: selection:tools.picking.type,code:0
+msgid "Out for Missing"
+msgstr "Baja por Faltante"
+
+#. module: l10n_cu_tools
+#: selection:tools.picking.type,code:0
+msgid "Outgoing Dependencies Transfer"
+msgstr "Transferencia entre dependencias salientes"
+
+#. module: l10n_cu_tools
+#: model:ir.model.fields,field_description:l10n_cu_tools.field_tools_inventory_line_partner_id
+msgid "Owner"
+msgstr "Propietario"
+
+#. module: l10n_cu_tools
+#: model:ir.model.fields,field_description:l10n_cu_tools.field_tools_quant_percent_save_point
+msgid "Percent Save Point"
+msgstr "Porcientos de inventario realizado"
+
+#. module: l10n_cu_tools
+#: model:ir.actions.act_window,help:l10n_cu_tools.action_inventory_form
+msgid "Periodical Inventories are used to count the number of products\n"
+"            available per location. You can use it once a year when you do\n"
+"            the general inventory or whenever you need it, to adapt the\n"
+"            current inventory level of a product."
+msgstr "Los inventarios periodicos son usados para contar un número de productos\n"
+"disponibles por custodios. Puede realizar el inventario una al año cuando realice\n"
+"el inventario general o cuando lo necesite, para adaptarlo al nivel del inventario\n"
+"actual del producto"
+
+#. module: l10n_cu_tools
+#: model:ir.ui.view,arch_db:l10n_cu_tools.view_tools_inventory_filter
+msgid "Physical Inventories by Month"
+msgstr "Inventario físico por meses"
+
+#. module: l10n_cu_tools
+#: model:ir.ui.view,arch_db:l10n_cu_tools.view_tools_picking_internal_search
+msgid "Picking List"
+msgstr "Lista de movimientos"
+
+#. module: l10n_cu_tools
+#: model:ir.ui.view,arch_db:l10n_cu_tools.view_tools_picking_internal_search
+msgid "Picking Lists"
+msgstr "Listas de movimientos"
+
+#. module: l10n_cu_tools
+#: model:ir.ui.view,arch_db:l10n_cu_tools.tools_picking_tree
+msgid "Picking list"
+msgstr "Lista de movimientos"
+
+#. module: l10n_cu_tools
+#: model:ir.ui.view,arch_db:l10n_cu_tools.view_tools_picking_internal_search
+msgid "Pickings already processed"
+msgstr "Movimientos ya procesados"
+
+#. module: l10n_cu_tools
+#: model:ir.ui.menu,name:l10n_cu_tools.menu_principal_data
+msgid "Principal Data"
+msgstr "Datos principales"
+
+#. module: l10n_cu_tools
+#: model:ir.model,name:l10n_cu_tools.model_product_product
+#: model:ir.model.fields,field_description:l10n_cu_tools.field_tools_inventory_line_product_id
+#: model:ir.model.fields,field_description:l10n_cu_tools.field_tools_move_product_id
+#: model:ir.model.fields,field_description:l10n_cu_tools.field_tools_quant_product_id
+#: model:ir.ui.menu,name:l10n_cu_tools.menu_classifier_product
+#: model:ir.ui.view,arch_db:l10n_cu_tools.tools_quant_search_view
+msgid "Product"
+msgstr "Producto"
+
+#. module: l10n_cu_tools
+#: model:ir.ui.menu,name:l10n_cu_tools.menu_classifier_category_config_stock
+msgid "Product Categories"
+msgstr "Categorías de productos"
+
+#. module: l10n_cu_tools
+#: model:ir.model,name:l10n_cu_tools.model_product_category
+msgid "Product Category"
+msgstr "Categoría de producto"
+
+#. module: l10n_cu_tools
+#: model:ir.model.fields,field_description:l10n_cu_tools.field_tools_inventory_line_product_code
+msgid "Product Code"
+msgstr "Código del producto"
+
+#. module: l10n_cu_tools
+#: model:ir.model.fields,field_description:l10n_cu_tools.field_tools_inventory_line_product_name
+msgid "Product Name"
+msgstr "Nombre del producto"
+
+#. module: l10n_cu_tools
+#: model:ir.model.fields,field_description:l10n_cu_tools.field_tools_inventory_percent_number
+msgid "Product Percent"
+msgstr "Porciento de productos"
+
+#. module: l10n_cu_tools
+#: model:ir.model,name:l10n_cu_tools.model_product_template
+#: model:ir.model.fields,field_description:l10n_cu_tools.field_tools_move_product_tmpl_id
+#: model:ir.model.fields,field_description:l10n_cu_tools.field_tools_quant_product_tmpl_id
+msgid "Product Template"
+msgstr "Plantilla de producto"
+
+#. module: l10n_cu_tools
+#: model:ir.model.fields,field_description:l10n_cu_tools.field_tools_move_product_type
+msgid "Product Type"
+msgstr "Tipo de producto"
+
+#. module: l10n_cu_tools
+#: model:ir.model.fields,field_description:l10n_cu_tools.field_tools_inventory_line_product_uom_id
+msgid "Product Unit of Measure"
+msgstr "Unidad de medida del producto"
+
+#. module: l10n_cu_tools
+#: model:ir.actions.act_window,name:l10n_cu_tools.product_normal_action
+#: model:ir.ui.menu,name:l10n_cu_tools.product_product_menu
+msgid "Product Variants"
+msgstr "Variantes de producto"
+
+#. module: l10n_cu_tools
+#: code:addons/l10n_cu_tools/wizard/tools_quantity_history.py:29
+#: model:ir.actions.act_window,name:l10n_cu_tools.product_template_action
+#: model:ir.ui.menu,name:l10n_cu_tools.menu_tools_conf_Products
+#: model:ir.ui.view,arch_db:l10n_cu_tools.res_config_settings_view_form_tools
+#, python-format
+msgid "Products"
+msgstr "Productos"
+
+#. module: l10n_cu_tools
+#: model:ir.model.fields,field_description:l10n_cu_tools.field_tools_quant_quantity
+msgid "Quantity"
+msgstr "Cantidad"
+
+#. module: l10n_cu_tools
+#: model:ir.model.fields,help:l10n_cu_tools.field_tools_quant_quantity
+msgid "Quantity of products in this quant, in the default unit of measure of the tools"
+msgstr "Cantidad de productos en esta cantidad, en la unidad de medida predeterminada de los útiles"
+
+#. module: l10n_cu_tools
+#: model:ir.ui.view,arch_db:l10n_cu_tools.tools_quant_search_view
+msgid "Quants"
+msgstr "Existencias"
+
+#. module: l10n_cu_tools
+#: model:ir.model.fields,field_description:l10n_cu_tools.field_tools_move_product_qty
+#: model:ir.model.fields,field_description:l10n_cu_tools.field_tools_move_product_uom_qty
+#: model:ir.ui.view,arch_db:l10n_cu_tools.tools_inventory_line_tree2
+#: model:ir.ui.view,arch_db:l10n_cu_tools.view_inventory_form
+msgid "Real Quantity"
+msgstr "Cantidad real"
+
+#. module: l10n_cu_tools
+#: model:ir.model.fields,field_description:l10n_cu_tools.field_tools_move_name
+#: model:ir.model.fields,field_description:l10n_cu_tools.field_tools_move_reference
+#: model:ir.model.fields,field_description:l10n_cu_tools.field_tools_picking_name
+msgid "Reference"
+msgstr "Referencia"
+
+#. module: l10n_cu_tools
+#: model:ir.model.fields,field_description:l10n_cu_tools.field_tools_picking_type_sequence_id
+msgid "Reference Sequence"
+msgstr "Secuencia de referencia"
+
+#. module: l10n_cu_tools
+#: model:ir.model.fields,help:l10n_cu_tools.field_tools_move_origin
+#: model:ir.model.fields,help:l10n_cu_tools.field_tools_picking_origin
+msgid "Reference of the document"
+msgstr "Referencia del documento"
+
+#. module: l10n_cu_tools
+#: model:ir.ui.menu,name:l10n_cu_tools.menu_reports
+msgid "Reports"
+msgstr "Informes"
+
+#. module: l10n_cu_tools
+#: model:ir.ui.view,arch_db:l10n_cu_tools.view_tools_quantity_history
+msgid "Retrieve the Inventory Quantities"
+msgstr "Recuperar las cantidades de inventario"
+
+#. module: l10n_cu_tools
+#: model:ir.ui.view,arch_db:l10n_cu_tools.view_tools_inventory_filter
+msgid "Search Inventory"
+msgstr "Buscar Inventario"
+
+#. module: l10n_cu_tools
+#: model:ir.ui.view,arch_db:l10n_cu_tools.tools_inventory_line_search
+msgid "Search Inventory Lines"
+msgstr "Buscar lineas de inventario"
+
+#. module: l10n_cu_tools
+#: code:addons/l10n_cu_tools/models/tools_inventory.py:111
+#, python-format
+msgid "Select products manually"
+msgstr "Seleccionar producto manualmente"
+
+#. module: l10n_cu_tools
+#: model:ir.ui.view,arch_db:l10n_cu_tools.res_config_settings_view_form_tools
+msgid "Sell and purchase products in different units of measure"
+msgstr "Vender y comprar productos en diferentes unidades de medida."
+
+#. module: l10n_cu_tools
+#: model:ir.model.fields,field_description:l10n_cu_tools.field_tools_move_sequence
+#: model:ir.model.fields,field_description:l10n_cu_tools.field_tools_picking_type_sequence
+msgid "Sequence"
+msgstr "Secuencia"
+
+#. module: l10n_cu_tools
+#: model:ir.ui.view,arch_db:l10n_cu_tools.res_config_settings_view_form_tools
+msgid "Set product attributes (e.g. color, size) to manage variants"
+msgstr "Establecer atributos del producto (por ejemplo, color, tamaño) para administrar variantes"
+
+#. module: l10n_cu_tools
+#: model:ir.ui.view,arch_db:l10n_cu_tools.view_inventory_form
+msgid "Set to Draft"
+msgstr "Hacerlo Borrador"
+
+#. module: l10n_cu_tools
+#: model:ir.actions.act_window,name:l10n_cu_tools.action_tools_config
+#: model:ir.ui.menu,name:l10n_cu_tools.menu_tools_config
+#: model:ir.ui.view,arch_db:l10n_cu_tools.tools_picking_type_kanban
+msgid "Settings"
+msgstr "Ajustes"
+
+#. module: l10n_cu_tools
+#: model:ir.ui.view,arch_db:l10n_cu_tools.view_tools_picking_internal_search
+msgid "Show all records which has next action date is before today"
+msgstr "Mostrar todos los registros que tienen la próxima fecha de acción antes de hoy"
+
+#. module: l10n_cu_tools
+#: model:ir.ui.view,arch_db:l10n_cu_tools.report_tools_delivery_document
+msgid "Sign:"
+msgstr "Firma:"
+
+#. module: l10n_cu_tools
+#: model:ir.ui.view,arch_db:l10n_cu_tools.tools_blind_inventory_report
+msgid "Signature of the Checker"
+msgstr "Firma del que Verifica el Submayor"
+
+#. module: l10n_cu_tools
+#: model:ir.ui.view,arch_db:l10n_cu_tools.tools_blind_inventory_report
+msgid "Signature of the maker"
+msgstr "Firma del Custodio"
+
+#. module: l10n_cu_tools
+#: model:ir.model.fields,field_description:l10n_cu_tools.field_tools_move_origin
+#: model:ir.model.fields,field_description:l10n_cu_tools.field_tools_picking_origin
+msgid "Source Document"
+msgstr "Documento fuente"
+
+#. module: l10n_cu_tools
+#: model:ir.model.fields,help:l10n_cu_tools.field_tools_inventory_category_id
+msgid "Specify Product Category to focus your inventory on a particular Category."
+msgstr "Especifique una categoría de producto para enfocar el inventario en una categoría en particular"
+
+#. module: l10n_cu_tools
+#: model:ir.model.fields,help:l10n_cu_tools.field_tools_inventory_product_id
+msgid "Specify Product to focus your inventory on a particular Product."
+msgstr "Especifique un producto para enfocar el inventario en un producto en particular"
+
+#. module: l10n_cu_tools
+#: model:ir.ui.view,arch_db:l10n_cu_tools.view_inventory_form
+msgid "Start Inventory"
+msgstr "Comenzar el inventario"
+
+#. module: l10n_cu_tools
+#: model:ir.model.fields,field_description:l10n_cu_tools.field_tools_inventory_line_state
+#: model:ir.model.fields,field_description:l10n_cu_tools.field_tools_inventory_state
+#: model:ir.model.fields,field_description:l10n_cu_tools.field_tools_move_state
+#: model:ir.model.fields,field_description:l10n_cu_tools.field_tools_picking_state
+#: model:ir.ui.view,arch_db:l10n_cu_tools.view_tools_inventory_filter
+#: model:ir.ui.view,arch_db:l10n_cu_tools.view_tools_picking_internal_search
+msgid "Status"
+msgstr "Estado"
+
+#. module: l10n_cu_tools
+#: model:ir.ui.view,arch_db:l10n_cu_tools.view_tools_picking_form
+msgid "Stock moves"
+msgstr "Movimientos de existencia"
+
+#. module: l10n_cu_tools
+#: selection:tools.custodian,custodian_id:0
+msgid "Storeroom"
+msgstr "Pañol"
+
+#. module: l10n_cu_tools
+#: model:ir.model.fields,field_description:l10n_cu_tools.field_tools_inventory_line_surplus_physical_quantity
+msgid "Surplus Physical Quantity"
+msgstr "Cantidad Faltante o Sobrante"
+
+#. module: l10n_cu_tools
+#: model:ir.model.fields,help:l10n_cu_tools.field_tools_move_price_unit
+msgid "Technical field used to record the tools cost set by /the user during a picking confirmation (when costing /method used is 'average price' or 'real'). Value given / in company currency and in product uom."
+msgstr "Campo técnico utilizado para registrar el costo de las útiles establecido por / el usuario durante una confirmación de selección (cuando el costo / método utilizado es 'precio promedio' o 'real'). Valor dado / en moneda de empresa y en uom de producto."
+
+#. module: l10n_cu_tools
+#: model:ir.model.fields,help:l10n_cu_tools.field_tools_move_product_tmpl_id
+msgid "Technical: used in views"
+msgstr "Técnico: usado en vistas"
+
+#. module: l10n_cu_tools
+#: model:ir.model.fields,help:l10n_cu_tools.field_product_product_tools_move_ids
+#: model:ir.model.fields,help:l10n_cu_tools.field_product_product_tools_quant_ids
+msgid "Technical: used to compute quantities."
+msgstr "Técnica: se usa para calcular cantidades."
+
+#. module: l10n_cu_tools
+#: model:ir.model.fields,help:l10n_cu_tools.field_tools_inventory_date
+msgid "The date that will be used for the stock level check of the products and the validation of the stock move related to this inventory."
+msgstr "La fecha que será usada para chequear las existencias de productos y la validación de los movimientos de útiles relacionados con el inventario"
+
+#. module: l10n_cu_tools
+#: sql_constraint:tools.custodian:0
+msgid "The name of the tools custodian must be unique in company!"
+msgstr "¡El nombre del custodio de utiles debe ser unico por empresa!"
+
+#. module: l10n_cu_tools
+#: sql_constraint:tools.picking.type:0
+msgid "The name of the tools operation type must be unique in company!"
+msgstr "¡El nombre de la operacion de útiles debe ser único en la empresa!"
+
+#. module: l10n_cu_tools
+#: model:ir.actions.act_window,help:l10n_cu_tools.product_normal_action
+msgid ""
+"The product form contains information to simplify the sale\n"
+"            process: price, notes in the quotation, accounting data,\n"
+"            procurement methods, etc."
+msgstr ""
+"El formulario del producto contiene información para simplificar la venta.\n"
+"             proceso: precio, notas en la cotización, datos contables,\n"
+"             métodos de adquisición, etc."
+
+#. module: l10n_cu_tools
+#: model:ir.actions.act_window,help:l10n_cu_tools.product_template_action
+msgid "The product form contains information to simplify the sale process: price, notes in the quotation, accounting data, procurement methods, etc."
+msgstr "El formulario de producto contiene información para simplificar el proceso de venta: precio, notas del presupuesto, información contable, métodos de aprovisionamiento, etc..."
+
+#. module: l10n_cu_tools
+#: code:addons/l10n_cu_tools/models/tools_move.py:136
+#, python-format
+msgid "The requested operation cannot be processed because of a programming error setting the `product_qty` field instead of the `product_uom_qty`."
+msgstr "La operación solicitada no se puede procesar debido a un error de programación que establece el campo `product_qty` en lugar de` product_uom_qty`."
+
+#. module: l10n_cu_tools
+#: model:ir.model.fields,field_description:l10n_cu_tools.field_tools_inventory_line_theoretical_qty
+msgid "Theoretical Quantity"
+msgstr "Cantidad según submayor"
+
+#. module: l10n_cu_tools
+#: model:ir.actions.act_window,help:l10n_cu_tools.toolsquantsact
+msgid "This analysis gives you a fast overview on the current tools level of your products and their current inventory value."
+msgstr "Este análisis le brinda una visión general rápida sobre el nivel actual de útiles de sus productos y su valor de inventario actual."
+
+#. module: l10n_cu_tools
+#: model:ir.model.fields,help:l10n_cu_tools.field_tools_move_product_uom_qty
+msgid "This is the quantity of products from an inventory point of view. For moves in the state 'done', this is the quantity of products that were actually moved."
+msgstr "Esta es la cantidad de productos desde un punto de vista de inventario. Para los movimientos en el estado 'hecho', esta es la cantidad de productos que realmente se movieron."
+
+#. module: l10n_cu_tools
+#: model:ir.actions.act_window,name:l10n_cu_tools.action_tools_picking_tree_account
+msgid "To Account Transfers"
+msgstr "Transferencias a Contabilizar"
+
+#. module: l10n_cu_tools
+#: model:ir.ui.view,arch_db:l10n_cu_tools.tools_picking_type_kanban
+msgid "To account"
+msgstr "A Contabilizar"
+
+#. module: l10n_cu_tools
+#: model:ir.ui.view,arch_db:l10n_cu_tools.view_tools_picking_internal_search
+msgid "Today Activities"
+msgstr "Actividades de Hoy"
+
+#. module: l10n_cu_tools
+#: model:ir.model.fields,field_description:l10n_cu_tools.field_tools_picking_move_lines
+msgid "Tolls Moves"
+msgstr "Movimientos de utiles"
+
+#. module: l10n_cu_tools
+#: model:ir.model.fields,field_description:l10n_cu_tools.field_product_category_tool_category
+#: model:ir.model.fields,field_description:l10n_cu_tools.field_product_product_tool_category
+#: model:ir.model.fields,field_description:l10n_cu_tools.field_product_template_tool_category
+#: model:ir.ui.view,arch_db:l10n_cu_tools.product_view_search
+msgid "Tool Category"
+msgstr "Categoría de herramienta"
+
+#. module: l10n_cu_tools
+#: model:ir.ui.view,arch_db:l10n_cu_tools.classifier_product_category_form
+msgid "Tool Valuation"
+msgstr "Valoración de útiles"
+
+#. module: l10n_cu_tools
+#: model:ir.ui.menu,name:l10n_cu_tools.menu_tools
+#: model:ir.ui.view,arch_db:l10n_cu_tools.res_config_settings_view_form_tools
+msgid "Tools"
+msgstr "Útiles"
+
+#. module: l10n_cu_tools
+#: model:ir.module.category,name:l10n_cu_tools.module_category_l10n_cu_tools
+msgid "Tools "
+msgstr "Útiles "
+
+#. module: l10n_cu_tools
+#: model:ir.model,name:l10n_cu_tools.model_tools_custodian
+msgid "Tools Custodian"
+msgstr "Custodio de Útiles"
+
+#. module: l10n_cu_tools
+#: model:ir.ui.view,arch_db:l10n_cu_tools.tool_custodian_form
+msgid "Tools Custodian's Name"
+msgstr "Nombre del Custodio de Útiles"
+
+#. module: l10n_cu_tools
+#: model:ir.model,name:l10n_cu_tools.model_tools_inventory
+#: model:ir.ui.view,arch_db:l10n_cu_tools.tools_blind_inventory_report
+msgid "Tools Inventory"
+msgstr "Inventario de Útiles"
+
+#. module: l10n_cu_tools
+#: model:ir.ui.view,arch_db:l10n_cu_tools.view_inventory_form
+msgid "Tools Inventory Adjustment"
+msgstr "Ajuste del Inventario de Útiles"
+
+#. module: l10n_cu_tools
+#: model:ir.actions.act_window,name:l10n_cu_tools.action_inventory_form
+msgid "Tools Inventory Adjustments"
+msgstr "Ajustes del Inventario de Útiles"
+
+#. module: l10n_cu_tools
+#: model:ir.ui.view,arch_db:l10n_cu_tools.tools_inventory_line_tree
+msgid "Tools Inventory Lines"
+msgstr "Lineas del Inventario de Útiles"
+
+#. module: l10n_cu_tools
+#: model:ir.model,name:l10n_cu_tools.model_tools_move
+#: model:ir.model.fields,field_description:l10n_cu_tools.field_product_product_tools_move_ids
+msgid "Tools Move"
+msgstr "Movimiento de útiles"
+
+#. module: l10n_cu_tools
+#: model:ir.actions.act_window,name:l10n_cu_tools.tools_move_action
+#: model:ir.ui.view,arch_db:l10n_cu_tools.tools_move_tree
+#: model:ir.ui.view,arch_db:l10n_cu_tools.tools_product_form_view_procurement_button
+#: model:ir.ui.view,arch_db:l10n_cu_tools.tools_product_template_form_view_procurement_button
+#: model:ir.ui.view,arch_db:l10n_cu_tools.view_inventory_form
+msgid "Tools Moves"
+msgstr "Movimientos de útiles"
+
+#. module: l10n_cu_tools
+#: model:ir.actions.act_window,name:l10n_cu_tools.tools_product_open_quants
+#: model:ir.model.fields,field_description:l10n_cu_tools.field_product_product_tools_qty_available
+#: model:ir.model.fields,field_description:l10n_cu_tools.field_product_template_tools_qty_available
+#: model:ir.ui.view,arch_db:l10n_cu_tools.tools_product_form_view_procurement_button
+#: model:ir.ui.view,arch_db:l10n_cu_tools.tools_product_template_form_view_procurement_button
+msgid "Tools On Hand"
+msgstr "Útiles en mano"
+
+#. module: l10n_cu_tools
+#: model:ir.actions.act_window,name:l10n_cu_tools.action_tools_picking_tree_all
+msgid "Tools Operations"
+msgstr "Operaciones de útiles"
+
+#. module: l10n_cu_tools
+#: model:ir.model,name:l10n_cu_tools.model_tools_picking
+msgid "Tools Picking"
+msgstr "Movimiento de útiles"
+
+#. module: l10n_cu_tools
+#: model:ir.model.fields,field_description:l10n_cu_tools.field_tools_quant_price
+msgid "Tools Price"
+msgstr "Precio de útiles"
+
+#. module: l10n_cu_tools
+#: model:ir.model,name:l10n_cu_tools.model_tools_quant
+#: model:ir.model.fields,field_description:l10n_cu_tools.field_product_product_tools_quant_ids
+msgid "Tools Quant"
+msgstr "Existencia de Útiles"
+
+#. module: l10n_cu_tools
+#: model:ir.model,name:l10n_cu_tools.model_tools_quantity_history
+msgid "Tools Quantity History"
+msgstr "Cantidad Historica de útiles"
+
+#. module: l10n_cu_tools
+#: model:ir.model.fields,field_description:l10n_cu_tools.field_res_config_settings_module_l10n_cu_tools_storage
+#: model:ir.ui.view,arch_db:l10n_cu_tools.tool_custodian_form
+msgid "Tools Storage"
+msgstr "Pañol de útiles"
+
+#. module: l10n_cu_tools
+#: model:ir.ui.view,arch_db:l10n_cu_tools.res_config_settings_view_form_tools
+msgid "Tools Storage Management"
+msgstr "Gestión de pañol de útiles"
+
+#. module: l10n_cu_tools
+#: model:ir.ui.view,arch_db:l10n_cu_tools.view_tools_product_tree
+msgid "Tools Valuation"
+msgstr "Valoración de útiles"
+
+#. module: l10n_cu_tools
+#: model:ir.model.fields,field_description:l10n_cu_tools.field_tools_inventory_total_qty
+msgid "Total Quantity"
+msgstr "Cantidad Total"
+
+#. module: l10n_cu_tools
+#: model:ir.ui.view,arch_db:l10n_cu_tools.view_tools_picking_form
+msgid "Transfer"
+msgstr "Transferir"
+
+#. module: l10n_cu_tools
+#: model:ir.model.fields,field_description:l10n_cu_tools.field_tools_move_picking_id
+msgid "Transfer Reference"
+msgstr "Referencia de transferencia"
+
+#. module: l10n_cu_tools
+#: model:ir.actions.act_window,name:l10n_cu_tools.action_tools_picking_tree
+#: model:ir.ui.menu,name:l10n_cu_tools.menu_Transfers
+msgid "Transfers"
+msgstr "Transferencia"
+
+#. module: l10n_cu_tools
+#: model:ir.model.fields,field_description:l10n_cu_tools.field_tools_move_price_unit
+msgid "Unit Price"
+msgstr "Precio unitario"
+
+#. module: l10n_cu_tools
+#: model:ir.model.fields,field_description:l10n_cu_tools.field_tools_move_product_uom
+#: model:ir.model.fields,field_description:l10n_cu_tools.field_tools_quant_product_uom_id
+#: model:ir.ui.view,arch_db:l10n_cu_tools.view_inventory_form
+msgid "Unit of Measure"
+msgstr "Unidad de medida"
+
+#. module: l10n_cu_tools
+#: model:ir.ui.view,arch_db:l10n_cu_tools.res_config_settings_view_form_tools
+msgid "Units Of Measure"
+msgstr "Unidad de medida"
+
+#. module: l10n_cu_tools
+#: model:ir.ui.menu,name:l10n_cu_tools.product_uom_menu
+msgid "Units of Measures"
+msgstr "Unidades de medida"
+
+#. module: l10n_cu_tools
+#: model:ir.ui.menu,name:l10n_cu_tools.menu_stock_uom_form_action
+#: model:ir.ui.view,arch_db:l10n_cu_tools.tools_inventory_line_tree2
+#: model:ir.ui.view,arch_db:l10n_cu_tools.view_inventory_form
+msgid "UoM"
+msgstr "UoM"
+
+#. module: l10n_cu_tools
+#: model:ir.ui.menu,name:l10n_cu_tools.menu_stock_uom_categ_form_action
+msgid "UoM Categories"
+msgstr "Categorías de la UM"
+
+#. module: l10n_cu_tools
+#: model:ir.ui.view,arch_db:l10n_cu_tools.res_config_settings_view_form_tools
+msgid "Use dual currency  in Tools management"
+msgstr "Utilice la moneda alternativa en la gestión de útiles"
+
+#. module: l10n_cu_tools
+#: model:ir.model.fields,help:l10n_cu_tools.field_tools_picking_type_sequence
+msgid "Used to order the 'All Operations' kanban view"
+msgstr "Usado para ordenar 'Todas las Operaciones' en la vista Kanban"
+
+#. module: l10n_cu_tools
+#: model:res.groups,name:l10n_cu_tools.group_tools_user
+msgid "User"
+msgstr "Usuario"
+
+#. module: l10n_cu_tools
+#: model:ir.ui.view,arch_db:l10n_cu_tools.view_tools_picking_form
+msgid "Validate"
+msgstr "Validar"
+
+#. module: l10n_cu_tools
+#: model:ir.ui.view,arch_db:l10n_cu_tools.view_inventory_form
+msgid "Validate Inventory"
+msgstr "Validar el inventario"
+
+#. module: l10n_cu_tools
+#: selection:tools.inventory,state:0
+msgid "Validated"
+msgstr "Validado"
+
+#. module: l10n_cu_tools
+#: code:addons/l10n_cu_tools/models/tools_move.py:112
+#, python-format
+msgid "You are using a unit of measure smaller than the one you are using in order to stock your product. This can lead to rounding problem on reserved quantity! You should use the smaller unit of measure possible in order to valuate your stock orchange its rounding precision to a smaller value (example: 0.00001)."
+msgstr "Está utilizando una unidad de medida más pequeña que la que está utilizando para almacenar su producto. ¡Esto puede llevar a un problema de redondeo en la cantidad reservada! Debe usar la unidad de medida más pequeña posible para valorar su stock o cambiar su precisión de redondeo a un valor más pequeño (ejemplo: 0.00001)."
+
+#. module: l10n_cu_tools
+#: model:ir.ui.view,arch_db:l10n_cu_tools.view_inventory_form
+msgid "You can delete lines to ignore some products."
+msgstr "Puede borrar líneas para no tener en cuenta algunos productos"
+
+#. module: l10n_cu_tools
+#: model:ir.actions.act_window,help:l10n_cu_tools.action_tools_picking_form
+#: model:ir.actions.act_window,help:l10n_cu_tools.action_tools_picking_tree_account
+#: model:ir.actions.act_window,help:l10n_cu_tools.action_tools_picking_tree_all
+#: model:ir.actions.act_window,help:l10n_cu_tools.action_tools_picking_tree_cancel
+#: model:ir.actions.act_window,help:l10n_cu_tools.action_tools_picking_tree_done
+#: model:ir.actions.act_window,help:l10n_cu_tools.action_tools_picking_tree_done_grouped
+#: model:ir.actions.act_window,help:l10n_cu_tools.action_tools_picking_tree_draft
+#: model:ir.actions.act_window,help:l10n_cu_tools.action_tools_picking_type_kanban
+#: model:ir.actions.act_window,help:l10n_cu_tools.action_tools_picking_type_list
+#: model:ir.actions.act_window,help:l10n_cu_tools.stock_tools_picking_action_picking_type
+msgid "You can either do it immediately or mark it as Todo for future processing. Use your scanner to validate the transferred quantity quicker."
+msgstr "Puede hacerlo de inmediato o marcarlo como Todo para su posterior procesamiento. Use su escáner para validar la cantidad transferida más rápido."
+
+#. module: l10n_cu_tools
+#: code:addons/l10n_cu_tools/models/tools_inventory.py:409
+#, python-format
+msgid "You can only adjust stockable products."
+msgstr "Solo puede ajustar productos almacenables"
+
+#. module: l10n_cu_tools
+#: code:addons/l10n_cu_tools/models/tools_move.py:143
+#, python-format
+msgid "You cannot cancel a stock move that has been set to 'Done'."
+msgstr "No puede cancelar un movimiento de útiles que se encuentra en estado 'Hecho'"
+
+#. module: l10n_cu_tools
+#: code:addons/l10n_cu_tools/models/tools_inventory.py:100
+#, python-format
+msgid "You cannot delete a validated inventory adjustement."
+msgstr "No puede borrar un ajuste de inventario validado"
+
+#. module: l10n_cu_tools
+#: code:addons/l10n_cu_tools/models/tools_picking.py:123
+#, python-format
+msgid "You cannot delete an picking in a state different to draft."
+msgstr "No puede eliminar una selección en un estado diferente al borrador."
+
+#. module: l10n_cu_tools
+#: code:addons/l10n_cu_tools/models/tools_inventory.py:396
+#, python-format
+msgid "You cannot have two inventory adjustements in state 'in Progress' with the same product (%s). Please first validate the first inventory adjustement with this product before creating another one."
+msgstr "No puede tener dos Ajustes de inventario en estado 'En progreso' con los mismos producto (%s). Por favor primero valide el primer ajuste de inventario con esos productos antes de crear el otro."
+
+#. module: l10n_cu_tools
+#: code:addons/l10n_cu_tools/models/tools_inventory.py:139
+#, python-format
+msgid "You cannot set a negative product quantity in an inventory line:\n"
+"	%s - qty: %s"
+msgstr "No puede teclar una cantidad verificada negativa en la linea de inventario: \n"
+"	%s - qty: %s"
+
+#. module: l10n_cu_tools
+#: code:addons/l10n_cu_tools/models/tools_inventory.py:155
+#, python-format
+msgid "You cannot validate inventory, you need to update the types of operations"
+msgstr "Usted no puede validar el inventario, necesita actualizar previamente los tipos de operaciones."
+
+#. module: l10n_cu_tools
+#: model:ir.actions.act_window,help:l10n_cu_tools.product_normal_action
+msgid ""
+"You must define a product for everything you sell, whether it's\n"
+"            a physical product, a consumable or a service you offer to\n"
+"            customers."
+msgstr ""
+"Debe definir un producto para todo lo que vende, ya sea\n"
+"             un producto físico, un consumible o un servicio que ofreces a\n"
+"             clientes."
+
+#. module: l10n_cu_tools
+#: model:ir.actions.act_window,help:l10n_cu_tools.product_template_action
+msgid "You must define a product for everything you sell, whether it's a physical product, a consumable or a service you offer to customers."
+msgstr "Debe definir un producto para todo lo que venda, ya sea un producto físico, un consumible o servicios que usted subcontrate."
+
+#. module: l10n_cu_tools
+#: model:ir.ui.view,arch_db:l10n_cu_tools.tools_blind_inventory_report
+msgid "__________"
+msgstr "__________"
+
+#. module: l10n_cu_tools
+#: model:ir.ui.view,arch_db:l10n_cu_tools.view_inventory_form
+msgid "e.g. Annual inventory"
+msgstr "Ej. Inventario anual"
+
+#. module: l10n_cu_tools
+#: model:ir.ui.view,arch_db:l10n_cu_tools.view_tools_picking_form
+msgid "e.g. PO0032"
+msgstr "e.g. PO0032"
+
+#. module: l10n_cu_tools
+#: model:ir.model,name:l10n_cu_tools.model_res_config_settings
+msgid "res.config.settings"
+msgstr "res.config.settings"
+
+#. module: l10n_cu_tools
+#: model:ir.model,name:l10n_cu_tools.model_tools_picking_type
+msgid "tools.picking.type"
+msgstr "tools.picking.type"
+
+#. module: l10n_cu_tools
+#: model:ir.ui.view,arch_db:l10n_cu_tools.view_inventory_form
+msgid "⇒ Set quantities to 0"
+msgstr "⇒ Haga 0 la Cant Verificada"
+
+#. module: l10n_cu_tools
+#: model:ir.module.module,shortdesc:base.module_l10n_cu_tools
+msgid "Cuban - Tools"
+msgstr "Cuba - Utiles y Herramientas"
+
+#. module: l10n_cu_tools
+#: model:ir.module.module,description:base.module_l10n_cu_tools
+msgid "Tools"
+msgstr "Utiles."

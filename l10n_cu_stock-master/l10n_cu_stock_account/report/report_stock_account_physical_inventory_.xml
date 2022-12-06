@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="l10n_cu_report_physical_inventory">
+         <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="o">
+                    <t t-call="web.external_layout">
+                        <div class="page">
+                            <h2 class="text-center"> Stock Inventory </h2>
+
+                            <table class="table table-condensed">
+                            <thead>
+                                <tr>
+                                    <th class="text-center"><strong>Company</strong></th>
+                                    <th class="text-center"><strong>Inventory</strong></th>
+                                    <th class="text-center"><strong>Date</strong></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="text-center">
+                                        <span t-field="o.company_id"/>
+                                    </td>
+                                    <td class="text-center">
+                                        <span t-field="o.name"/>
+                                    </td>
+                                    <td class="text-center">
+                                        <span t-field="o.date"/>
+                                    </td>
+                                </tr>
+                            </tbody>
+                            </table>
+
+                            <t t-set="accounts" t-value="o.line_ids.mapped('product_id.categ_id.property_stock_valuation_account_id')"/>
+                            <table class="table table-condensed">
+                                <thead>
+                                    <tr>
+                                        <!--groups="stock.group_stock_multi_locations"-->
+                                        <th class="text-left"><strong>Accounts</strong></th>
+                                        <th class="text-left"><strong>Product</strong></th>
+                                        <th class="text-left" groups="product.group_uom"><strong>UM</strong></th>
+                                        <th class="text-left"><strong>Locations</strong></th>
+                                        <th id="template_price" class="text-left"><strong>Price</strong></th>
+                                        <!--<th groups="stock.group_production_lot"><strong>Production Lot</strong></th>-->
+                                        <!--<th groups="stock.group_tracking_lot"><strong>Package</strong></th>-->
+                                        <th class="text-left"><strong>Physical Quantity</strong></th>
+                                        <th id="template_physical_imports" class="text-left"><strong>Physical Imports </strong></th>
+                                        <th class="text-left"><strong>Theoretical Quantity</strong></th>
+                                        <th id="template_theoretical_imports" class="text-left"><strong>Theoretical Imports </strong></th>
+                                        <th class="text-left"><strong>Surplus Quantity</strong></th>
+                                        <th id="template_surplus_imports" class="text-left"><strong>Surplus Imports</strong></th>
+                                        <th> </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <t t-foreach="accounts" t-as="account">
+                                        <tr>
+                                            <!--groups="stock.group_stock_multi_locations"-->
+                                            <td class="text-left" colspan="2"><strong t-esc="account.code"/> / <strong t-esc="account.name"/></td>
+                                            <td class="text-left" groups="stock.group_production_lot"/>
+                                            <td class="text-left" groups="stock.group_tracking_lot"/>
+                                            <td> </td>
+                                            <td> </td>
+                                            <td> </td>
+                                            <td> </td>
+                                            <td> </td>
+                                            <td> </td>
+                                            <td> </td>
+                                            <td> </td>
+                                            <td id="mark"> </td>
+                                        </tr>
+                                        <tr t-foreach="o.line_ids.filtered(lambda line: line.product_id.categ_id.property_stock_valuation_account_id.id == account.id)" t-as="line">
+
+                                            <td/>
+                                            <td class="text-left"><span t-field="line.product_id"/></td>
+                                            <td class="text-left" groups="product.group_uom"><span t-field="line.product_uom_id" groups="product.group_uom"/></td>
+                                            <td class="text-left"><span t-field="line.location_id.complete_name"/></td>
+                                            <td id = "standard_price" class="text-left"><span t-field="line.product_id.standard_price"/> <span t-field="o.company_id.currency_id.symbol"/></td>
+                                            <td class="text-left"><span t-field="line.product_qty"/></td>
+                                            <td id = "import_physical_count" class="text-left"><span t-field="line.import_physical_count"/> <span t-field="o.company_id.currency_id.symbol"/></td>
+                                            <td class="text-left"><span t-field="line.theoretical_qty"/></td>
+                                            <td id = "import_theoretical_count" class="text-left"><span t-field="line.import_theoretical_count"/> <span t-field="o.company_id.currency_id.symbol"/></td>
+                                            <td class="text-left"><span t-field="line.surplus_physical_quantity"/></td>
+                                            <td id = "import_import_surplus" class="text-left"><span t-field="line.import_surplus"/> <span t-field="o.company_id.currency_id.symbol"/></td>
+                                        </tr>
+                                    </t>
+                                </tbody>
+                            </table>
+                            <t id = 'cal_import' t-if="o.filter == 'product' and o.product_id">
+                              <div class="row">
+                                <div class="col-xs-4 pull-right">
+                                     <table class="table table-condensed">
+                                        <tr class="border-black">
+                                            <td><strong>Total Imports</strong></td>
+                                            <td class="text-right">
+                                                <span t-field="o.import_total"/> <span t-field="o.company_id.currency_id.symbol"/>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                              </div>
+                            </t>
+                            <div class="col-xs-4">
+                                <div>
+                                    <th>
+                                         <table style="border: none" width="100%" class="text-left">
+                                             <tr>
+                                                 <td>
+                                                     <br/>
+                                                     <br/>
+                                                     <br/>
+                                                    <br/>______________________________
+                                                 </td>
+                                             </tr>
+                                             <tr>
+                                                 <td>Firma del jefe de inventario</td>
+                                             </tr>
+                                         </table>
+                                    </th>
+                                </div>
+                                <div>
+                                    <table style="border: none" width="100%" class="text-left">
+                                        <tr>
+                                            <td>
+                                                <br/>
+                                                <br/>
+                                                <br/>
+                                               <br/>______________________________
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Firma del Jefe de almacén</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <div class="col-xs-4">
+                                <div>
+                                    <table style="border: none" width="100%" class="text-left">
+                                        <tr>
+                                            <td>
+                                                <br/>
+                                                <br/>
+                                                <br/>
+                                                <br/>______________________________
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Firma del que elabora el modelo</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div>
+                                    <table style="border: none" width="100%" class="text-left">
+                                        <tr>
+                                            <td>
+                                                <br/>
+                                                <br/>
+                                                <br/>
+                                                <br/>______________________________
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Firma del que comprueba el modelo</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                 </t>
+             </t>
+        </template>
+</odoo>

@@ -1,0 +1,7 @@
+<odoo>
+    <data>
+        <menuitem id="menu_storage_manage" name="Storage" parent="l10n_cu_tools.menu_tools_manage" sequence="0" groups="l10n_cu_tools.group_tools_manager" action="l10n_cu_tools_storage_action_window"/>
+        <!--<menuitem id="menu_manage_operations" name="Operations Type" parent="menu_tools_manage" sequence="1" />-->
+
+    </data>
+</odoo>

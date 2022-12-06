@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+	<data>
+		<record id="l10n_cu_sub_ledger_countable_assistant_form" model="ir.ui.view">
+			<field name="name">l10n_cu_account_asset.sub.ledger.countable.assistant.form</field>
+			<field name="model">l10n_cu_account_asset.sub.ledger.countable.assistant</field>
+			<field name="arch" type="xml">
+				<form string="Sub-Ledger Asset Countable Assistant">
+					<group string="Filter by Date Range">
+						<group>
+							<field name="initial_date" />
+						</group>
+						<group>
+							<field name="final_date" />
+						</group>
+					</group>
+					<footer>
+                        <button name="accept" string="Print" type="object" class="oe_highlight"/>
+                        or
+                        <button special="cancel" string="Cancel" class="oe_link"/>
+                    </footer>
+				</form>
+			</field>
+		</record>
+		
+	</data>
+</odoo>

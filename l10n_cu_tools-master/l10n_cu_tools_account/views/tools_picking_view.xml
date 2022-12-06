@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record model="ir.ui.view" id="view_tools_account_picking_form">
+        <field name="name">tools.account.picking.form</field>
+        <field name="model">tools.picking</field>
+        <field name="inherit_id" ref="l10n_cu_tools.view_tools_picking_form"/>
+        <field name="arch" type="xml">
+            <field name="move_lines" position="attributes">
+                <attribute name="context">{'default_analytic_account_id': analytic_account_id, 'default_state': state, 'default_picking_id': id, 'form_view_ref':'l10n_cu_tools.view_tools_move_picking_form', 'default_picking_type_id': picking_type_id}</attribute>
+            </field>
+            <button name="button_validate" position="replace">
+                <button name="action_confirm" attrs="{'invisible': [('state', 'in', ('done', 'cancel', 'confirmed'))]}" string="Confirm" type="object" class="oe_highlight" groups="base.group_user"/>
+                <button name="button_validate" attrs="{'invisible': [('state', 'in', ('done', 'cancel', 'draft'))]}" string="Validate" groups="base.group_user" type="object" class="oe_highlight"/>
+            </button>
+            <xpath expr="//field[@name='origin']" position="after">
+                <field name="analytic_account_id" />
+            </xpath>
+            <xpath expr="//field[@name='move_lines']/tree/field[@name='product_uom_qty']" position="after">
+                <field name="analytic_account_id" invisible="context.get('analytic_account_id')"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

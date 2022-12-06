@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record model="ir.ui.view" id="l10n_cu_account_bank_reconcile_report_wizard">
+        <field name="name">Bank reconcile report wizard</field>
+        <field name="model">account.bank.reconcile.report</field>
+        <field name="type">form</field>
+        <field name="inherit_id" ref="account.account_common_report_view" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='target_move']" position="replace"/>
+            <xpath expr="//field[@name='journal_ids']" position="replace"/>
+            <xpath expr="//field[@name='date_from']" position="replace"/>
+            <xpath expr="//field[@name='date_to']" position="replace"/>
+            <xpath expr="//group" position="before">
+                <group>
+                    <group>
+                        <field name="journal_id" options="{'no_create': True}"/>
+                        <field name="reconcile_date"/>
+                    </group>
+                    <group>
+                        <field name="sort_selection" widget="radio"/>
+                        <field name="target_move" string="Target Moves" widget="radio"/>
+                    </group>
+                </group>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="action_bank_reconcile_report_wizard" model="ir.actions.act_window">
+        <field name="name">Bank reconcile report wizard</field>
+        <field name="res_model">account.bank.reconcile.report</field>
+        <field name="view_type">form</field>
+        <field name="view_id" ref="l10n_cu_account_bank_reconcile_report_wizard"/>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+    <menuitem name="Bank reconcile" action="action_bank_reconcile_report_wizard" id="menu_action_bank_reconcile_report" parent="account.menu_finance_legal_statement" sequence="1"/>
+</odoo>

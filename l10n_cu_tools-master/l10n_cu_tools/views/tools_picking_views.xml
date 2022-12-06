@@ -1,0 +1,365 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+        <record model="ir.ui.view" id="tools_picking_calendar">
+            <field name="name">tools.picking.calendar</field>
+            <field name="model">tools.picking</field>
+            <field name="priority" eval="2"/>
+            <field name="arch" type="xml">
+                <calendar string="Calendar View" date_start="date">
+                    <field name="origin"/>
+                    <field name="picking_type_id"/>
+                    <field name="state"/>
+                </calendar>
+            </field>
+        </record>
+
+
+        <record id="tools_picking_tree" model="ir.ui.view">
+            <field name="name">tools.picking.tree</field>
+            <field name="model">tools.picking</field>
+            <field name="arch" type="xml">
+                <tree decoration-info="state == 'draft'" decoration-muted="state == 'cancel'" decoration-danger="state not in ('cancel', 'done') and date &lt; current_date" string="Picking list">
+                    <field name="name"/>
+                    <field name="custodian_orig_id"/>
+                    <field name="custodian_dest_id"/>
+                    <field name="date" invisible="1"/>
+                    <field name="origin"/>
+                    <field name="state"/>
+                    <field name="picking_type_id" invisible="1"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_tools_picking_form" model="ir.ui.view">
+            <field name="name">tools.picking.form</field>
+            <field name="model">tools.picking</field>
+            <field eval="12" name="priority"/>
+            <field name="arch" type="xml">
+                <form string="Transfer">
+                <header>
+                    <field name="id" invisible="1"/>
+                    <button name="button_validate" attrs="{'invisible': [('state', 'in', ('done', 'cancel', 'confirmed'))]}" string="Validate" groups="base.group_user" type="object" class="oe_highlight"/>
+                    <button name="action_cancel" attrs="{'invisible': [('state', 'in', ('done', 'cancel', 'draft'))]}" string="Cancel" groups="base.group_user" type="object"/>
+                    <field name="picking_type_code" invisible="1"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,done,cancel" />
+                </header>
+                <sheet>
+                    <h1 class="hidden-xs">
+                        <field name="name" readonly="1"/>
+                    </h1>
+                    <group>
+                        <group>
+                            <field name="picking_type_id" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                            <field name="custodian_orig_id" attrs="{'required': [('picking_type_code', 'in', ('outgoing','outgoing_Missing','outgoing_transfer','internal'))], 'invisible': [('picking_type_code', 'not in', ('outgoing','outgoing_Missing','outgoing_transfer','internal'))], 'readonly': [('state', '!=' , 'draft')]}"/>
+                            <field name="custodian_dest_id" attrs="{'required': [('picking_type_code', 'in', ('income','income_surplus','income_transfer','internal'))], 'invisible': [('picking_type_code', 'not in', ('income','income_surplus','income_transfer','internal'))], 'readonly': [('state', '!=' , 'draft')]}"/>
+                            <field name="partner_id" attrs="{'required': [('picking_type_code', 'in', ('income_transfer','outgoing_transfer'))], 'readonly': [('state', '!=' , 'draft')]}"/>
+                        </group>
+                        <group>
+                            <field name="date" attrs="{'readonly': ['|',('id', '=', False),('state', '!=' , 'draft')], 'required': [('id', '!=', False)]}"/>
+                            <field name="origin" placeholder="e.g. PO0032" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Operations">
+                            <field name="id" invisible="1"/>
+                            <field name="move_lines" attrs="{'readonly': [('state', '!=', 'draft')]}" context="{'default_state': state, 'default_picking_id': id, 'form_view_ref':'l10n_cu_tools.view_tools_move_picking_form', 'default_picking_type_id': picking_type_id}">
+                                <tree decoration-muted="state == 'cancel'" string="Stock moves" editable="bottom">
+                                    <field name="name" invisible="1"/>
+                                    <field name="date" invisible="1"/>
+                                    <field name="sequence" widget="handle"/>
+                                    <field name="state" invisible="1" readonly="0"/>
+                                    <field name="picking_type_id" invisible="1"/>
+                                    <field name="custodian_orig_id" invisible="1"/>
+                                    <field name="custodian_dest_id" invisible="1"/>
+                                    <field name="picking_code" invisible="1"/>
+                                    <field name="product_id" required="1" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                                    <field name="origin" invisible="1"/>
+                                    <field name="product_uom"/>
+                                    <field name="product_uom_qty" string="Done"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page string="Additional Info" name="extra">
+                            <group>
+                                <group>
+                                    <field name="picking_type_code" invisible="1" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                                    <field name="note" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                                </group>
+                                <group>
+                                    <field name="company_id" groups="base.group_multi_company" options="{'no_create': True}" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                                </group>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="activity_ids" widget="mail_activity"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_tools_picking_internal_search" model="ir.ui.view">
+            <field name="name">tools.picking.internal.search</field>
+            <field name="model">tools.picking</field>
+            <field name="arch" type="xml">
+                <search string="Picking Lists">
+                    <field name="name" string="Picking List" filter_domain="['|',('name','ilike', self),('origin','ilike',self)]"/>
+                    <filter name="draft" string="Draft" domain="[('state','=','draft')]" help="Draft Moves"/>
+                    <filter name="confirmed" string="Confirmed" domain="[('state','=', 'confirmed')]" help="Confirmed Moves"/>
+                    <filter name="done" string="Done" domain="[('state','=','done')]" help="Pickings already processed"/>
+                    <separator/>
+                    <filter string="My Activities" name="activities_my"
+                        domain="[('activity_ids.user_id', '=', uid)]"/>
+                    <separator/>
+                    <filter string="Late Activities" name="activities_overdue"
+                        domain="[('activity_ids.date_deadline', '&lt;', context_today().strftime('%Y-%m-%d'))]"
+                        help="Show all records which has next action date is before today"/>
+                    <filter string="Today Activities" name="activities_today"
+                        domain="[('activity_ids.date_deadline', '=', context_today().strftime('%Y-%m-%d'))]"/>
+                    <filter string="Future Activities" name="activities_upcoming_all"
+                        domain="[('activity_ids.date_deadline', '&gt;', context_today().strftime('%Y-%m-%d'))
+                        ]"/>
+                    <field name="picking_type_id"/>
+                    <group expand="0" string="Group By">
+                        <filter string="Status" domain="[]" context="{'group_by':'state'}"/>
+                        <filter string="Order Date" domain="[]"  context="{'group_by':'date'}"/>
+                        <filter string="Origin" domain="[]" context="{'group_by':'origin'}"/>
+                        <filter name="picking_type" string="Operation Type" domain="[]" context="{'group_by':'picking_type_id'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record id="action_tools_picking_tree_all" model="ir.actions.act_window">
+            <field name="name">Tools Operations</field>
+            <field name="res_model">tools.picking</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,kanban,form,calendar</field>
+            <field name="domain"></field>
+            <field name="context">{
+            }
+            </field>
+            <field name="search_view_id" ref="view_tools_picking_internal_search"/>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                Click here to create a new transfer.
+              </p><p>
+                You can either do it immediately or mark it as Todo for future processing. Use your scanner to validate the transferred quantity quicker.
+              </p>
+            </field>
+        </record>
+
+        <record id="stock_tools_picking_action_picking_type" model="ir.actions.act_window">
+            <field name="name">All Transfers</field>
+            <field name="res_model">tools.picking</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,kanban,form,calendar</field>
+            <field name="domain"></field>
+            <field name="context">{
+                    'search_default_picking_type_id': [active_id],
+                    'default_picking_type_id': active_id,
+            }
+            </field>
+            <field name="search_view_id" ref="view_tools_picking_internal_search"/>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                Click here to create a new transfer.
+              </p><p>
+                You can either do it immediately or mark it as Todo for future processing. Use your scanner to validate the transferred quantity quicker.
+              </p>
+            </field>
+        </record>
+
+        <record id="action_tools_picking_tree_done" model="ir.actions.act_window">
+            <field name="name">Done Transfers</field>
+            <field name="res_model">tools.picking</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,kanban,form,calendar</field>
+            <field name="domain"></field>
+            <field name="context">{
+                    'search_default_picking_type_id': [active_id],
+                    'default_picking_type_id': active_id,
+                    'search_default_done': 1,
+            }
+            </field>
+            <field name="search_view_id" ref="view_tools_picking_internal_search"/>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                Click here to create a new transfer.
+              </p><p>
+                You can either do it immediately or mark it as Todo for future processing. Use your scanner to validate the transferred quantity quicker.
+              </p>
+            </field>
+        </record>
+
+        <record id="action_tools_picking_tree_done_grouped" model="ir.actions.act_window">
+            <field name="name">Done Transfers by Date</field>
+            <field name="res_model">tools.picking</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,kanban,form,calendar</field>
+            <field name="domain"></field>
+            <field name="context">{
+                    'search_default_picking_type_id': [active_id],
+                    'default_picking_type_id': active_id,
+                    'search_default_done': 1,
+                    'group_by': ['date'],
+            }
+            </field>
+            <field name="search_view_id" ref="view_tools_picking_internal_search"/>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                Click here to create a new transfer.
+              </p><p>
+                You can either do it immediately or mark it as Todo for future processing. Use your scanner to validate the transferred quantity quicker.
+              </p>
+            </field>
+        </record>
+
+        <record id="action_tools_picking_tree_draft" model="ir.actions.act_window">
+            <field name="name">Draft Transfers</field>
+            <field name="res_model">tools.picking</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,kanban,form,calendar</field>
+            <field name="domain"></field>
+            <field name="context">{
+                    'search_default_picking_type_id': [active_id],
+                    'default_picking_type_id': active_id,
+                    'search_default_draft': 1,
+            }
+            </field>
+            <field name="search_view_id" ref="view_tools_picking_internal_search"/>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                Click here to create a new transfer.
+              </p><p>
+                You can either do it immediately or mark it as Todo for future processing. Use your scanner to validate the transferred quantity quicker.
+              </p>
+            </field>
+        </record>
+
+        <record id="action_tools_picking_tree_account" model="ir.actions.act_window">
+            <field name="name">To Account Transfers</field>
+            <field name="res_model">tools.picking</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,kanban,form,calendar</field>
+            <field name="domain"></field>
+            <field name="context">{
+                    'search_default_picking_type_id': [active_id],
+                    'default_picking_type_id': active_id,
+                    'search_default_confirmed': 1,
+            }
+            </field>
+            <field name="search_view_id" ref="view_tools_picking_internal_search"/>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                Click here to create a new transfer.
+              </p><p>
+                You can either do it immediately or mark it as Todo for future processing. Use your scanner to validate the transferred quantity quicker.
+              </p>
+            </field>
+        </record>
+
+        <record id="action_tools_picking_tree_done" model="ir.actions.act_window">
+            <field name="name">Done Transfers</field>
+            <field name="res_model">tools.picking</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,kanban,form,calendar</field>
+            <field name="domain"></field>
+            <field name="context">{
+                    'search_default_picking_type_id': [active_id],
+                    'default_picking_type_id': active_id,
+                    'search_default_done': 1,
+            }
+            </field>
+            <field name="search_view_id" ref="view_tools_picking_internal_search"/>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                Click here to create a new transfer.
+              </p><p>
+                You can either do it immediately or mark it as Todo for future processing. Use your scanner to validate the transferred quantity quicker.
+              </p>
+            </field>
+        </record>
+
+        <record id="action_tools_picking_tree_cancel" model="ir.actions.act_window">
+            <field name="name">Cancel Transfers</field>
+            <field name="res_model">tools.picking</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,kanban,form,calendar</field>
+            <field name="domain"></field>
+            <field name="context">{
+                    'search_default_picking_type_id': [active_id],
+                    'default_picking_type_id': active_id,
+                    'search_default_cancel': 1,
+            }
+            </field>
+            <field name="search_view_id" ref="view_tools_picking_internal_search"/>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                Click here to create a new transfer.
+              </p><p>
+                You can either do it immediately or mark it as Todo for future processing. Use your scanner to validate the transferred quantity quicker.
+              </p>
+            </field>
+        </record>
+
+        <record id="action_tools_picking_tree" model="ir.actions.act_window">
+            <field name="name">Transfers</field>
+            <field name="res_model">tools.picking</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,kanban,form,calendar</field>
+            <field name="domain"></field>
+            <field name="context">{
+                    'search_default_picking_type_id': [active_id],
+                    'default_picking_type_id': active_id,
+            }
+            </field>
+            <field name="search_view_id" ref="view_tools_picking_internal_search"/>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                Click to create a stock operation.
+              </p><p>
+                Most operations are prepared automatically by Odoo according
+                to your preconfigured logistics rules, but you can also record
+                manual stock movements.
+              </p>
+            </field>
+        </record>
+
+
+        <record id="action_tools_picking_form" model="ir.actions.act_window">
+            <field name="name">New Transfer</field>
+            <field name="res_model">tools.picking</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="domain"></field>
+            <field name="context">{
+                    'search_default_picking_type_id': [active_id],
+                    'default_picking_type_id': active_id,
+            }
+            </field>
+            <field name="search_view_id" ref="view_tools_picking_internal_search"/>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                Click here to create a new transfer.
+              </p><p>
+                You can either do it immediately or mark it as Todo for future processing. Use your scanner to validate the transferred quantity quicker.
+              </p>
+            </field>
+        </record>
+
+</odoo>

@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+	<data>
+		<record id="l10n_cu_asset_general_reports" model="ir.ui.view">
+			<field name="name">Asset General Reports</field>
+			<field name="model">l10n_cu_asset.general.reports</field>
+			<field name="arch" type="xml">
+				<form string="Report">
+					<group>
+						<group>
+							<field name="reports" attrs="{'required':True}" colspan="2" on_change="onchange_report(reports, context)"/>
+							<!--<field name="fiscal_year_id" attrs="{'required':True}" options="{'no_create': 1}" colspan="2"/>-->
+						</group>
+						<group>
+						   <field name="filter_cmp"
+								  on_change="on_change_filter(filter_cmp, area, category_id)"
+								  attrs="{'readonly': [('reports', '=', '13')]}" />
+							<!--fiscal_year_id, -->
+						   <field name="area"
+								  attrs="{'invisible':[('filter_cmp', 'not in', ('filter_area', 'filter_both'))],
+										  'required':[('filter_cmp', 'in', ('filter_area', 'filter_both'))]}"
+								  options="{'no_create': 1}"/>
+						   <field name="category_id"
+								  attrs="{'invisible':[('filter_cmp', 'not in', ('filter_category', 'filter_both'))],
+										  'required':[('filter_cmp', 'in', ('filter_category', 'filter_both'))]}"
+								  options="{'no_create': 1}"/>
+						   <field name="asset_report"
+								  attrs="{'invisible':[('filter_cmp', 'not in', ('filter_asset', 'filter_both'))]}"
+								  options="{'no_create': 1}"
+								  domain="[('state','not in',('draft', 'close')),
+										   ('parent_id','=',False),
+										   ('child_ids','=',False)]"/> <!-- ,('asset_category_code', 'not in',('5','6')) '6', 'Animals for work and productive use' '5', 'Permanent plantations'-->
+						   <field name="asset_module_report"
+								  attrs="{'invisible':[('filter_cmp', 'not in', ('filter_asset_module', 'filter_both'))]}"
+								  options="{'no_create': 1}"
+								  domain="[('state','not in',('draft', 'close')),
+										   ('child_ids','!=',False)]"/> <!-- ,('asset_category_code', 'not in',('5','6')) '6', 'Animals for work and productive use' '5', 'Permanent plantations'-->
+						   <field name="start_date"
+								  attrs="{'invisible':[('filter_cmp', 'not in', ('filter_dates', 'filter_both'))]}"
+								  domain="[('state','not in',('draft', 'close')),
+										   ('child_ids','!=',False)]"/>
+							<field name="end_date"
+								  attrs="{'invisible':[('filter_cmp', 'not in', ('filter_dates', 'filter_both'))]}"
+								  domain="[('state','not in',('draft', 'close')),
+										   ('child_ids','!=',False)]"/>
+						</group>
+					</group>
+                    <!--<notebook colspan="4">-->
+                        <!--<page string="Filters" name="filters">-->
+							<!--<group>-->
+	                           <!--<field name="filter_cmp"-->
+									  <!--on_change="on_change_filter(filter_cmp, area, category_id)"-->
+									  <!--attrs="{'readonly': [('reports', '=', '13')]}" />-->
+								<!--&lt;!&ndash;fiscal_year_id, &ndash;&gt;-->
+	                           <!--<field name="area"-->
+									  <!--attrs="{'invisible':[('filter_cmp', 'not in', ('filter_area', 'filter_both'))],-->
+	                                          <!--'required':[('filter_cmp', 'in', ('filter_area', 'filter_both'))]}"-->
+									  <!--options="{'no_create': 1}"/>-->
+	                           <!--<field name="category_id"-->
+									  <!--attrs="{'invisible':[('filter_cmp', 'not in', ('filter_category', 'filter_both'))],-->
+									          <!--'required':[('filter_cmp', 'in', ('filter_category', 'filter_both'))]}"-->
+									  <!--options="{'no_create': 1}"/>-->
+	                           <!--&lt;!&ndash;<field name="period_start"&ndash;&gt;-->
+									  <!--&lt;!&ndash;attrs="{'readonly':[('filter_cmp', 'not in', ('filter_period', 'filter_both'))],&ndash;&gt;-->
+									          <!--&lt;!&ndash;'required':[('filter_cmp', 'in', ('filter_period', 'filter_both'))]}"&ndash;&gt;-->
+									  <!--&lt;!&ndash;domain="[('special', '=', False)]"&ndash;&gt;-->
+									  <!--&lt;!&ndash;options="{'no_create': 1}"&ndash;&gt;-->
+									  <!--&lt;!&ndash;on_change="on_change_period(period_start, period_end)" />&ndash;&gt;-->
+	                           <!--&lt;!&ndash;<field name="period_end"&ndash;&gt;-->
+									  <!--&lt;!&ndash;attrs="{'readonly':[('filter_cmp', 'not in', ('filter_period', 'filter_both'))],&ndash;&gt;-->
+									          <!--&lt;!&ndash;'required':[('filter_cmp', 'in', ('filter_period', 'filter_both'))]}"&ndash;&gt;-->
+									  <!--&lt;!&ndash;domain="[('special', '=', False)]"&ndash;&gt;-->
+									  <!--&lt;!&ndash;options="{'no_create': 1}"&ndash;&gt;-->
+									  <!--&lt;!&ndash;on_change="on_change_period(period_start, period_end)" />&ndash;&gt;-->
+	                           <!--<field name="asset_report"-->
+									  <!--attrs="{'invisible':[('filter_cmp', 'not in', ('filter_asset', 'filter_both'))]}"-->
+									  <!--options="{'no_create': 1}"-->
+									  <!--domain="[('state','not in',('draft', 'close')),-->
+									           <!--('parent_id','=',False),-->
+									           <!--('child_ids','=',False)]"/> &lt;!&ndash; ,('asset_category_code', 'not in',('5','6')) '6', 'Animals for work and productive use' '5', 'Permanent plantations'&ndash;&gt;-->
+	                           <!--<field name="asset_module_report"-->
+									  <!--attrs="{'invisible':[('filter_cmp', 'not in', ('filter_asset_module', 'filter_both'))]}"-->
+									  <!--options="{'no_create': 1}"-->
+									  <!--domain="[('state','not in',('draft', 'close')),-->
+									           <!--('child_ids','!=',False)]"/>-->
+							<!--</group>-->
+                        <!--</page>-->
+                    <!--</notebook>-->
+					<separator colspan="4" />
+					<footer>
+                        <button name="print_report" string="Print" type="object" class="oe_highlight"/>
+                        or
+                        <button special="cancel" string="Cancel" class="oe_link"/>
+                    </footer>
+				</form>
+			</field>
+		</record>
+		
+		<record id="action_l10n_cu_asset_general_reports_act" model="ir.actions.act_window">
+			<field name="name">Asset General Reports</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">l10n_cu_asset.general.reports</field>
+			<field name="view_type">form</field>
+			<field name="view_id" ref="l10n_cu_asset_general_reports" />
+			<field name="target">new</field>
+		</record>
+
+		<menuitem id="menu_general_reports"
+				  name="Asset General Reports"
+				  parent="menu_assets_reports"
+				  icon="STOCK_PRINT"
+                  action="action_l10n_cu_asset_general_reports_act"/>
+
+	</data>
+</odoo>

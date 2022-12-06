@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record model="ir.module.category" id="base_module_asset">
+            <field name="name">Assets</field>
+            <field name="sequence">104</field>
+        </record>
+    </data>
+</odoo>

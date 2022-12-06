@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!--Formato del Papel-->
+        <record id="l10n_cu_tools" model="report.paperformat">
+            <field name="name">Landscape Paper Format</field>
+            <field name="default" eval="True"/>
+            <field name="format">Letter</field>
+            <field name="orientation">Landscape</field>
+            <field name="margin_top">10</field>
+            <field name="margin_bottom">10</field>
+            <field name="margin_left">20</field>
+            <field name="margin_right">20</field>
+            <field name="header_line" eval="True"/>
+            <field name="header_spacing">100</field>
+        </record>
+
+    <template id="report_tools_account_physical_inventory" inherit_id="l10n_cu_tools.report_tools_physical_inventory">
+        <xpath expr="//table[2]/thead/tr/th[8]" position="after">
+            <th class="text-left"><strong>Theoretical Import</strong></th>
+            <th class="text-left"><strong>Physical Import</strong></th>
+            <th class="text-left"><strong>Surplus Import</strong></th>
+            <th class="text-left"><strong>Leftover Import</strong></th>
+        </xpath>
+        <xpath expr="//table[2]/tbody/t/tr[1]/td[7]" position="after">
+            <td> </td>
+            <td> </td>
+            <td> </td>
+            <td> </td>
+        </xpath>
+        <xpath expr="//table[2]/tbody/t/tr[2]/td[8]" position="after">
+            <td class="text-left"><span t-field="line.import_theoretical_count"/></td>
+            <td class="text-left"><span t-field="line.import_physical_count"/></td>
+            <td class="text-left"><span t-field="line.import_surplus"/></td>
+            <td class="text-left"><span t-field="line.import_leftover"/></td>
+        </xpath>
+    </template>
+
+    <report
+        string="Physical Inventory"
+        id="l10n_cu_tools.action_report_tools_physical_inventory"
+        model="tools.inventory"
+        report_type="qweb-pdf"
+        paperformat="l10n_cu_tools"
+        name="l10n_cu_tools.report_tools_physical_inventory"
+        file="l10n_cu_tools.report_tools_physical_inventory"
+    />
+
+</odoo>

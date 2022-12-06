@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_l10n_cu_stock_account_l10n_cu_stock_account_template,10n_cu_stock_account.l10n_cu_stock_account.template,l10n_cu_stock_account.model_l10n_cu_stock_account_template,account.group_account_manager,1,0,0,0

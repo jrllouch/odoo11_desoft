@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Custom report.-->
+<odoo>
+    <data>
+        <template id="l10n_cu_sub_ledger_furniture_others_report">
+             <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="doc">
+                    <t t-call="web.external_layout">
+                        <t t-if="doc.asset_category_group in ('2', '7')">
+                            <t t-set="life" t-value="100" />
+                            <t t-if="doc.depreciation_tax > 0">
+                                <t t-set="life" t-value="100/doc.depreciation_tax" />
+                            </t>
+                            <div class="page">
+                                <div class="row">
+                                    <!--<span>Page </span><span class="page"/> of <span class="topage"/>-->
+                                    <span class="pull-right"><span t-esc="time.strftime('%d/%m/%Y %H:%M:%S')"/></span>
+                                </div>
+                                <div class="row text-center">
+                                    <h4><strong>MODEL SC-1-04 - FURNITURE, FIXTURES AND OFFICE EQUIPMENT SUB-LEDGER</strong></h4>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-12"><strong>Entity: </strong><spam><t t-esc="res_company.name"/></spam></div>
+                                </div>
+                                <!--<div class="row">-->
+                                    <!--<div class="col-xs-6"><strong>REEUP: </strong><spam><t t-esc="res_company.reup_code"/></spam></div>-->
+                                    <!--<div class="col-xs-6"><strong>NAE: </strong><spam><t t-esc="res_company.nae"/></spam></div>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                            <!--<div class="page">-->
+                                <div class="row pull-right">
+                                    <strong>Sub-Ledger:</strong> <t t-esc="doc.sub_ledger_number" />
+                                </div>
+                                <div class="row">
+                                    <table class="table table-bordered">
+                                        <thead>
+                                            <tr style="height:40px;">
+                                                <th class="text-center">Inventory Number</th>
+                                                <th colspan="2" class="text-center">Asset Name</th>
+                                                <th class="text-center">Cost Center</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr style="height:40px;">
+                                                <td class="text-center" ><t t-esc="doc.inventory_number"/></td>
+                                                <td colspan="2" class="text-center"><t t-esc="doc.name"/></td>
+                                                <td class="text-center"><t t-esc="doc.area.account_analytic_id.name"/></td>
+                                            </tr>
+                                            <tr style="height:40px;">
+                                                <th class="text-center">Model</th>
+                                                <th class="text-center">Type</th>
+                                                <th class="text-center">Mark</th>
+                                                <th class="text-center">Serial Number</th>
+                                            </tr>
+                                            <tr style="height:40px;">
+                                                <td class="text-center"><t t-esc="doc.furniture_model" /></td>
+                                                <td class="text-center"><t t-esc="doc.furniture_type.name" /></td>
+                                                <td class="text-center"><t t-esc="doc.furniture_mark" /></td>
+                                                <td class="text-center"><t t-esc="doc.furniture_serial_number" /></td>
+                                            </tr>
+                                            <tr style="height:40px;">
+                                                <th class="text-center">Asset Value</th>
+                                                <th class="text-center">Subscribe Date</th>
+                                                <th class="text-center">Depreciation Tax (%)</th>
+                                                <th class="text-center">Useful Life (years)</th>
+                                            </tr>
+                                            <tr style="height:40px;">
+                                                <td class="text-right"><t t-esc="'%.2f'%(doc.value)"/></td>
+                                                <td class="text-center"><t t-esc="doc.subscribe_date"/></td>
+                                                <td class="text-right"><t t-esc="'%.2f'%(doc.depreciation_tax)"/></td>
+                                                <td class="text-right"><t t-esc="'%.2f'%(life)" /></td>
+                                            </tr>
+                                            <t t-if="doc.child_ids">
+                                                <tr style="height:40px;">
+                                                    <th colspan="4" class="text-center">Corresponding Assets</th>
+                                                </tr>
+                                                <tr style="height:40px;">
+                                                    <th colspan="2" class="text-center">Inventory Number</th>
+                                                    <th colspan="2" class="text-center">Name</th>
+                                                </tr>
+                                                <tr style="height:40px;">
+                                                    <t t-foreach="doc.child_ids" t-as="asset">
+                                                        <td colspan="2" class="text-center"><t t-esc="asset.inventory_number" /></td>
+                                                        <td colspan="2" class="text-center"><t t-esc="asset.name" /></td>
+                                                    </t>
+                                                </tr>
+                                            </t>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </t>
+                    </t>
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>

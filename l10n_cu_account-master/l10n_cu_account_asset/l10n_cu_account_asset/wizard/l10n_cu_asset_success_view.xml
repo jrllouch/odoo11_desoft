@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<record id="l10n_cu_asset_success_form_view" model="ir.ui.view">
+		<field name="name">l10n_cu.asset.success.form</field>
+		<field name="model">l10n_cu.asset.success</field>
+		<field name="arch" type="xml">
+			<form>
+				<field name="message"/>
+				<footer>
+					<button string="OK" special="cancel" class="btn-default"/>
+				</footer>
+			</form>
+		</field>
+	</record>
+
+</odoo>

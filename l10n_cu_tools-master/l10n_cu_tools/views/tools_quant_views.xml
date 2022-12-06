@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="tools_quant_search_view" model="ir.ui.view">
+        <field name="name">tools.quant.search</field>
+        <field name="model">tools.quant</field>
+        <field eval="10" name="priority"/>
+        <field name="arch" type="xml">
+            <search string="Quants">
+                <field name="product_id"/>
+                <field name="custodian_id"/>
+                <field name="company_id" groups="base.group_multi_company"/>
+                <group expand='0' string='Group by...'>
+                    <filter string='Custodian' name="custodiangroup" domain="[]" context="{'group_by': 'custodian_id'}"/>
+                    <filter string='Product' name="productgroup" context="{'group_by': 'product_id'}"/>
+                    <filter string='Company' domain="[]" context="{'group_by': 'company_id'}" groups="base.group_multi_company"/>
+               </group>
+            </search>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="view_tools_quant_tree">
+        <field name="name">tools.quant.tree</field>
+        <field name="model">tools.quant</field>
+        <field eval="10" name="priority"/>
+        <field name="arch" type="xml">
+            <tree string="Inventory Valuation" create="0" delete="0" edit="0">
+                <field name="custodian_id"/>
+                <field name="product_id"/>
+                <field name="product_uom_id" groups="product.group_uom"/>
+                <field name="quantity" string="On Hand"/>
+                <field name='company_id' groups="base.group_multi_company"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="toolsquantsact"> <!-- Menu + python -->
+        <field name="name">Inventory</field>
+        <field name="res_model">tools.quant</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form,pivot,graph</field>
+        <field name="context">{'group_by': ['custodian_id', 'product_id']}</field>
+        <field name="help">This analysis gives you a fast overview on the current tools level of your products and their current inventory value.</field>
+    </record>
+
+    <record model="ir.actions.act_window" id="tools_product_open_quants">
+        <field name="name">Tools On Hand</field>
+        <field name="domain">[('product_id', '=', active_id)]</field>
+        <field name="res_model">tools.quant</field>
+    </record>
+</odoo>

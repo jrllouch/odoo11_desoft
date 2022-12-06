@@ -1,0 +1,18 @@
+<odoo>
+    <!-- Inherit Form View to Modify it -->
+    <record id="tool_custodian_form_account" model="ir.ui.view">
+        <field name="name">tools_custodian_form_account</field>
+        <field name="model">tools.custodian</field>
+        <field name="inherit_id" ref="l10n_cu_tools.tool_custodian_form"/>
+        <field name="arch" type="xml">
+
+            <xpath expr="//group[@id='general']" position="inside">
+                <group name="account" groups="account.group_account_user">
+                   <field name="expense_account" domain="[('company_id', '=', company_id)]" options="{'no_create': True}"/>
+                   <field name="analytic_account" domain="[('company_id', '=', company_id)]" options="{'no_create': True}"/>
+               </group>
+            </xpath>
+
+        </field>
+    </record>
+</odoo>

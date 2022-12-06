@@ -1,0 +1,942 @@
+<odoo>
+
+    <report id="action_report_operation_report" model="stock.picking" string="Reporte de transferencia de inventario" paperformat="paperformat_operation_report" name="l10n_cu_stock_account.operation_report" file="l10n_cu_stock_account.operation_report" print_report_name="object.picking_type_id.template.name" report_type="qweb-pdf" />
+
+    <template id="operation_report">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <h3 t-field="doc.picking_type_id.template" class="text-center" />
+                        <table style="width:100%">
+                            <tr>
+                                <td class="text-left">
+                                    <b>Date printing:</b>
+                                    <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%Y-%m-%d %H:%M')"/>
+                                </td>
+                                <td class="text-right">
+                                    <b>Document number:</b>
+                                    <span t-field="doc.name" />
+                                </td>
+                            </tr>
+                        </table>
+
+                        <!-- encabezado operaciones de entrada -->
+                        <div style="margin-bottom:15px; clear: both" t-if="doc.picking_type_id.template.code in ('ir')">
+                            <div style="float: right; width: 49%; text-align:left">
+                                <h4>Cliente</h4>
+                                <strong t-field="doc.company_id.name" />
+                                <address>
+                                    <span t-field="doc.company_id.street" />
+                                    <span t-field="doc.company_id.street2" />
+                                    <br/>
+                                    <div t-if="doc.company_id.zip" t-field="doc.company_id.zip" />
+                                    <span t-field="doc.company_id.city" />
+                                    <span t-field="doc.company_id.state_id" />
+                                    <br/>
+                                    <span t-field="doc.company_id.country_id" />
+                                </address>
+                                <p>
+                                    <b>Almacén receptor:</b>
+                                    <span t-field="doc.picking_type_id.warehouse_id" />
+ (                                    <span t-field="doc.picking_type_id.warehouse_id.code" />
+)
+                                </p>
+                                <p t-if="doc.company_id.vat">
+                                    <b>NIT:</b>
+                                    <span t-field="doc.company_id.vat" />
+                                </p>
+                            </div>
+                            <div style="float: left; width: 49%; text-align:left">
+                                <h4>Proveedor</h4>
+                                <strong t-field="doc.partner_id.name" />
+                                <address>
+                                    <span t-field="doc.partner_id.street" />
+                                    <span t-field="doc.partner_id.street2" />
+                                    <br/>
+                                    <div t-if="doc.partner_id.zip" t-field="doc.partner_id.zip" />
+                                    <span t-field="doc.partner_id.city" />
+                                    <span t-field="doc.partner_id.state_id" />
+                                    <br/>
+                                    <span t-field="doc.partner_id.country_id" />
+                                </address>
+                                <b t-if="doc.picking_type_id.template.code == 'pt'" style="margin-bottom:25px;display:block">Área productora:</b>
+                                <b t-if="doc.picking_type_id.template.code == 'pt'" style="margin-bottom:25px;display:block">Número de la orden de producción o del lote:</b>
+                            </div>
+                        </div>
+                        <div style="margin-bottom:15px; clear: both" t-if="doc.picking_type_id.template.code == 'ir'">
+                            <b>Documento que ampara los productos: </b>
+                            <span t-field="doc.origin"/>
+                        </div>
+
+                        <!-- encabezado operaciones de salida -->
+                        <div style="margin-bottom:15px; clear: both" t-if="doc.picking_type_id.template.code in ('cd', 'ft')">
+                            <div style="float: left; width: 49%; text-align:left">
+                                <h4>Proveedor</h4>
+                                <strong t-field="doc.company_id.name" />
+                                <address>
+                                    <span t-field="doc.company_id.street" />
+                                    <span t-field="doc.company_id.street2" />
+                                    <br/>
+                                    <div t-if="doc.company_id.zip" t-field="doc.company_id.zip" />
+                                    <span t-field="doc.company_id.city" />
+                                    <span t-field="doc.company_id.state_id" />
+                                    <br/>
+                                    <span t-field="doc.company_id.country_id" />
+                                </address>
+                                <table class="table" style="width:65%" t-if="doc.picking_type_id.template.code == 'ft'">
+                                    <thead>
+                                        <tr>
+                                            <th>Número de la cuenta</th>
+                                            <th>Sucursal</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr t-foreach="doc.company_id.partner_id.bank_ids" t-as="bank">
+                                            <td>
+                                                <span t-field="bank.acc_number" />
+                                            </td>
+                                            <td>
+                                                <span t-field="bank.bank_name" />
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <p t-if="doc.company_id.vat">
+                                    <b>NIT:</b>
+                                    <span t-field="doc.company_id.vat" />
+                                </p>
+                            </div>
+                            <div style="float: right; width: 49%; text-align:left">
+                                <h4>Cliente</h4>
+                                <strong t-field="doc.partner_id.name" />
+                                <address>
+                                    <span t-field="doc.partner_id.street" />
+                                    <span t-field="doc.partner_id.street2" />
+                                    <br/>
+                                    <div t-if="doc.partner_id.zip" t-field="doc.partner_id.zip" />
+                                    <span t-field="doc.partner_id.city" />
+                                    <span t-field="doc.partner_id.state_id" />
+                                    <br/>
+                                    <span t-field="doc.partner_id.country_id" />
+                                </address>
+                                <table class="table" style="width:65%" t-if="doc.picking_type_id.template.code == 'ft'">
+                                    <thead>
+                                        <tr>
+                                            <th>Número de la cuenta</th>
+                                            <th>Sucursal</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr t-foreach="doc.partner_id.bank_ids" t-as="bank">
+                                            <td>
+                                                <span t-field="bank.acc_number" />
+                                            </td>
+                                            <td>
+                                                <span t-field="bank.bank_name" />
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <b t-if="doc.picking_type_id.template.code == 'cd'" style="margin-bottom:25px;display:block">Lugar de entrega:</b>
+                            </div>
+                        </div>
+                        <div style="margin-bottom:15px; clear: both" t-if="doc.picking_type_id.template.code == 'ft'">
+                            <b>Operaciones por la que se emite:</b>
+                        </div>
+
+                        <!-- encabezado operaciones internas-->
+                        <div id="opi" style="margin-bottom:15px; clear: both" t-if="doc.picking_type_id.template.code in ('ve', 'ta', 'pt','ai', 'vd')">
+                            <div id="opii" style="float: right; width: 49%; text-align:left">
+                                <h4><t t-if="doc.picking_type_id.template.code in ('ta', 'pt','ai', 'vd') and doc.location_dest_id.get_warehouse() != False">Receiving warehouse:</t></h4>
+                                <div>
+                                    <t t-if="doc.picking_type_id.template.code in ('ta', 'pt','ai', 'vd') and doc.location_dest_id.get_warehouse() != False">
+                                        <span t-field="doc.location_dest_id.get_warehouse().name" />
+                                        (<span t-field="doc.location_dest_id.get_warehouse().code" />)
+                                        <address>
+                                            <span t-field="doc.location_dest_id.get_warehouse().partner_id.street" />
+                                            <span t-field="doc.location_dest_id.get_warehouse().partner_id.street2" />
+                                            <span t-if="doc.location_dest_id.get_warehouse().partner_id.zip" t-field="doc.location_dest_id.get_warehouse().partner_id.zip" />
+                                            <span t-field="doc.location_dest_id.get_warehouse().partner_id.city" />
+                                            <span t-field="doc.location_dest_id.get_warehouse().partner_id.state_id" />
+                                            <span t-field="doc.location_dest_id.get_warehouse().partner_id.country_id" />
+                                        </address>
+                                    </t>
+                                    <t name="dates1" t-if="doc.picking_type_id.template.code in ('ve', 'ta', 'ai') and doc.location_id.get_warehouse() != False">
+                                        <p t-if="doc.picking_type_id.template.code == 'ai'">
+                                            <b>Adjustment concept:</b>
+                                        </p>
+                                        <div style="margin-bottom:15px; clear: both; font-weight:bold" t-if="doc.picking_type_id.template.code == 've'">
+                                            <b>Cost center:</b>
+                                            <span t-field="doc.analytic_account_id" />
+                                            <br/>
+                                            <b>Lot code:________________________________________</b>
+                                            <br/>
+                                            <b>Production or Work Order:_________________________</b>
+                                        </div>
+                                    </t>
+                                </div>
+                            </div>
+                            <div id="opid" style="float: right; width: 49%; text-align:left">
+                                <h4><t t-if="doc.picking_type_id.template.code in ('ve', 'ta', 'ai') and doc.location_id.get_warehouse() != False">Issuing warehouse:</t></h4>
+                                <div>
+                                    <t t-if="doc.picking_type_id.template.code in ('ve', 'ta', 'ai') and doc.location_id.get_warehouse() != False">
+                                        <span t-field="doc.location_id.get_warehouse().name" />
+                                        (<span t-field="doc.location_id.get_warehouse().code" />)
+                                        <address>
+                                            <span t-field="doc.location_id.get_warehouse().partner_id.street" />
+                                            <span t-field="doc.location_id.get_warehouse().partner_id.street2" />
+                                            <span t-if="doc.location_id.get_warehouse().partner_id.zip" t-field="doc.location_id.get_warehouse().partner_id.zip" />
+                                            <span t-field="doc.location_id.get_warehouse().partner_id.city" />
+                                            <span t-field="doc.location_id.get_warehouse().partner_id.state_id" />
+                                            <span t-field="doc.location_id.get_warehouse().partner_id.country_id" />
+                                        </address>
+                                    </t>
+                                    <t t-if="doc.picking_type_id.template.code in ('ta', 'pt','ai', 'vd') and doc.location_dest_id.get_warehouse() != False">
+                                        <p t-if="doc.picking_type_id.template.code == 'ai'">
+                                            <b>Adjustment concept:</b>
+                                        </p>
+                                        <div style="margin-bottom:15px; clear: both; font-weight:bold" t-if="doc.picking_type_id.template.code == 'vd'">
+                                            <b>Cost center:</b>
+                                            <span t-field="doc.analytic_account_id" />
+                                            <br/>
+                                            <b>Lot code:________________________________________</b>
+                                            <br/>
+                                            <b>Production or Work Order:_________________________</b>
+                                        </div>
+                                        <div style="margin-bottom:15px; clear: both; font-weight:bold" t-if="doc.picking_type_id.template.code == 'pt'">
+                                            <b>Production area:__________________________________</b>
+                                        </div>
+                                    </t>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- cuerpo del informe -->
+
+                        <table class="table" id="ir_prods" t-if="doc.picking_type_id.template.code == 'ir'">
+                            <thead>
+                                <tr>
+                                    <th>Descripción</th>
+                                    <th>Cantidad</th>
+                                    <th>Unidad de medida</th>
+                                    <th>Precio</th>
+                                    <th>Importe</th>
+                                </tr>
+                            </thead>
+                            <tfoot>
+                                <tr>
+                                    <td colspan="6" class="text-right">
+                                        <b>Importe total:</b>
+                                        <span t-field="doc.total_import"/>
+                                    </td>
+                                </tr>
+                            </tfoot>
+                            <tbody>
+                                <tr t-foreach="doc.move_lines" t-as="move">
+                                    <td>
+                                        <span t-field="move.product_id"/>
+                                    </td>
+                                    <td>
+                                        <span t-field="move.quantity_done"/>
+                                    </td>
+                                    <td>
+                                        <span t-field="move.product_uom"/>
+                                    </td>
+                                    <td>
+                                        <span t-esc="abs(move.price_unit) or move.product_id.standard_price"/>
+                                    </td>
+                                    <td>
+                                        <t t-set="importe" t-value="move.quantity_done * move.product_id.standard_price"/>
+                                        <span t-esc="abs(move.value) or importe"/>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <table class="table" id="pt_prods" t-if="doc.picking_type_id.template.code == 'pt'">
+                            <thead>
+                                <tr>
+                                    <th>Descripción</th>
+                                    <th>Cantidad entregada</th>
+                                    <th>Cantidad recibida</th>
+                                    <th>Unidad de medida</th>
+                                    <th>Costo real unitario</th>
+                                    <th>Importe</th>
+                                </tr>
+                            </thead>
+                            <tfoot>
+                                <tr>
+                                    <td colspan="7" class="text-right">
+                                        <b>Importe total:</b>
+                                        <span t-field="doc.total_import"/>
+                                    </td>
+                                </tr>
+                            </tfoot>
+                            <tbody>
+                                <tr t-foreach="doc.move_lines" t-as="move">
+                                    <td>
+                                        <span t-field="move.product_id"/>
+                                    </td>
+                                    <td>
+                                        <span t-field="move.product_uom_qty"/>
+                                    </td>
+                                    <td>
+                                        <span t-field="move.quantity_done"/>
+                                    </td>
+                                    <td>
+                                        <span t-field="move.product_uom"/>
+                                    </td>
+                                    <td>
+                                       <span t-esc="abs(move.price_unit) or move.product_id.standard_price"/>
+                                    </td>
+                                    <td>
+                                        <t t-set="importe" t-value="move.quantity_done * move.product_id.standard_price"/>
+                                        <span t-esc="abs(move.value) or importe"/>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <table class="table" id="ved_prods" t-if="doc.picking_type_id.template.code in ('ve', 'vd')">
+                            <thead>
+                                <tr>
+                                    <th>Descripción</th>
+                                    <th>Cantidad</th>
+                                    <th>Unidad de medida</th>
+                                    <th>Precio unitario total</th>
+                                    <th>Importe</th>
+                                </tr>
+                            </thead>
+                            <tfoot>
+                                <tr>
+                                    <td colspan="6" class="text-right">
+                                        <b>Importe total:</b>
+                                        <span t-field="doc.total_import"/>
+                                    </td>
+                                </tr>
+                            </tfoot>
+                            <tbody>
+                                <tr t-foreach="doc.move_lines" t-as="move">
+                                    <td>
+                                        <span t-field="move.product_id"/>
+                                    </td>
+                                    <td>
+                                        <span t-field="move.quantity_done"/>
+                                    </td>
+                                    <td>
+                                        <span t-field="move.product_uom"/>
+                                    </td>
+                                    <td>
+                                        <span t-esc="abs(move.price_unit) or move.product_id.standard_price"/>
+                                    </td>
+                                    <td>
+                                        <t t-set="importe" t-value="move.quantity_done * move.product_id.standard_price"/>
+                                        <span t-esc="abs(move.value) or importe"/>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <table class="table" id="cdft_prods" t-if="doc.picking_type_id.template.code in ('cd', 'ft')">
+                            <thead>
+                                <tr>
+                                    <th>Descripción</th>
+                                    <th>Cantidad</th>
+                                    <th>Unidad de medida</th>
+                                    <th>Precio unitario total</th>
+                                    <th>Importe</th>
+                                </tr>
+                            </thead>
+                            <tfoot>
+                                <tr>
+                                    <td colspan="6" class="text-right">
+                                        <b>Importe total:</b>
+                                        <span t-field="doc.total_import"/>
+                                    </td>
+                                </tr>
+                            </tfoot>
+                            <tbody>
+                                <tr t-foreach="doc.move_lines" t-as="move">
+                                    <td>
+                                        <span t-field="move.product_id"/>
+                                    </td>
+                                    <td>
+                                        <span t-field="move.quantity_done"/>
+                                    </td>
+                                    <td>
+                                        <span t-field="move.product_uom"/>
+                                    </td>
+                                    <td>
+                                        <span t-esc="abs(move.price_unit) or move.product_id.standard_price"/>
+                                    </td>
+                                    <td>
+                                        <t t-set="importe" t-value="move.quantity_done * move.product_id.standard_price"/>
+                                        <span t-esc="abs(move.value) or importe"/>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <table class="table" id="ta_prods" t-if="doc.picking_type_id.template.code == 'ta'">
+                            <thead>
+                                <tr>
+                                    <th>Descripción</th>
+                                    <th>Cantidad emitida</th>
+                                    <th>Cantidad recibida</th>
+                                    <th>Unidad de medida</th>
+                                    <th>Precio</th>
+                                    <th>Importe de los remitidos</th>
+                                    <th>Importe de los recibidos</th>
+                                </tr>
+                            </thead>
+                            <tfoot>
+                                <tr>
+                                    <td colspan="6" class="text-right">
+                                        <b>Importe total de la entrega:</b>
+                                        <span t-field="doc.total_import"/>
+                                    </td>
+                                    <td colspan="6" class="text-right">
+                                        <b>Importe total de la recepción:</b>
+                                        <span t-field="doc.total_import"/>
+                                    </td>
+                                </tr>
+                            </tfoot>
+                            <tbody>
+                                <tr t-foreach="doc.move_lines" t-as="move">
+                                    <td>
+                                        <span t-field="move.product_id"/>
+                                    </td>
+                                    <td>
+                                        <span t-field="move.quantity_done"/>
+                                    </td>
+                                    <td>
+                                        <span t-field="move.quantity_done"/>
+                                    </td>
+                                    <td>
+                                        <span t-field="move.product_uom"/>
+                                    </td>
+                                    <td>
+                                        <span t-esc="abs(move.price_unit) or move.product_id.standard_price"/>
+                                    </td>
+                                    <td>
+                                        <t t-set="importe_emit" t-value="move.quantity_done * move.product_id.standard_price"/>
+                                        <span t-esc="abs(move.value) or importe_emit"/>
+                                    </td>
+                                    <td>
+                                        <t t-set="importe_recib" t-value="move.quantity_done * move.product_id.standard_price"/>
+                                        <span t-esc="abs(move.value) or importe_recib"/>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                         <table class="table" id="ta_prods" t-if="doc.picking_type_id.template.code == 'ai'">
+                            <thead>
+                                <tr>
+                                    <th>Código de la cuenta, Subcuenta y análisis donde se registra el producto</th>
+                                    <th>Descripción</th>
+                                    <th>Unidad de medida</th>
+                                    <th>Cantidad</th>
+                                    <th>Precio</th>
+                                    <th>Importe</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr t-foreach="doc.move_lines" t-as="move">
+                                    <td>
+                                        <!--Código de la cuenta-->
+                                        <span t-field="move.product_id.product_tmpl_id.categ_id.property_stock_valuation_account_id"/>
+                                    </td>
+
+                                    <td>
+                                        <!--Descripción-->
+                                        <span t-field="move.product_id"/>
+                                    </td>
+                                    <td>
+                                        <!--Unidad de medida-->
+                                        <span t-field="move.product_uom"/>
+                                    </td>
+                                    <td>
+                                        <!--Cantidad-->
+                                         <span t-field="move.quantity_done"/>
+                                    </td>
+                                    <td>
+                                        <!--Precio-->
+                                          <span t-esc="abs(move.price_unit) or move.product_id.standard_price"/>
+                                    </td>
+                                    <td>
+                                        <!--Importe-->
+                                        <t t-set="importe_recib" t-value="move.quantity_done * move.product_id.standard_price"/>
+                                        <span t-esc="abs(move.value) or importe_recib"/>
+                                    </td>
+                                </tr>
+                            </tbody>
+                             <tfoot>
+                                <tr>
+                                    <td colspan="6" class="text-right">
+                                        <b>Importe total del ajuste:</b>
+                                        <span t-field="doc.total_import"/>
+                                    </td>
+                                </tr>
+                            </tfoot>
+                        </table>
+
+                        <!-- informacion sobre los contenedores -->
+                        <table class="table" t-if="doc.has_packages and doc.move_line_ids[0].result_package_id.abbr">
+                            <caption>Transportación en contenedores</caption>
+                            <thead>
+                                <tr>
+                                    <th>Sigla</th>
+                                    <th>Números</th>
+                                    <th>Número de sello</th>
+                                    <th>Peso</th>
+                                    <th>Tasa</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr t-foreach="doc.move_line_ids" t-as="pkg">
+                                    <td>
+                                        <span t-field="pkg.result_package_id.abbr"></span>
+                                    </td>
+                                    <td>
+                                        <span t-field="pkg.result_package_id.number"></span>
+                                    </td>
+                                    <td>
+                                        <span t-field="pkg.result_package_id.seal_number"></span>
+                                    </td>
+                                    <td>
+                                        <span t-field="pkg.result_package_id.weight"></span>
+                                    </td>
+                                    <td>
+                                        <span t-field="pkg.result_package_id.rate"></span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <table class="table" t-if="doc.has_packages and doc.move_line_ids[0].result_package_id.consignee_name">
+                            <caption>Importaciones transportadas en contenedores</caption>
+                            <thead>
+                                <tr>
+                                    <th>Consignatario</th>
+                                    <th>Manifiesto</th>
+                                    <th>Partida</th>
+                                    <th>Conocimiento de embarque</th>
+                                    <th>Puerto de destino</th>
+                                    <th>Puerto de embarque</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr t-foreach="doc.move_line_ids" t-as="pkg">
+                                    <td>
+                                        <span t-field="pkg.result_package_id.consignee_name"></span>
+                                    </td>
+                                    <td>
+                                        <span t-field="pkg.result_package_id.location"></span>
+                                    </td>
+                                    <td>
+                                        <span t-field="pkg.result_package_id.manifest_number"></span>
+                                    </td>
+                                    <td>
+                                        <span t-field="pkg.result_package_id.departure"></span>
+                                    </td>
+                                    <td>
+                                        <span t-field="pkg.result_package_id.boarding"></span>
+                                    </td>
+                                    <td>
+                                        <span t-field="pkg.result_package_id.origin"></span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <!-- pie de firmas -->
+                        <div class="container" t-if="doc.picking_type_id.template.code == 'ir'">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th class="text-center">Transportador</th>
+                                        <th class="text-center">Jefe del Almacén</th>
+                                        <th class="text-center">Recepciona</th>
+                                        <th class="text-center">Inventario</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <p style="margin-bottom: 10px">
+                                                <b>Nombre y apellidos:</b>
+                                            </p>
+                                            <p style="margin-bottom: 10px">
+                                                <b>CI:</b>
+                                            </p>
+                                            <p style="margin-bottom: 10px">
+                                                <b>Fecha:</b>
+                                            </p>
+                                            <p style="margin-bottom: 10px">
+                                                <b>Firma:</b>
+                                            </p>
+                                        </td>
+                                        <td>
+                                            <p style="margin-bottom: 10px">
+                                                <b>Nombre y apellidos:</b>
+                                            </p>
+                                            <p style="margin-bottom: 10px">
+                                                <b>Fecha:</b>
+                                            </p>
+                                            <p style="margin-bottom: 10px">
+                                                <b>Firma:</b>
+                                            </p>
+                                        </td>
+                                        <td>
+                                            <p style="margin-bottom: 10px">
+                                                <b>Nombre y apellidos:</b>
+                                            </p>
+                                            <p style="margin-bottom: 10px">
+                                                <b>Fecha:</b>
+                                            </p>
+                                            <p style="margin-bottom: 10px">
+                                                <b>Firma:</b>
+                                            </p>
+                                        </td>
+                                        <td>
+                                            <p style="margin-bottom: 10px">
+                                                <b>Actualiza:</b>
+                                            </p>
+                                            <p style="margin-bottom: 10px">
+                                                <b>Contabiliza:</b>
+                                            </p>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div t-if="doc.picking_type_id.template.code == 'pt'">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th class="text-center">Entrega</th>
+                                        <th class="text-center">Recibe</th>
+                                        <th class="text-center">Inventario</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <p style="margin-bottom: 10px">
+                                                <b>Nombre y apellidos:</b>
+                                            </p>
+                                            <p style="margin-bottom: 10px">
+                                                <b>Fecha:</b>
+                                            </p>
+                                            <p style="margin-bottom: 10px">
+                                                <b>Firma:</b>
+                                            </p>
+                                        </td>
+                                        <td>
+                                            <p style="margin-bottom: 10px">
+                                                <b>Nombre y apellidos:</b>
+                                            </p>
+                                            <p style="margin-bottom: 10px">
+                                                <b>Fecha:</b>
+                                            </p>
+                                            <p style="margin-bottom: 10px">
+                                                <b>Firma:</b>
+                                            </p>
+                                        </td>
+                                        <td>
+                                            <p style="margin-bottom: 10px">
+                                                <b>Actualiza:</b>
+                                            </p>
+                                            <p style="margin-bottom: 10px">
+                                                <b>Contabiliza:</b>
+                                            </p>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="container" t-if="doc.picking_type_id.template.code in ('ve', 'vd')">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th class="text-center margin-bottom: 2px">Entrega</th>
+                                        <th class="text-center margin-bottom: 2px">Recibe</th>
+                                        <th class="text-center margin-bottom: 2px">Inventario</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <p style="margin-bottom: 2px">
+                                                <b>Nombre y apellidos:</b>
+                                            </p>
+                                            <p style="margin-bottom: 2px">
+                                                <b>Fecha:</b>
+                                            </p>
+                                            <p style="margin-bottom: 2px">
+                                                <b>Firma:</b>
+                                            </p>
+                                        </td>
+                                        <td>
+                                            <p style="margin-bottom: 2px">
+                                                <b>Nombre y apellidos:</b>
+                                            </p>
+                                            <p style="margin-bottom: 2px">
+                                                <b>Fecha:</b>
+                                            </p>
+                                            <p style="margin-bottom: 2px">
+                                                <b>Firma:</b>
+                                            </p>
+                                        </td>
+                                        <td>
+                                            <p style="margin-bottom: 2px">
+                                                <b>Actualiza:</b>
+                                            </p>
+                                            <p style="margin-bottom: 2px">
+                                                <b>Contabiliza:</b>
+                                            </p>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="container" t-if="doc.picking_type_id.template.code == 'ta'">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th class="text-center">Entrega</th>
+                                        <th class="text-center">Recibe</th>
+                                        <th class="text-center">Autoriza transferencia</th>
+                                        <th class="text-center">Inventario</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <p style="margin-bottom: 10px">
+                                                <b>Nombre y apellidos:</b>
+                                            </p>
+                                            <p style="margin-bottom: 10px">
+                                                <b>Firma:</b>
+                                            </p>
+                                            <p style="margin-bottom: 10px">
+                                                <b>Fecha:</b>
+                                            </p>
+                                        </td>
+                                        <td>
+                                            <p style="margin-bottom: 10px">
+                                                <b>Nombre y apellidos:</b>
+                                            </p>
+                                            <p style="margin-bottom: 10px">
+                                                <b>Firma:</b>
+                                            </p>
+                                            <p style="margin-bottom: 10px">
+                                                <b>Fecha:</b>
+                                            </p>
+                                        </td>
+                                        <td>
+                                            <p style="margin-bottom: 10px">
+                                                <b>Nombre y apellidos:</b>
+                                            </p>
+                                            <p style="margin-bottom: 10px">
+                                                <b>Firma:</b>
+                                            </p>
+                                        </td>
+                                        <td>
+                                            <p style="margin-bottom: 2px">
+                                                <b>Actualiza:</b>
+                                            </p>
+                                            <p style="margin-bottom: 2px">
+                                                <b>Contabiliza:</b>
+                                            </p>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="container" t-if="doc.picking_type_id.template.code == 'cd'">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th class="text-center">Transportador</th>
+                                        <th class="text-center">Entrega</th>
+                                        <th class="text-center">Recibe</th>
+                                        <th class="text-center">Elabora</th>
+                                        <th class="text-center">Responsable del área</th>
+                                        <th class="text-center">Controla y revisa</th>
+                                        <th class="text-center">Inventario</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <p style="margin-bottom: 10px">
+                                                <b>Nombre y apellidos:</b>
+                                            </p>
+                                            <p>&amp;nbsp;</p>
+                                            <p style="margin-bottom: 10px">
+                                                <b>Fecha:</b>
+                                            </p>
+                                            <p style="margin-bottom: 10px">
+                                                <b>Firma:</b>
+                                            </p>
+                                        </td>
+                                        <td>
+                                            <p style="margin-bottom: 10px">
+                                                <b>Nombre y apellidos:</b>
+                                            </p>
+                                            <p>&amp;nbsp;</p>
+                                            <p style="margin-bottom: 10px">
+                                                <b>Fecha:</b>
+                                            </p>
+                                            <p style="margin-bottom: 10px">
+                                                <b>Firma:</b>
+                                            </p>
+                                        </td>
+                                        <td>
+                                            <p style="margin-bottom: 10px">
+                                                <b>Nombre y apellidos:</b>
+                                            </p>
+                                            <p>&amp;nbsp;</p>
+                                            <p style="margin-bottom: 10px">
+                                                <b>Fecha:</b>
+                                            </p>
+                                            <p style="margin-bottom: 10px">
+                                                <b>Firma:</b>
+                                            </p>
+                                        </td>
+                                        <td>
+                                            <p style="margin-bottom: 10px">
+                                                <b>Nombre y apellidos:</b>
+                                            </p>
+                                            <p>&amp;nbsp;</p>
+                                            <p style="margin-bottom: 10px">
+                                                <b>CI:</b>
+                                            </p>
+                                            <p style="margin-bottom: 10px">
+                                                <b>Fecha:</b>
+                                            </p>
+                                            <p style="margin-bottom: 10px">
+                                                <b>Firma:</b>
+                                            </p>
+                                        </td>
+                                        <td>
+                                            <p style="margin-bottom: 10px">
+                                                <b>Nombre y apellidos:</b>
+                                            </p>
+                                            <p>&amp;nbsp;</p>
+                                            <p style="margin-bottom: 10px">
+                                                <b>Fecha:</b>
+                                            </p>
+                                            <p style="margin-bottom: 10px">
+                                                <b>Firma:</b>
+                                            </p>
+                                        </td>
+                                        <td>
+                                            <p style="margin-bottom: 10px">
+                                                <b>Nombre y apellidos:</b>
+                                            </p>
+                                            <p>&amp;nbsp;</p>
+                                            <p style="margin-bottom: 10px">
+                                                <b>Fecha:</b>
+                                            </p>
+                                            <p style="margin-bottom: 10px">
+                                                <b>Firma:</b>
+                                            </p>
+                                        </td>
+                                        <td>
+                                            <p style="margin-bottom: 10px">
+                                                <b>Actualiza:</b>
+                                            </p>
+                                            <p>&amp;nbsp;</p>
+                                            <p style="margin-bottom: 10px">
+                                                <b>Contabiliza:</b>
+                                            </p>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="container" t-if="doc.picking_type_id.template.code == 'ft'">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th class="text-center">Transportador</th>
+                                        <th class="text-center">Entrega</th>
+                                        <th class="text-center">Recibe</th>
+                                        <th class="text-center">Inventario</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <p style="margin-bottom: 10px">
+                                                <b>Nombre y apellidos:</b>
+                                            </p>
+                                            <p style="margin-bottom: 10px">
+                                                <b>Fecha:</b>
+                                            </p>
+                                            <p style="margin-bottom: 10px">
+                                                <b>Firma:</b>
+                                            </p>
+                                        </td>
+                                        <td>
+                                            <p style="margin-bottom: 10px">
+                                                <b>Nombre y apellidos:</b>
+                                            </p>
+                                            <p style="margin-bottom: 10px">
+                                                <b>Fecha:</b>
+                                            </p>
+                                            <p style="margin-bottom: 10px">
+                                                <b>Firma:</b>
+                                            </p>
+                                        </td>
+                                        <td>
+                                            <p style="margin-bottom: 10px">
+                                                <b>Nombre y apellidos:</b>
+                                            </p>
+                                            <p style="margin-bottom: 10px">
+                                                <b>Fecha:</b>
+                                            </p>
+                                            <p style="margin-bottom: 10px">
+                                                <b>Firma:</b>
+                                            </p>
+                                        </td>
+                                        <td>
+                                            <p style="margin-bottom: 10px">
+                                                <b>Actualiza:</b>
+                                            </p>
+                                            <p style="margin-bottom: 10px">
+                                                <b>Contabiliza:</b>
+                                            </p>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="container" t-if="doc.picking_type_id.template.code == 'ai'">
+                            <table >
+                                <thead>
+                                    <tr>
+                                        <th> <p>Nombre y firma del Jefe del almacén. </p></th>
+                                        <th> <p>Nombre y firma de la persona que realiza  el inventario. </p></th>
+                                        <th><p>Firma de la persona que contabiliza el ajuste. </p></th>
+                                        <th><p>Firma de la persona que lo anota en el control de Inventario.</p></th>
+                                                                 </tr>
+                                </thead>
+                            </table>
+
+
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+</odoo>

@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Custom report.-->
+<odoo>
+    <data>
+        <template id="l10n_cu_month_amortization_report">
+            <t t-call="web.html_container">
+                <t t-call="web.external_layout">
+                <!--<t t-foreach="docs" t-as="o">-->
+                    <div class="page" style="font-size:12px;">
+                    <!--<div class="header">-->
+                        <div class="row" style="font-size:12px;">
+                            <!--<span>Page </span><span class="page"/> of <span class="topage"/>-->
+                            <span class="pull-right"><span t-esc="time.strftime('%d/%m/%Y %H:%M:%S')"/></span>
+                        </div>
+                        <div class="row text-center">
+                            <h4><strong>Monthly amortization register</strong></h4>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12"><strong>Entity: </strong><spam><t t-esc="res_company.name"/></spam></div>
+                        </div>
+                        <!--<div class="row">-->
+                            <!--<div class="col-xs-6"><strong>REEUP: </strong><spam><t t-esc="res_company.reup_code"/></spam></div>-->
+                            <!--<div class="col-xs-6"><strong>NAE: </strong><spam><t t-esc="res_company.nae"/></spam></div>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                    <!--<div class="page" style="font-size:12px;">-->
+                        <t t-if="data['asset_report']">
+                            <div class="row">
+                                <strong>Asset:</strong>   <t t-esc="data['asset_report']"/>
+                            </div>
+                        </t>
+                        <t t-if="data['asset_module_report']">
+                            <div class="row">
+                                <strong>Asset Module:</strong>   <t t-esc="data['asset_module_report']"/>
+                            </div>
+                        </t>
+                        <t t-if="data['area']">
+                            <div class="row">
+                                <strong>Area:</strong>   <t t-esc="data['area']"/>
+                            </div>
+                        </t>
+                        <t t-if="data['category_id']">
+                            <div class="row">
+                                <strong>Category:</strong>   <t t-esc="data['category_id']"/>
+                            </div>
+                        </t>
+                        <t t-if="data['start_date'] and data['end_date']">
+                            <div class="row">
+                                <strong>Desde:</strong> <t t-esc="data['start_date']"/>
+                                <strong>Hasta:</strong> <t t-esc="data['end_date']"/>
+                            </div>
+                        </t>
+                        <!--<t t-if="data['form']['current_period'] and not data['form']['period_start']">-->
+                            <!--<div class="row">-->
+                                <!--<strong>Desde:</strong> <t t-esc="data['form']['current_period'][1]"/>-->
+                                <!--<strong>Hasta:</strong>> <t t-esc="data['form']['current_period'][1]"/>-->
+                            <!--</div>-->
+                        <!--</t>-->
+                        <div class="row">
+                            <table class="table table-condensed">
+                                <thead>
+                                    <tr>
+                                        <th style="padding:1px;">Inventory number</th>
+                                        <th style="padding:1px;">Asset name</th>
+                                        <th style="padding:1px;">Initial value</th>
+                                        <th style="padding:1px;">Subscribe date</th>
+                                        <th style="padding:1px;width:20px;">Amortization tax</th>
+                                        <th style="padding:1px;">Amortizated value</th>
+                                        <th style="padding:1px;">Unsubscribe date</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                	<!--<t t-set="vdata" t-value="get_assets(data)"/>-->
+                                	<t t-set="total" t-value="0.00"/>
+                                	<t t-foreach="listres" t-as="lista">
+                                    	<t t-set="subc" t-value="0.00" />
+	                                	<t t-foreach="lista" t-as="lista1">
+	                                    	<t t-set="sub" t-value="0.00" />
+                                    		<t t-if="lista1_first">
+		                                        <tr>
+		                                            <td colspan="5" style="padding:1px;"><strong>Account: <t t-esc="lista1[0][0]"/></strong></td>
+		                                        </tr>    
+										    </t>
+	                                    	<t t-foreach="lista1" t-as="asset">
+	                                    		<t t-if="asset_first">
+			                                        <tr>
+			                                        	<td style="padding:1px;"></td>
+			                                            <td colspan="7" style="text-center"><strong>Analytic Account: <t t-esc="asset[1]"/></strong></td>
+			                                        </tr>
+											    </t>
+		                                        <tr>
+		                                            <td style="padding:1px;"><t t-esc="asset[2]"/></td>
+		                                            <td style="padding:1px;"><t t-esc="asset[3]"/></td>
+		                                            <td class="text-right" style="padding:1px;"><t t-esc="'%.2f'%(asset[4])"/></td>
+		                                            <td style="padding:1px;"><t t-esc="asset[5]"/></td>
+		                                            <td class="text-right" style="padding:1px;width:20px;"><t t-esc="'%.2f'%(asset[6])"/></td>
+		                                            <td class="text-right" style="padding:1px;"><t t-esc="'%.2f'%(asset[7])"/></td>
+		                                            <td style="padding:1px;"><t t-esc="asset[8]"/></td>
+		                                        </tr>
+		                                        <t t-set="sub" t-value="sub + asset[7]"/>
+		                                        <t t-set="subc" t-value="subc + asset[7]"/>
+		                                        <t t-set="total" t-value="total + asset[7]"/>
+	                                    	</t>
+	                                        <tr>
+	                                            <th colspan="3" style="padding:1px;"></th>
+	                                            <th colspan="2" class="text-right" style="padding:1px;">Subtotal Centro de costo</th>
+	                                            <th class="text-right" style="padding:1px;"><t t-esc="'%.2f'%(sub)"/></th>
+	                                            <th style="padding:1px;"></th>
+	                                        </tr>                                                    
+	                                	</t>
+	                                	<tr>
+	                                        <th colspan="3"></th>
+	                                        <th colspan="2" class="text-right" style="padding:1px;">Subtotal Cuenta</th>
+	                                        <th class="text-right" style="padding:1px;"><t t-esc="'%.2f'%(subc)"/></th>
+	                                        <th style="padding:1px;"></th>
+	                                    </tr>
+	                                </t>	
+                                    <tr>
+                                        <th colspan="3" style="padding:1px;"></th>
+                                        <th colspan="2" class="text-right" style="padding:1px;">Total general</th>
+                                        <th class="text-right" style="padding:1px;"><t t-esc="'%.2f'%(total)"/></th>
+                                        <th></th>
+                                    </tr>                                                    
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>

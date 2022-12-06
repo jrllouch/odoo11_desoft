@@ -1,0 +1,305 @@
+<odoo>
+    <data>
+        <record id="paperformat_landscape_asset_reports" model="report.paperformat">
+            <field name="name">Asset Reports Paper Format</field>
+            <field name="format">Letter</field>
+            <field name="orientation">Landscape</field>
+        </record>
+        <record id="paperformat_portrait_asset_reports" model="report.paperformat">
+            <field name="name">Asset Reports Paper Format</field>
+            <field name="format">Letter</field>
+            <field name="orientation">Portrait</field>
+        </record>
+        
+        <report
+            id="report_l10n_cu_asset_control"
+            model="l10n_cu.resp.area"
+            string="Control de activos fijos"
+            name="l10n_cu_account_asset.report_asset_control_view"
+            file="l10n_cu_account_asset.report_asset_control"
+            paperformat="paperformat_landscape_asset_reports"
+            report_type="qweb-pdf"
+            menu="False" />
+            
+        <report
+            id="report_l10n_cu_fully_depreciated_assets_report"
+            model="account.asset.asset"
+            string="Fully Depreciated Assets"
+            name="l10n_cu_account_asset.l10n_cu_fully_deprec_assets_report"
+            file="l10n_cu_account_asset.l10n_cu_fully_deprec_assets_report"
+            report_type="qweb-pdf"
+            paperformat="paperformat_portrait_asset_reports"
+            menu="False" />
+
+        <report
+            id="report_l10n_cu_asset_by_area_report"
+            model="account.asset.asset"
+            string="Asset By Responsibility Area"
+            name="l10n_cu_account_asset.l10n_cu_asset_by_area_report"
+            file="l10n_cu_account_asset.l10n_cu_asset_by_area_report"
+            report_type="qweb-pdf"
+            paperformat="paperformat_portrait_asset_reports"
+            menu="False"/>
+            <!--paperformat_id="paperformat_letter_landscape"/>-->
+
+        <report
+            id="report_l10n_cu_listed_inventory_number_report"
+            model="account.asset.asset"
+            string="Listed Inventory Numbers"
+            name="l10n_cu_account_asset.l10n_cu_listed_inventory_number_report"
+            file="l10n_cu_account_asset.l10n_cu_listed_inventory_number_report"
+            paperformat="paperformat_landscape_asset_reports"
+            report_type="qweb-pdf"
+            menu="False" />
+
+        <report
+            id="report_l10n_cu_general_reparation_report"
+            model="account.asset.asset"
+            string="Reparations"
+            name="l10n_cu_account_asset.l10n_cu_general_reparation_report"
+            file="l10n_cu_account_asset.l10n_cu_general_reparation_report"
+            paperformat="paperformat_landscape_asset_reports"
+            report_type="qweb-pdf"
+            menu="False" />
+
+        <report
+            id="report_l10n_cu_assets_transfers_report"
+            model="account.asset.asset"
+            string="Assets Transfers"
+            name="l10n_cu_account_asset.l10n_cu_assets_transfers_report"
+            file="l10n_cu_account_asset.l10n_cu_assets_transfers_report"
+            paperformat="paperformat_landscape_asset_reports"
+            report_type="qweb-pdf"
+            menu="False" />
+
+        <report
+            id="report_l10n_cu_rented_assets_report"
+            model="account.asset.asset"
+            string="Rented Assets"
+            name="l10n_cu_account_asset.l10n_cu_rented_assets_report"
+            file="l10n_cu_account_asset.l10n_cu_rented_assets_report"
+            paperformat="paperformat_landscape_asset_reports"
+            report_type="qweb-pdf"
+            menu="False" />
+
+        <report
+            id="report_l10n_cu_high_report"
+            model="account.asset.asset"
+            string="Highs"
+            name="l10n_cu_account_asset.l10n_cu_high_report"
+            file="l10n_cu_account_asset.l10n_cu_high_report"
+            paperformat="paperformat_landscape_asset_reports"
+            report_type="qweb-pdf"
+            menu="False" />
+
+        <report
+            id="report_l10n_cu_low_report"
+            model="account.asset.asset"
+            string="Lows"
+            name="l10n_cu_account_asset.l10n_cu_low_report"
+            file="l10n_cu_account_asset.l10n_cu_low_report"
+            paperformat="paperformat_landscape_asset_reports"
+            report_type="qweb-pdf"
+            menu="False" />
+
+        <report
+            id="report_l10n_cu_reevaluation_report"
+            model="account.asset.asset"
+            string="Reevaluation"
+            name="l10n_cu_account_asset.l10n_cu_reevaluation_report"
+            file="l10n_cu_account_asset.l10n_cu_reevaluation_report"
+            paperformat="paperformat_landscape_asset_reports"
+            report_type="qweb-pdf"
+            menu="False" />
+
+        <report
+            id="report_l10n_cu_account_subaccount_balances_report"
+            model="account.asset.asset"
+            string="Account - Subaccount Balances"
+            name="l10n_cu_account_asset.l10n_cu_account_subaccount_balances_report"
+            file="l10n_cu_account_asset.l10n_cu_account_subaccount_balances_report"
+            paperformat="paperformat_landscape_asset_reports"
+            report_type="qweb-pdf"
+            menu="False" />
+
+        <report
+            id="report_l10n_cu_month_depreciation_report"
+            model="account.asset.asset"
+            string="Montly Depreciations"
+            name="l10n_cu_account_asset.l10n_cu_deprec_report"
+            file="l10n_cu_account_asset.l10n_cu_month_depreciation_report"
+            report_type="qweb-pdf"
+            menu="False" />
+
+        <report
+            id="report_l10n_cu_month_amortization_report"
+            model="account.asset.asset"
+            string="Montly Amortizations"
+            name="l10n_cu_account_asset.l10n_cu_month_amortization_report"
+            file="l10n_cu_account_asset.l10n_cu_month_amortization_report"
+            report_type="qweb-pdf"
+            paperformat="paperformat_landscape_asset_reports"
+            menu="False" />
+
+        <report
+            id="report_l10n_cu_sub_ledger_building_construct_report"
+            model="account.asset.asset"
+            string="Building and Constructions Sub-Ledger"
+            name="l10n_cu_account_asset.l10n_cu_sub_ledger_building_construct_report"
+            file="l10n_cu_account_asset.l10n_cu_sub_ledger_building_construct_report"
+            report_type="qweb-pdf"
+            paperformat="paperformat_landscape_asset_reports"
+            menu="False" />
+
+        <report
+            id="report_l10n_cu_sub_ledger_machinery_in_general_report"
+            model="account.asset.asset"
+            string="Machinery in General Sub-Ledger"
+            name="l10n_cu_account_asset.l10n_cu_sub_ledger_machinery_in_general_report"
+            file="l10n_cu_account_asset.l10n_cu_sub_ledger_machinery_in_general_report"
+            report_type="qweb-pdf"
+            menu="False" />
+
+        <report
+            id="report_l10n_cu_sub_ledger_furniture_others_report"
+            model="account.asset.asset"
+            string="Furniture, fixtures and office equipment Sub-Ledger"
+            name="l10n_cu_account_asset.l10n_cu_sub_ledger_furniture_others_report"
+            file="l10n_cu_account_asset.l10n_cu_sub_ledger_furniture_others_report"
+            report_type="qweb-pdf"
+            menu="False" />
+
+        <report
+            id="report_l10n_cu_sub_ledger_animals_report"
+            model="account.asset.asset"
+            string="Animals Sub-Ledger"
+            name="l10n_cu_account_asset.l10n_cu_sub_ledger_animals_report"
+            file="l10n_cu_account_asset.l10n_cu_sub_ledger_animals_report"
+            report_type="qweb-pdf"
+            menu="False" />
+
+        <report
+            id="report_l10n_cu_sub_ledger_permanent_plant_report"
+            model="account.asset.asset"
+            string="Permanents Plantations Sub-Ledger"
+            name="l10n_cu_account_asset.l10n_cu_sub_ledger_permanent_plant_report"
+            file="l10n_cu_account_asset.l10n_cu_sub_ledger_permanent_plant_report"
+            report_type="qweb-pdf"
+            menu="False" />
+
+        <report
+            id="report_l10n_cu_sub_ledger_general_report"
+            model="account.asset.asset"
+            string="General Sub-Ledger"
+            name="l10n_cu_account_asset.l10n_cu_sub_ledger_general_report"
+            file="l10n_cu_account_asset.l10n_cu_sub_ledger_general_report"
+            report_type="qweb-pdf"
+            menu="False" />
+
+        <report
+                id="report_l10n_cu_sub_ledger_asset_countable_report"
+                model="account.asset.asset"
+                string="Accounting sub major"
+                report_type="qweb-pdf"
+                paperformat="paperformat_landscape_asset_reports"
+                name="l10n_cu_account_asset.l10n_cu_subldgr_asset_count_report"
+                file="l10n_cu_account_asset.l10n_cu_subldgr_asset_count_report"
+                attachment_use="False"
+                menu="False"/>
+
+        <report
+            id="report_l10n_cu_asset_move_report"
+            model="l10n_cu.asset.move"
+            string="Tangible Fixed Asset Move"
+            name="l10n_cu_account_asset.l10n_cu_asset_move_report"
+            file="l10n_cu_account_asset.l10n_cu_asset_move_report"
+            paperformat="paperformat_landscape_asset_reports"
+            report_type="qweb-pdf"
+            menu="False" />
+
+        <report
+            id="report_l10n_cu_account_balances_report"
+            model="account.asset.asset"
+            string="Account Balances"
+            name="l10n_cu_account_asset.l10n_cu_account_balances_report"
+            file="l10n_cu_account_asset.l10n_cu_account_balances_report"
+            paperformat="paperformat_portrait_asset_reports"
+            report_type="qweb-pdf"
+            menu="False" />
+            
+        <!--&lt;!&ndash; REPORTS FORMAT &ndash;&gt;-->
+
+        <!--<record id="paperformat_letter_portrait" model="report.paperformat">-->
+            <!--<field name="name">Letter</field>-->
+            <!--<field name="default" eval="True"/>-->
+            <!--<field name="format">Letter</field>-->
+            <!--<field name="orientation">Portrait</field>-->
+        <!--</record>-->
+        <!--<record id="paperformat_letter_landscape" model="report.paperformat">-->
+            <!--<field name="name">Letter</field>-->
+            <!--<field name="default" eval="True"/>-->
+            <!--<field name="format">Letter</field>-->
+            <!--<field name="orientation">Landscape</field>-->
+        <!--</record>-->
+        <!--<record id="report_asset_control" model="ir.actions.report.xml">-->
+            <!--<field name="paperformat_id" ref="paperformat_letter_landscape"/>-->
+        <!--</record>-->
+        <!--<record id="report_l10n_cu_fully_depreciated_assets_report" model="ir.actions.report.xml">-->
+            <!--<field name="paperformat_id" ref="paperformat_letter_landscape"/>-->
+        <!--</record>-->
+        <!--<record id="report_l10n_cu_asset_by_area_report" model="ir.actions.report.xml">-->
+            <!--<field name="paperformat_id" ref="paperformat_letter_landscape"/>-->
+        <!--</record>-->
+        <!--<record id="report_l10n_cu_listed_inventory_number_report" model="ir.actions.report.xml">-->
+            <!--<field name="paperformat_id" ref="paperformat_letter_landscape"/>-->
+        <!--</record>-->
+        <!--<record id="report_l10n_cu_general_reparation_report" model="ir.actions.report.xml">-->
+            <!--<field name="paperformat_id" ref="paperformat_letter_landscape"/>-->
+        <!--</record>-->
+        <!--<record id="report_l10n_cu_assets_transfers_report" model="ir.actions.report.xml">-->
+            <!--<field name="paperformat_id" ref="paperformat_letter_landscape"/>-->
+        <!--</record>-->
+        <!--<record id="report_l10n_cu_high_report" model="ir.actions.report.xml">-->
+            <!--<field name="paperformat_id" ref="paperformat_letter_landscape"/>-->
+        <!--</record>-->
+        <!--<record id="report_l10n_cu_low_report" model="ir.actions.report.xml">-->
+            <!--<field name="paperformat_id" ref="paperformat_letter_landscape"/>-->
+        <!--</record>-->
+        <!--<record id="report_l10n_cu_reevaluation_report" model="ir.actions.report.xml">-->
+            <!--<field name="paperformat_id" ref="paperformat_letter_landscape"/>-->
+        <!--</record>-->
+        <!--<record id="report_l10n_cu_account_subaccount_balances_report" model="ir.actions.report.xml">-->
+            <!--<field name="paperformat_id" ref="paperformat_letter_landscape"/>-->
+        <!--</record>-->
+        <!--<record id="report_l10n_cu_month_depreciation_report" model="ir.actions.report.xml">-->
+            <!--<field name="paperformat_id" ref="paperformat_letter_landscape"/>-->
+        <!--</record>-->
+        <!--<record id="report_l10n_cu_month_amortization_report" model="ir.actions.report.xml">-->
+            <!--<field name="paperformat_id" ref="paperformat_letter_landscape"/>-->
+        <!--</record>-->
+        <!--<record id="report_l10n_cu_sub_ledger_building_construct_report" model="ir.actions.report.xml">-->
+            <!--<field name="paperformat_id" ref="paperformat_letter_portrait"/>-->
+        <!--</record>-->
+        <!--<record id="report_l10n_cu_sub_ledger_machinery_in_general_report" model="ir.actions.report.xml">-->
+            <!--<field name="paperformat_id" ref="paperformat_letter_portrait"/>-->
+        <!--</record>-->
+        <!--<record id="report_l10n_cu_sub_ledger_furniture_others_report" model="ir.actions.report.xml">-->
+            <!--<field name="paperformat_id" ref="paperformat_letter_portrait"/>-->
+        <!--</record>-->
+        <!--<record id="report_l10n_cu_sub_ledger_animals_report" model="ir.actions.report.xml">-->
+            <!--<field name="paperformat_id" ref="paperformat_letter_portrait"/>-->
+        <!--</record>-->
+        <!--<record id="report_l10n_cu_sub_ledger_permanent_plant_report" model="ir.actions.report.xml">-->
+            <!--<field name="paperformat_id" ref="paperformat_letter_portrait"/>-->
+        <!--</record>-->
+        <!--<record id="report_l10n_cu_sub_ledger_asset_countable_report" model="ir.actions.report.xml">-->
+            <!--<field name="paperformat_id" ref="paperformat_letter_landscape"/>-->
+        <!--</record>-->
+        <!--<record id="report_l10n_cu_asset_move_report" model="ir.actions.report.xml">-->
+            <!--<field name="paperformat_id" ref="paperformat_letter_landscape"/>-->
+        <!--</record>-->
+        <!--<record id="report_l10n_cu_account_balances_report" model="ir.actions.report.xml">-->
+            <!--<field name="paperformat_id" ref="paperformat_letter_portrait"/>-->
+        <!--</record>-->
+    </data>
+</odoo>

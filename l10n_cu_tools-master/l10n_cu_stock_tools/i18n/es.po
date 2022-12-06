@@ -1,0 +1,252 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* l10n_cu_stock_tools
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 11.0-20190312\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-11-23 03:12+0000\n"
+"PO-Revision-Date: 2022-11-22 22:22-0500\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"Language: es\n"
+"X-Generator: Poedit 3.0\n"
+
+#. module: l10n_cu_stock_tools
+#: model:ir.ui.view,arch_db:l10n_cu_stock_tools.stock_tools_type_kanban
+msgid "<span>New</span>"
+msgstr "<span>Nuevo</span>"
+
+#. module: l10n_cu_stock_tools
+#: model:ir.ui.view,arch_db:l10n_cu_stock_tools.stock_tools_type_kanban
+msgid "<span>View</span>"
+msgstr "<span>Ver</span>"
+
+#. module: l10n_cu_stock_tools
+#: model:ir.ui.view,arch_db:l10n_cu_stock_tools.stock_tools_type_kanban
+msgid "All"
+msgstr "Todas"
+
+#. module: l10n_cu_stock_tools
+#: model:ir.actions.act_window,name:l10n_cu_stock_tools.stock_tools_picking_action_picking_type
+msgid "All Transfers"
+msgstr "Todos los movimientos"
+
+#. module: l10n_cu_stock_tools
+#: model:ir.ui.view,arch_db:l10n_cu_stock_tools.stock_tools_type_kanban
+msgid "Back Orders"
+msgstr "Ordenes de devolución"
+
+#. module: l10n_cu_stock_tools
+#: model:ir.actions.act_window,help:l10n_cu_stock_tools.action_stock_picking_tree_ready
+#: model:ir.actions.act_window,help:l10n_cu_stock_tools.action_stock_picking_tree_waiting
+#: model:ir.actions.act_window,help:l10n_cu_stock_tools.stock_tools_picking_action_picking_type
+msgid "Click here to create a new transfer."
+msgstr "Haga clic aquí para crear una nueva transferencia."
+
+#. module: l10n_cu_stock_tools
+#: model:ir.model.fields,field_description:l10n_cu_stock_tools.field_stock_picking_code
+msgid "Code"
+msgstr "Código"
+
+#. module: l10n_cu_stock_tools
+#: model:ir.model,name:l10n_cu_stock_tools.model_res_company
+msgid "Companies"
+msgstr "Compañías"
+
+#. module: l10n_cu_stock_tools
+#: model:ir.model.fields,field_description:l10n_cu_stock_tools.field_tools_picking_type_count_picking
+msgid "Count Picking"
+msgstr "Cantidad de movimientos"
+
+#. module: l10n_cu_stock_tools
+#: model:ir.model.fields,field_description:l10n_cu_stock_tools.field_tools_picking_type_count_picking_backorders
+msgid "Count Picking Backorders"
+msgstr "Cantidad de movimientos devueltos"
+
+#. module: l10n_cu_stock_tools
+#: model:ir.model.fields,field_description:l10n_cu_stock_tools.field_tools_picking_type_count_picking_draft
+msgid "Count Picking Draft"
+msgstr "Cuenta de operaciones en borrador"
+
+#. module: l10n_cu_stock_tools
+#: model:ir.model.fields,field_description:l10n_cu_stock_tools.field_tools_picking_type_count_picking_late
+msgid "Count Picking Late"
+msgstr "Cantidad de movimientos tarde"
+
+#. module: l10n_cu_stock_tools
+#: model:ir.model.fields,field_description:l10n_cu_stock_tools.field_tools_picking_type_count_picking_ready
+msgid "Count Picking Ready"
+msgstr "Cantidad de movimientos listos"
+
+#. module: l10n_cu_stock_tools
+#: model:ir.model.fields,field_description:l10n_cu_stock_tools.field_tools_picking_type_count_picking_waiting
+msgid "Count Picking Waiting"
+msgstr "Cantidad de movimientos esperando"
+
+#. module: l10n_cu_stock_tools
+#: model:ir.model.fields,field_description:l10n_cu_stock_tools.field_stock_picking_custodian_dest_id
+msgid "Custodian Dest"
+msgstr "Custodio Dest"
+
+#. module: l10n_cu_stock_tools
+#: model:ir.model.fields,field_description:l10n_cu_stock_tools.field_stock_picking_custodian_orig_id
+msgid "Custodian Orig"
+msgstr "Custodio Orig"
+
+#. module: l10n_cu_stock_tools
+#: selection:stock.picking,code:0
+msgid "Entrance"
+msgstr "Entrada"
+
+#. module: l10n_cu_stock_tools
+#: selection:stock.picking,code:0
+msgid "Entry for Surplus"
+msgstr "Entrada por excedentes"
+
+#. module: l10n_cu_stock_tools
+#: model:ir.ui.view,arch_db:l10n_cu_stock_tools.stock_tools_type_kanban
+msgid "Immediate Transfer"
+msgstr "Movimiento inmediato"
+
+#. module: l10n_cu_stock_tools
+#: selection:stock.picking,code:0
+msgid "Income Dependencies Transfer"
+msgstr "Transferencia en dependencia de los ingresos"
+
+#. module: l10n_cu_stock_tools
+#: selection:stock.picking,code:0
+msgid "Internal Transfer"
+msgstr "Transferencia Interna"
+
+#. module: l10n_cu_stock_tools
+#: model:ir.model,name:l10n_cu_stock_tools.model_stock_location
+msgid "Inventory Locations"
+msgstr "Ubicaciones de inventario"
+
+#. module: l10n_cu_stock_tools
+#: model:ir.model.fields,field_description:l10n_cu_stock_tools.field_stock_picking_location_dest_usage
+#: model:ir.ui.view,arch_db:l10n_cu_stock_tools.tools_view_picking_form
+msgid "Is a tools entry"
+msgstr "Is a tools entry"
+
+#. module: l10n_cu_stock_tools
+#: model:ir.ui.view,arch_db:l10n_cu_stock_tools.tools_view_picking_form
+msgid "Is a tools out"
+msgstr "Is a tools out"
+
+#. module: l10n_cu_stock_tools
+#: model:ir.ui.view,arch_db:l10n_cu_stock_tools.stock_tools_type_kanban
+msgid "Late"
+msgstr "Tarde"
+
+#. module: l10n_cu_stock_tools
+#: selection:stock.picking,code:0
+msgid "Not is a tools operation"
+msgstr "No es una operación de utiles"
+
+#. module: l10n_cu_stock_tools
+#: selection:stock.picking,code:0
+msgid "Out"
+msgstr "Salida"
+
+#. module: l10n_cu_stock_tools
+#: selection:stock.picking,code:0
+msgid "Out for Missing"
+msgstr "Salida por perdida"
+
+#. module: l10n_cu_stock_tools
+#: selection:stock.picking,code:0
+msgid "Outgoing Dependencies Transfer"
+msgstr "Transferencia de dependencias salientes"
+
+#. module: l10n_cu_stock_tools
+#: model:ir.ui.view,arch_db:l10n_cu_stock_tools.stock_tools_type_kanban
+msgid "Planned Transfer"
+msgstr "Movimiento planeado"
+
+#. module: l10n_cu_stock_tools
+#: model:ir.model.fields,field_description:l10n_cu_stock_tools.field_tools_picking_type_rate_picking_backorders
+msgid "Rate Picking Backorders"
+msgstr "Porciento de Movimientos de devolución"
+
+#. module: l10n_cu_stock_tools
+#: model:ir.model.fields,field_description:l10n_cu_stock_tools.field_tools_picking_type_rate_picking_late
+msgid "Rate Picking Late"
+msgstr "Porciento de Movimientos atrasados"
+
+#. module: l10n_cu_stock_tools
+#: model:ir.ui.view,arch_db:l10n_cu_stock_tools.stock_tools_type_kanban
+msgid "Ready"
+msgstr "Listo"
+
+#. module: l10n_cu_stock_tools
+#: model:ir.ui.view,arch_db:l10n_cu_stock_tools.stock_tools_type_kanban
+msgid "Settings"
+msgstr "Ajustes"
+
+#. module: l10n_cu_stock_tools
+#: model:ir.model.fields,field_description:l10n_cu_stock_tools.field_res_company_stock_type_id
+msgid "Stock Operation Type"
+msgstr "Tipo de operación de inventario"
+
+#. module: l10n_cu_stock_tools
+#: code:addons/l10n_cu_stock_tools/models/res_company.py:39
+#, python-format
+msgid "Stock Outgoing"
+msgstr "Salida de inventario"
+
+#. module: l10n_cu_stock_tools
+#: code:addons/l10n_cu_stock_tools/models/stock.py:61
+#, python-format
+msgid "This operation is only for tools product"
+msgstr "Esta operación es solo para productos declarados como utiles"
+
+#. module: l10n_cu_stock_tools
+#: model:ir.actions.act_window,name:l10n_cu_stock_tools.action_stock_picking_tree_ready
+#: model:ir.ui.view,arch_db:l10n_cu_stock_tools.stock_tools_type_kanban
+msgid "To Do"
+msgstr "Por hacer"
+
+#. module: l10n_cu_stock_tools
+#: model:ir.model.fields,field_description:l10n_cu_stock_tools.field_stock_location_is_tools_location
+msgid "Tools in use"
+msgstr "Herramienta en Uso"
+
+#. module: l10n_cu_stock_tools
+#: model:ir.model,name:l10n_cu_stock_tools.model_stock_picking
+msgid "Transfer"
+msgstr "Transferir"
+
+#. module: l10n_cu_stock_tools
+#: model:ir.ui.view,arch_db:l10n_cu_stock_tools.stock_tools_type_kanban
+msgid "Waiting"
+msgstr "En espera"
+
+#. module: l10n_cu_stock_tools
+#: model:ir.actions.act_window,name:l10n_cu_stock_tools.action_stock_picking_tree_waiting
+msgid "Waiting Transfers"
+msgstr "Esperando movimiento"
+
+#. module: l10n_cu_stock_tools
+#: model:ir.actions.act_window,help:l10n_cu_stock_tools.action_stock_picking_tree_ready
+#: model:ir.actions.act_window,help:l10n_cu_stock_tools.action_stock_picking_tree_waiting
+#: model:ir.actions.act_window,help:l10n_cu_stock_tools.stock_tools_picking_action_picking_type
+msgid "You can either do it immediately or mark it as Todo for future processing. Use your scanner to validate the transferred quantity quicker."
+msgstr "Puede hacerlo de inmediato o marcarlo como Todo para su posterior procesamiento. Use su escáner para validar la cantidad transferida más rápido."
+
+#. module: l10n_cu_stock_tools
+#: code:addons/l10n_cu_stock_tools/models/stock.py:79
+#, python-format
+msgid "You cannot validate inventory, you need to update the types of operations"
+msgstr "No puede validar inventario, necesita actualizar los tipos de operaciones"
+
+#. module: l10n_cu_stock_tools
+#: model:ir.model,name:l10n_cu_stock_tools.model_tools_picking_type
+msgid "tools.picking.type"
+msgstr "tools.picking.type"

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="l10n_cu_stock_account.template_ir" model="l10n_cu_stock_account.template">
+        <field name="name">Informe de recepción</field>
+        <field name="code">ir</field>
+        <field name="operation_type">incoming</field>
+    </record>
+    <record id="l10n_cu_stock_account.template_pt" model="l10n_cu_stock_account.template">
+        <field name="name">Entrega de Productos Terminados al Almacén</field>
+        <field name="code">pt</field>
+        <field name="operation_type">internal</field>
+    </record>
+    <record id="l10n_cu_stock_account.template_ve" model="l10n_cu_stock_account.template">
+        <field name="name">Vale de entrega</field>
+        <field name="code">ve</field>
+        <field name="operation_type">internal</field>
+    </record>
+    <record id="l10n_cu_stock_account.template_vd" model="l10n_cu_stock_account.template">
+        <field name="name">Vale de devolución</field>
+        <field name="code">vd</field>
+        <field name="operation_type">internal</field>
+    </record>
+    <record id="l10n_cu_stock_account.template_ta" model="l10n_cu_stock_account.template">
+        <field name="name">Transferencia entre Almacenes</field>
+        <field name="code">ta</field>
+        <field name="operation_type">internal</field>
+    </record>
+    <record id="l10n_cu_stock_account.template_cd" model="l10n_cu_stock_account.template">
+        <field name="name">Conduce</field>
+        <field name="code">cd</field>
+        <field name="operation_type">outgoing</field>
+    </record>
+    <record id="l10n_cu_stock_account.template_ft" model="l10n_cu_stock_account.template">
+        <field name="name">Factura</field>
+        <field name="code">ft</field>
+        <field name="operation_type">outgoing</field>
+    </record>
+    <record id="l10n_cu_stock_account.template_ai" model="l10n_cu_stock_account.template">
+        <field name="name">Ajuste de inventario</field>
+        <field name="code">ai</field>
+        <field name="operation_type">internal</field>
+    </record>
+
+    <record id="seq_report_number" model="ir.sequence">
+        <field name="name">Número consecutivo</field>
+        <field name="code">report.number</field>
+        <field name="prefix">NO</field>
+        <field name="padding">5</field>
+    </record>
+
+    <record id="paperformat_operation_report" model="report.paperformat">
+        <field name="name">Operation Report Paper Format</field>
+        <field name="format">Letter</field>
+        <field name="orientation">Portrait</field>
+    </record>
+
+    <function model="stock.picking.type" name="fill_show_operations"/>
+
+</odoo>

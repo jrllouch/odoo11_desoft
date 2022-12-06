@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="l10n_cu_stock_account_submayor_wizard_template">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <h2 class="text-center"> Stock submayor </h2>
+
+                        <table class="table table-condensed">
+                            <thead>
+                                <tr>
+                                    <th class="text-center"><strong>Company</strong></th>
+                                    <th class="text-center"><strong>Print Date</strong></th>
+                                    <th class="text-center"><strong>Range Date</strong></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="text-center">
+                                        <span t-esc="res_company.name"/>
+                                    </td>
+                                    <td class="text-center">
+                                        <span t-esc="time.strftime('%d/%m/%Y')"/>
+                                    </td>
+                                    <td class="text-center">
+                                        <span t-field="o.date_start"/> to <span t-field="o.date_stop"/>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <t t-set="products" t-value="o.product_ids.mapped('')"/>
+                        <t t-set="dic_prod_by_acc" t-value="o.prod_by_acc(products)"/>
+                        <table class="table table-condensed">
+                            <thead>
+                                <tr>
+                                    <!--groups="stock.group_stock_multi_locations"-->
+                                    <th class="text-left"><strong>Reference</strong></th>
+                                    <th class="text-left"><strong>Date</strong></th>
+                                    <th class="text-left"><strong>Quantity</strong></th>
+                                    <th id="head_amount" class="text-left"><strong>Amount</strong></th>
+                                    <th class="text-left"><strong>Existence</strong></th>
+                                    <th id="head_exist_amount" class="text-left"><strong>Existence Amount</strong></th>
+                                    <th id="head_ave_price" class="text-left"><strong>Average Price</strong></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-foreach="dic_prod_by_acc" t-as="account">
+                                    <t t-set="not_yet" t-value="True"></t>
+                                    <t t-foreach="dic_prod_by_acc[account]" t-as="prod_list">
+                                        <t t-set="dic_mov_by_loc" t-value="o.mov_by_loc(prod_list)"/>
+                                        <t t-if="dic_mov_by_loc">
+                                            <t t-if="not_yet">
+                                                <tr>
+                                                    <td class="text-left" colspan="6"><strong t-esc="account.code"/> / <strong t-esc="account.name"/></td>
+                                                    <td id="end_account"/>
+                                                </tr>
+                                                <t t-set="not_yet" t-value="False"></t>
+                                            </t>
+                                            <tr>
+                                                <td/>
+                                                <td class="text-left" colspan="5"><strong t-esc="prod_list.name"/> / <strong t-esc="prod_list.uom_id.name"/></td>
+                                                <td id="end_prod"/>
+                                            </tr>
+                                            <t t-foreach="dic_mov_by_loc" t-as="location">
+                                                <tr>
+                                                    <td class="text-right" colspan="3"><strong t-esc="location.name"/></td>
+                                                    <td/>
+                                                    <td class="text-right"><span t-esc="dic_mov_by_loc[location]['value'][0]"/></td>
+                                                    <td id="end_stock" class="text-right"><span t-esc="dic_mov_by_loc[location]['value'][1]"/> <span t-field="res_company.currency_id.symbol"/></td>
+                                                    <td id="ave_stock" class="text-right">
+                                                        <t t-if="dic_mov_by_loc[location]['value'][0] == 0">
+                                                            <span t-esc="dic_mov_by_loc[location]['value'][0]"/>
+                                                            <span t-field="res_company.currency_id.symbol"/>
+                                                        </t>
+                                                        <t t-else="">
+                                                            <span t-esc="dic_mov_by_loc[location]['value'][1]/dic_mov_by_loc[location]['value'][0]"/>
+                                                            <span t-field="res_company.currency_id.symbol"/>
+                                                        </t>
+                                                    </td>
+                                                </tr>
+                                                <t t-set="qtyacm" t-value="dic_mov_by_loc[location]['value'][0]" />
+                                                <t id="valacm" t-set="valacm" t-value="dic_mov_by_loc[location]['value'][1]" />
+                                                <t t-foreach="dic_mov_by_loc[location]['move_lines']" t-as="stock_move_lines">
+                                                    <tr>
+                                                        <td class="text-right"><span t-esc="stock_move_lines.reference"/></td>
+                                                        <td class="text-right"><span t-field="stock_move_lines.date"/></td>
+                                                        <td class="text-right">
+                                                            <t t-if="stock_move_lines.move_id.price_unit > 0">
+                                                                <span t-esc="stock_move_lines.qty_done"/>
+                                                            </t>
+                                                            <t t-else="">
+                                                                <span t-esc="stock_move_lines.qty_done * -1"/>
+                                                            </t>
+                                                        </td>
+                                                        <td id="amount" class="text-right"><span t-esc="stock_move_lines.qty_done * stock_move_lines.move_id.price_unit"/> <span t-field="res_company.currency_id.symbol"/></td>
+                                                        <td class="text-right">
+                                                            <t t-if="stock_move_lines.move_id.price_unit > 0">
+                                                                <t t-set="qtyacm" t-value="stock_move_lines.qty_done + qtyacm" />
+                                                                <span t-esc="qtyacm"/>
+                                                            </t>
+                                                            <t t-else="">
+                                                                <t t-set="qtyacm" t-value="-1 * stock_move_lines.qty_done + qtyacm" />
+                                                                <span t-esc="qtyacm"/>
+                                                            </t>
+                                                        </td>
+                                                        <td id="exist_amount" class="text-right">
+                                                            <t t-set="valacm" t-value="(stock_move_lines.qty_done * stock_move_lines.move_id.price_unit) + valacm" />
+                                                            <span t-esc="valacm"/>
+                                                            <span t-field="res_company.currency_id.symbol"/>
+                                                        </td>
+                                                        <td id="ave_price" class="text-right">
+                                                            <t t-if="qtyacm == 0">
+                                                                <span t-esc="qtyacm"/>
+                                                                <span t-field="res_company.currency_id.symbol"/>
+                                                            </t>
+                                                            <t t-else="">
+                                                                <span t-esc="valacm/qtyacm"/>
+                                                                <span t-field="res_company.currency_id.symbol"/>
+                                                            </t>
+                                                        </td>
+                                                    </tr>
+                                                </t>
+                                            </t>
+                                        </t>
+                                    </t>
+                                </t>
+                            </tbody>
+                        </table>
+
+                        <table style="border: none" width="100%" class="text-left">
+                            <tr>
+                                <td>
+                                    <br/>
+                                    <br/>
+                                    <br/>
+                                    <br/>______________________________
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Firma del dependiente de almacén</td>
+                            </tr>
+                        </table>
+
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>

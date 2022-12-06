@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record model="l10n_cu.asset.move.category" id="alta">
+            <field name="name">Alta</field>
+            <field name="code">01</field>
+            <field name="groups">alta</field>
+        </record>
+        <record model="l10n_cu.asset.move.category" id="compra">
+            <field name="name">Compra</field>
+            <field name="code">02</field>
+            <field name="groups">alta</field>
+        </record>        
+        <record model="l10n_cu.asset.move.category" id="venta">
+            <field name="name">Venta</field>
+            <field name="code">03</field>
+            <field name="groups">baja</field>
+        </record>
+        <record model="l10n_cu.asset.move.category" id="trasl_inter">
+            <field name="name">Traslado interno</field>
+            <field name="code">04</field>
+            <field name="groups">ninguno</field>
+        </record>
+        <record model="l10n_cu.asset.move.category" id="ajust_falt">
+            <field name="name">Ajuste por faltante</field>
+            <field name="code">05</field>
+            <field name="groups">baja</field>
+        </record>
+        <record model="l10n_cu.asset.move.category" id="ajust_perd">
+            <field name="name">Ajuste por pérdida</field>
+            <field name="code">06</field>
+            <field name="groups">baja</field>
+        </record>
+        <record model="l10n_cu.asset.move.category" id="ajust_sobr">
+            <field name="name">Ajuste por sobrante</field>
+            <field name="code">07</field>
+            <field name="groups">alta</field>
+        </record>
+        <record model="l10n_cu.asset.move.category" id="ocioso">
+            <field name="name">Traslado de activo a ocioso</field>
+            <field name="code">08</field>
+            <field name="groups">ninguno</field>
+        </record>
+        <record model="l10n_cu.asset.move.category" id="activo">
+            <field name="name">Traslado de ocioso a activo</field>
+            <field name="code">09</field>
+            <field name="groups">ninguno</field>
+        </record>
+        <record model="l10n_cu.asset.move.category" id="alquiler">
+            <field name="name">Alquiler</field>
+            <field name="code">10</field>
+            <field name="groups">ninguno</field>
+        </record>
+        <record model="l10n_cu.asset.move.category" id="reparar">
+            <field name="name">Reparar</field>
+            <field name="code">11</field>
+            <field name="groups">ninguno</field>
+        </record>
+        <record model="l10n_cu.asset.move.category" id="baja">
+            <field name="name">Baja</field>
+            <field name="code">12</field>
+            <field name="groups">baja</field>
+        </record>
+    </data>
+</odoo>

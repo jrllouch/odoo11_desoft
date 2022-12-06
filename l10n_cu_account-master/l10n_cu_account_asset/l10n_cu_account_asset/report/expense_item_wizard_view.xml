@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="l10n_cu_account_expense_item_report_form" model="ir.ui.view">
+          <field name="name">Expenses Item</field>
+          <field name="model">account.expense.item.report</field>
+          <field name="inherit_id" ref="account.account_common_report_view" />
+          <field name="arch" type="xml">
+                <xpath expr="//field[@name='target_move']" position="replace">
+                    <field name="target_move" string = "Target Moves" widget="radio"/>
+                </xpath>
+                <xpath expr="//field[@name='date_from']" position="replace">
+                    <field name="date_from" string = "Start Date" />
+                </xpath>
+                <xpath expr="//field[@name='date_to']" position="replace">
+                    <field name="date_to" string = "End Date"/>
+                </xpath>
+                <xpath expr="//field[@name='target_move']" position="after">
+                    <field name="display_item"/>
+                </xpath>
+                <xpath expr="//field[@name='journal_ids']" position="replace"/>
+          </field>
+        </record>
+
+        <record id="subelements_expenses_report_action" model="ir.actions.act_window">
+            <field name="name">Expenses Item</field>
+            <field name="res_model">account.expense.item.report</field>
+            <field name="view_id" ref="l10n_cu_account_expense_item_report_form"/>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+        <menuitem id="expenses_report" name="Expenses Reports" parent="account.menu_finance_reports"/>
+
+        <menuitem id="subelements_expenses_report_menu"
+                  name="Expenses Item" parent="expenses_report" action="subelements_expenses_report_action"/>
+
+    </data>
+</odoo>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <template id="report_tools_account_delivery_document" inherit_id="l10n_cu_tools.report_tools_delivery_document">
+        <th name="qty" position="after">
+            <th>Price</th>
+            <th>Value</th>
+        </th>
+        <td name="qty" position="after">
+            <td><span t-field="move.price_unit"/></td>
+            <td><span t-esc="move.product_qty*move.price_unit" /></td>
+        </td>
+    </template>
+
+    <template id="l10n_cu_tools.report_tools_deliveryslip">
+        <t t-foreach="docs" t-as="o">
+            <t t-call="l10n_cu_tools_account.report_tools_account_delivery_document" t-lang="o.partner_id.lang"/>
+        </t>
+    </template>
+
+</odoo>

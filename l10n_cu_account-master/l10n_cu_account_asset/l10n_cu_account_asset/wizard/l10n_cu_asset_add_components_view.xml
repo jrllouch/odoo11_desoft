@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_l10n_cu_asset_add_components" model="ir.ui.view">
+            <field name="name">l10n_cu.asset.add.components.form</field>
+            <field name="model">l10n_cu.asset.add.components</field>
+            <field name="arch" type="xml">
+                <form string="Add components">
+                    <group colspan="4">
+                        <label string="In this wizard the ability to add components to the Control module/Functional unit is provided." colspan="4"/>
+                        <newline/>
+                        <separator colspan="4"/>
+                    </group>
+                    <group>
+	                    <group>
+	                        <field name="asset_id" readonly="1"/>
+	                        <field name="company_id" invisible="1"/>
+	                    </group>
+	                    <newline/>
+	                    <group colspan="4">
+	                        <field name="asset_ids" nolabel="1" domain="[('type','=','tangible'),('state','=','open'),('area','=',context['area']),('parent_id','=',False)]" options='{"no_create": True}'>
+	                            <tree string="Components" > 
+	                                <field name="inventory_number"/>
+	                                <field name="name"/>
+	                                <field name="category_id"/>
+	                                <field name="value"/>
+	                                <field name="value_residual"/>
+	                                <field name="depreciated_value"/>    
+	                                <field name="state" invisible="1"/>
+	                            </tree>
+	                        </field>          
+	                    </group>
+                        <footer>
+                            <button string="Accept" name="add_components" type="object"
+                                    class="oe_highlight"/>
+                            or
+                            <button special="cancel" string="Cancel" class="oe_link"/>
+                        </footer>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        
+    </data>
+</odoo>

@@ -1,0 +1,196 @@
+<odoo>
+  <data>
+      <record model="ir.ui.view" id="view_tools_picking_type_form">
+        <field name="name">Operation Types</field>
+        <field name="model">tools.picking.type</field>
+        <field name="arch" type="xml">
+            <form string="Operation Types">
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="toggle_active" type="object" class="oe_stat_button" icon="fa-archive">
+                            <field name="active" widget="boolean_button" options='{"terminology": "archive"}'/>
+                        </button>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="sequence_id"/>
+                        </group>
+                        <group>
+                            <field name="code"/>
+                            <field name="company_id" groups="base.group_multi_company"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+      <record model="ir.ui.view" id="view_tools_picking_type_list">
+            <field name="name">tools.picking.type.list</field>
+            <field name="model">tools.picking.type</field>
+            <field name="arch" type="xml">
+                <tree string="Operation Types">
+                    <field name="name"/>
+                    <field name="sequence_id"/>
+                    <field name="code"/>
+                    <field name="company_id" groups="base.group_multi_company"/>
+                </tree>
+            </field>
+        </record>
+
+      <record id="action_tools_picking_type_list" model="ir.actions.act_window">
+            <field name="name">All Operations</field>
+            <field name="res_model">tools.picking.type</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">list,form</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                Click to define a new transfer type.
+              </p><p>
+                    You can either do it immediately or mark it as Todo for future processing. Use your scanner to validate the transferred quantity quicker.
+              </p>
+            </field>
+
+        </record>
+
+        <record id="action_tools_picking_type_kanban" model="ir.actions.act_window">
+            <field name="name">Operations</field>
+            <field name="res_model">tools.picking.type</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">kanban,form</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                Click to define a new transfer type.
+              </p><p>
+                    You can either do it immediately or mark it as Todo for future processing. Use your scanner to validate the transferred quantity quicker.
+              </p>
+            </field>
+
+        </record>
+
+        <record id="tools_picking_type_kanban" model="ir.ui.view">
+            <field name="name">tools.picking.type.kanban</field>
+            <field name="model">tools.picking.type</field>
+            <field name="arch" type="xml">
+                <kanban class="oe_background_grey o_kanban_dashboard o_emphasize_colors o_stock_kanban" create="0">
+                    <field name="color"/>
+                    <field name="code"/>
+                    <field name="count_tpicking_confirmed"/>
+                    <field name="count_tpicking_draft"/>
+                    <field name="count_tpicking_done"/>
+                    <field name="count_tpicking_cancel"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div t-if="['income', 'income_surplus', 'outgoing', 'outgoing_Missing', 'internal', 'income_transfer', 'outgoing_transfer'].indexOf(record.code.raw_value) > -1" t-attf-class="#{kanban_color(record.color.raw_value)}" name="tools_picking">
+                                <div>
+                                    <div t-attf-class="o_kanban_card_header">
+                                        <div class="o_kanban_card_header_title">
+                                            <div class="o_primary">
+                                                <a type="object" name="get_tools_picking_action_picking_type">
+                                                    <field name="name"/>
+                                                </a>
+                                            </div>
+                                            <div class="o_secondary"><field class="o_secondary"  name="company_id"/></div>
+                                        </div>
+                                        <div class="o_kanban_manage_button_section">
+                                            <a class="o_kanban_manage_toggle_button" href="#"><i class="fa fa-ellipsis-v" /></a>
+                                        </div>
+                                    </div>
+                                    <div class="container o_kanban_card_content">
+                                        <div class="row">
+                                            <div class="col-xs-6 o_kanban_primary_left">
+                                                <button class="btn btn-primary" name="get_action_picking_tree_Confirmed" type="object">
+                                                    <span><t t-esc="record.count_tpicking_confirmed.value"/> To account</span>
+                                                </button>
+                                            </div>
+                                            <div class="col-xs-6 o_kanban_primary_right">
+                                                <div t-if="record.count_tpicking_draft.raw_value > 0" class="row">
+                                                    <div class="col-xs-9">
+                                                        <a name="get_action_picking_tree_draft" type="object">
+                                                            Draft
+                                                        </a>
+                                                    </div>
+                                                    <div class="col-xs-3">
+                                                        <field name="count_tpicking_draft"/>
+                                                    </div>
+                                                </div>
+                                                <div t-if="record.count_tpicking_confirmed.raw_value > 0" class="row">
+                                                    <div class="col-xs-9">
+                                                        <a name="get_action_picking_tree_Confirmed" type="object">
+                                                            Confirmed
+                                                        </a>
+                                                    </div>
+                                                    <div class="col-xs-3">
+                                                        <field name="count_tpicking_confirmed"/>
+                                                    </div>
+                                                </div>
+                                                <div t-if="record.count_tpicking_done.raw_value > 0" class="row">
+                                                    <div class="col-xs-9">
+                                                        <a name="get_action_picking_tree_done" type="object">
+                                                            Done
+                                                        </a>
+                                                    </div>
+                                                    <div class="col-xs-3">
+                                                        <field name="count_tpicking_done"/>
+                                                    </div>
+                                                </div>
+                                                <div t-if="record.count_tpicking_cancel.raw_value > 0" class="row">
+                                                    <div class="col-xs-9">
+                                                        <a name="get_action_picking_tree_cancel" type="object">
+                                                            Cancel
+                                                        </a>
+                                                    </div>
+                                                    <div class="col-xs-3">
+                                                        <field name="count_tpicking_cancel"/>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="container o_kanban_card_manage_pane">
+                                        <div class="row">
+                                           <div class="col-xs-6 o_kanban_card_manage_section o_kanban_manage_view">
+                                                <div class="o_kanban_card_manage_title">
+                                                    <span>View</span>
+                                                </div>
+                                                <div>
+                                                    <a name="get_tools_picking_action_picking_type" type="object">All</a>
+                                                </div>
+                                                <div>
+                                                    <a name="get_action_picking_tree_Confirmed" type="object">Confirmed</a>
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-6 o_kanban_card_manage_section o_kanban_manage_new">
+                                                <div class="o_kanban_card_manage_title">
+                                                    <span>New</span>
+                                                </div>
+                                                <div>
+                                                    <a name="%(action_tools_picking_form)d" type="action">Immediate Transfer</a>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div t-if="widget.editable" class="o_kanban_card_manage_settings row">
+                                            <div class="col-xs-8">
+                                                <ul class="oe_kanban_colorpicker" data-field="color"/>
+                                            </div>
+                                            <div class="col-xs-4 text-right">
+                                                <a type="edit">Settings</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+
+  </data>
+</odoo>

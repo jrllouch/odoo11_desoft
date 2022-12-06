@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="tools_move_tree" model="ir.ui.view">
+        <field name="name">tools.move.tree</field>
+        <field name="model">tools.move</field>
+        <field name="arch" type="xml">
+            <tree string="Tools Moves" create="false" edit="false" delete="false">
+                <field name="name"/>
+                <field name="date"/>
+                <field name="origin"/>
+                <field name="picking_type_id"/>
+                <field name="custodian_orig_id"/>
+                <field name="custodian_dest_id"/>
+                <field name="product_id"/>
+                <field name="product_uom"/>
+                <field name="product_uom_qty" string="Done"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="tools_move_action" model="ir.actions.act_window">
+        <field name="name">Tools Moves</field>
+        <field name="res_model">tools.move</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,kanban,pivot,form</field>
+        <field name="view_id" ref="tools_move_tree"/>
+        <field name="context">{'search_default_done': 1}</field>
+    </record>
+</odoo>

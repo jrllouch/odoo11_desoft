@@ -1,0 +1,15 @@
+-
+    !python {model: account.asset.category}: |
+
+        cr.execute('ALTER TABLE public.account_asset_category ALTER COLUMN account_depreciation_expense_id DROP NOT NULL')
+
+        cr.execute('ALTER TABLE public.account_asset_category ALTER COLUMN method_time DROP NOT NULL')
+        cr.execute('ALTER TABLE public.account_asset_category ALTER COLUMN journal_id DROP NOT NULL')
+
+-
+    !python {model: account.asset.asset}: |
+        cr.execute('ALTER TABLE public.account_asset_asset ALTER COLUMN method_time DROP NOT NULL')
+
+-
+    !python {model: account.asset.history}: |
+        cr.execute('ALTER TABLE public.account_asset_history ALTER COLUMN method_time DROP NOT NULL')

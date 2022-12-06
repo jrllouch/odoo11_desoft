@@ -1,0 +1,204 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* l10n_cu_stock
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 11.0-20190312\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-11-24 15:32+0000\n"
+"PO-Revision-Date: 2019-11-24 15:32+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: stock
+#: model:ir.ui.view,arch_db:stock.report_delivery_document
+#: model:ir.ui.view,arch_db:stock.report_picking
+msgid "<span><strong>Customer Address:</strong></span>"
+msgstr "<span><strong>Dirección del cliente:</strong></span>"
+
+#. module: sale_stock
+#: model:ir.ui.view,arch_db:sale_stock.view_order_form_inherit_sale_stock
+msgid "Shipping Information"
+msgstr "Información de envío"
+
+#. module: product
+#: model:ir.ui.view,arch_db:product.product_template_form_view
+msgid "Description for Customers"
+msgstr "Descripción para clientes"
+
+#. module: product
+#: model:ir.ui.view,arch_db:product.product_template_form_view
+msgid "Description for Internal"
+msgstr "Descripción para interno"
+
+#. module: product
+#: model:ir.ui.view,arch_db:product.product_template_form_view
+msgid "This note is only for internal purposes."
+msgstr "Esta nota es solo para propósitos internos."
+
+#. module: stock
+#: model:ir.model.fields,field_description:stock.field_stock_move_create_date
+#: model:ir.model.fields,field_description:stock.field_stock_picking_date
+#: model:ir.model.fields,field_description:stock.field_stock_production_lot_create_date
+msgid "Creation Date"
+msgstr "Fecha de creación"
+
+#. module: stock
+#: model:ir.ui.view,arch_db:stock.view_template_property_form
+msgid "Description for Internal Transfers"
+msgstr "Descripción para transferencias internas"
+
+#. module: stock
+#: model:ir.ui.view,arch_db:stock.view_template_property_form
+msgid "Description for Receptions"
+msgstr "Descripción para recepciones"
+
+#. module: stock
+#: model:ir.ui.view,arch_db:stock.view_inventory_form
+msgid "Inventory Adjustment"
+msgstr "Ajuste de inventario"
+
+#. module: stock
+#: model:ir.actions.act_window,name:stock.action_inventory_form
+#: model:ir.ui.menu,name:stock.menu_action_inventory_form
+#: model:ir.ui.view,arch_db:stock.view_inventory_form
+msgid "Inventory Adjustments"
+msgstr "Ajustes de inventario"
+
+#. module: stock
+#: model:ir.model.fields,field_description:stock.field_stock_warehouse_lot_stock_id
+msgid "Location Stock"
+msgstr "Ubicación de stock"
+
+#. module: stock
+#: model:ir.actions.act_window,name:stock.action_procurement_compute
+#: model:ir.ui.menu,name:stock.menu_procurement_compute
+msgid "Run Scheduler"
+msgstr "Ejecutar planificador"
+
+#. module: stock
+#: model:ir.model,name:stock.model_stock_scheduler_compute
+msgid "Run Scheduler Manually"
+msgstr "Ejecutar planificador manualmente"
+
+#. module: stock
+#: model:ir.ui.view,arch_db:stock.report_inventory
+msgid "Stock Inventory"
+msgstr "Inventario de stock"
+
+#. module: stock
+#: model:ir.ui.view,arch_db:stock.stock_inventory_line_tree
+msgid "Stock Inventory Lines"
+msgstr "Líneas de stock de inventario"
+
+#. module: stock
+#: model:ir.actions.act_window,name:stock.action_stock_level_forecast_report_product
+#: model:ir.actions.act_window,name:stock.action_stock_level_forecast_report_template
+msgid "Stock Level Forecast"
+msgstr "Previsión de nivel de stock"
+
+#. module: stock
+#: model:ir.actions.act_window,name:stock.action_stock_level_forecast_report_product
+#: model:ir.actions.act_window,name:stock.action_stock_level_forecast_report_template
+msgid "Stock Level Forecast"
+msgstr "Previsión de nivel de stock"
+
+#. module: stock
+#: model:ir.ui.view,arch_db:stock.view_location_form
+#: model:ir.ui.view,arch_db:stock.view_location_tree2
+msgid "Stock Location"
+msgstr "Ubicación de stock"
+
+#. module: stock
+#: model:ir.ui.view,arch_db:stock.view_location_search
+msgid "Stock Locations"
+msgstr "Ubicaciones de stock"
+
+#. module: stock
+#: model:ir.model,name:stock.model_stock_move
+#: model:ir.model.fields,field_description:stock.field_product_product_stock_move_ids
+#: model:ir.model.fields,field_description:stock.field_stock_move_line_move_id
+msgid "Stock Move"
+msgstr "Movimiento de stock"
+
+#. module: stock
+#: model:ir.actions.act_window,name:stock.stock_move_action
+#: model:ir.model.fields,field_description:stock.field_stock_picking_move_lines
+#: model:ir.ui.menu,name:stock.stock_move_menu
+#: model:ir.ui.view,arch_db:stock.stock_move_line_view_search
+#: model:ir.ui.view,arch_db:stock.view_inventory_form
+#: model:ir.ui.view,arch_db:stock.view_move_form
+#: model:ir.ui.view,arch_db:stock.view_move_picking_form
+#: model:ir.ui.view,arch_db:stock.view_move_picking_tree
+#: model:ir.ui.view,arch_db:stock.view_move_search
+#: model:ir.ui.view,arch_db:stock.view_picking_form
+msgid "Stock Moves"
+msgstr "Movimientos de stock"
+
+#. module: stock
+#: model:ir.ui.view,arch_db:stock.view_move_graph
+#: model:ir.ui.view,arch_db:stock.view_move_pivot
+msgid "Stock Moves Analysis"
+msgstr "Análisis de los movimientos de stock"
+
+#. module: stock
+#: model:ir.ui.view,arch_db:stock.view_move_search
+msgid "Stock moves that are Available (Ready to process)"
+msgstr ""
+"Movimientos de stock que están disponibles (preparados para ser procesados)"
+
+#. module: stock
+#: model:ir.ui.view,arch_db:stock.view_move_search
+msgid "Stock moves that are Confirmed, Available or Waiting"
+msgstr "Movimientos de stock que están confirmados, disponibles o en espera."
+
+#. module: stock
+#: model:ir.ui.view,arch_db:stock.view_move_search
+msgid "Stock moves that have been processed"
+msgstr "Movimientos de stock que han sido procesados"
+
+#. module: stock
+#: model:ir.actions.act_window,name:stock.action_picking_tree_all
+msgid "Stock Operations"
+msgstr "Operaciones de stock"
+
+#. module: stock
+#: model:ir.model.fields,field_description:stock.field_product_product_stock_quant_ids
+#: model:ir.ui.view,arch_db:stock.stock_quant_view_graph
+msgid "Stock Quant"
+msgstr "Stock quant"
+
+#. module: stock
+#: model:ir.model,name:stock.model_stock_quantity_history
+msgid "Stock Quantity History"
+msgstr "Historia de stock quant"
+
+#. module: stock
+#: model:ir.model.fields,field_description:stock.field_stock_move_price_unit
+msgid "Unit Price"
+msgstr "Precio de unidad"
+
+#. module: stock
+#: code:addons/stock/models/stock_inventory.py:104
+#, python-format
+msgid "You cannot delete a validated inventory adjustement."
+msgstr "No puede eliminar un ajuste de inventario validado."
+
+#. module: l10n_cu_stock
+#: model:ir.module.module,shortdesc:base.module_l10n_cu_stock
+msgid "Cuban - Stock"
+msgstr "Cuba - Inventario"
+
+#. module: l10n_cu_stock
+#: model:ir.module.module,description:base.module_l10n_cu_stock
+msgid ""
+"\n"
+"This module extends the functionalities of the stock module, allowing to correct some problems present in odoo release.\n"
+msgstr ""
+"\n"
+"Este módulo extiende las funcionalidades del módulo de inventario, permitiendo rectificar algunos problemas presentes en este último.\n"

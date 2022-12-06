@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_l10n_cu_tools_storage_l10n_cu_tools_storage_user,l10n_cu_tools_storage.tools_storage user,model_tools_storage,l10n_cu_tools.group_tools_user,1,0,0,0
+access_l10n_cu_tools_storage_l10n_cu_tools_storage_manager,l10n_cu_tools_storage.tools_storage manager,model_tools_storage,l10n_cu_tools.group_tools_manager,1,1,1,1

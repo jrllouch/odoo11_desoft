@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="l10n_cu_high_report">
+            <t t-call="web.html_container">
+                <t t-call="web.external_layout">
+                    <!-- <div class="header">
+                        <div class="row" style="font-size:12px;">
+                            <span>Page </span><span class="page"/> of <span class="topage"/>
+                            <span class="pull-right"><span t-esc="time.strftime('%d/%m/%Y %H:%M:%S')"/></span>
+                        </div>
+                        <div class="row text-center">
+                            <h4><strong>Highs</strong></h4>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12"><strong>Entity: </strong><spam><t t-esc="res_company.name"/></spam></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-6"><strong>REEUP: </strong><spam><t t-esc="res_company.reup_code"/></spam></div>
+                            <div class="col-xs-6"><strong>NAE: </strong><spam><t t-esc="res_company.nae"/></spam></div>
+                        </div>
+                    </div> -->
+                    <div class="page" style="font-size:12px;">
+                        <div class="row" style="font-size:12px;">
+                            <span class="pull-right"><span t-esc="time.strftime('%d/%m/%Y %H:%M:%S')"/></span>
+                        </div>
+                        <div class="row text-center">
+                            <h4><strong>Highs</strong></h4>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12"><strong>Entity: </strong><span><t t-esc="res_company.name"/></span></div>
+                        </div>
+                        <t t-if="data['asset_report']">
+                            <div class="row">
+                                <strong>Asset:</strong>   <t t-esc="data['asset_report']"/>
+                            </div>
+                        </t>
+                        <t t-if="data['asset_module_report']">
+                            <div class="row">
+                                <strong>Asset Module:</strong>   <t t-esc="data['asset_module_report']"/>
+                            </div>
+                        </t>
+                        <t t-if="data['area']">
+                            <div class="row">
+                                <strong>Area:</strong>   <t t-esc="data['area']"/>
+                            </div>
+                        </t>
+                        <t t-if="data['category_id']">
+                            <div class="row">
+                                <strong>Category:</strong>   <t t-esc="data['category_id']"/>
+                            </div>
+                        </t>
+                        <t t-if="data['start_date'] and data['end_date']">
+                            <div class="row">
+                                <strong>Desde:</strong> <t t-esc="data['start_date']"/>
+                                <strong>Hasta:</strong> <t t-esc="data['end_date']"/>
+                            </div>
+                        </t>
+                        <div class="row">
+                            <table class="table table-condensed">
+                                <thead>
+                                    <tr>
+                                        <th style="padding:1px;">Inventory number</th>
+                                        <th style="padding:1px;">Asset name</th>
+                                        <th style="padding:1px;">Document number</th>
+                                        <th style="padding:1px;" class="text-right">Subscribe date</th>
+                                        <th style="padding:1px;" class="text-right">Initial value</th>
+                                        <th style="padding:1px;" class="text-right">Depreciation tax</th>
+                                        <th style="padding:1px;" class="text-right">Accumulated depreciation</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <t t-foreach="assets" t-as="asset">
+                                        <tr>
+                                            <td style="padding:1px;"><t t-esc="asset['inventory_number']"/></td>
+                                            <td style="padding:1px;"><t t-esc="asset['name']"/></td>
+                                            <td style="padding:1px;"><t t-esc="asset['number']"/></td>
+                                            <td class="text-right" style="padding:1px;"><t t-esc="asset['subscribe_date']"/></td>
+                                            <td class="text-right" style="padding:1px;"><t t-esc="'%.2f'%(asset['initial_value'])"/></td>
+                                            <td class="text-right" style="padding:1px;"><t t-esc="'%.2f'%(asset['depreciation_tax'])"/></td>
+                                            <td class="text-right" style="padding:1px;">
+                                                <t t-if="asset['value_amount_depreciation']">
+                                                    <t t-esc="'%.2f'%(asset['value_amount_depreciation'])"/>
+                                                </t>
+                                                <t t-if="not asset['value_amount_depreciation']">0.00</t>
+                                            </td>
+                                        </tr>
+                                    </t>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="page">
+                            <table class="table table-condensed" style="border:none">
+                                <thead>
+                                    <tr>
+                                        <th style="text-center" rowspan="2">Elaborado por:
+                                            <div> <h6 class="text-left">_________________________________________</h6> </div>
+                                        </th>
+                                        <th style="text-center" rowspan="2">Responsable de Area:
+                                            <h6 class="text-left">_________________________________________</h6>
+                                        </th>
+                                    </tr>
+                                </thead>
+                            </table>
+                            <table class="table table-condensed" style="border:none">
+                                <thead>
+                                    <tr>
+                                        <th style="text-center" rowspan="2">Contralado por:
+                                            <h6 class="text-left">_________________________________________</h6>
+                                        </th>
+                                        <th style="text-center" rowspan="2">Revizado por:
+                                            <h6 class="text-left">_________________________________________</h6>
+                                        </th>
+                                    </tr>
+                                </thead>
+                            </table>
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>

@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_tools_physical_inventory">
+         <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <h2 class="text-center"> Tools Inventory </h2>
+
+                        <table class="table table-condensed">
+                        <thead>
+                            <tr>
+                                <th class="text-center"><strong>Company</strong></th>
+                                <th class="text-center"><strong>Inventory</strong></th>
+                                <th class="text-center"><strong>Date</strong></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="text-center">
+                                    <span t-field="o.company_id"/>
+                                </td>
+                                <td class="text-center">
+                                    <span t-field="o.name"/>
+                                </td>
+                                <td class="text-center">
+                                    <span t-field="o.date"/>
+                                </td>
+                            </tr>
+                        </tbody>
+                        </table>
+
+                        <t t-set="custodians" t-value="o.custodian_id"/>
+                        <table class="table table-condensed">
+                            <thead>
+                                <tr>
+                                    <!--groups="stock.group_stock_multi_locations"-->
+                                    <th class="text-left"><strong>Custodian</strong></th>
+                                    <th class="text-left"><strong>Product</strong></th>
+                                    <th class="text-left" groups="product.group_uom"><strong>UM</strong></th>
+                                    <th id="template_price" class="text-left"><strong>Price</strong></th>
+                                    <th class="text-left"><strong>Theoretical Quantity</strong></th>
+                                    <th class="text-left"><strong>Physical Quantity</strong></th>
+                                    <th class="text-left"><strong>Surplus Quantity</strong></th>
+                                    <th class="text-left"><strong>Leftover Quantity</strong></th>
+                                    <th> </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-foreach="custodians" t-as="custodian">
+                                    <tr>
+                                        <!--groups="stock.group_stock_multi_locations"-->
+                                        <td class="text-left" colspan="2"><strong t-esc="custodian.name"/></td>
+                                        <td class="text-left"/>
+                                        <td class="text-left"/>
+                                        <td> </td>
+                                        <td> </td>
+                                        <td> </td>
+                                        <td> </td>
+                                        <td> </td>
+                                        <td id="mark"> </td>
+                                    </tr>
+                                    <tr t-foreach="o.line_ids.filtered(lambda line: line.custodian_id.id == custodian.id)" t-as="line">
+
+                                        <td/>
+                                        <td class="text-left"><span t-field="line.product_id"/></td>
+                                        <td class="text-left" groups="product.group_uom"><span t-field="line.product_uom_id" groups="product.group_uom"/></td>
+                                        <td id = "standard_price" class="text-left"><span t-field="line.product_id.standard_price"/> <span t-field="o.company_id.currency_id.symbol"/></td>
+                                        <td class="text-left"><span t-field="line.theoretical_qty"/></td>
+                                        <td class="text-left"><span t-field="line.product_qty"/></td>
+                                        <td class="text-left"><span t-field="line.surplus_physical_quantity"/></td>
+                                        <td class="text-left"><span t-field="line.leftover_physical_quantity"/></td>
+                                    </tr>
+                                </t>
+                            </tbody>
+                        </table>
+                        <div class="col-xs-4">
+                            <div>
+                                <th>
+                                     <table style="border: none" width="100%" class="text-center">
+                                         <tr>
+                                             <td>
+                                                 <br/>
+                                                 <br/>
+                                                 <br/>
+                                                <br/>______________________________
+                                             </td>
+                                         </tr>
+                                         <tr>
+                                             <td>Inventory manager signature</td>
+                                         </tr>
+                                     </table>
+                                </th>
+                            </div>
+                            <div>
+                                <table style="border: none" width="100%" class="text-center">
+                                    <tr>
+                                        <td>
+                                            <br/>
+                                            <br/>
+                                            <br/>
+                                           <br/>______________________________
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Warehouse manager's signature</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="col-xs-4">
+                            <div>
+                                <table style="border: none" width="100%" class="text-center">
+                                    <tr>
+                                        <td>
+                                            <br/>
+                                            <br/>
+                                            <br/>
+                                            <br/>______________________________
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Signature of the model maker</td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div>
+                                <table style="border: none" width="100%" class="text-center">
+                                    <tr>
+                                        <td>
+                                            <br/>
+                                            <br/>
+                                            <br/>
+                                            <br/>______________________________
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Signature of the model checker</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </t>
+             </t>
+         </t>
+    </template>
+
+    <report
+        string="Physical Inventory"
+        id="action_report_tools_physical_inventory"
+        model="tools.inventory"
+        report_type="qweb-pdf"
+        name="l10n_cu_tools.report_tools_physical_inventory"
+        file="l10n_cu_tools.report_tools_physical_inventory"
+    />
+</odoo>

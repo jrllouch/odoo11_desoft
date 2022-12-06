@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Custom report.-->
+<odoo>
+    <data>
+        <template id="l10n_cu_account_balances_report">
+            <t t-call="web.html_container">
+                <t t-call="web.external_layout">
+                    <!-- <div class="header">
+                        <div class="row" style="font-size:12px;">
+                            <span>Page </span><span class="page"/> of <span class="topage"/>
+                            <span class="pull-right"><span t-esc="time.strftime('%d/%m/%Y %H:%M:%S')"/></span>
+                        </div>
+                        <div class="row text-center">
+                            <h4><strong>Account Balances Report</strong></h4>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12"><strong>Entity: </strong><spam><t t-esc="res_company.name"/></spam></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-6"><strong>REEUP: </strong><spam><t t-esc="res_company.reup_code"/></spam></div>
+                            <div class="col-xs-6"><strong>NAE: </strong><spam><t t-esc="res_company.nae"/></spam></div>
+                        </div>
+                    </div> -->
+                    <div class="page" style="font-size:12px;">
+                        <div class="row" style="font-size:12px;">
+                            <span class="pull-right"><span t-esc="time.strftime('%d/%m/%Y %H:%M:%S')"/></span>
+                        </div>
+                        <div class="row text-center">
+                            <h4><strong>Account Balances Report</strong></h4>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12"><strong>Entity: </strong><span><t t-esc="res_company.name"/></span></div>
+                        </div>
+                        <div class="row">
+                            <table class="table table-condensed">
+                                <thead>
+                                    <tr>
+                                        <th style="padding:1px;">Account</th>
+                                        <th style="padding:1px;" class="text-right">Account balances</th>
+                                        <th style="padding:1px;" class="text-right">Asset balances</th>
+                                        <th style="padding:1px;" class="text-right">Difference</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <t t-set="total_asset" t-value="0.00"/>
+                                    <t t-set="total_account" t-value="0.00"/>
+                                    <t t-foreach="accounts" t-as="account">
+                                        <tr>
+                                            <td style="padding:1px;"><t t-esc="account['account']"/> </td>
+                                            <td style="padding:1px;" class="text-right"><t t-esc="account['account_balance']"/> </td>
+                                            <td style="padding:1px;" class="text-right"><t t-esc="account['asset_balance']"/> </td>
+                                            <td style="padding:1px;" class="text-right"><t t-esc="account['difference']"/> </td>
+                                            <t t-set="total_asset" t-value="total_asset + account['asset_balance']"/>
+                                            <t t-set="total_account" t-value="total_account + account['account_balance']"/>
+                                        </tr>
+                                    </t>
+                                    <tr>
+                                        <th style="padding:1px;" class="text-right">Total</th>
+                                        <th style="padding:1px;" class="text-right"><t t-esc="total_account"/></th>
+                                        <th style="padding:1px;" class="text-right"><t t-esc="total_asset"/></th>
+                                        <th style="padding:1px;" class="text-right"><t t-esc="round(abs(total_account - total_asset), 2)"/></th>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>

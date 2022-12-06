@@ -1,0 +1,491 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* l10n_cu_tools_account
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 11.0-20190312\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-09-24 14:11+0000\n"
+"PO-Revision-Date: 2019-09-24 15:33+0100\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"Language: es\n"
+"X-Generator: Poedit 2.2.3\n"
+
+#. module: l10n_cu_tools_account
+#: selection:product.category,property_amortization_methods:0
+msgid "% Periodic"
+msgstr "% Periodico"
+
+#. module: l10n_cu_tools_account
+#: selection:product.category,property_amortization_methods:0
+msgid "100% at the beginning"
+msgstr "100% al principio"
+
+#. module: l10n_cu_tools_account
+#: selection:product.category,property_amortization_methods:0
+msgid "100% at the end"
+msgstr "100% al final"
+
+#. module: l10n_cu_tools_account
+#: selection:product.category,property_amortization_methods:0
+msgid "50% at the start and 50% at the end"
+msgstr "50% al inicio y 50% al final"
+
+#. module: l10n_cu_tools_account
+#: model:ir.model.fields,field_description:l10n_cu_tools_account.field_tools_lock_date_wizard_line_account_balance
+msgid "According accounting"
+msgstr "Según la contabilidad"
+
+#. module: l10n_cu_tools_account
+#: model:ir.model.fields,field_description:l10n_cu_tools_account.field_tools_lock_date_wizard_line_tools_balance
+msgid "According tools"
+msgstr "De acuerdo con las herramientas"
+
+#. module: l10n_cu_tools_account
+#: model:ir.model.fields,field_description:l10n_cu_tools_account.field_tools_lock_date_wizard_line_account_id
+#: model:ir.ui.view,arch_db:l10n_cu_tools_account.hr_employee_account_form
+#: model:ir.ui.view,arch_db:l10n_cu_tools_account.res_partner_tool_account_form
+msgid "Account"
+msgstr "Cuenta"
+
+#. module: l10n_cu_tools_account
+#: model:ir.ui.view,arch_db:l10n_cu_tools_account.classifier_product_category_account_form
+msgid "Account Tool Properties"
+msgstr "Propiedades de la herramienta Cuenta"
+
+#. module: l10n_cu_tools_account
+#: model:ir.model.fields,field_description:l10n_cu_tools_account.field_product_category_property_amortization_methods
+msgid "Amortization Methods"
+msgstr "Métodos de amortización"
+
+#. module: l10n_cu_tools_account
+#: model:ir.model.fields,help:l10n_cu_tools_account.field_tools_quant_amortization
+msgid "Amortization used for tools valuation in standard priceExpressed in the default unit of measure of the tools."
+msgstr "Amortización utilizada para la valoración de herramientas en precio estándarExpresado en la unidad de medida predeterminada de las herramientas."
+
+#. module: l10n_cu_tools_account
+#: model:ir.model.fields,field_description:l10n_cu_tools_account.field_hr_employee_analytic_account
+#: model:ir.model.fields,field_description:l10n_cu_tools_account.field_res_partner_analytic_account
+#: model:ir.model.fields,field_description:l10n_cu_tools_account.field_res_users_analytic_account
+#: model:ir.model.fields,field_description:l10n_cu_tools_account.field_tools_move_analytic_account_id
+#: model:ir.model.fields,field_description:l10n_cu_tools_account.field_tools_picking_analytic_account_id
+msgid "Analytic Account"
+msgstr "Cuenta analítica"
+
+#. module: l10n_cu_tools_account
+#: selection:product.category,property_tools_valuation:0
+msgid "Automated"
+msgstr "Automatizado"
+
+#. module: l10n_cu_tools_account
+#: model:ir.model.fields,help:l10n_cu_tools_account.field_res_config_settings_tools_lock_date
+#: model:ir.model.fields,help:l10n_cu_tools_account.field_tools_lock_date_wizard_tools_lock_date
+msgid "Can't edit documents prior or equal to this date."
+msgstr "No se pueden editar documentos anteriores o iguales a esta fecha."
+
+#. module: l10n_cu_tools_account
+#: model:ir.model.fields,help:l10n_cu_tools_account.field_res_company_tools_lock_date
+msgid "Can't edit documents prior to and inclusive of this date."
+msgstr "No se pueden editar documentos anteriores e inclusive a esta fecha."
+
+#. module: l10n_cu_tools_account
+#: model:ir.ui.view,arch_db:l10n_cu_tools_account.tools_lock_date_form
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: l10n_cu_tools_account
+#: code:addons/l10n_cu_tools_account/models/tools_move.py:33
+#, python-format
+msgid "Cannot find a tools expense account for the product %s. You must define one on the product category, before processing this operation."
+msgstr "No se puede encontrar una cuenta de gastos de herramientas para el producto% s. Debe definir uno en la categoría de producto, antes de procesar esta operación."
+
+#. module: l10n_cu_tools_account
+#: code:addons/l10n_cu_tools_account/models/tools_move.py:42
+#, python-format
+msgid "Cannot find a tools input account for the product %s. You must define one on the product category, before processing this operation."
+msgstr "No se puede encontrar una cuenta de entrada de herramientas para el producto% s. Debe definir uno en la categoría de producto, antes de procesar esta operación."
+
+#. module: l10n_cu_tools_account
+#: code:addons/l10n_cu_tools_account/models/tools_move.py:51
+#, python-format
+msgid "Cannot find a tools output account for the product %s. You must define one on the product category, before processing this operation."
+msgstr "No se puede encontrar una cuenta de salida de herramientas para el producto% s. Debe definir uno en la categoría de producto, antes de procesar esta operación."
+
+#. module: l10n_cu_tools_account
+#: model:ir.model,name:l10n_cu_tools_account.model_res_company
+msgid "Companies"
+msgstr "Compañías"
+
+#. module: l10n_cu_tools_account
+#: model:ir.ui.view,arch_db:l10n_cu_tools_account.view_tools_account_picking_form
+msgid "Confirm"
+msgstr "Confirmar"
+
+#. module: l10n_cu_tools_account
+#: model:ir.model,name:l10n_cu_tools_account.model_res_partner
+msgid "Contact"
+msgstr "Contacto"
+
+#. module: l10n_cu_tools_account
+#: model:ir.model.fields,field_description:l10n_cu_tools_account.field_tools_lock_date_wizard_create_uid
+#: model:ir.model.fields,field_description:l10n_cu_tools_account.field_tools_lock_date_wizard_line_create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: l10n_cu_tools_account
+#: model:ir.model.fields,field_description:l10n_cu_tools_account.field_tools_lock_date_wizard_create_date
+#: model:ir.model.fields,field_description:l10n_cu_tools_account.field_tools_lock_date_wizard_line_create_date
+msgid "Created on"
+msgstr "Creado en"
+
+#. module: l10n_cu_tools_account
+#: model:ir.model.fields,field_description:l10n_cu_tools_account.field_tools_lock_date_wizard_line_difference
+msgid "Difference"
+msgstr "Diferencia"
+
+#. module: l10n_cu_tools_account
+#: model:ir.model.fields,field_description:l10n_cu_tools_account.field_tools_lock_date_wizard_display_name
+#: model:ir.model.fields,field_description:l10n_cu_tools_account.field_tools_lock_date_wizard_line_display_name
+msgid "Display Name"
+msgstr "Nombre mostrado"
+
+#. module: l10n_cu_tools_account
+#: model:ir.model,name:l10n_cu_tools_account.model_hr_employee
+msgid "Employee"
+msgstr "Empleado"
+
+#. module: l10n_cu_tools_account
+#: model:ir.model.fields,field_description:l10n_cu_tools_account.field_hr_employee_expense_account
+#: model:ir.model.fields,field_description:l10n_cu_tools_account.field_res_partner_expense_account
+#: model:ir.model.fields,field_description:l10n_cu_tools_account.field_res_users_expense_account
+msgid "Expense Account"
+msgstr "Cuenta de gasto"
+
+#. module: l10n_cu_tools_account
+#: model:ir.model.fields,field_description:l10n_cu_tools_account.field_tools_lock_date_wizard_id
+#: model:ir.model.fields,field_description:l10n_cu_tools_account.field_tools_lock_date_wizard_line_id
+msgid "ID"
+msgstr "ID (identificación)"
+
+#. module: l10n_cu_tools_account
+#: model:ir.ui.view,arch_db:l10n_cu_tools_account.tools_lock_date_form
+msgid "Invoice"
+msgstr "Factura"
+
+#. module: l10n_cu_tools_account
+#: model:ir.model.fields,field_description:l10n_cu_tools_account.field_tools_lock_date_wizard_item_ids
+msgid "Item"
+msgstr "Articulo"
+
+#. module: l10n_cu_tools_account
+#: model:ir.model.fields,field_description:l10n_cu_tools_account.field_tools_lock_date_wizard___last_update
+#: model:ir.model.fields,field_description:l10n_cu_tools_account.field_tools_lock_date_wizard_line___last_update
+msgid "Last Modified on"
+msgstr "Última modificación en"
+
+#. module: l10n_cu_tools_account
+#: model:ir.model.fields,field_description:l10n_cu_tools_account.field_tools_lock_date_wizard_line_write_uid
+#: model:ir.model.fields,field_description:l10n_cu_tools_account.field_tools_lock_date_wizard_write_uid
+msgid "Last Updated by"
+msgstr "Última actualización de"
+
+#. module: l10n_cu_tools_account
+#: model:ir.model.fields,field_description:l10n_cu_tools_account.field_tools_lock_date_wizard_line_write_date
+#: model:ir.model.fields,field_description:l10n_cu_tools_account.field_tools_lock_date_wizard_write_date
+msgid "Last Updated on"
+msgstr "Última actualización en"
+
+#. module: l10n_cu_tools_account
+#: model:ir.model.fields,field_description:l10n_cu_tools_account.field_res_company_tools_lock_date
+#: model:ir.model.fields,field_description:l10n_cu_tools_account.field_res_config_settings_tools_lock_date
+#: model:ir.model.fields,field_description:l10n_cu_tools_account.field_tools_lock_date_wizard_tools_lock_date
+#: model:ir.ui.view,arch_db:l10n_cu_tools_account.res_config_settings_view_form_tools_acc
+msgid "Lock Date"
+msgstr "Fecha establecida"
+
+#. module: l10n_cu_tools_account
+#: selection:product.category,property_tools_valuation:0
+msgid "Manual"
+msgstr "Manual"
+
+#. module: l10n_cu_tools_account
+#: model:ir.model.fields,field_description:l10n_cu_tools_account.field_tools_lock_date_wizard_message
+msgid "Message"
+msgstr "Mensaje"
+
+#. module: l10n_cu_tools_account
+#: model:ir.ui.view,arch_db:l10n_cu_tools_account.report_tools_account_delivery_document
+msgid "Price"
+msgstr "Precio"
+
+#. module: l10n_cu_tools_account
+#: model:ir.model,name:l10n_cu_tools_account.model_product_product
+msgid "Product"
+msgstr "Producto"
+
+#. module: l10n_cu_tools_account
+#: model:ir.model,name:l10n_cu_tools_account.model_product_category
+#: model:ir.model.fields,field_description:l10n_cu_tools_account.field_tools_lock_date_wizard_line_product_category
+msgid "Product Category"
+msgstr "Categoría de producto"
+
+#. module: l10n_cu_tools_account
+#: model:ir.ui.view,arch_db:l10n_cu_tools_account.res_config_settings_view_form_tools_acc
+#: model:ir.ui.view,arch_db:l10n_cu_tools_account.tools_lock_date_form
+msgid "Set Tools Lock Date"
+msgstr "Establecer fecha de bloqueo de herramientas"
+
+#. module: l10n_cu_tools_account
+#: model:ir.model.fields,help:l10n_cu_tools_account.field_hr_employee_analytic_account
+#: model:ir.model.fields,help:l10n_cu_tools_account.field_res_partner_analytic_account
+#: model:ir.model.fields,help:l10n_cu_tools_account.field_res_users_analytic_account
+msgid "The Analytic Account."
+msgstr "La cuenta analítica."
+
+#. module: l10n_cu_tools_account
+#: model:ir.model.fields,help:l10n_cu_tools_account.field_hr_employee_expense_account
+#: model:ir.model.fields,help:l10n_cu_tools_account.field_res_partner_expense_account
+#: model:ir.model.fields,help:l10n_cu_tools_account.field_res_users_expense_account
+msgid "The Expense Account."
+msgstr "La cuenta de gastos."
+
+#. module: l10n_cu_tools_account
+#: code:addons/l10n_cu_tools_account/models/tools_move.py:294
+#, python-format
+msgid "The cost of %s is currently equal to 0. Change the cost or the configuration of your product to avoid an incorrect valuation."
+msgstr "El costo de% s es actualmente igual a 0. Cambie el costo o la configuración de su producto para evitar una valoración incorrecta."
+
+#. module: l10n_cu_tools_account
+#: code:addons/l10n_cu_tools_account/wizard/tools_lock_date_wizard.py:20
+#, python-format
+msgid "The new tools lock date must be greater than the old tools lock date: %s. "
+msgstr "La nueva fecha de bloqueo de herramientas debe ser mayor que la fecha de bloqueo de herramientas anterior: %s."
+
+#. module: l10n_cu_tools_account
+#: code:addons/l10n_cu_tools_account/models/res_company.py:29
+#, python-format
+msgid "The tools lock date must be equal or greater than the lock date for non-advisers: %s"
+msgstr "La fecha de bloqueo de las herramientas debe ser igual o mayor que la fecha de bloqueo para los no asesores: %s"
+
+#. module: l10n_cu_tools_account
+#: code:addons/l10n_cu_tools_account/wizard/tools_lock_date_wizard.py:122
+#, python-format
+msgid "The tools lock date must be equal or greater than the lock date for non-advisers: %s. "
+msgstr "La fecha de bloqueo de las herramientas debe ser igual o mayor que la fecha de bloqueo para los no asesores: %s. "
+
+#. module: l10n_cu_tools_account
+#: code:addons/l10n_cu_tools_account/wizard/tools_lock_date_wizard.py:24
+#, python-format
+msgid "The tools lock date must be less than today. "
+msgstr "La fecha de bloqueo de herramientas debe ser menor que hoy."
+
+#. module: l10n_cu_tools_account
+#: code:addons/l10n_cu_tools_account/models/res_company.py:20
+#, python-format
+msgid "There are %s tools pickings with same date or earlier than lock date that are in state different from Done or Cancelled."
+msgstr "Hay %s selecciones de herramientas con la misma fecha o anterior a la fecha de bloqueo que están en un estado diferente de Listo o Cancelado."
+
+#. module: l10n_cu_tools_account
+#: code:addons/l10n_cu_tools_account/wizard/tools_lock_date_wizard.py:111
+#, python-format
+msgid "There are %s tools pickings with same date or earlier than lock date that are in state different from Done or Cancelled. "
+msgstr "Hay %s selecciones de herramientas con la misma fecha o anterior a la fecha de bloqueo que están en un estado diferente de Listo o Cancelado."
+
+#. module: l10n_cu_tools_account
+#: code:addons/l10n_cu_tools_account/wizard/tools_lock_date_wizard.py:126
+#, python-format
+msgid "There are differences between the tools amount and accounting for some product category. Please, must resolve this before continue."
+msgstr "Existen diferencias entre la cantidad de herramientas y la contabilidad de algunas categorías de productos. Por favor, debe resolver esto antes de continuar."
+
+#. module: l10n_cu_tools_account
+#: model:ir.model.fields,help:l10n_cu_tools_account.field_res_partner_property_account_tools_income_transfer_id
+#: model:ir.model.fields,help:l10n_cu_tools_account.field_res_users_property_account_tools_income_transfer_id
+msgid "This account will be used instead of the default one as the income transfer account for the current partner"
+msgstr "Esta cuenta se utilizará en lugar de la predeterminada como la cuenta de transferencia de ingresos para el socio actual"
+
+#. module: l10n_cu_tools_account
+#: model:ir.model.fields,help:l10n_cu_tools_account.field_res_partner_property_account_tools_outgoing_transfer_id
+#: model:ir.model.fields,help:l10n_cu_tools_account.field_res_users_property_account_tools_outgoing_transfer_id
+msgid "This account will be used instead of the default one as the outgoing transfer account for the current partner"
+msgstr "Esta cuenta se usará en lugar de la predeterminada como la cuenta de transferencia saliente para el socio actual"
+
+#. module: l10n_cu_tools_account
+#: model:ir.model.fields,field_description:l10n_cu_tools_account.field_product_category_property_tool_amortization_account
+msgid "Tool Amortization Account"
+msgstr "Cuenta de amortización de herramientas"
+
+#. module: l10n_cu_tools_account
+#: model:ir.model.fields,field_description:l10n_cu_tools_account.field_product_category_property_tool_input_account
+msgid "Tool Input Account"
+msgstr "Cuenta de entrada de herramienta"
+
+#. module: l10n_cu_tools_account
+#: model:ir.model.fields,field_description:l10n_cu_tools_account.field_product_category_property_tool_journal
+msgid "Tool Journal"
+msgstr "Diario de herramientas"
+
+#. module: l10n_cu_tools_account
+#: model:ir.model.fields,field_description:l10n_cu_tools_account.field_product_category_property_tool_missing_account
+msgid "Tool Missing Account"
+msgstr "Cuenta faltante de herramienta"
+
+#. module: l10n_cu_tools_account
+#: model:ir.model.fields,field_description:l10n_cu_tools_account.field_product_category_property_tool_output_account
+msgid "Tool Output Account"
+msgstr "Cuenta de salida de herramienta"
+
+#. module: l10n_cu_tools_account
+#: model:ir.model.fields,field_description:l10n_cu_tools_account.field_product_category_property_tool_surplus_account
+msgid "Tool Surplus Account"
+msgstr "Cuenta de excedente de herramientas"
+
+#. module: l10n_cu_tools_account
+#: model:ir.model.fields,field_description:l10n_cu_tools_account.field_product_category_property_tool_valoration_account
+msgid "Tool Valoration Account"
+msgstr "Cuenta de valoración de herramientas"
+
+#. module: l10n_cu_tools_account
+#: model:ir.model.fields,field_description:l10n_cu_tools_account.field_tools_quant_amortization
+msgid "Tools Amortization"
+msgstr "Amortización de herramientas"
+
+#. module: l10n_cu_tools_account
+#: code:addons/l10n_cu_tools_account/models/res_config_settings.py:24
+#, python-format
+msgid "Tools Lock Date"
+msgstr "Fecha de bloqueo de herramientas"
+
+#. module: l10n_cu_tools_account
+#: model:ir.model,name:l10n_cu_tools_account.model_tools_move
+msgid "Tools Move"
+msgstr "Mover herramientas"
+
+#. module: l10n_cu_tools_account
+#: model:ir.model,name:l10n_cu_tools_account.model_tools_picking
+msgid "Tools Picking"
+msgstr "Herramientas de Ganancia"
+
+#. module: l10n_cu_tools_account
+#: model:ir.model,name:l10n_cu_tools_account.model_tools_quant
+msgid "Tools Quant"
+msgstr "Herramientas Quant"
+
+#. module: l10n_cu_tools_account
+#: model:ir.model.fields,field_description:l10n_cu_tools_account.field_product_category_property_tools_valuation
+#: model:ir.ui.view,arch_db:l10n_cu_tools_account.view_tools_account_product_tree
+msgid "Tools Valuation"
+msgstr "Valoración de herramientas"
+
+#. module: l10n_cu_tools_account
+#: model:ir.model.fields,field_description:l10n_cu_tools_account.field_tools_quant_value
+msgid "Tools Value"
+msgstr "Valor de herramientas"
+
+#. module: l10n_cu_tools_account
+#: model:ir.model.fields,field_description:l10n_cu_tools_account.field_res_partner_property_account_tools_income_transfer_id
+#: model:ir.model.fields,field_description:l10n_cu_tools_account.field_res_users_property_account_tools_income_transfer_id
+msgid "Tools income transfer Account"
+msgstr "Cuenta de transferencia de ingresos de herramientas"
+
+#. module: l10n_cu_tools_account
+#: model:ir.model.fields,field_description:l10n_cu_tools_account.field_res_partner_property_account_tools_outgoing_transfer_id
+#: model:ir.model.fields,field_description:l10n_cu_tools_account.field_res_users_property_account_tools_outgoing_transfer_id
+msgid "Tools outgoing transfer Account"
+msgstr "Cuenta de transferencia saliente de herramientas"
+
+#. module: l10n_cu_tools_account
+#: model:ir.ui.view,arch_db:l10n_cu_tools_account.view_tools_account_picking_form
+msgid "Validate"
+msgstr "Validar"
+
+#. module: l10n_cu_tools_account
+#: model:ir.model.fields,field_description:l10n_cu_tools_account.field_product_product_tools_value
+#: model:ir.ui.view,arch_db:l10n_cu_tools_account.report_tools_account_delivery_document
+msgid "Value"
+msgstr "Valor"
+
+#. module: l10n_cu_tools_account
+#: model:ir.model.fields,help:l10n_cu_tools_account.field_tools_quant_value
+msgid "Value used for tools valuation in standard priceExpressed in the default unit of measure of the tools."
+msgstr "Valor utilizado para la valoración de herramientas en precio estándar Expresado en la unidad de medida predeterminada de las herramientas."
+
+#. module: l10n_cu_tools_account
+#: model:ir.model.fields,field_description:l10n_cu_tools_account.field_tools_lock_date_wizard_line_wizard_id
+msgid "Wizard"
+msgstr "Asistente"
+
+#. module: l10n_cu_tools_account
+#: code:addons/l10n_cu_tools_account/models/tools_move.py:67
+#, python-format
+msgid "You don't have any tools amortization account defined on your product category. You must define one before processing this operation."
+msgstr "No tiene ninguna cuenta de amortización de herramientas definida en su categoría de producto. Debe definir uno antes de procesar esta operación."
+
+#. module: l10n_cu_tools_account
+#: code:addons/l10n_cu_tools_account/models/tools_move.py:128
+#: code:addons/l10n_cu_tools_account/models/tools_move.py:133
+#: code:addons/l10n_cu_tools_account/models/tools_move.py:144
+#: code:addons/l10n_cu_tools_account/models/tools_move.py:149
+#: code:addons/l10n_cu_tools_account/models/tools_move.py:196
+#: code:addons/l10n_cu_tools_account/models/tools_move.py:201
+#: code:addons/l10n_cu_tools_account/models/tools_move.py:213
+#: code:addons/l10n_cu_tools_account/models/tools_move.py:218
+#: code:addons/l10n_cu_tools_account/models/tools_move.py:229
+#: code:addons/l10n_cu_tools_account/models/tools_move.py:234
+#, python-format
+msgid "You don't have any tools income transfer account defined on your partner. You must define one before processing this operation."
+msgstr "No tiene ninguna cuenta de transferencia de ingresos de herramientas definida en su socio. Debe definir uno antes de procesar esta operación."
+
+#. module: l10n_cu_tools_account
+#: code:addons/l10n_cu_tools_account/models/tools_move.py:88
+#, python-format
+msgid "You don't have any tools journal defined on your product category, check if you have installed a chart of accounts"
+msgstr "No tiene ningún diario de herramientas definido en su categoría de producto, verifique si ha instalado un plan de cuentas"
+
+#. module: l10n_cu_tools_account
+#: code:addons/l10n_cu_tools_account/models/tools_move.py:74
+#, python-format
+msgid "You don't have any tools missing account defined on your product category. You must define one before processing this operation."
+msgstr "No tiene ninguna herramienta faltante en la cuenta definida en su categoría de producto. Debe definir uno antes de procesar esta operación."
+
+#. module: l10n_cu_tools_account
+#: code:addons/l10n_cu_tools_account/models/tools_move.py:81
+#, python-format
+msgid "You don't have any tools surplus account defined on your product category. You must define one before processing this operation."
+msgstr "No tiene ninguna cuenta de excedente de herramientas definida en su categoría de producto. Debe definir uno antes de procesar esta operación."
+
+#. module: l10n_cu_tools_account
+#: code:addons/l10n_cu_tools_account/models/tools_move.py:60
+#, python-format
+msgid "You don't have any tools valuation account defined on your product category. You must define one before processing this operation."
+msgstr "No tiene ninguna cuenta de valoración de herramientas definida en su categoría de producto. Debe definir uno antes de procesar esta operación."
+
+#. module: l10n_cu_tools_account
+#: model:ir.model,name:l10n_cu_tools_account.model_res_config_settings
+msgid "res.config.settings"
+msgstr "res.config.settings"
+
+#. module: l10n_cu_tools_account
+#: model:ir.model,name:l10n_cu_tools_account.model_tools_lock_date_wizard
+msgid "tools.lock.date.wizard"
+msgstr "tools.lock.date.wizard"
+
+#. module: l10n_cu_tools_account
+#: model:ir.model,name:l10n_cu_tools_account.model_tools_lock_date_wizard_line
+msgid "tools.lock.date.wizard.line"
+msgstr "tools.lock.date.wizard.line"
+
+#. module: l10n_cu_tools_account
+#: model:ir.module.module,shortdesc:base.module_l10n_cu_tools_account
+msgid "Cuban - Tools Account"
+msgstr "Cuba - Contabilidad de herramientas"
+
+#. module: l10n_cu_tools_account
+#: model:ir.module.module,description:base.module_l10n_cu_tools_account
+msgid "Tools Account"
+msgstr "Contabilidad de herramientas."

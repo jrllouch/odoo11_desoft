@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <record id="sequence_asset_journal" model="ir.sequence">
+            <field name="name">Asset Journal</field>
+            <field eval="5" name="padding"/>
+            <field name="prefix">OPAF/%(year)s/</field>
+        </record>
+
+    </data>
+</odoo>

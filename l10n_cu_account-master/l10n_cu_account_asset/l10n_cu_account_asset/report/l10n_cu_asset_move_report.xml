@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Custom report.-->
+<odoo>
+    <data>
+        <template id="l10n_cu_asset_move_report">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="doc">
+                    <t t-call="web.external_layout">
+                        <div class="page">
+                            <div class="row">
+                                <span class="pull-right"><span t-esc="time.strftime('%d/%m/%Y %H:%M:%S')"/></span>
+                            </div>
+                            <div class="row text-center">
+                                <h4><strong>MODEL SC-1-01 - TANGIBLE FIXED ASSET MOVE</strong></h4>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-12"><strong>Entity: </strong><spam><t t-esc="res_company.name"/></spam></div>
+                            </div>
+                            <div class="row">
+                                <!-- <div class="col-xs-4"><strong>REEUP: </strong><spam><t t-esc="res_company.reup_code"/></spam></div>
+                                <div class="col-xs-4"><strong>NAE: </strong><spam><t t-esc="res_company.nae"/></spam></div> -->
+                                <div class="col-xs-4"><strong>No voucher: </strong><spam>
+                                    <t t-if="doc.account_move_id">
+                                        <t t-esc="doc.account_move_id.name"/>
+                                    </t>
+                                </spam></div>
+                            </div>
+                            <div class="row">
+                                <!-- <div class="col-xs-8"><strong>Address: </strong> <t t-esc="res_company.street"/> <t t-esc="res_company.street2"/></div> -->
+                                <div class="col-xs-4"><strong>Voucher date: </strong><span>
+                                    <t t-if="doc.account_move_id">
+                                        <t t-esc="doc.account_move_id.date"/>
+                                    </t>
+                                </span></div>
+                            </div>
+                            <div class="row">
+                                <h4 class="text-center" style="font-size:12px;"><strong>Operation Details</strong></h4>
+                                <table class="table table-bordered" style="font-size:12px;">
+                                    <thead>
+                                        <tr style="font-size:12px;">
+                                            <th class="text-center" style="padding:1px;">Number</th>
+                                            <th class="text-center" style="padding:1px;">Operation Type</th>
+                                            <th class="text-center" style="padding:1px;">State</th>
+                                            <th class="text-center" style="padding:1px;">Approval Date</th>
+                                            <th class="text-center" style="padding:1px;">Operation Date</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="text-center" style="padding:1px;"><t t-esc="doc.number" style="padding:1px;"/> </td>
+                                            <td class="text-center" style="padding:1px;">
+                                                <t t-if="doc.asset_move_category_code == '01'">Alta</t>
+                                                <t t-if="doc.asset_move_category_code == '02'">Compra</t>
+                                                <t t-if="doc.asset_move_category_code == '03'">Venta</t>
+                                                <t t-if="doc.asset_move_category_code == '04'">Traslado Interno</t>
+                                                <t t-if="doc.asset_move_category_code == '05'">Ajuste por faltante</t>
+                                                <t t-if="doc.asset_move_category_code == '06'">Ajuste por pérdida</t>
+                                                <t t-if="doc.asset_move_category_code == '07'">Ajuste por sobrante</t>
+                                                <t t-if="doc.asset_move_category_code == '08'">Traslado de activo a ocioso</t>
+                                                <t t-if="doc.asset_move_category_code == '09'">Traslado de ocioso a activo</t>
+                                                <t t-if="doc.asset_move_category_code == '10'">Alquiler</t>
+                                                <t t-if="doc.asset_move_category_code == '11'">En reparación</t>
+                                                <t t-if="doc.asset_move_category_code == '12'">Baja</t>
+                                            </td>
+                                            <td class="text-center" style="padding:1px;">
+                                                <t t-if="doc.state == 'draft'">Nuevo</t>
+                                                <t t-if="doc.state == 'confirmed'">Confirmado</t>
+                                                <t t-if="doc.state == 'terminated'">Terminado</t>
+                                                <t t-if="doc.state == 'canceled'">Cancelado</t>
+                                            </td>
+                                            <td class="text-center" style="padding:1px;"><t t-esc="doc.approval_date"/> </td>
+                                            <td class="text-center" style="padding:1px;"><t t-esc="doc.operation_date"/> </td>
+                                        </tr>
+                                        <tr>
+                                            <th colspan="5" class="text-center" style="padding:1px;">Description</th>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="5" class="text-justify" style="padding:1px;"><t t-esc="doc.move_description"/></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div class="row">
+                                <table class="table table-bordered" style="font-size:12px;">
+                                    <thead>
+                                        <tr>
+                                            <th colspan="4" class="text-center" style="padding:1px;">Origin data</th>
+                                            <th colspan="15" class="text-center" style="padding:1px;">Destiny data</th>
+                                        </tr>
+                                        <tr>
+                                            <th class="text-center" style="padding:1px;">Area code</th>
+                                            <th colspan="3" class="text-center" style="padding:1px;">Area name</th>
+                                            <th class="text-center" style="padding:1px;">Area code</th>
+                                            <th colspan="3" class="text-center" style="padding:1px;">Area name</th>
+                                            <th colspan="3" class="text-center" style="padding:1px;">Receptor name</th>
+                                            <th class="text-center" style="padding:1px;">Reception date</th>
+                                            <th class="text-center" style="padding:1px;">Signature</th>
+                                            <th colspan="3" class="text-center" style="padding:1px;">Receptor entity name</th>
+                                            <th colspan="3" class="text-center" style="padding:1px;">Receptor entity Address</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <t t-if="doc.area">
+                                                <td class="text-center" style="padding:1px;"><t t-esc="doc.area_id.code"/></td>
+                                                <td class="text-center" style="padding:1px;" colspan="3"><t t-esc="doc.area"/></td>
+                                            </t>
+                                            <t t-if="not doc.area">
+                                                <td class="text-center" style="padding:1px;" />
+                                                <td class="text-center" style="padding:1px;" colspan="3" />
+                                            </t>
+                                            <t t-if="doc.reception_area_name">
+                                                <td class="text-center" style="padding:1px;"><t t-esc="doc.reception_area.code"/></td>
+                                                <td class="text-center" style="padding:1px;" colspan="3"><t t-esc="doc.reception_area_name"/></td>
+                                            </t>
+                                            <t t-if="not doc.reception_area_name">
+                                                <td class="text-center" style="padding:1px;" />
+                                                <td class="text-center" style="padding:1px;" colspan="3" />
+                                            </t>
+                                            <t t-if="doc.employee_id">
+                                                <td class="text-center" style="padding:1px;" colspan="3"><t t-esc="doc.employee_id.name"/></td>
+                                                <td class="text-center" style="padding:1px;"></td>
+                                                <td class="text-center" style="padding:1px;"></td>
+                                            </t>
+                                            <t t-if="not doc.employee_id">
+                                                <td class="text-center" style="padding:1px;" colspan="3" />
+                                                <td class="text-center" style="padding:1px;" />
+                                                <td class="text-center" style="padding:1px;" />
+                                            </t>
+                                            <t t-if="doc.partner_name">
+                                                <td class="text-center" style="padding:1px;" colspan="3"><t t-esc="doc.partner_name"/></td>
+                                                <td class="text-center" style="padding:1px;" colspan="3"><t t-esc="doc.partner_id.street"/> # <t t-esc="doc.partner_id.street"/></td>
+                                            </t>
+                                            <t t-if="not doc.partner_name">
+                                                <td class="text-center" style="padding:1px;" colspan="3" />
+                                                <td class="text-center" colspan="3" />
+                                            </t>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div class="row">
+                                <h4 class="text-center" style="font-size:12px;"><strong>Assets List</strong></h4>
+                                <table class="table table-condensed" style="font-size:12px;">
+                                    <thead>
+                                        <tr>
+                                            <th class="text-center" style="padding:1px;">Inventory Number</th>
+                                            <th colspan="3" class="text-center" style="padding:1px;">Asset Name</th>
+                                            <th class="text-center" style="padding:1px;">Value</th>
+                                            <th class="text-center" style="padding:1px;">Accumulated Depreciation</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <t t-foreach="doc.asset_ids" t-as="asset">
+                                            <tr>
+                                                <td class="text-center" style="padding:1px;"><t t-esc="asset.inventory_number"/> </td>
+                                                <td colspan="3" class="text-center" style="padding:1px;"><t t-esc="asset.name"/> </td>
+                                                <td class="text-center" style="padding:1px;"><t t-esc="asset.value"/> </td>
+                                                <td colspan="3" class="text-center" style="padding:1px;"><t t-esc="asset.value_amount_depreciation"/> </td>
+                                            </tr>
+                                        </t>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="footer" style="font-size: 10px; border: 1px solid #000; padding: 5px;">
+                            <div class="row">
+                                <div class="col-xs-3 text-left"><strong>Technical</strong></div>
+                                <div class="col-xs-3 text-left"><strong>Elaborated by</strong></div>
+                                <div class="col-xs-3 text-left"><strong>Approved by</strong></div>
+                                <div class="col-xs-3 text-left"><strong>Entered by</strong></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-3 text-left"><strong>Name:</strong>
+                                    <t t-if="doc.technical_id"><t t-esc="doc.technical_id.name"/></t>
+                                </div>
+                                <div class="col-xs-3 text-left"><strong>Name:</strong>
+                                    <t t-if="doc.elaborated_by"><t t-esc="doc.elaborated_by.name"/></t>
+                                </div>
+                                <div class="col-xs-3 text-left"><strong>Name:</strong>
+                                    <t t-if="doc.approved_by"><t t-esc="doc.approved_by.name"/></t>
+                                </div>
+                                <div class="col-xs-3 text-left"><strong>Name:</strong>
+                                    <t t-if="doc.entered_by"><t t-esc="doc.entered_by.name"/></t>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-3 text-left"><strong>Charge:</strong>
+                                    <t t-if="doc.technical_charge"><t t-esc="doc.technical_charge"/></t>
+                                </div>
+                                <div class="col-xs-3 text-left"><strong>Signature:</strong></div>
+                                <div class="col-xs-3 text-left"><strong>Charge:</strong>
+                                    <t t-if="doc.approved_by.job_id"><t t-esc="doc.approved_by.job_id.name"/></t>
+                                </div>
+                                <div class="col-xs-3 text-left"><strong>Signature:</strong></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-3 text-left"><strong>Signature: </strong></div>
+                                <div class="col-xs-3 text-left"><strong>Date: </strong></div>
+                                <div class="col-xs-3 text-left"><strong>Signature: </strong></div>
+                                <div class="col-xs-3 text-left"><strong>Date: </strong></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-3 text-left"><strong>Date: </strong></div>
+                                <div class="col-xs-3 text-left"/>
+                                <div class="col-xs-3 text-left"><strong>Date: </strong></div>
+                                <div class="col-xs-3 text-left"/>
+                            </div>
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>

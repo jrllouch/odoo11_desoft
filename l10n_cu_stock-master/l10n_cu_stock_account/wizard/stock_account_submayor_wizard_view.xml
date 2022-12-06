@@ -1,0 +1,82 @@
+<odoo>
+    <data>
+        <!--Form para agrupar submayor de inventario-->
+        <record id="l10n_cu_stock_account_submayor_report_form" model="ir.ui.view">
+            <field name="name">l10n_cu_report.stock_account.submayor_report.form</field>
+            <field name="model">stock.account.submayor.wizard</field>
+            <field name="arch" type="xml">
+                <form string="Stock submayor">
+                    <header>
+
+                    </header>
+                    <sheet string="Filters">
+                        <group>
+                            <group>
+                                <field name="account_ids" options="{'no_create': True}" widget="many2many_tags" string="Accounts"/>
+                                <field name="product_ids" options="{'no_create': True}" widget="many2many_tags" string="Products"/>
+                                <field name="location_ids" options="{'no_create': True}" widget="many2many_tags" string="Locations"/>
+                            </group>
+                            <sheet string="Required Fields">
+                                <group>
+                                    <field name="date_start" string="Date start"/>
+                                    <field name="date_stop" string="Date end"/>
+                                </group>
+                            </sheet>
+                        </group>
+                    </sheet>
+                    <footer>
+                        <button string="View" name="print_report" type="object" class="btn-primary" context="{'to_html': True}"/>
+                        <button string="Print" name="print_report" type="object" class="btn-primary"/>
+                        <button string="Cancel" class="btn-default" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="l10n_cu_stock_account_submayor_report_action">
+            <field name="name">Stock submayor</field>
+            <field name="res_model">stock.account.submayor.wizard</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+            <field name="view_id" ref="l10n_cu_stock_account_submayor_report_form"/>
+        </record>
+
+        <!--Formato del Papel-->
+        <record id="l10n_cu_submayor_paper_format" model="report.paperformat">
+            <field name="name">Submayor Paper Format</field>
+            <field name="default" eval="True"/>
+            <field name="format">Letter</field>
+            <field name="orientation">Landscape</field>
+            <field name="margin_top">10</field>
+            <field name="margin_bottom">10</field>
+            <field name="margin_left">20</field>
+            <field name="margin_right">20</field>
+            <field name="header_line" eval="True"/>
+            <field name="header_spacing">100</field>
+        </record>
+
+        <!--Accion que permite imprimir el reporte submayor de inventario-->
+        <report
+                id="l10n_cu_action_report_stock_submayor"
+                model="stock.account.submayor.wizard"
+                string="Stock submayor"
+                report_type="qweb-pdf"
+                paperformat="l10n_cu_submayor_paper_format"
+                name="l10n_cu_stock_account.l10n_cu_stock_account_submayor_wizard_template"
+                file="l10n_cu_stock_account.l10n_cu_stock_account_submayor_wizard_template"
+                attachment_use="False"
+                menu="False"/>
+
+        <report
+                id="l10n_cu_action_report_html_stock_submayor"
+                model="stock.account.submayor.wizard"
+                string="Stock submayor"
+                report_type="qweb-html"
+                paperformat="l10n_cu_submayor_paper_format"
+                name="l10n_cu_stock_account.l10n_cu_stock_account_submayor_wizard_template"
+                file="l10n_cu_stock_account.l10n_cu_stock_account_submayor_wizard_template"
+                attachment_use="False"
+                menu="False"/>
+    </data>
+
+</odoo>

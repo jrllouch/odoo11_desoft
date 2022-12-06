@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!-- Add template field to existing view -->
+    <record model="ir.ui.view" id="view_picking_type_template_form">
+        <field name="name">view.picking.template.form</field>
+        <field name="model">stock.picking.type</field>
+        <field name="inherit_id" ref="stock.view_picking_type_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='code']" position="after">
+                <field name="operation_between_dependencies" attrs="{'invisible':[('code','not in',('incoming','outgoing'))]}" groups="base.group_multi_company"/>
+                <field name="field_domain_src" invisible="1"/>
+                <field name="field_domain_dest" invisible="1"/>
+                <field name="template" required="1" domain="[('operation_type','=',code)]"/>
+            </xpath>
+            <field name="show_operations" position="attributes">
+                <attribute name="attrs">{'invisible': 1}</attribute>
+            </field>
+            <field name="default_location_src_id" position="attributes">
+                <attribute name="domain">field_domain_src</attribute>
+            </field>
+            <field name="default_location_dest_id" position="attributes">
+                <attribute name="domain">field_domain_dest</attribute>
+            </field>
+        </field>
+    </record>
+
+    <!-- Add analytic account field to stock.picking form -->
+    <record model="ir.ui.view" id="view_picking_analytic_account_form">
+        <field name="name">view.picking.analytic.account.form</field>
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="stock.view_picking_form"/>
+        <field name="arch" type="xml">
+            <button name="button_validate" position="after">
+                <button name="button_post" string="Post" states="pending" groups="account.group_account_user"
+                        type="object" class="oe_highlight"/>
+            </button>
+            <field name="scheduled_date" position="before">
+                <field name="date"/>
+            </field>
+            <xpath expr="//sheet/group/group" position="inside">
+                <field name="location_id_usage" invisible="1"/>
+                <field name="location_dest_id_usage" invisible="1"/>
+            </xpath>
+            <xpath expr="//field[@name='origin']" position="after">
+                <field name="analytic_account_id" domain="[('company_id','=',company_id)]" attrs="{'invisible':[('state','not in',('pending','done','cancel'))]}"/>
+            </xpath>
+            <xpath expr="//field[@name='move_lines']" position="attributes">
+                <attribute name="context">{'picking_type_code': picking_type_code, 'default_picking_id': id, 'form_view_ref':'stock.view_move_picking_form',
+                                           'address_in_id': partner_id, 'default_picking_type_id': picking_type_id, 'default_location_id': location_id,
+                                           'default_location_dest_id': location_dest_id, 'analytic_account_id': analytic_account_id}</attribute>
+            </xpath>
+            <xpath expr="//field[@name='move_lines']/tree/field[@name='is_quantity_done_editable']" position="after">
+                <field name="analytic_account_id" attrs="{'column_invisible':[('parent.state','not in',('pending','done','cancel'))]}"/>
+            </xpath>
+            <xpath expr="//field[@name='move_line_ids']/tree/field[@name='qty_done']" position="after">
+                <field name="warehouse_existing_qty" domain="[('id', 'child_of', parent.location_id)]"/>
+                <field name="warehouse_existing_qty_dest" domain="[('id', 'child_of', parent.location_dest_id)]"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="vpicktree_inherited" model="ir.ui.view">
+        <field name="name">stock.picking.tree</field>
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="stock.vpicktree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='date']" position="replace">
+                <field name="date"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

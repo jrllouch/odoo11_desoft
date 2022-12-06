@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+		<!-- Top menu item -->
+		<menuitem id="menu_asset" name="Assets" sequence="50" web_icon="l10n_cu_account_asset,static/description/icon.png"
+				  groups="group_l10n_cu_asset_consultant,group_l10n_cu_asset_operator,group_l10n_cu_asset_responsible"/>
+
+
+		<menuitem id="menu_asset_asset" name="Assets" parent="menu_asset" sequence="2"/>
+
+		<menuitem id="menu_asset_operation" name="Fixed asset operations" parent="menu_asset" sequence="3" />
+				  <!--groups="group_account_manager"/>-->
+
+		<menuitem id="menu_asset_accounting_processing" name="Accounting processing" parent="menu_asset" sequence="4" />
+		<!-- groups="group_account_manager"/-->
+
+		 <menuitem id="menu_automatic_depreciation_asset" name="Automatic Depreciation"
+				   action="action_automatic_depreciation_asset" parent="menu_asset_accounting_processing" sequence="2"
+		    		  groups="group_l10n_cu_asset_operator"/>
+
+		<menuitem id="menu_assets_reports" name="Reports" parent="menu_asset" sequence="5"/>
+
+		<menuitem id="menu_asset_configuration" name="Configuration" parent="menu_asset" sequence="6" groups="l10n_cu_account_asset.group_l10n_cu_asset_responsible"/>
+		<!-- groups="group_account_manager"/-->
+
+		<delete model="ir.ui.menu" id="account_asset.menu_action_account_asset_asset_form"/>
+		<!-- <delete model="ir.ui.menu" id="account_asset.menu_action_account_asset_asset_tree"/> -->
+		<menuitem id="menu_action_l10n_cu_asset_form" action="account_asset.action_account_asset_asset_form" parent="menu_asset_asset" sequence="1"/>
+
+		<!-- <menuitem id="menu_action_l10n_cu_asset_tree" action="account_asset.action_account_asset_asset_tree" parent="menu_asset_asset" sequence="2"/> -->
+
+		<delete model="ir.ui.menu" id="account_asset.menu_finance_config_assets"/>
+		<!-- <delete model="ir.ui.menu" id="account_asset.menu_action_account_asset_asset_list_normal"/> -->
+		<!-- <menuitem id="menu_action_l10n_cu_asset_list_normal" action="account_asset.action_account_asset_asset_list_normal" parent="menu_asset_configuration" sequence="1"/> -->
+
+		<menuitem id="l10n_cu_menu_area_type" action="l10n_cu_action_area_form"
+				  parent="menu_asset_configuration" sequence="2"/>
+
+		<menuitem id="l10n_cu_menu_asset_furniture_type" action="l10n_cu_action_asset_furniture_type"
+				  parent="menu_asset_configuration" sequence="3"/>
+
+		<menuitem id="l10n_cu_menu_asset_machinery_type" action="l10n_cu_action_asset_machinery_type"
+				  parent="menu_asset_configuration" sequence="4"/>
+
+		<menuitem id="l10n_cu_menu_asset_category" action="l10n_cu_action_asset_category_form"
+				  parent="menu_asset_configuration" />
+
+		<menuitem id="l10n_cu_menu_asset_moves" action="l10n_cu_action_asset_move"
+				  parent="menu_asset_operation" sequence="1"/>
+
+		<!--<menuitem id="l10n_cu_menu_asset_close_period" action="action_close_period_asset" parent="menu_asset_accounting_processing" sequence="3" groups="group_l10n_cu_asset_responsible"/>-->
+
+	</data>
+</odoo>
+

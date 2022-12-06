@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="view_asset_config_settings" model="ir.ui.view">
+            <field name="name">asset.settings.form</field>
+            <field name="model">res.config.settings</field>
+            <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+            <field name="priority" eval="45"/>
+            <field name="arch" type="xml">
+                <xpath expr="//div[hasclass('settings')]" position="inside">
+                    <div class="app_settings_block" data-string="Asset" string="Asset" data-key="l10n_cu_account_asset" groups="l10n_cu_account_asset.group_l10n_cu_asset_responsible">
+                        <h2>Lock Date</h2>
+                        <div class="row mt16 o_settings_container">
+                            <div class="col-xs-12 col-md-7 o_setting_box">
+                                <div class="o_setting_right_pane">
+                                    <label for="asset_lock_date" class="col-md-6 o_light_label"
+                                           attrs="{'invisible': [('asset_lock_date', '=', False)]}"/>
+                                    <field name="asset_lock_date" class="oe_inline"
+                                           attrs="{'invisible': [('asset_lock_date', '=', False)]}"/>
+                                    <button name="execute_lock" string="Set Asset Lock Date"
+                                            type="object" class="oe_highlight"
+                                            groups="l10n_cu_account_asset.group_l10n_cu_asset_responsible"/>
+                                </div>
+                            </div>
+                        </div>
+                        <h2>Assets Accounts Configuration</h2>
+                        <div class="row mt16 o_settings_container" name="asset_account_config"
+                             groups="l10n_cu_account_asset.group_l10n_cu_asset_responsible">
+                            <div class="col-xs-12 col-md-6 o_setting_box">
+                                <field name="company_id" invisible="1" />
+                                <div class="row mt8">
+                                    <label class="col-md-6" for="asset_journal_id"/>
+                                    <field name="asset_journal_id" domain="[('type', '=', 'general'), ('company_id', '=',company_id)]"
+                                    force_save="1"/>
+                                </div>
+                                <div class="row mt8">
+                                    <label class="col-md-6" for="account_purchase_id"/>
+                                    <field name="account_purchase_id" domain="[('internal_type', '=', 'other'),
+                                                ('company_id', '=',company_id)]" force_save="1"/>
+                                </div>
+                                <div class="row mt8">
+                                    <label class="col-md-6" for="account_investments_id"/>
+                                    <field name="account_investments_id" domain="[('internal_type', '=', 'other'),
+                                                ('company_id', '=',company_id)]" force_save="1"/>
+                                </div>
+                                <div class="row mt8">
+                                    <label class="col-md-6" for="account_adjustment_missing_id"/>
+                                    <field name="account_adjustment_missing_id" domain="[('internal_type', '=', 'other'),
+                                                ('company_id', '=',company_id)]" force_save="1" />
+                                </div>
+                                <div class="row mt8">
+                                    <label class="col-md-6" for="account_adjustment_loss_id"/>
+                                    <field name="account_adjustment_loss_id" domain="[('internal_type', '=', 'other'),
+                                                ('company_id', '=',company_id)]" force_save="1"/>
+                                </div>
+                                <div class="row mt8">
+                                    <label class="col-md-6" for="account_adjustment_surplus_id"/>
+                                    <field name="account_adjustment_surplus_id" domain="[('internal_type', '=', 'other'),
+                                                ('company_id', '=',company_id)]" force_save="1"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="action_asset_config_settings" model="ir.actions.act_window">
+            <field name="name">Settings</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">res.config.settings</field>
+            <field name="view_mode">form</field>
+            <field name="target">inline</field>
+            <field name="context">{'module' : 'l10n_cu_account_asset'}</field>
+        </record>
+
+        <menuitem id="menu_asset_config_settings" name="Settings" parent="menu_asset_configuration" sequence="0"
+                  action="action_asset_config_settings"/>
+
+    </data>
+</odoo>

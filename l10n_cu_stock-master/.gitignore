@@ -1,0 +1,60 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*.pyc
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+env/
+build/
+develop-eggs/
+dist/
+eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+*.egg-info/
+.installed.cfg
+*.egg
+*.pyc
+*.bak
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.coverage
+.cache
+nosetests.xml
+coverage.xml
+
+# Translations
+*.mo
+*.pot
+
+# Django stuff:
+*.log
+
+# Framework dir
+.idea/
+
+# Sphinx documentation
+docs/_build/
+.vscode/settings.json
+.idea/workspace.xml
+l10n_cu_hr_holidays/models/hr_holidays.py.bak
+l10n_cu_hr_payroll/models/l10n_cu_hr_payroll.py.bak
+l10n_cu_hr_payroll/models/res_config.py.bak
+l10n_cu_hr_payroll/views/l10n_cu_hr_payroll_view.xml.bak
+l10n_cu_hr_payroll/views/res_config_views.xml.bak
+l10n_cu_hr_contract/views/hr_contract_view.xml.orig
+l10n_cu_hr_payroll/models/l10n_cu_hr_payroll.py.orig
+.vscode/launch.json

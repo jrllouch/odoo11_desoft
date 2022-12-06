@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record model="l10n_cu.template.account.asset.category" id="aac01">
+            <field name="name">Edificaciones de madera o plástico</field>
+            <field name="group_id" ref="acg01"/>
+            <field name="internal_type">normal</field>
+            <field name="method">linear</field>
+            <field name="depreciation_tax">6</field>
+        </record>
+        <record model="l10n_cu.template.account.asset.category" id="aac02">
+            <field name="name">Edificaciones de panelería</field>
+            <field name="group_id" ref="acg01"/>
+            <field name="internal_type">normal</field>
+            <field name="method">linear</field>
+            <field name="depreciation_tax">5</field>
+        </record>
+        <record model="l10n_cu.template.account.asset.category" id="aac03">
+            <field name="name">Edificaciones de mampostería y otros materiales</field>
+            <field name="group_id" ref="acg01"/>
+            <field name="internal_type">normal</field>
+            <field name="method">linear</field>
+            <field name="depreciation_tax">3</field>
+        </record>
+        <record model="l10n_cu.template.account.asset.category" id="aac04">
+            <field name="name">Puentes de acero, hierro u hormigón</field>
+            <field name="group_id" ref="acg01"/>
+            <field name="internal_type">normal</field>
+            <field name="method">linear</field>
+            <field name="depreciation_tax">3</field>
+        </record>
+        <record model="l10n_cu.template.account.asset.category" id="aac05">
+            <field name="name">Puentes de madera</field>
+            <field name="group_id" ref="acg01"/>
+            <field name="internal_type">normal</field>
+            <field name="method">linear</field>
+            <field name="depreciation_tax">6</field>
+            <field name="register_module">True</field>
+        </record>
+        <record model="l10n_cu.template.account.asset.category" id="aac06">
+            <field name="name">Muelles, espigones o embarcaderos de madera</field>
+            <field name="group_id" ref="acg01"/>
+            <field name="internal_type">normal</field>
+            <field name="method">linear</field>
+            <field name="depreciation_tax">6</field>
+        </record>
+        <record model="l10n_cu.template.account.asset.category" id="aac07">
+            <field name="name">De estructura de hormigón reforzado o estacas de acero</field>
+            <field name="group_id" ref="acg01"/>
+            <field name="internal_type">normal</field>
+            <field name="method">linear</field>
+            <field name="depreciation_tax">3</field>
+            <field name="register_module">True</field>
+        </record>
+        <record model="l10n_cu.template.account.asset.category" id="aac08">
+            <field name="name">Diques secos y flotantes, varaderos</field>
+            <field name="group_id" ref="acg01"/>
+            <field name="internal_type">normal</field>
+            <field name="method">linear</field>
+            <field name="depreciation_tax">6</field>
+        </record>
+        <record model="l10n_cu.template.account.asset.category" id="aac09">
+            <field name="name">Silos y tanques</field>
+            <field name="group_id" ref="acg01"/>
+            <field name="internal_type">normal</field>
+            <field name="method">linear</field>
+            <field name="depreciation_tax">6</field>
+        </record>
+        <record model="l10n_cu.template.account.asset.category" id="aac10">
+            <field name="name">Otras no clasificadas</field>
+            <field name="group_id" ref="acg01"/>
+            <field name="internal_type">normal</field>
+            <field name="method">linear</field>
+            <field name="depreciation_tax">3</field>
+        </record>
+        <record model="l10n_cu.template.account.asset.category" id="aac11">
+            <field name="name">Muebles y estantes</field>
+            <field name="group_id" ref="acg02"/>
+            <field name="internal_type">normal</field>
+            <field name="method">linear</field>
+            <field name="depreciation_tax">10</field>
+        </record>
+        <record model="l10n_cu.template.account.asset.category" id="aac12">
+            <field name="name">Enseres y equipos de oficina</field>
+            <field name="group_id" ref="acg02"/>
+            <field name="internal_type">normal</field>
+            <field name="method">linear</field>
+            <field name="depreciation_tax">15</field>
+        </record>
+        <record model="l10n_cu.template.account.asset.category" id="aac13">
+            <field name="name">Equipos de computación</field>
+            <field name="group_id" ref="acg02"/>
+            <field name="internal_type">normal</field>
+            <field name="method">linear</field>
+            <field name="depreciation_tax">25</field>
+        </record>
+        <record model="l10n_cu.template.account.asset.category" id="aac14">
+            <field name="name">Aéreo</field>
+            <field name="group_id" ref="acg03"/>
+            <field name="internal_type">normal</field>
+            <field name="method">linear</field>
+            <field name="depreciation_tax">20</field>
+        </record>
+        <record model="l10n_cu.template.account.asset.category" id="aac15">
+            <field name="name">Marítimo</field>
+            <field name="group_id" ref="acg03"/>
+            <field name="internal_type">normal</field>
+            <field name="method">linear</field>
+            <field name="depreciation_tax">6</field>
+        </record>
+        <record model="l10n_cu.template.account.asset.category" id="aac16">
+            <field name="name">Terrestre</field>
+            <field name="group_id" ref="acg03"/>
+            <field name="internal_type">view</field>
+        </record>
+        <record model="l10n_cu.template.account.asset.category" id="aac17">
+            <field name="name">Equipos de transporte ferroviario</field>
+            <field name="parent_id" ref="aac16"/>
+            <field name="group_id" ref="acg03"/>
+            <field name="internal_type">normal</field>
+            <field name="method">linear</field>
+            <field name="depreciation_tax">6</field>
+        </record>
+        <record model="l10n_cu.template.account.asset.category" id="aac18">
+            <field name="name">Otros</field>
+            <field name="parent_id" ref="aac16"/>
+            <field name="group_id" ref="acg03"/>
+            <field name="internal_type">normal</field>
+            <field name="method">linear</field>
+            <field name="depreciation_tax">20</field>
+        </record>
+        <record model="l10n_cu.template.account.asset.category" id="aac19">
+            <field name="name">Maquinaria en general</field>
+            <field name="group_id" ref="acg04"/>
+            <field name="internal_type">normal</field>
+            <field name="method">linear</field>
+            <field name="depreciation_tax">6</field>
+        </record>
+        <record model="l10n_cu.template.account.asset.category" id="aac20">
+            <field name="name">Plantaciones agrícolas permanentes</field>
+            <field name="group_id" ref="acg05"/>
+            <field name="internal_type">normal</field>
+            <field name="method">linear</field>
+            <field name="depreciation_tax">15</field>
+        </record>
+        <record model="l10n_cu.template.account.asset.category" id="aac21">
+            <field name="name">De trabajo</field>
+            <field name="group_id" ref="acg06"/>
+            <field name="internal_type">normal</field>
+            <field name="method">linear</field>
+            <field name="depreciation_tax">10</field>
+        </record>
+        <record model="l10n_cu.template.account.asset.category" id="aac22">
+            <field name="name">Dedicados a la recría o a la producción de leche o carne (del ganado mayor)</field>
+            <field name="group_id" ref="acg06"/>
+            <field name="internal_type">normal</field>
+            <field name="method">linear</field>
+            <field name="depreciation_tax">100</field>
+        </record>
+        <record model="l10n_cu.template.account.asset.category" id="aac23">
+            <field name="name">Otros activos</field>
+            <field name="group_id" ref="acg07"/>
+            <field name="internal_type">normal</field>
+            <field name="method">linear</field>
+            <field name="depreciation_tax">15</field>
+        </record>
+        <record model="l10n_cu.template.account.asset.category" id="aac24">
+            <field name="name">Sin vigencia determinada</field>
+            <field name="group_id" ref="acg08"/>
+            <field name="internal_type">normal</field>
+            <field name="method">linear</field>
+            <field name="depreciation_tax">5</field>
+        </record>
+        <record model="l10n_cu.template.account.asset.category" id="aac25">
+            <field name="name">Software</field>
+            <field name="group_id" ref="acg08"/>
+            <field name="internal_type">normal</field>
+            <field name="method">linear</field>
+            <field name="depreciation_tax">25</field>
+        </record>
+    </data>
+</odoo>

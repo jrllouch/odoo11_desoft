@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Custom report.-->
+<odoo>
+    <data>
+        <template id="l10n_cu_sub_ledger_animals_report">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="doc">
+                    <t t-call="web.external_layout">
+                        <t t-if="doc.asset_category_group == '6'">
+                            <div class="page">
+                                <div class="row">
+                                    <!--<span>Page </span><span class="page"/> of <span class="topage"/>-->
+                                    <span class="pull-right"><span t-esc="time.strftime('%d/%m/%Y %H:%M:%S')"/></span>
+                                </div>
+                                <div class="row text-center">
+                                    <h4><strong>MODEL SC-1-05 - ANIMALS SUB-LEDGER</strong></h4>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-12"><strong>Entity: </strong><spam><t t-esc="res_company.name"/></spam></div>
+                                </div>
+                                <!--<div class="row">-->
+                                    <!--<div class="col-xs-6"><strong>REEUP: </strong><spam><t t-esc="res_company.reup_code"/></spam></div>-->
+                                    <!--<div class="col-xs-6"><strong>NAE: </strong><spam><t t-esc="res_company.nae"/></spam></div>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                            <!--<div class="page">-->
+                                <div class="row pull-right">
+                                    <strong>Sub-Ledger:</strong> <t t-esc="doc.sub_ledger_number" />
+                                </div>
+                                <div class="row">
+                                    <table class="table table-bordered">
+                                        <thead>
+                                            <tr style="height:40px;">
+                                                <th class="text-center">Identification Number</th>
+                                                <th colspan="3" class="text-center">Asset Name</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr style="height:40px;">
+                                                <td class="text-center"><t t-esc="doc.animals_identification"/></td>
+                                                <td colspan="3" class="text-center"><t t-esc="doc.name"/></td>
+                                            </tr>
+                                            <tr style="height:40px;">
+                                                <th class="text-center">Area</th>
+                                                <th class="text-center">Purpose</th>
+                                                <th class="text-center">Depreciation Tax (%)</th>
+                                                <th class="text-center">Asset Value</th>
+                                            </tr>
+                                            <tr style="height:40px;">
+                                                <td class="text-center"><t t-esc="doc.area.name"/></td>
+                                                <td class="text-center"><t t-esc="doc.animals_purpose" /></td>
+                                                <td class="text-right"><t t-esc="'%.2f'%(doc.depreciation_tax)"/></td>
+                                                <td class="text-right"><t t-esc="'%.2f'%(doc.value)"/></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </t>
+                    </t>
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>

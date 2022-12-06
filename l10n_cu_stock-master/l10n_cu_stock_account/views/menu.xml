@@ -1,0 +1,37 @@
+<odoo>
+  <data>
+     <!--&lt;!&ndash;Root&ndash;&gt;-->
+    <!--<menuitem name="Stock Account"-->
+                  <!--id="menu_stock_account_root"-->
+                  <!--groups=""-->
+                  <!--sequence="90"/>-->
+
+      <!--&lt;!&ndash;Report&ndash;&gt;-->
+    <!--<menuitem name="Reports"-->
+                  <!--id="menu_stock_account_reports_main"-->
+                  <!--sequence="1"-->
+                  <!--parent="menu_stock_account_root"/>-->
+
+    <menuitem id="menu_stock_account_submayor" name="Stock submayor"
+                  sequence="1"
+                  parent="stock.menu_warehouse_report"
+                  action="l10n_cu_stock_account_submayor_report_action"/>
+
+     <!--&lt;!&ndash;Config&ndash;&gt;-->
+    <!--<menuitem name="Configuration"-->
+                  <!--id="menu_stock_account_configuration"-->
+                  <!--sequence="1"-->
+                  <!--parent="menu_stock_account_root"/>-->
+
+    <!--<menuitem name="Company"-->
+              <!--id="menu_company_configuration"-->
+              <!--sequence="1"-->
+              <!--parent="menu_stock_account_configuration"-->
+              <!--action="base.action_res_company_form"/>-->
+
+    <menuitem id="menu_stock_account_low_movement" name="Product low movement"
+                  sequence="1"
+                  parent="stock.menu_warehouse_report"
+                  action="action_date"/>
+  </data>
+</odoo>

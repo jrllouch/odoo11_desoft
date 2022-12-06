@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- Asset Move Category -->
+
+        <record model="ir.ui.view" id="view_asset_move_category_form">
+            <field name="name">l10n_cu.asset.move.form</field>
+            <field name="model">l10n_cu.asset.move.category</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Asset moves category">
+                    <field name="name" colspan="4" readonly="1"/>
+                    <field name="code"/>
+                </form>
+            </field>
+        </record>
+
+        <!-- Asset Move -->
+
+        <record model="ir.ui.view" id="view_asset_move_form">
+            <field name="name">l10n_cu.asset.move.form</field>
+            <field name="model">l10n_cu.asset.move</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Asset move">
+                    <header>
+                        <button name="confirmed" string="Confirm" type="object" states="draft" />
+                        <button name="terminated" string="Terminate" type="object" states="confirmed"
+                                groups="l10n_cu_account_asset.group_l10n_cu_asset_responsible"/>
+                        <button name="canceled" string="Cancel" type="object" states="confirmed"
+                                confirm="Are you sure about canceling this move?"/>
+                        <button name="print_report" string="Print" type="object" states="draft,terminated,confirmed,canceled" />
+                        <field name="state" readonly="1" colspan="2" widget="statusbar"
+                               statusbar_visible="draft,terminated,confirmed"
+                               statusbar_colors='{"cancel":"darkred",
+                                    "terminated":"blue",
+                                    "confirmed":"green"}'/>
+                    </header>
+                    <sheet>
+                        <div class="oe_title">
+                            <label for="number" class="oe_edit_only"/>
+                            <h1>
+                                <field name="number" class="oe_inline" />
+                            </h1>
+                        </div>
+                        <group>
+                            <group string="Technical information">
+                                <field name="technical_id" options="{'no_create': True, 'no_open': 1}"
+                                       attrs="{'readonly': [('state','in', ('terminated', 'canceled'))]}" />
+                                <field name="technical_charge"
+                                       attrs="{'readonly': [('state','in', ('terminated', 'canceled'))]}" />
+                                <field name="date" attrs="{'readonly': [('state','not in', ('draft', 'confirmed'))]}" />
+                            </group>
+                            <group string="Approve information">
+                                <field name="approved_by" options="{'no_create': True, 'no_open': 1}"
+                                       attrs="{'readonly': [('state','in', ('terminated', 'canceled'))],
+                                               'required': [('state','!=', 'draft')]}" />
+                            <field name="approval_date"
+                                   attrs="{'readonly': [('state','in', ('terminated', 'canceled'))],
+                                           'required': [('state','!=', 'draft')]}" />
+                                <field name="elaborated_by" options="{'no_create': True, 'no_open': 1}"
+                                       attrs="{'readonly': [('state','!=', 'draft')]}" />
+                                <field name="entered_by"/>
+                            </group>
+                            <notebook colspan="4">
+                                <page string="Operation information">
+                                    <group>
+                                        <group>
+                                            <field name="asset_move_category_id" options="{'no_create': True, 'no_open': 1}"
+                                                   attrs="{'readonly': [('state','!=','draft')]}"/>
+                                            <field name="asset_move_category_code" invisible="1"
+                                                   context="{'move_code': asset_move_category_code}"
+                                                   options="{'no_open': 1}" force_save="1"/>
+                                            <field name="return_date"
+                                                   attrs="{'invisible': [('asset_move_category_code','not in',('10', '11'))]}" />
+                                            <field name="account_move_id" force_save="1"
+                                                   attrs="{'invisible': ['|', ('state','!=','terminated'),
+                                                                              ('asset_move_category_code', 'in', ('04', '08', '09', '10', '11'))]}"
+                                                   groups="l10n_cu_account_asset.group_l10n_cu_asset_responsible"/>
+                                        </group>
+                                        <group>
+                                            <field name="operation_date" attrs="{'readonly': ['|',('asset_move_category_code','not in', ('04','08','09','10','11')),
+                                                                                                  ('state', '=', 'terminated')],
+                                                                                 'required': [('asset_move_category_code','not in', ('01','02','03','05','06','07','12')),
+                                                                                              ('state', '!=', 'draft')]}" />
+                                        </group>
+                                    </group>
+                                    <group string="Note">
+                                        <field name="move_description" colspan="4" nolabel="1"
+                                           attrs="{'readonly': [('state','in', ('terminated', 'canceled'))]}"/>
+                                    </group>
+                                </page>
+                                <page string="Assets information">
+                                    <group string="Partner assets information">
+                                        <group>
+                                            <field name="area_id" options="{'no_create': 1, 'no_open': 1}"
+                                                   attrs="{'invisible': ['|',('asset_move_category_code', 'not in', ('03','04','05','06','08','09','10','11','12')),
+                                                                             ('state','!=','draft')],
+                                                           'required': [('asset_move_category_code', 'in', ('03','04','05','06','08','09','10','11','12'))]}"
+                                                   context="{'category': asset_move_category_code}" />
+                                            <field name="area"
+                                                   attrs="{'invisible': ['|',('asset_move_category_code', 'not in', ('03','04','05','06','08','09','10','11','12')),
+                                                                             ('state', '=', 'draft')]}" force_save="1"/>
+                                            <field name="area_readonly" invisible="1"/>
+                                            <field name="reception_area" options="{'no_create': 1, 'no_open': 1}"
+                                                   attrs="{'readonly': ['|', ('state', '!=', 'draft'),
+                                                                             ('area_readonly', '=', True)],
+                                                           'invisible': ['|',('asset_move_category_code', 'not in', ('01','02','04','07')),
+                                                                             ('state', '!=', 'draft')],
+                                                           'required': [('asset_move_category_code', 'in', ('01','02','04','07'))]}"
+                                                   context="{'category': asset_move_category_code}" />
+                                            <field name="reception_area_name" force_save="1"
+                                                   attrs="{'invisible': ['|',('asset_move_category_code', 'not in', ('01','02','04','07')),
+                                                                             ('state', '=', 'draft')]}" />
+                                            <field name="employee_id" options="{'no_create': 1, 'no_open': 1}" force_save="1"
+                                                   attrs="{'invisible': [('asset_move_category_code', 'not in', ('01','02','07'))]}" />
+                                        </group>
+                                        <group>
+                                            <field name="partner_id" attrs="{'readonly': [('state','!=','draft')],
+                                                                             'invisible': ['|',('asset_move_category_code','not in',('04','08','09')),
+                                                                                               ('state','!=','draft')]}"
+                                                   options="{'no_create': True, 'no_open': 1}"/>
+                                            <field name="partner_name" force_save="1"
+                                                   attrs="{'invisible': ['|',('asset_move_category_code','not in',('01','02','03','10','11','12')),
+                                                                             ('state','=','draft')]}" />
+                                             <field name="company_id" invisible="1" />
+                                            <field name="account_id" options="{'no_create': True, 'no_open': 1}"
+                                                   attrs="{'readonly': [('state', '!=', 'confirmed')],
+                                                           'invisible': ['|', ('state', '=', 'draft'),
+                                                                              ('asset_move_category_code', 'in', ('04', '08', '09', '10', '11'))]}"
+                                                   domain="[('internal_type', '=', 'other'),
+								   			                ('company_id', '=',company_id)]"
+                                                   groups="l10n_cu_account_asset.group_l10n_cu_asset_responsible" />
+                                        </group>
+                                    </group>
+                                    <field name="domain_state" invisible="1" />
+                                    <field name="domain_state1" invisible="1" />
+                                    <field name="domain_state2" invisible="1" />
+                                    <separator string="Assets List" />
+                                    <field name="asset_ids" options="{'no_create': True}"
+                                           context="{'move_code': asset_move_category_code,
+                                                     'move_state': state}"
+                                           attrs="{'readonly': ['|',('state', '!=', 'draft'),
+                                                                    ('asset_move_category_id', '=', False)],
+                                                   'invisible': [('state', '!=', 'draft')] }">
+                                        <tree>
+                                            <field name="name" readonly="1"/>
+                                            <field name="value_amount_depreciation" readonly="1"/>
+                                            <field name="value" readonly="1"/>
+                                            <field name="subscribe_date" readonly="1"/>
+                                            <field name="state" invisible="1"/>
+                                            <button name="add_depreciation" icon="terp-document-new" type="object"
+                                                    help="Permite modificar el valor depreciado del activo"
+                                                    invisible="context.get('move_state') == 'draft'" />
+                                        </tree>
+                                    </field>
+                                    <field name="asset_move_history_ids"
+                                           attrs="{'invisible': [('state', '=', 'draft')]}">
+                                        <tree>
+                                            <field name="name" />
+                                            <field name="value_amount_depreciation" />
+                                            <!--<field name="value" />-->
+                                            <field name="subscribe_date" />
+                                        </tree>
+                                    </field>
+                                </page>
+                            </notebook>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="view_asset_move_tree">
+            <field name="name">l10n_cu.asset.move.tree</field>
+            <field name="model">l10n_cu.asset.move</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Assets entries" colors="darkred:(state == 'canceled');">
+                    <field name="number" />
+                    <field name="asset_move_category_id"/>
+                    <field name="operation_date"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_asset_move_search" model="ir.ui.view">
+            <field name="name">l10n_cu.asset.move.search</field>
+            <field name="model">l10n_cu.asset.move</field>
+            <field name="type">search</field>
+            <field name="arch" type="xml">
+                <search string="Search: Assets entries">
+                    <group col="10" colspan="12">
+                        <field name="asset_move_category_id" string="Filter"
+                               filter_domain="['|', ('asset_move_category_id','ilike',self),
+                                                    ('number','ilike',self)]" />
+                        <filter name="draft" string="Draft" domain="[('state','=','draft')]" />
+                        <filter name="confirmed" string="Confirmed" domain="[('state','=','confirmed')]" />
+                        <filter name="terminated" string="Terminated" domain="[('state','=','terminated')]" />
+                        <filter name="canceled" string="Canceled" domain="[('state','=','canceled')]" />
+                    </group>
+                    <group expand="0" string="Group by...">
+                        <filter string="Operation type" domain="[]" context="{'group_by':'asset_move_category_id'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="l10n_cu_action_asset_move">
+			<field name="name">Assets move</field>
+            <field name="res_model">l10n_cu.asset.move</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record model="ir.actions.act_window" id="l10n_cu_action_asset_move_category">
+            <field name="name">Asset moves category</field>
+            <field name="res_model">l10n_cu.asset.move.category</field>
+            <field name="limit">16</field>
+        </record>
+
+    <!-- Asset Depreciation Line -->
+
+        <!--<record id="view_depreciation_line_search" model="ir.ui.view">-->
+            <!--<field name="name">account.depreciation_line.search</field>-->
+            <!--<field name="model">account.asset.depreciation.line</field>-->
+            <!--<field name="type">search</field>-->
+            <!--<field name="arch" type="xml">-->
+                <!--<search string="Depreciation entries" options='{"searchable": false, "clearable": false}'>-->
+                    <!--<group col="10" colspan="12">-->
+                        <!--<filter string="Module Asset and Asset" name="asset_or_module" context="{'group_by':'asset_or_module'}"-->
+                                <!--icon="terp-stock_symbol-selection"/>-->
+                        <!--<filter string="Asset" name="asset_id" context="{'group_by':'asset_id'}"-->
+                                <!--icon="terp-stock_symbol-selection" domain="[('asset_id','!=',False)]"/>-->
+                        <!--<filter string="Asset Module" name="asset_module_id" context="{'group_by':'asset_module_id'}"-->
+                                <!--icon="terp-stock_symbol-selection" domain="[('asset_module_id','!=',False)]"/>-->
+                        <!--<filter string="Asset Category" name="category_id" context="{'group_by':'category_id','category':'True'}" icon="terp-stock_symbol-selection" />-->
+                        <!--<filter string="Depreciation Date" name="depreciation_date" context="{'group_by':'depreciation_date','depreciation_date':'True'}" icon="terp-go-today" />-->
+                    <!--</group>-->
+                <!--</search>-->
+            <!--</field>-->
+        <!--</record>-->
+
+
+        <record model="ir.ui.view" id="view_depreciation_line_search_tree">
+            <field name="name">account.depreciation_line.tree</field>
+            <field name="model">account.asset.depreciation.line</field>
+            <field name="arch" type="xml">
+                <tree string="Depreciation entries">
+                    <!--options='{"deletable": false, "addable": null,"isClarkGable":false}'>-->
+                    <field name="asset_or_module" invisible="1"/>
+                    <field name="asset_id" invisible="1"/>
+                    <field name="category_id" invisible="1"/>
+                    <field name="depreciation_date" invisible="0"/>
+                    <!--<field name="value" />-->
+                    <field name="depreciated_value"/>
+                    <field name="amount" />
+                    <field name="remaining_value" />
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="l10n_cu_account_asset_depreciation_line_tree">
+            <field name="name">Depreciation entries</field>
+            <field name="res_model">account.asset.depreciation.line</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree</field>
+            <field name="domain">[('move_id','!=',False)]</field>
+            <!--<field name="context">{'search_default_asset_or_module':1,'group_by':[], 'group_by_no_leaf':0}</field>-->
+            <!--<field name="search_view_id" ref="view_depreciation_line_search"/>-->
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,800 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!--Asset Category-->
+    <record model="ir.ui.view" id="view_account_asset_category_form_inherited">
+        <field name="name">account.asset.category.form</field>
+        <field name="model">account.asset.category</field>
+        <field name="inherit_id" ref="account_asset.view_account_asset_category_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="/form/group/group[5]" position="replace"/>
+            <xpath expr="/form/group/group[4]" position="replace"/>
+            <xpath expr="/form/group/group[3]" position="replace"/>
+            <xpath expr="/form/group/group[2]" position="replace"/>
+            <xpath expr="/form/group/div[@class='oe_title']" position="inside">
+                <group>
+                    <group>
+                        <field name="internal_type" required="1"/>
+                        <field name="parent_id" string="Account Asset" options='{"no_create": 1, "no_open": 1}'/>
+                    </group>
+                    <group>
+                        <field name="sequence_id" attrs="{'invisible':[('internal_type','in',(False,'view'))]}" options="{'no_create': 1, 'no_open': 1}"/>
+                        <field name="group_id" attrs="{'readonly':[('parent_id','!=',False)],'required':[('parent_id','=',False)]}" options="{'no_create': 1, 'no_open': 1}" force_save="1"/>
+                    </group>
+                </group>
+                <field name="asset_ids" invisible="1"/>
+            </xpath>
+            <xpath expr="/form/group/group[1]" position="after">
+                <group>
+                    <group>
+                        <field name="register_module" attrs="{'invisible':[('internal_type','in',(False,'view'))]}"/>
+                    </group>
+                    <group>
+                        <field name="register_functional_basic_unit" attrs="{'invisible':[('internal_type','in',(False,'view'))]}"/>
+                    </group>
+                </group>
+            </xpath>
+            <xpath expr="/form/group/group[2]" position="after">
+                <notebook colspan="4">
+                    <page string="Depreciation" attrs="{'invisible':[('internal_type','in',(False,'view'))]}">
+                        <group colspan="4">
+                            <group string="Depreciation data">
+                                <field name="not_depreciate"/>
+                                <field name="method_period" attrs="{'required':[('internal_type','=','normal'),('not_depreciate','=',False)], 'invisible':[('internal_type','=','normal'),('not_depreciate','=',True)]}"/>
+                                <field name="depreciation_tax" attrs="{'required':[('internal_type','=','normal'),('not_depreciate','=',False)], 'invisible':[('internal_type','=','normal'),('not_depreciate','=',True)]}"/>
+                            </group>
+                            <group string="Depreciation method" attrs="{'invisible':[('internal_type','=','normal'),('not_depreciate','=',True)]}">
+                                <field name="method" attrs="{'required':[('internal_type','=','normal'),('not_depreciate','=',False)]}" />
+                                <field name="method_progress_factor" attrs="{'invisible':[('method','in',(False,'linear'))], 'required':[('method','=','degressive')]}"/>
+                            </group>
+                        </group>
+                    </page>
+                    <page string="Accounting information" groups="l10n_cu_account_asset.group_l10n_cu_asset_responsible">
+                        <group>
+                            <group>
+                                <!--<field name="journal_id" attrs="{'readonly':[('parent_id','!=',False)],'required':[('parent_id','=',False)]}" options='{"no_create": 1, "no_open": 1}' force_save="1"/>-->
+                                <field name="account_depreciation_id" required="1" attrs="{'invisible':[('internal_type','in',(False,'view'))],
+                                                                              'readonly': [('asset_valid','=',True), ('asset_opening_done','=',True)]}"
+                                                     options='{"no_create": 1, "no_open": 1}' force_save="1"/>
+                                <field name="account_analytic_id" groups="analytic.group_analytic_accounting"/>
+                            </group>
+                            <group>
+                                <field name="asset_opening_done" invisible="1"/>
+                                <field name="asset_valid" invisible="1"/>
+                                <field name="account_asset_id" required="1" attrs="{'invisible':[('internal_type','in',(False,'view'))],
+                                                                           'readonly': [('asset_valid','=',True), ('asset_opening_done','=',True)]}" options='{"no_create": 1, "no_open": 1}'/>
+
+                                <field string="Account Depreciation Expense" name="account_depreciation_expense_id" required="1" domain="[('company_id', '=', company_id)]"/>
+
+                                <button name="change_account" string="Change accounts" type="object" icon="terp-stock_effects-object-colorize"
+                                        colspan="1" attrs="{'invisible':['|', '|', ('internal_type','in',(False,'view')), ('asset_opening_done','=',False), ('asset_valid','=',False)]}"
+                                        help="Cambiar Cuenta de activo y Cuenta de depreciación/amortización"
+                                        groups="l10n_cu_account_asset.group_l10n_cu_asset_responsible"/>
+                            </group>
+                        </group>
+                    </page>
+                </notebook>
+            </xpath>
+            <!--<xpath expr="/form/group/group[4]" position="replace"/>-->
+            <!--<xpath expr="/form/group/group[@string='Depreciation Dates']" position="replace"/>-->
+            <!--<xpath expr="/form/group/group[5]" position="replace"/>-->
+            <!--<xpath expr="/form/group/group[@string='Analytic Information']" position="replace"/>-->
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="view_account_asset_category_tree">
+        <field name="name">account.asset.category.tree</field>
+        <field name="model">account.asset.category</field>
+        <field name="priority">1</field>
+        <field name="inherit_id" ref="account_asset.view_account_asset_category_tree"/>
+        <field name="arch" type="xml">
+            <field name="name" position="after">
+                <field name="group_id"/>
+                <field name="depreciation_tax"/>
+            </field>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="view_asset_category_asset_hierarchy_tree">
+        <field name="name">account.asset.category.hierarchy</field>
+        <field name="model">account.asset.category</field>
+        <field name="field_parent">child_ids</field>
+        <field name="arch" type="xml">
+            <tree string="Assets category">
+                <field name="name"/>
+                <field name="group_id"/>
+                <field name="depreciation_tax"/>
+                <field name="method"/>
+                <field name="company_id" groups="base.group_multi_company"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="l10n_cu_action_asset_category_form">
+        <field name="name">Category</field>
+        <field name="res_model">account.asset.category</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record model="ir.actions.act_window" id="action_asset_category_asset_tree">
+        <field name="name">Asset category hierarchy</field>
+        <field name="res_model">account.asset.category</field>
+        <field name="view_type">tree</field>
+        <field name="view_mode">tree</field>
+        <field name="domain">[('parent_id','=',False)]</field>
+        <field name="view_id" ref="view_asset_category_asset_hierarchy_tree"/>
+    </record>
+
+    <!--Area of responsibility-->
+    <record model="ir.ui.view" id="area_form_view">
+        <field name="name">l10n_cu.resp.area.form</field>
+        <field name="model">l10n_cu.resp.area</field>
+        <field name="arch" type="xml">
+            <form string="Area of responsibility">
+                <header>
+                    <button name="print_control" string="Fixed Assets Control" type="object"/>
+                </header>
+                <group>
+                    <group>
+                        <field name="name" />
+                        <field name="account_depreciation_expense_id" options='{"no_create": 1, "no_open": 1}'
+                               groups="l10n_cu_account_asset.group_l10n_cu_asset_responsible"/>
+                    </group>
+                    <group>
+                        <field name="code"/>
+                        <field name="analytical_restrictions" invisible="1"/>
+                        <field name="company_id" required="1" groups="base.group_multi_company"/>
+                        <field name="responsible" options='{"no_create": 1, "no_open": 1}'/>
+                        <field name="account_analytic_id" options='{"no_create": 1, "no_open": 1}'
+                               attrs="{'invisible': [('account_depreciation_expense_id', '=', False)]}"
+                               groups="l10n_cu_account_asset.group_l10n_cu_asset_responsible"/>
+                    </group>
+                </group>
+                <notebook colspan="4">
+                    <page string="List of employees">
+                        <field name="employee_ids" colspan="4" nolabel="1" widget="many2many" options='{"no_create": true}'>
+                            <tree string="List of employees" options='{"addable": false}'>
+                                <!--<field name="code" />  Esta en l10n_cu_hr_base/l10n_cu_hr_employee -->
+                                <field name="name"/>
+                                <!--<field name="full_name" /> Esta en l10n_cu_hr_base/l10n_cu_hr_employee-->
+                                <!--<field name="position_id"/> Esta en l10n_cu_hr_base/l10n_cu_hr_employee -->
+                                <field name="department_id"/>
+                                <field name="company_id" groups="base.group_multi_company,base.group_extended"/>
+                            </tree>
+                        </field>
+                    </page>
+                    <page string="List of assets">
+                        <field name="account_asset_asset_ids" colspan="4" nolabel="1" options='{"no_create": true}'>
+                            <tree string="List of assets" options='{"addable": false}'>
+                                <field name="inventory_number"/>
+                                <field name="name"/>
+                                <field name="category_id"/>
+                                <field name="state" invisible="1"/>
+                            </tree>
+                        </field>
+                    </page>
+                </notebook>
+                <group string="Notes">
+                    <field name="description" nolabel="1"/>
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="area_tree_view">
+        <field name="name">area.tree</field>
+        <field name="model">l10n_cu.resp.area</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="Area of responsibility">
+                <field name="name"/>
+                <field name="code"/>
+                <field name="description"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="area_search_view">
+        <field name="name">area.search</field>
+        <field name="model">l10n_cu.resp.area</field>
+        <field name="type">search</field>
+        <field name="arch" type="xml">
+            <search string="Area of responsibility">
+                <field name="name"/>
+                <field name="code"/>
+            </search>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="l10n_cu_action_area_form">
+        <field name="name">Area of responsibility</field>
+        <field name="res_model">l10n_cu.resp.area</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!--Asset History-->
+    <record model="ir.ui.view" id="view_account_asset_history_form">
+        <field name="name">account.asset.history.form</field>
+        <field name="model">account.asset.history</field>
+        <field name="arch" type="xml">
+            <form string="Asset History">
+                <group>
+                    <group>
+                        <field name="date"/>
+                        <field name="user_id"/>
+                    </group>
+                    <group>
+                        <field name="name"/>
+                        <field name="modification_type"/>
+                        <field name="depreciation_value" attrs="{'invisible':[('modification_type', '!=', 6)]}"/>
+                    </group>
+                </group>
+                <group>
+                    <field name="category_id" attrs="{'invisible':[('modification_type', 'not in', (1, 5))]}"/>
+                    <field name="value" attrs="{'invisible':[('modification_type', 'not in', (2, 5))]}"/>
+                    <field name="value_amount_depreciation" attrs="{'invisible':[('modification_type', '!=', 8)]}"/>
+                    <field name="asset_category_group" invisible="1"/>
+                </group>
+                <notebook colspan="4">
+                    <page string="Depreciation data" attrs="{'invisible':[('modification_type', 'not in', (3, 5))]}">
+                        <group>
+                            <group string="Depreciation data">
+                                <field name="depreciated"/>
+                                <field name="method_period" attrs="{'invisible':[('depreciated','=',True)]}" />
+                                <field name="depreciation_tax" attrs="{'invisible':[('depreciated','=',True)]}"/>
+                                <field name="state"/>
+                            </group>
+                            <group string="Depreciation method">
+                                <field name="paralyzed" attrs="{'readonly':[('depreciated','=',True)]}"/>
+                                <field name="method" attrs="{'invisible':[('depreciated','=',True)]}"/>
+                                <field name="method_progress_factor" attrs="{'invisible':[('method','in',('linear',False))]}"/>
+                            </group>
+                        </group>
+                    </page>
+                    <page string="Others data" attrs="{'invisible':[('modification_type','not in', (4, 5))]}">
+                        <group>
+                            <group>
+                                <field name="asset_name"/>
+                                <field name="purchase_date"/>
+                            </group>
+                            <group>
+                                <field name="inventory_number"/>
+                            </group>
+                        </group>
+                    </page>
+                    <page string="Machinery in general" attrs="{'invisible': ['|',('modification_type', 'not in', (1, 5)),('asset_category_group','in', ('0','1','2','5','6','7','8'))]}">
+                        <group colspan="4">
+                            <group>
+                                <field name="transport_country"/>
+                                <field name="equipment_type"/>
+                                <field name="transport_serial_number"/>
+                                <field name="transport_chassis_number"/>
+                                <field name="transport_number_motor"/>
+                                <field name="transport_power"/>
+                            </group>
+                            <group>
+                                <field name="transport_model"/>
+                                <field name="transport_mark"/>
+                                <field name="transport_tonnage" />
+                                <field name="transport_manufacture_date"/>
+                                <field name="transport_fuel_type"/>
+                                <field name="transport_chapa"/>
+                            </group>
+                            <group colspan="4">
+                                <label for="transport_add_ids" />
+                                <newline/>
+                                <field name="transport_add_ids" nolabel="1">
+                                    <tree string="Additions and replacements">
+                                        <field name="additions"/>
+                                        <field name="replacements"/>
+                                    </tree>
+                                </field>
+                            </group>
+                        </group>
+                    </page>
+                    <page string="Furniture, fixtures and office equipment" attrs="{'invisible': ['|',('modification_type', 'not in', (1, 5)),('asset_category_group','in', ('0','1','3','4','5','6','7','8'))]}">
+                        <group colspan="4">
+                            <group>
+                                <field name="furniture_country"/>
+                                <field name="furniture_type"/>
+                                <field name="furniture_serial_number"/>
+                            </group>
+                            <group>
+                                <field name="furniture_model"/>
+                                <field name="furniture_mark"/>
+                            </group>
+                        </group>
+                    </page>
+                    <page string="Animals" attrs="{'invisible': ['|',('modification_type', 'not in', (1, 5)),('asset_category_group','in', ('0','1','2','3','4','5','7','8'))]}">
+                        <group colspan= "4">
+                            <group>
+                                <field name="animals_purpose"/>
+                            </group>
+                            <group>
+                                <field name="animals_identification"/>
+                            </group>
+                        </group>
+                    </page>
+                    <page string="Buildings and other constructions" attrs="{'invisible': ['|',('modification_type', 'not in', (1, 5)),('asset_category_group','in', ('0','2','3','4','5','6','7','8'))]}">
+                        <group>
+                            <group colspan= "4">
+                                <label for="expansions_modernizations"/>
+                                <newline/>
+                                <field name="expansions_modernizations" nolabel="1" />
+                            </group>
+                        </group>
+                    </page>
+                </notebook>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="view_account_asset_history_tree">
+        <field name="name">account.asset.history.tree</field>
+        <field name="model">account.asset.history</field>
+        <field name="arch" type="xml">
+            <tree string="Asset history">
+                <field name="date"/>
+                <field name="name"/>
+                <field name="user_id"/>
+                <field name="modification_type"/>
+            </tree>
+        </field>
+    </record>
+
+    <!--Type of furniture-->
+    <record model="ir.ui.view" id="view_account_asset_furniture_type_form">
+        <field name="name">account.asset.furniture.type.form</field>
+        <field name="model">l10n_cu.asset.furniture.type</field>
+        <field name="arch" type="xml">
+            <form string="Type of furniture">
+                <group>
+                    <field name="name"/>
+                    <field name="description"/>
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="view_account_asset_furniture_type_tree">
+        <field name="name">account.asset.furniture.type.tree</field>
+        <field name="model">l10n_cu.asset.furniture.type</field>
+        <field name="arch" type="xml">
+            <tree string="Type of furniture ">
+                <field name="name"/>
+                <field name="description"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="l10n_cu_asset_furniture_type_search_view">
+        <field name="name">l10n_cu.asset.furniture.type.search</field>
+        <field name="model">l10n_cu.asset.furniture.type</field>
+        <field name="arch" type="xml">
+            <search string="Type of furniture ">
+                <field name="name"/>
+            </search>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="l10n_cu_action_asset_furniture_type">
+        <field name="name">Type of furniture</field>
+        <field name="res_model">l10n_cu.asset.furniture.type</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!--Type of machinery-->
+    <record model="ir.ui.view" id="view_account_asset_machinery_type_form">
+        <field name="name">account.asset.machinery.type.form</field>
+        <field name="model">l10n_cu.asset.machinery.type</field>
+        <field name="arch" type="xml">
+            <form string="Type of machinery">
+                <group>
+                    <field name="name"/>
+                    <field name="description"/>
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="view_account_asset_machinery_type_tree">
+        <field name="name">account.asset.machinery.type.tree</field>
+        <field name="model">l10n_cu.asset.machinery.type</field>
+        <field name="arch" type="xml">
+            <tree string="Type of machinery ">
+                <field name="name"/>
+                <field name="description"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="l10n_cu_asset_machinery_type_search_view">
+        <field name="name">l10n_cu.asset.machinery.type.search</field>
+        <field name="model">l10n_cu.asset.machinery.type</field>
+        <field name="arch" type="xml">
+            <search string="Type of machinery ">
+                <field name="name"/>
+            </search>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="l10n_cu_action_asset_machinery_type">
+        <field name="name">Type of machinery</field>
+        <field name="res_model">l10n_cu.asset.machinery.type</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!--Account Asset-->
+    <record model="ir.ui.view" id="account_asset_view_account_asset_asset_form">
+        <field name="name">account.asset.asset.form</field>
+        <field name="model">account.asset.asset</field>
+        <field name="inherit_id" ref="account_asset.view_account_asset_asset_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="/form" position="replace">
+                <form string="Asset">
+                    <header>
+                        <button name="validate" string="Confirm Asset" type="object" class="oe_highlight"
+                                attrs="{'invisible':['|', '|', ('asset_opening_done','=',True),('state','=','open'),
+                                        '|', '&amp;',('type2','in',('module','functional')), ('state','not in','idler'),
+                                        '&amp;', ('parent_id','!=',False), ('state','=','idler')
+                                        ]}"/>
+                        <button name="set_to_draft" string="Set to Draft" type="object"
+                                attrs="{'invisible':['|', '|', '|', ('asset_opening_done','=',True),
+                                                     ('state','in',('draft')),
+                                                     ('type2','in',('module','functional')),
+                                                     '&amp;', ('parent_id','!=',False), ('state','=','idler')
+                                                    ]}"/>
+                        <button name="set_to_idler" string="Set to idler" type="object"
+                                attrs="{'invisible':['|','|','|', ('asset_opening_done','=',True),
+                                                     ('state','=','idler'),
+                                                     ('parent_id','!=',False),
+                                                     '&amp;', ('type2','in',('module','functional')),('state','not in',('open'))
+                                                     ]}"/>
+                        <button name="sub_ledger_asset_countable" string="Accounting sub major" class="oe_highlight" type="object"
+                                attrs="{'invisible':[('state','=','draft')]}"/>
+                        <button name="sub_ledger_asset" string="Asset Sub-Ledger" class="oe_highlight" type="object"
+                                attrs="{'invisible':[('state','=','draft')]}"/>
+                        <field name="state" widget="statusbar" statusbar_visible="draft,open,idler,stop,close"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_button_box oe_right" attrs="{'invisible': [('state', '=', 'draft')]}">
+                            <button class="oe_inline oe_stat_button" name="open_entries"  type="object" icon="fa-pencil">
+                                <field string="Entries" name="entry_count" widget="statinfo"/>
+                            </button>
+                        </div>
+                        <div class="oe_title">
+                            <label for="name" class="oe_edit_only"/>
+                            <h1>
+                                <field name="name" class="oe_inline" attrs="{'readonly':['|', ('in_move','=',True),
+                                                                                              ('state', '!=', 'draft')]}"/>
+                                <field name="in_move" invisible="1"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="parent_id" options="{'no_create': true, 'no_open': true}"
+                                       attrs="{'invisible':[('type2','in',('module','functional','intangible'))],
+                                               'readonly':['|',('state','not in',('draft')),
+                                                               ('in_move', '=', True)]}"/>
+                                <field name="type2" attrs="{'readonly':['|', '|', ('state','!=','draft'),
+                                                                                 ('in_move', '=', True),
+                                                                                 ('child_ids', '!=', [])]}"/>
+                                <field name="company_id" options="{'no_create': True}" groups="base.group_multi_company"/>
+                                <field name="sequence_id" invisible="1"/>
+                                <field name="asset_opening_done" invisible="1"/>
+                            </group>
+                            <group>
+                                <field name="inventory_number" force_save="1"
+                                       attrs="{'readonly':['|', '|', '|', ('state','!=','draft'),
+                                                                          ('in_move', '=', True),
+                                                                          ('parent_id','!=',False),
+                                                                          '&amp;',('asset_opening_done','=',True),
+                                                                                  ('sequence_id','!=',False)],
+                                               'required':['|', ('asset_opening_done','=', False), '&amp;', '&amp;', ('asset_opening_done','=',True),('sequence_id','=',False),('state','=','draft')]}" />
+                                <field name="depreciated" invisible="1"/>
+                                <field name="category_id" required="True"
+                                       options="{'no_create': true, 'no_open': true}"
+                                       attrs="{'readonly':['|', ('in_move','=',True),
+                                                                ('state', '!=', 'draft')]}"/>
+                                <field name="currency_id" groups="base.group_multi_currency"
+                                       attrs="{'readonly': [('in_move', '=', True)]}"/>
+                            </group>
+                        </group>
+                        <field name="asset_category_group" invisible="1"/>
+                        <notebook colspan="4">
+                            <page string="General">
+                                <group>
+                                    <button name="modify_info" string="Modify information" type="object"
+                                            icon="fa-edit"
+                                            colspan="1" help="Modificar información del activo fijo"
+                                            attrs="{'invisible':['|','|',('state', 'not in', ('open','idler','stop')),
+                                                                         ('asset_opening_done', '=', False),
+                                                                         ('type2', 'in', ('module','functional'))]}"
+                                            groups="l10n_cu_account_asset.group_l10n_cu_asset_responsible"/>
+                                    <newline/>
+                                    <group string="Responsibility">
+                                        <field name="area" options='{"no_create": true}' force_save="1"
+                                               attrs="{'readonly':['|', '|', ('parent_id','!=', False), ('asset_opening_done', '=', True), ('state', '!=','draft')],
+                                                      'required':[('asset_opening_done', '=', False), ('state', '=','draft'), ('type2', '!=','intangible')]}"/>
+                                        <field name ="receiver_name" readonly="1" force_save="1"
+                                               attrs="{'invisible':[('receiver_name','=',False)]}"/>
+                                    </group>
+                                    <group string="Valuation">
+                                        <field name="value" widget="monetary"
+                                               options="{'currency_field': 'currency_id'}"
+                                               attrs="{'readonly':['|', '|', ('state','not in',('draft')),
+                                                                             ('in_move','=',True),
+                                                                             ('type2', 'in', ('module','functional'))]}"/>
+                                        <field name="salvage_value" invisible='1'/>
+                                        <field name="value_residual" widget="monetary" options="{'currency_field': 'currency_id'}"
+                                               attrs="{'readonly':['|', '|', ('state','not in',('draft')),
+                                                                             ('in_move','=',True),
+                                                                             ('type2', 'in', ('module','functional'))],
+                                                       'invisible':[('depreciated','=',True)]}" force_save="1"/>
+                                        <field name="value_amount_depreciation" widget="monetary" options="{'currency_field': 'currency_id'}"
+                                               attrs="{'invisible':['|',('depreciated','=',True)], 'readonly':['|','|',('state','not in','draft'),('type2', 'in', ('module','functional')),('asset_opening_done','=',True)]}" />
+                                    </group>
+                                    <group colspan="4" attrs="{'invisible':[('depreciated','=',True)]}">
+                                        <group string="Depreciation data">
+                                            <field name="method_period" attrs="{'required':[('depreciated','=',False)],
+                                                                                'readonly':['|', '|', ('state','!=','draft'),
+                                                                                                      ('in_move','=',True),
+                                                                                                      ('parent_id','!=',False)]}"/>
+                                        </group>
+                                        <group string="Depreciation method">
+                                            <field name="method" attrs="{'required':[('depreciated','=',False)],
+                                            			                 'readonly':['|', '|', ('state','not in',('draft')),
+                                            			                                       ('in_move','=',True),
+                                            			                                       ('parent_id','!=',False)]}"/>
+                                            <field name="method_progress_factor"
+                                                   attrs="{'invisible':[('method','in',(False,'linear'))], 'required':[('method','=','degressive')], 'readonly':['|',('state','!=','draft'),('parent_id','!=',False)]}"/>
+                                            <field name="depreciation_tax" force_save="1"
+                                                   attrs="{'invisible':[('method','in',(False,'degressive'))],
+                                                           'required':[('method','=','linear')],
+                                                           'readonly':['|', '|', ('state','!=','draft'),
+                                                                                 ('in_move','=',True),
+                                                                                 ('parent_id','!=',False)]}"/>
+                                        </group>
+                                    </group>
+                                    <group string="Other information" colspan="4">
+                                        <group>
+                                            <field name="technical_state"
+                                                   attrs="{'readonly':['|', ('state','!=','draft'),
+                                                                            ('in_move','=',True)]}"
+                                                   options="{'no_create': 1}"/>
+                                            <field name="purchase_date" attrs="{'readonly':[('state','!=','draft')]}"/>
+                                            <field name="subscribe_date" attrs="{'readonly':['|',('asset_opening_done','=',True),('state','!=','draft')],
+                                                                                 'required':[('asset_opening_done','=',False),('state','in',('open','idler','stop'))]}"/>
+                                            <field name="unsubscribe_date" readonly="1" attrs="{'invisible':[('asset_opening_done','=',False)]}"/>
+                                            <field name="inventory_date" readonly="1" attrs="{'invisible':[('asset_opening_done','=',False)]}"/>
+                                        </group>
+                                        <group>
+                                            <field name="partner_id" attrs="{'readonly':['|',('asset_opening_done','=',True),('state','!=','draft')]}"/>
+                                            <field name="rented_asset" attrs="{'readonly':['|',('asset_opening_done','=',True),('state','!=','draft')]}"/>
+                                            <field name="asset_repair" attrs="{'readonly':['|',('asset_opening_done','=',True),('state','!=','draft')]}"/>
+                                            <button name="asset_return" string="Return asset" type="object" icon="fa-undo"
+                                                    colspan="1" help="Devolver el activo reparado/alquilado" attrs="{'invisible':['|',('asset_opening_done','=',False),('rented_asset', '=', False),('asset_repair', '=', False)]}"
+                                                    context="{'rented_asset': rented_asset, 'asset_repair': asset_repair}"/>
+                                        </group>
+                                    </group>
+                                </group>
+                            </page>
+                            <page string="Components" attrs="{'invisible':[('type2','not in',('module', 'functional'))]}">
+                                <button name="asset_add_components" string="Add components" type="object" icon="terp-stock_effects-object-colorize"
+                                        colspan="1" help="Adicionar componentes al Módulo de control/Unidad funcional" context="{'type2': type2, 'area': area}"
+                                        attrs="{'invisible': [('state', '!=', 'open')]}" />
+                                <field name="child_ids" readonly="1">
+                                    <tree string="Components"
+                                          colors="blue:(state == 'draft');green:(state == 'open');grey:(state == 'close');grey:(state == 'idler');">
+                                        <field name="inventory_number" force_save="1"/>
+                                        <field name="name"/>
+                                        <field name="category_id"/>
+                                        <field name="value"/>
+                                        <field name="value_residual"/>
+                                        <field name="value_amount_depreciation"/>
+                                        <field name="state" />
+                                    </tree>
+                                </field>
+                            </page>
+                            <page string="Machinery in general" attrs="{'invisible': [('asset_category_group','in', ('0','1','2','5','6','7','8'))]}">
+                                <group colspan="4">
+                                    <group >
+                                        <field name="transport_country" attrs="{'readonly':['|', ('state','!=','draft'),
+                                                                                                 ('in_move', '=', True)]}"/>
+                                        <field name="equipment_type" attrs="{'readonly':['|', ('state','!=','draft'),
+                                                                                              ('in_move', '=', True)]}"/>
+                                        <field name="transport_serial_number" attrs="{'readonly':['|', ('state','!=','draft'),
+                                                                                                       ('in_move', '=', True)]}"/>
+                                        <field name="transport_chassis_number" attrs="{'readonly':['|', ('state','!=','draft'),
+                                                                                                        ('in_move', '=', True)]}"/>
+                                        <field name="transport_number_motor" attrs="{'readonly':['|', ('state','!=','draft'),
+                                                                                                      ('in_move', '=', True)]}"/>
+                                        <field name="transport_power"   options='{"regex": "^[0-9]+((\\.|\\,)([0-9])+)?$"}'
+                                               attrs="{'readonly':['|', ('state','!=','draft'),
+                                                                        ('in_move', '=', True)]}"/>
+                                    </group>
+                                    <group>
+                                        <field name="transport_model" attrs="{'readonly':['|', ('state','!=','draft'),
+                                                                                               ('in_move', '=', True)]}"/>
+                                        <field name="transport_mark" attrs="{'readonly':['|', ('state','!=','draft'),
+                                                                                              ('in_move', '=', True)]}"/>
+                                        <field name="transport_tonnage"  options='{"regex": "^[0-9]+((\\.|\\,)([0-9])+)?$"}'
+                                               attrs="{'readonly':['|', ('state','!=','draft'),
+                                                                        ('in_move', '=', True)]}"/>
+                                        <field name="transport_manufacture_date" attrs="{'readonly':['|', ('state','!=','draft'),
+                                                                                                          ('in_move', '=', True)]}"/>
+                                        <field name="transport_fuel_type" attrs="{'readonly':['|', ('state','!=','draft'),
+                                                                                                   ('in_move', '=', True)]}"/>
+                                        <field name="transport_chapa" attrs="{'readonly':['|', ('state','!=','draft'),
+                                                                                               ('in_move', '=', True)]}"/>
+                                    </group>
+                                    <group colspan="4">
+                                        <label for="transport_add_ids"/>
+                                        <newline/>
+                                        <field name="transport_add_ids" nolabel="1" attrs="{'readonly':['|', ('state','!=','draft'),
+                                                                                                             ('in_move', '=', True)]}">
+                                            <tree string="addicion y reemplazo" mode="tree" editable="bottom">
+                                                <field name="additions"/>
+                                                <field name="replacements"/>
+                                            </tree>
+                                        </field>
+                                    </group>
+                                </group>
+                            </page>
+                            <page string="Furniture, fixtures and office equipment" attrs="{'invisible': [('asset_category_group','in', ('0','1','3','4','5','6','8'))]}">
+                                <group colspan="4">
+                                    <group>
+                                        <field name="furniture_country" attrs="{'readonly':['|', ('state','!=','draft'),
+                                                                                                 ('in_move', '=', True)]}"/>
+                                        <field name="furniture_type" attrs="{'readonly':['|', ('state','!=','draft'),
+                                                                                              ('in_move', '=', True)]}"/>
+                                        <field name="furniture_serial_number" attrs="{'readonly':['|', ('state','!=','draft'),
+                                                                                                       ('in_move', '=', True)]}"/>
+                                    </group>
+                                    <group>
+                                        <field name="furniture_model" attrs="{'readonly':['|', ('state','!=','draft'),
+                                                                                               ('in_move', '=', True)]}"/>
+                                        <field name="furniture_mark" attrs="{'readonly':['|', ('state','!=','draft'),
+                                                                                              ('in_move', '=', True)]}"/>
+                                    </group>
+                                </group>
+                            </page>
+                            <page string="Animals" attrs="{'invisible': [('asset_category_group','in', ('0','1','2','3','4','5','7','8'))]}">
+                                <group colspan= "4">
+                                    <group>
+                                        <field name="animals_identification" attrs="{'readonly':['|', ('state','!=','draft'),
+                                                                                                      ('in_move', '=', True)]}"/>
+                                        <newline/>
+                                        <field name="animals_purpose" attrs="{'readonly':['|', ('state','!=','draft'),
+                                                                                               ('in_move', '=', True)]}"/>
+                                    </group>
+                                </group>
+                            </page>
+                            <page string="Buildings and other constructions" attrs="{'invisible': [('asset_category_group','in', ('0','2','3','4','5','6','7','8'))]}">
+                                <group>
+                                    <group colspan= "4">
+                                        <label for="expansions_modernizations"/>
+                                        <newline/>
+                                        <field name="expansions_modernizations" nolabel="1" attrs="{'readonly':['|', ('state','!=','draft'),
+                                                                                                                     ('in_move', '=', True)]}"/>
+                                    </group>
+                                </group>
+                            </page>
+                            <page string="Depreciation Board" attrs="{'invisible': ['|','|',('type2','in',('module', 'functional')),('depreciated','=',True),('state','=','draft')],
+                                                                      'readonly':[('state','=','draft')]}">
+                                <field name="depreciation_line_ids">
+                                    <tree string="Depreciation Lines" create="false" edit="false" delete="false"
+                                          colors="blue:(state == 'draft');black:(state == 'ready');gray:(state == 'posted')">
+                                        <field name="depreciation_date"/>
+                                        <field name="sequence" invisible="1"/>
+                                        <field name="depreciated_value" readonly="1"/>
+                                        <field name="amount"/>
+                                        <field name="remaining_value" readonly="1"/>
+                                        <field name="move_check" invisible="1"/>
+                                        <field name="parent_state" invisible="1"/>
+                                        <field name="state"/>
+                                        <button name="create_move" attrs="{'invisible':[('state','!=','draft')]}"
+                                                icon="gtk-execute" string="Create Move" type="object"
+                                                groups="l10n_cu_account_asset.group_l10n_cu_asset_responsible"/>
+                                    </tree>
+                                    <form string="Depreciation Lines">
+                                        <group>
+                                            <group>
+                                                <field name="parent_state" invisible="1"/>
+                                                <field name="name"/>
+                                                <field name="amount"/>
+                                                <field name="move_id"/>
+                                                <field name="move_check"/>
+                                                <field name="parent_state" invisible="1"/>
+                                            </group>
+                                            <group>
+                                                <field name="sequence"/>
+                                                <field name="depreciation_date"/>
+                                                <field name="depreciated_value"/>
+                                                <field name="remaining_value"/>
+                                            </group>
+                                        </group>
+                                    </form>
+                                </field>
+                                <button type="object" name="compute_depreciation_board" string="Compute" colspan="2" attrs="{'invisible':[('state','=','close')]}"/>
+                            </page>
+                            <page string="History">
+                                <!--<field name="account_move_line_ids" readonly="1" invisible="1"/>-->
+                                <separator string="Modifications"/>
+                                <field name="history_ids" readonly="1"/>
+                                <separator string="Movements"/>
+                                <field name="move_ids" readonly="1"/>
+                            </page>
+                            <page string="Notes">
+                                <field name="note" placeholder="Add an internal note here..."/>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </xpath>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="view_account_asset_asset_tree">
+        <field name="name">account.asset.asset.tree</field>
+        <field name="model">account.asset.asset</field>
+        <field name="inherit_id" ref="account_asset.view_account_asset_asset_purchase_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree" position="attributes">
+                <attribute name="colors">blue:(state == 'draft');green:(state == 'open');grey:(state == 'close');grey:(state == 'idler')) </attribute>
+            </xpath>
+            <!--<xpath expr="//field[@name='name']" position="before">-->
+                <!--<field name="inventory_number" force_save="1"/>-->
+            <!--</xpath>-->
+            <xpath expr="//field[@name='name']" position="after">
+                <field name="type"/>
+                <field name="parent_id"/>
+            </xpath>
+            <xpath expr="//field[@name='currency_id']" position="after">
+                <field name="rented_asset" />
+                <field name="asset_repair" />
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_account_asset_search" model="ir.ui.view">
+        <field name="name">account.asset.asset.search</field>
+        <field name="model">account.asset.asset</field>
+        <field name="inherit_id" ref="account_asset.view_account_asset_search"/>
+        <field name="arch" type="xml">
+            <xpath expr="/search/filter[1]" position="replace">
+                <filter string="Assets" name="assets" domain="[('parent_id','=', False),
+                                                                   ('state', '!=', 'close')]" help="Only the assets, no the components."/>
+                <filter icon="terp-check" string="Draft" name="state_draft" domain="[('state','=','draft')]" help="Assets in draft state"/>
+                <filter icon="terp-check" string="Open" name="state_open" domain="[('state','=','open')]" help="Assets in open state"/>
+                <filter icon="gtk-media-pause" string="Idler" name="state_idler" domain="[('state','=','idler')]" help="Assets in idler state"/>
+                <filter icon="gtk-media-pause" string="Stop" name="state_stop" domain="[('state','=','stop')]" help="Assets in stop state"/>
+            </xpath>
+            <xpath expr="/search/filter[2]" position="after">
+                <separator orientation="vertical"/>
+                <filter icon="gtk-media-pause" string="Rented" name="Rented" domain="[('rented_asset','=',True)]" help="Assets is rented"/>
+                <filter icon="gtk-media-pause" string="Repair" name="Repair" domain="[('asset_repair','=',True)]" help="Assets is in repair"/>
+            </xpath>
+            <field name="partner_id" position="after">
+                <newline/>
+                <group string="Group By..." expand="0">
+                    <filter string="Type" name="Type" context="{'group_by' : 'type'}"/>
+                    <filter string="Category" name="category_id" context="{'group_by' : 'category_id'}"/>
+                    <filter string="Module or function" name="parent_id" context="{'group_by' : 'parent_id'}"/>
+                </group>
+            </field>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="account_asset.action_account_asset_asset_form">
+        <field name="name">Assets</field>
+        <field name="res_model">account.asset.asset</field>
+        <field name="view_type">form</field>
+        <field name="view_id" ref="view_account_asset_asset_tree"/>
+        <field name="search_view_id" ref="view_account_asset_search"/>
+        <field name="context" eval="{'search_default_assets': 1}" />
+    </record>
+</odoo>

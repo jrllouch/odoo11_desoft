@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Custom report.-->
+<odoo>
+    <data>
+        <template id="l10n_cu_account_subaccount_balances_report">
+            <t t-call="web.html_container">
+                <t t-call="web.external_layout">
+                    <!-- <div class="header">
+                        <div class="row" style="font-size:12px;">
+                            <span>Page </span><span class="page"/> of <span class="topage"/>
+                            <span class="pull-right"><span t-esc="time.strftime('%d/%m/%Y %H:%M:%S')"/></span>
+                        </div>
+                        <div class="row text-center">
+                            <h4><strong>Account - Subaccount Balances</strong></h4>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12"><strong>Entity: </strong><spam><t t-esc="res_company.name"/></spam></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-6"><strong>REEUP: </strong><spam><t t-esc="res_company.reup_code"/></spam></div>
+                            <div class="col-xs-6"><strong>NAE: </strong><spam><t t-esc="res_company.nae"/></spam></div>
+                        </div>
+                    </div> -->
+                    <div class="page" style="font-size:12px;">
+                        <div class="row" style="font-size:12px;">
+                            <span class="pull-right"><span t-esc="time.strftime('%d/%m/%Y %H:%M:%S')"/></span>
+                        </div>
+                        <div class="row text-center">
+                            <h4><strong>Account - Subaccount Balances</strong></h4>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12"><strong>Entity: </strong><spam><t t-esc="res_company.name"/></spam></div>
+                        </div>
+                        <div class="row">
+                            <table class="table table-condensed">
+                                <thead>
+                                    <tr>
+                                        <th style="padding:1px;">Code</th>
+                                        <th style="padding:1px;">Account</th>
+                                        <th class="text-right" style="padding:1px;">Debit</th>
+                                        <th class="text-right" style="padding:1px;">Credit</th>
+                                        <th class="text-right" style="padding:1px;">Balance</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <t t-foreach="accounts" t-as="account">
+                                        <tr>
+                                            <td><t t-esc="account['a_code']"/> </td>
+                                            <td><t t-esc="account['name']"/> </td>
+                                            <td class="text-right"><t t-esc="account['debit']"/> </td>
+                                            <td class="text-right"><t t-esc="account['credit']"/> </td>
+                                            <td class="text-right"><t t-esc="account['balance']"/> </td>
+                                        </tr>
+                                    </t>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>

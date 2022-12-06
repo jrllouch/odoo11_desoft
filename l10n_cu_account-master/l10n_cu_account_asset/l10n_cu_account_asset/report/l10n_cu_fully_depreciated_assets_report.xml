@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Custom report.-->
+<odoo>
+    <data>
+        <template id="l10n_cu_fully_deprec_assets_report">
+            <t t-call="web.html_container">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <div class="row" style="font-size:12px;">
+                            <!--<span>Page </span><span class="page"/> of <span class="topage"/>-->
+                            <span class="pull-right"><t t-esc="time.strftime('%d/%m/%Y %H:%M:%S')" /></span>
+                        </div>
+                        <div class="row text-center">
+                            <h4><strong>Fully depreciated assets</strong></h4>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12"><strong>Entity: </strong><spam><t t-esc="res_company.name"/></spam></div>
+                        </div>
+                        <!--<div class="row">-->
+                            <!--<div class="col-xs-6"><strong>REEUP: </strong><spam><t t-esc="res_company.reup_code"/></spam></div>-->
+                            <!--<div class="col-xs-6"><strong>NAE: </strong><spam><t t-esc="res_company.nae"/></spam></div>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                    <!--<div class="page" style="font-size:12px;">-->
+                        <t t-if="data['asset_report']">
+                            <div class="row">
+                                <strong>Asset:</strong>   <t t-esc="data['asset_report']"/>
+                            </div>
+                        </t>
+                        <t t-if="data['asset_module_report']">
+                            <div class="row">
+                                <strong>Asset Module:</strong>   <t t-esc="data['asset_module_report']"/>
+                            </div>
+                        </t>
+                        <t t-if="data['area']">
+                            <div class="row">
+                                <strong>Area:</strong>   <t t-esc="data['area']"/>
+                            </div>
+                        </t>
+                        <t t-if="data['category_id']">
+                            <div class="row">
+                                <strong>Category:</strong>   <t t-esc="data['category_id']"/>
+                            </div>
+                        </t>
+                        <t t-if="data['start_date'] and data['end_date']">
+                            <div class="row">
+                                <strong>Desde:</strong> <t t-esc="data['start_date']"/>
+                                <strong>Hasta:</strong> <t t-esc="data['end_date']"/>
+                            </div>
+                        </t>
+                        <div class="row">
+                            <table class="table table-condensed">
+                                <thead>
+                                    <tr>
+                                        <th style="padding:1px;">Inventory number</th>
+                                        <th style="padding:1px;">Name of the active</th>
+                                        <th style="padding:1px;" class="text-right">Initial value</th>
+                                        <!-- <th style="padding:1px;" class="text-right">Fully depreciated date</th> -->
+                                        <th style="padding:1px;" class="text-right">Subscribe date</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                	<!--<t t-set="vdata" t-value="get_assets(data)"/>-->
+                                	<t t-set="total" t-value="0.00"/>
+                                	<t t-foreach="group" t-as="area">
+                                    	<t t-set="sub" t-value="0.00" />
+                                    	<t t-foreach="group[area]" t-as="asset">
+                                    		<t t-if="asset_first">
+		                                        <tr>
+		                                            <td style="padding:1px;"><strong>Área: <t t-esc="asset[5]"/></strong></td>
+		                                        </tr>    
+										    </t>
+	                                        <tr>
+	                                            <td style="padding:1px;"><t t-esc="asset[3]"/></td>
+	                                            <td style="padding:1px;"><t t-esc="asset[1]"/></td>
+	                                            <td class="text-right" style="padding:1px;"><t t-esc="'%.2f'%(asset[2])"/></td>
+	                                            <!-- <td class="text-right" style="padding:1px;"><t t-esc="asset[6]"/></td> -->
+	                                            <td class="text-right" style="padding:1px;"><t t-esc="asset[4]"/></td>
+	                                        </tr>
+	                                        <t t-set="sub" t-value="sub + asset[2]"/>
+	                                        <t t-set="total" t-value="total + asset[2]"/>
+                                    	</t>
+                                        <tr>
+                                            <th style="padding:1px;"></th>
+                                            <th class="text-right" style="padding:1px;">Subtotal</th>
+                                            <th class="text-right" style="padding:1px;"><t t-esc="'%.2f'%(sub)"/></th>
+                                            <th colspan="2" style="padding:1px;"/>
+                                        </tr>                                                    
+                                	</t>	
+                                    <tr>
+                                        <th style="padding:1px;"></th>
+                                        <th class="text-right" style="padding:1px;">Total</th>
+                                        <th class="text-right" style="padding:1px;"><t t-esc="'%.2f'%(total)"/></th>
+                                        <th colspan="2" style="padding:1px;"/>
+                                    </tr>                                                    
+                                </tbody>
+                            </table>
+
+                        </div>
+                        <div class="page">
+                            <table class="table table-condensed" style="border:none">
+                                <thead>
+                                    <tr>
+                                        <th style="text-center" rowspan="2">Elaborado por:
+                                            <div> <h6 class="text-left">_________________________________________</h6> </div>
+                                        </th>
+                                        <th style="text-center" rowspan="2">Responsable de Area:
+                                            <h6 class="text-left">_________________________________________</h6>
+                                        </th>
+                                    </tr>
+                                </thead>
+                            </table>
+                            <table class="table table-condensed" style="border:none">
+                                <thead>
+                                    <tr>
+                                        <th style="text-center" rowspan="2">Contralado por:
+                                            <h6 class="text-left">_________________________________________</h6>
+                                        </th>
+                                        <th style="text-center" rowspan="2">Revizado por:
+                                            <h6 class="text-left">_________________________________________</h6>
+                                        </th>
+                                    </tr>
+                                </thead>
+                            </table>
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>

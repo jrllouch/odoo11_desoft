@@ -1,0 +1,26 @@
+<odoo>
+  <data>
+      <record id="classifier_product_category_account_form" model="ir.ui.view">
+          <field name="name">classifier_product_category_account form</field>
+          <field name="model">product.category</field>
+          <field name="inherit_id" ref="product.product_category_form_view"/>
+          <field name="arch" type="xml">
+                   <field name="tool_category" position="after">
+                       <field name="property_tools_valuation" attrs="{'invisible': [('tool_category', '=', False)], 'required': [('tool_category', '=', True)]}"/>
+                       <field name="property_amortization_methods" attrs="{'invisible': [('tool_category', '=', False)], 'required': [('tool_category', '=', True)]}"/>
+                   </field>
+                   <group name="account_tool_valuation" position="after">
+                       <group name="account_tool_valuation" string="Account Tool Properties" attrs="{'invisible': [('tool_category', '=', False)]}" sequence="2">
+                           <field name="property_tool_input_account" attrs="{'invisible': [('tool_category', '=', False)], 'required': [('property_tools_valuation', 'in', 'automated')]}"/>
+                           <field name="property_tool_output_account" attrs="{'invisible': [('tool_category', '=', False)], 'required': [('property_tools_valuation', 'in', 'automated')]}"/>
+                           <field name="property_tool_missing_account" attrs="{'invisible': [('tool_category', '=', False)], 'required': [('property_tools_valuation', 'in', 'automated')]}"/>
+                           <field name="property_tool_surplus_account" attrs="{'invisible': [('tool_category', '=', False)], 'required': [('property_tools_valuation', 'in', 'automated')]}"/>
+                           <field name="property_tool_valoration_account" attrs="{'invisible': [('tool_category', '=', False)], 'required': [('property_tools_valuation', 'in', 'automated')]}"/>
+                           <field name="property_tool_amortization_account" attrs="{'invisible': [('tool_category', '=', False)], 'required': [('property_tools_valuation', 'in', 'automated')]}"/>
+                           <field name="property_tool_journal" attrs="{'invisible': [('tool_category', '=', False)]}"/>
+                      </group>
+                  </group>
+          </field>
+        </record>
+  </data>
+</odoo>

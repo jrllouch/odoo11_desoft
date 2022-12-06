@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record model="l10n_cu.month.planning" id="month01">
+            <field name="name">January</field>
+            <field name="number">01</field>
+            <field name="init_year">True</field>
+        </record>
+
+        <record model="l10n_cu.month.planning" id="month02">
+            <field name="name">February</field>
+            <field name="number">02</field>
+        </record>
+
+        <record model="l10n_cu.month.planning" id="month03">
+            <field name="name">March</field>
+            <field name="number">03</field>
+        </record>
+
+        <record model="l10n_cu.month.planning" id="month04">
+            <field name="name">April</field>
+            <field name="number">04</field>
+        </record>
+
+        <record model="l10n_cu.month.planning" id="month05">
+            <field name="name">May</field>
+            <field name="number">05</field>
+        </record>
+
+        <record model="l10n_cu.month.planning" id="month06">
+            <field name="name">June</field>
+            <field name="number">06</field>
+        </record>
+
+        <record model="l10n_cu.month.planning" id="month07">
+            <field name="name">July</field>
+            <field name="number">07</field>
+        </record>
+
+        <record model="l10n_cu.month.planning" id="month08">
+            <field name="name">August</field>
+            <field name="number">08</field>
+        </record>
+
+        <record model="l10n_cu.month.planning" id="month09">
+            <field name="name">September</field>
+            <field name="number">09</field>
+        </record>
+
+        <record model="l10n_cu.month.planning" id="month10">
+            <field name="name">October</field>
+            <field name="number">10</field>
+        </record>
+
+        <record model="l10n_cu.month.planning" id="month11">
+            <field name="name">November</field>
+            <field name="number">11</field>
+        </record>
+
+        <record model="l10n_cu.month.planning" id="month12">
+            <field name="name">December</field>
+            <field name="number">12</field>
+            <field name="finish_year">True</field>
+        </record>
+    </data>
+</odoo>

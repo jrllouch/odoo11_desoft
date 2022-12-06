@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record model="ir.ui.view" id="view_tools_account_quant_tree">
+        <field name="name">tools.account.quant.tree</field>
+        <field name="model">tools.quant</field>
+        <field eval="10" name="priority"/>
+        <field name="inherit_id" ref="l10n_cu_tools.view_tools_quant_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree/field[@name='quantity']" position="after">
+                <field name="value"/>
+                <field name="amortization"/>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

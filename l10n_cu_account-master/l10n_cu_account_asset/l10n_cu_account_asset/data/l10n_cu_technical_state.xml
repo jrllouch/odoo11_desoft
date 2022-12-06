@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record model="l10n_cu.technical.state" id="01">
+            <field name="state">Bien</field>
+            <field name="description">Bien</field>
+        </record>
+        <record model="l10n_cu.technical.state" id="02">
+            <field name="state">Regular</field>
+            <field name="description">Regular</field>
+        </record>
+        <record model="l10n_cu.technical.state" id="03">
+            <field name="state">Mal</field>
+            <field name="description">Mal</field>
+        </record>
+    </data>
+</odoo>

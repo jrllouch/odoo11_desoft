@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="tools_blind_inventory_report">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="o">
+                    <t t-call="web.external_layout">
+                        <div class="page">
+                            <h2>Tools Inventory</h2>
+
+                            <table class="table table-condensed">
+                                <thead>
+                                    <tr>
+                                        <th><strong>Inventory</strong></th>
+                                        <th><strong>Custodian</strong></th>
+                                        <th><strong>Date</strong></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <span t-field="o.name"/>
+                                        </td>
+                                        <td>
+                                            <span t-field="o.custodian_id"/>
+                                        </td>
+                                        <td>
+                                            __________
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <table class="table table-condensed">
+                                <thead>
+                                    <tr>
+                                        <th><strong>Product</strong></th>
+                                        <th groups="product.group_uom"><strong>UoM</strong></th>
+                                        <th class="text-right"><strong>Quantity</strong></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr t-foreach="o.line_ids" t-as="line">
+                                        <td><span t-field="line.product_id"/></td>
+                                        <td groups="product.group_uom"><span t-field="line.product_uom_id"/></td>
+                                        <td class="text-right">__________</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <t>
+                              <div class="row">
+                                <div class="col-xs-4 pull-right">
+                                     <table class="table table-condensed">
+                                        <tr class="border-black">
+                                            <td><strong>Total Quantity</strong></td>
+                                            <td class="text-right">
+                                                __________
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                              </div>
+                            </t>
+
+                            <div class="row">
+                                <div class="col-xs-4">
+                                    <th>
+                                         <table style="border: none" width="100%" class="text-left">
+                                             <tr>
+                                                 <td>
+                                                     <br/>
+                                                     <br/>
+                                                     <br/>
+                                                    <br/>______________________________
+                                                 </td>
+                                             </tr>
+                                             <tr>
+                                                 <td>Inventor's signature</td>
+                                             </tr>
+                                         </table>
+                                    </th>
+                                </div>
+                                <div class="col-xs-4">
+                                    <table style="border: none" width="100%" class="text-left">
+                                        <tr>
+                                            <td>
+                                                <br/>
+                                                <br/>
+                                                <br/>
+                                               <br/>______________________________
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Signature of the maker</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div class="col-xs-4">
+                                    <table style="border: none" width="100%" class="text-left">
+                                        <tr>
+                                            <td>
+                                                <br/>
+                                                <br/>
+                                                <br/>
+                                                <br/>______________________________
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Signature of the Checker</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                 </t>
+             </t>
+        </template>
+
+        <report
+            string="Blind Inventory Report"
+            id="report_tools_blind_inventory_report"
+            model="tools.inventory"
+            report_type="qweb-pdf"
+            menu="False"
+            name="l10n_cu_tools.tools_blind_inventory_report"
+            file="l10n_cu_tools.blind_inventory_report"
+        />
+    </data>
+</odoo>

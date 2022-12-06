@@ -1,0 +1,31 @@
+<odoo>
+  <data>
+    <record id="tools_view_picking_form" model="ir.ui.view">
+      <field name="name">stock.picking.form.tools</field>
+      <field name="model">stock.picking</field>
+      <field eval="13" name="priority"/>
+      <field name="inherit_id" ref="stock.view_picking_form"/>
+      <field name="arch" type="xml">
+        <field name="origin" position="after">
+          <field name="location_dest_usage" string='Is a tools entry' invisible="1"/>
+          <field name="location_id_usage" string='Is a tools out' invisible="1"/>
+          <field name="code" attrs="{'invisible': [('location_dest_usage', '!=', True), ('location_id_usage', '!=', True)], 'required': [('location_dest_usage', '=', True)], 'readonly': [('state', '!=' , 'draft')]}"/>
+          <field name="custodian_orig_id" attrs="{'required': [('code', 'in', ('outgoing','outgoing_Missing','outgoing_transfer','internal'))], 'invisible': [('code', 'not in', ('outgoing','outgoing_Missing','outgoing_transfer','internal'))], 'readonly': [('state', '!=' , 'draft')]}"/>
+          <field name="custodian_dest_id" attrs="{'required': [('code', 'in', ('income','income_surplus','income_transfer','internal'))], 'invisible': [('code', 'not in', ('income','income_surplus','income_transfer','internal'))], 'readonly': [('state', '!=' , 'draft')]}"/>
+        </field>
+      </field>
+    </record>
+
+    <record id="stock_location_form" model="ir.ui.view">
+      <field name="name">stock.location.form.tools</field>
+      <field name="model">stock.location</field>
+      <field name="inherit_id" ref="stock.view_location_form"/>
+      <field name="arch" type="xml">
+        <field name="usage" position="after">
+          <field name="is_tools_location"/>
+        </field>
+      </field>
+    </record>
+
+  </data>
+</odoo>

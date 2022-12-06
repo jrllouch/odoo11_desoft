@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- Top menu item -->
+        <menuitem name="Tools"
+            id="menu_tools"
+            groups="group_tools_user"
+            web_icon="l10n_cu_tools,static/description/icon.png"
+            sequence="40"/>
+        <menuitem
+            action="action_tools_picking_type_kanban"
+            id="tools_picking_type_menu"
+            parent="menu_tools" sequence="0"
+            name="Dashboard"/>
+
+        <menuitem id="menu_operations" name="Operations" parent="menu_tools" sequence="3"/>
+            <!--Operations sub-menus-->
+            <menuitem id="menu_Transfers" name="Transfers" parent="menu_operations" sequence="1" action="action_tools_picking_tree_all"/>
+        <menuitem id="menu_principal_data" name="Principal Data" parent="menu_tools" sequence="10" groups="group_tools_user"/>
+            <!--Principal Data-->
+            <menuitem id="menu_classifier_product" name="Product" parent="menu_principal_data" action="product_template_action" sequence="0"/>
+            <menuitem id="product_product_menu" name="Product Variants" action="product_normal_action" parent="menu_principal_data" groups="product.group_product_variant" sequence="1"/>
+            <menuitem id="menu_custodian" name="Custodian" parent="menu_principal_data" action="tool_custodian_action"/>
+        <menuitem id="menu_reports" name="Reports" parent="menu_tools" sequence="14" groups="group_tools_user"/>
+            <menuitem id="menu_valuation" name="Inventory" parent="menu_reports" sequence="100" action="action_tools_quantity_history"/>
+        <menuitem id="menu_tools_configuration" name="Configuration" parent="menu_tools" sequence="15" groups="group_tools_manager"/>
+            <!-- Configuration Sub-Menu -->
+            <menuitem id="menu_tools_config" name="Settings" parent="menu_tools_configuration" sequence="0" action="action_tools_config" groups="group_tools_manager"/>
+            <menuitem id="menu_tools_manage" name="Manage Tools &amp; Storage" parent="menu_tools_configuration" sequence="2" groups="group_tools_manager"/>
+                    <!-- Configuration Sub-Menu -->
+                    <menuitem id="menu_picking_type" name="Operations Types" parent="menu_tools_manage" action="action_tools_picking_type_list" sequence="1" groups="group_tools_manager"/>
+            <menuitem id="menu_tools_conf_Products" name="Products" parent="menu_tools_configuration" sequence="15"/>
+                <!--Menu Attributes-->
+                <menuitem name="Attributes" action="product.attribute_action" id="menu_attribute_action" parent="menu_tools_conf_Products" sequence="4" groups="product.group_product_variant"/>
+                <menuitem name="Attributes Value" action="product.variants_action" id="menu_attribute_action_value" parent="menu_tools_conf_Products" sequence="5" groups="product.group_product_variant"/>
+                <menuitem action="product.product_category_action_form" id="menu_classifier_category_config_stock" parent="menu_tools_conf_Products" sequence="6"/>
+            <menuitem id="product_uom_menu" name="Units of Measures" parent="menu_tools_configuration" sequence="16" groups="product.group_uom"/>
+                <!--Menu Categories-->
+                <menuitem action="product.product_uom_categ_form_action" id="menu_stock_uom_categ_form_action" name="UoM Categories" parent="product_uom_menu" sequence="34"/>
+                <menuitem id="menu_stock_uom_form_action" action="product.product_uom_form_action" name="UoM" parent="product_uom_menu" sequence="35"/>
+    </data>
+</odoo>

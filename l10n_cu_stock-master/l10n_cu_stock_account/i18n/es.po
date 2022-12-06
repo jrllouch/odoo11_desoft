@@ -1,0 +1,1214 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* l10n_cu_stock_account
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 11.0-20190312\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-06-18 20:18+0000\n"
+"PO-Revision-Date: 2019-06-18 16:27-0400\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"Language: es\n"
+"X-Generator: Poedit 2.2.3\n"
+
+#. module: l10n_cu_stock_account
+#: model:ir.model.fields,field_description:l10n_cu_stock_account.field_stock_move_date_mod
+msgid "%d/%m/%Y"
+msgstr "%d/%m/%Y"
+
+#. module: l10n_cu_stock_account
+#: model:ir.ui.view,arch_db:l10n_cu_stock_account.operation_report
+msgid "<b>Actualiza:</b>"
+msgstr "<b>Actualiza:</b>"
+
+#. module: l10n_cu_stock_account
+#: model:ir.ui.view,arch_db:l10n_cu_stock_account.operation_report
+msgid "<b>Almacén emisor:</b>"
+msgstr "<b>Almacén emisor:</b>"
+
+#. module: l10n_cu_stock_account
+#: model:ir.ui.view,arch_db:l10n_cu_stock_account.operation_report
+msgid "<b>Almacén receptor:</b>"
+msgstr "<b>Almacén receptor:</b>"
+
+#. module: l10n_cu_stock_account
+#: model:ir.ui.view,arch_db:l10n_cu_stock_account.operation_report
+msgid "<b>Contabiliza:</b>"
+msgstr "<b>Contabiliza:</b>"
+
+#. module: l10n_cu_stock_account
+#: model:ir.ui.view,arch_db:l10n_cu_stock_account.operation_report
+msgid "<b>Documento que ampara los productos: </b>"
+msgstr "<b>Documento que ampara los productos: </b>"
+
+#. module: l10n_cu_stock_account
+#: model:ir.ui.view,arch_db:l10n_cu_stock_account.operation_report
+msgid "<b>Fecha:</b>"
+msgstr "<b>Fecha:</b>"
+
+#. module: l10n_cu_stock_account
+#: model:ir.ui.view,arch_db:l10n_cu_stock_account.operation_report
+msgid "<b>Firma:</b>"
+msgstr "<b>Firma:</b>"
+
+#. module: l10n_cu_stock_account
+#: model:ir.ui.view,arch_db:l10n_cu_stock_account.operation_report
+msgid "<b>Importe total:</b>"
+msgstr "<b>Importe total:</b>"
+
+#. module: l10n_cu_stock_account
+#: model:ir.ui.view,arch_db:l10n_cu_stock_account.operation_report
+msgid "<b>NIT:</b>"
+msgstr "<b>NIT:</b>"
+
+#. module: l10n_cu_stock_account
+#: model:ir.ui.view,arch_db:l10n_cu_stock_account.operation_report
+msgid "<b>Nombre y apellidos:</b>"
+msgstr "<b>Nombre y apellidos:</b>"
+
+#. module: l10n_cu_stock_account
+#: model:ir.ui.view,arch_db:l10n_cu_stock_account.operation_report
+msgid "<b>Operaciones por la que se emite:</b>"
+msgstr "<b>Operaciones por la que se emite:</b>"
+
+#. module: l10n_cu_stock_account
+#: model:ir.ui.view,arch_db:l10n_cu_stock_account.l10n_cu_blind_report_inventory
+#: model:ir.ui.view,arch_db:l10n_cu_stock_account.l10n_cu_report_physical_inventory
+msgid ""
+"<br/>\n"
+"                                                     <br/>\n"
+"                                                     <br/>\n"
+"                                                    <br/>______________________________"
+msgstr ""
+"<br/>\n"
+"                                                     <br/>\n"
+"                                                     <br/>\n"
+"                                                    <br/>______________________________"
+
+#. module: l10n_cu_stock_account
+#: model:ir.ui.view,arch_db:l10n_cu_stock_account.l10n_cu_blind_report_inventory
+#: model:ir.ui.view,arch_db:l10n_cu_stock_account.l10n_cu_report_physical_inventory
+msgid ""
+"<br/>\n"
+"                                                <br/>\n"
+"                                                <br/>\n"
+"                                                <br/>______________________________"
+msgstr ""
+"<br/>\n"
+"                                                <br/>\n"
+"                                                <br/>\n"
+"                                                <br/>______________________________"
+
+#. module: l10n_cu_stock_account
+#: model:ir.ui.view,arch_db:l10n_cu_stock_account.l10n_cu_blind_report_inventory
+#: model:ir.ui.view,arch_db:l10n_cu_stock_account.l10n_cu_report_physical_inventory
+msgid ""
+"<br/>\n"
+"                                                <br/>\n"
+"                                                <br/>\n"
+"                                               <br/>______________________________"
+msgstr ""
+"<br/>\n"
+"                                                <br/>\n"
+"                                                <br/>\n"
+"                                               <br/>______________________________"
+
+#. module: l10n_cu_stock_account
+#: model:ir.ui.view,arch_db:l10n_cu_stock_account.l10n_cu_stock_account_submayor_wizard_template
+msgid ""
+"<br/>\n"
+"                                    <br/>\n"
+"                                    <br/>\n"
+"                                    <br/>______________________________"
+msgstr ""
+"<br/>\n"
+"                                    <br/>\n"
+"                                    <br/>\n"
+"                                    <br/>______________________________"
+
+#. module: l10n_cu_stock_account
+#: model:ir.ui.view,arch_db:l10n_cu_stock_account.l10n_cu_report_physical_inventory
+msgid "<strong>Accounts</strong>"
+msgstr "<strong>Cuentas</strong>"
+
+#. module: l10n_cu_stock_account
+#: model:ir.ui.view,arch_db:l10n_cu_stock_account.l10n_cu_stock_account_submayor_wizard_template
+msgid "<strong>Amount</strong>"
+msgstr "<strong>Importe</strong>"
+
+#. module: l10n_cu_stock_account
+#: model:ir.ui.view,arch_db:l10n_cu_stock_account.l10n_cu_stock_account_submayor_wizard_template
+msgid "<strong>Average Price</strong>"
+msgstr "<strong>Precio promedio</strong>"
+
+#. module: l10n_cu_stock_account
+#: model:ir.ui.view,arch_db:l10n_cu_stock_account.l10n_cu_report_physical_inventory
+#: model:ir.ui.view,arch_db:l10n_cu_stock_account.l10n_cu_stock_account_submayor_wizard_template
+msgid "<strong>Company</strong>"
+msgstr "<strong>Compañia</strong>"
+
+#. module: l10n_cu_stock_account
+#: model:ir.ui.view,arch_db:l10n_cu_stock_account.l10n_cu_blind_report_inventory
+#: model:ir.ui.view,arch_db:l10n_cu_stock_account.l10n_cu_report_physical_inventory
+#: model:ir.ui.view,arch_db:l10n_cu_stock_account.l10n_cu_stock_account_submayor_wizard_template
+msgid "<strong>Date</strong>"
+msgstr "<strong>Fecha</strong>"
+
+#. module: l10n_cu_stock_account
+#: model:ir.ui.view,arch_db:l10n_cu_stock_account.l10n_cu_stock_account_submayor_wizard_template
+msgid "<strong>Existence Amount</strong>"
+msgstr "<strong>Importe de existencia</strong>"
+
+#. module: l10n_cu_stock_account
+#: model:ir.ui.view,arch_db:l10n_cu_stock_account.l10n_cu_stock_account_submayor_wizard_template
+msgid "<strong>Existence</strong>"
+msgstr "<strong>Existencia</strong>"
+
+#. module: l10n_cu_stock_account
+#: model:ir.ui.view,arch_db:l10n_cu_stock_account.l10n_cu_blind_report_inventory
+#: model:ir.ui.view,arch_db:l10n_cu_stock_account.l10n_cu_report_physical_inventory
+msgid "<strong>Inventory</strong>"
+msgstr "<strong>Inventario</strong>"
+
+#. module: l10n_cu_stock_account
+#: model:ir.ui.view,arch_db:l10n_cu_stock_account.l10n_cu_blind_report_inventory
+msgid "<strong>Location</strong>"
+msgstr "<strong>Localización</strong>"
+
+#. module: l10n_cu_stock_account
+#: model:ir.ui.view,arch_db:l10n_cu_stock_account.l10n_cu_report_physical_inventory
+msgid "<strong>Locations</strong>"
+msgstr "<strong>Localización</strong>"
+
+#. module: l10n_cu_stock_account
+#: model:ir.ui.view,arch_db:l10n_cu_stock_account.l10n_cu_blind_report_inventory
+msgid "<strong>Package</strong>"
+msgstr "<strong>Paquete</strong>"
+
+#. module: l10n_cu_stock_account
+#: model:ir.ui.view,arch_db:l10n_cu_stock_account.l10n_cu_report_physical_inventory
+msgid "<strong>Physical Imports </strong>"
+msgstr "<strong>Importe físico</strong>"
+
+#. module: l10n_cu_stock_account
+#: model:ir.ui.view,arch_db:l10n_cu_stock_account.l10n_cu_report_physical_inventory
+msgid "<strong>Physical Quantity</strong>"
+msgstr "<strong>Cantidad física</strong>"
+
+#. module: l10n_cu_stock_account
+#: model:ir.ui.view,arch_db:l10n_cu_stock_account.l10n_cu_report_physical_inventory
+msgid "<strong>Price</strong>"
+msgstr "<strong>Precio</strong>"
+
+#. module: l10n_cu_stock_account
+#: model:ir.ui.view,arch_db:l10n_cu_stock_account.l10n_cu_stock_account_submayor_wizard_template
+msgid "<strong>Print Date</strong>"
+msgstr "<strong>Fecha de emisión</strong>"
+
+#. module: l10n_cu_stock_account
+#: model:ir.ui.view,arch_db:l10n_cu_stock_account.l10n_cu_blind_report_inventory
+#: model:ir.ui.view,arch_db:l10n_cu_stock_account.l10n_cu_report_physical_inventory
+msgid "<strong>Product</strong>"
+msgstr "<strong>Producto</strong>"
+
+#. module: l10n_cu_stock_account
+#: model:ir.ui.view,arch_db:l10n_cu_stock_account.l10n_cu_blind_report_inventory
+msgid "<strong>Production Lot</strong>"
+msgstr "<strong>Lote de producción</strong>"
+
+#. module: l10n_cu_stock_account
+#: model:ir.ui.view,arch_db:l10n_cu_stock_account.l10n_cu_blind_report_inventory
+#: model:ir.ui.view,arch_db:l10n_cu_stock_account.l10n_cu_stock_account_submayor_wizard_template
+msgid "<strong>Quantity</strong>"
+msgstr "<strong>Cantidad</strong>"
+
+#. module: l10n_cu_stock_account
+#: model:ir.ui.view,arch_db:l10n_cu_stock_account.l10n_cu_stock_account_submayor_wizard_template
+msgid "<strong>Range Date</strong>"
+msgstr "<strong>Rango de fecha</strong>"
+
+#. module: l10n_cu_stock_account
+#: model:ir.ui.view,arch_db:l10n_cu_stock_account.l10n_cu_stock_account_submayor_wizard_template
+msgid "<strong>Reference</strong>"
+msgstr "<strong>Referencia</strong>"
+
+#. module: l10n_cu_stock_account
+#: model:ir.ui.view,arch_db:l10n_cu_stock_account.l10n_cu_report_physical_inventory
+msgid "<strong>Surplus Imports</strong>"
+msgstr "<strong>Importe sobrante</strong>"
+
+#. module: l10n_cu_stock_account
+#: model:ir.ui.view,arch_db:l10n_cu_stock_account.l10n_cu_report_physical_inventory
+msgid "<strong>Surplus Quantity</strong>"
+msgstr "<strong>Cantidad sobrante</strong>"
+
+#. module: l10n_cu_stock_account
+#: model:ir.ui.view,arch_db:l10n_cu_stock_account.l10n_cu_report_physical_inventory
+msgid "<strong>Theoretical Imports </strong>"
+msgstr "<strong>Importe teórico </strong>"
+
+#. module: l10n_cu_stock_account
+#: model:ir.ui.view,arch_db:l10n_cu_stock_account.l10n_cu_report_physical_inventory
+msgid "<strong>Theoretical Quantity</strong>"
+msgstr "<strong>Cantidad teórica</strong>"
+
+#. module: l10n_cu_stock_account
+#: model:ir.ui.view,arch_db:l10n_cu_stock_account.l10n_cu_report_physical_inventory
+msgid "<strong>Total Imports</strong>"
+msgstr "<strong>Importe total</strong>"
+
+#. module: l10n_cu_stock_account
+#: model:ir.ui.view,arch_db:l10n_cu_stock_account.l10n_cu_blind_report_inventory
+msgid "<strong>Total Quantity</strong>"
+msgstr "<strong>Cantidad total</strong>"
+
+#. module: l10n_cu_stock_account
+#: model:ir.model.fields,field_description:l10n_cu_stock_account.field_inventory_lock_date_wizard_line_account_balance
+msgid "According accounting"
+msgstr "Según contabilidad"
+
+#. module: l10n_cu_stock_account
+#: model:ir.model.fields,field_description:l10n_cu_stock_account.field_inventory_lock_date_wizard_line_inventory_balance
+msgid "According inventory"
+msgstr "Según inventario"
+
+#. module: l10n_cu_stock_account
+#: model:ir.model.fields,field_description:l10n_cu_stock_account.field_inventory_lock_date_wizard_line_account_id
+#: model:ir.model.fields,field_description:l10n_cu_stock_account.field_stock_account_submayor_wizard_account_ids
+msgid "Account"
+msgstr "Cuenta"
+
+#. module: l10n_cu_stock_account
+#: model:ir.ui.view,arch_db:l10n_cu_stock_account.l10n_cu_stock_account_submayor_report_form
+msgid "Accounts"
+msgstr "Cuentas"
+
+#. module: l10n_cu_stock_account
+#: model:ir.model.fields,field_description:l10n_cu_stock_account.field_stock_quant_package_abbr
+msgid "Acronym"
+msgstr "Acrónimo"
+
+#. module: l10n_cu_stock_account
+#: model:ir.actions.server,name:l10n_cu_stock_account.action_date
+msgid "Action Cal Date"
+msgstr "Acción Cal Fecha"
+
+#. module: l10n_cu_stock_account
+#: model:ir.model.fields,field_description:l10n_cu_stock_account.field_stock_move_analytic_account_id
+#: model:ir.model.fields,field_description:l10n_cu_stock_account.field_stock_picking_analytic_account_id
+msgid "Analytic Account"
+msgstr "Cuenta analítica"
+
+#. module: l10n_cu_stock_account
+#: model:ir.model.fields,field_description:l10n_cu_stock_account.field_res_config_settings_attachment
+msgid "Attachment"
+msgstr "Adjunto archivo"
+
+#. module: l10n_cu_stock_account
+#: model:ir.actions.report,name:l10n_cu_stock_account.blind_report_inventory
+#: model:ir.ui.view,arch_db:l10n_cu_stock_account.stock_account_view_inventory_form
+msgid "Blind Report Inventory"
+msgstr "Reporte de Inventario a Ciegas"
+
+#. module: l10n_cu_stock_account
+#: model:ir.model.fields,field_description:l10n_cu_stock_account.field_stock_quant_package_boarding
+msgid "Boarding"
+msgstr "Embarque"
+
+#. module: l10n_cu_stock_account
+#: model:ir.model.fields,help:l10n_cu_stock_account.field_stock_quant_package_boarding
+msgid "Boarding info"
+msgstr "Información de embarque"
+
+#. module: stock
+#: code:addons/l10n_cu_stock_account/models/stock_account_inventory.py:38
+#, python-format
+msgid "By Percent"
+msgstr "Por porciento"
+
+#. module: l10n_cu_stock_account
+#: model:ir.model.fields,help:l10n_cu_stock_account.field_res_config_settings_module_l10n_cu_dualcurrency_stock_account
+msgid "By checking this option, the l10n_cu_dualcurrency_stock account module will be installed"
+msgstr "Al marcar esta opción, se instalará el módulo de cuenta l10n_cu_dualcurrency_stock"
+
+#. module: l10n_cu_stock_account
+#: model:ir.model.fields,help:l10n_cu_stock_account.field_inventory_lock_date_wizard_inventory_lock_date
+#: model:ir.model.fields,help:l10n_cu_stock_account.field_res_config_settings_inventory_lock_date
+msgid "Can't edit documents prior or equal to this date."
+msgstr "No puede modificar documentos con fecha anterior o igual a esta fecha."
+
+#. module: l10n_cu_stock_account
+#: model:ir.model.fields,help:l10n_cu_stock_account.field_res_company_inventory_lock_date
+msgid "Can't edit documents prior to and inclusive of this date."
+msgstr "Can't edit documents prior to and inclusive of this date."
+
+#. module: l10n_cu_stock_account
+#: model:ir.ui.view,arch_db:l10n_cu_stock_account.inventory_lock_date_form
+#: model:ir.ui.view,arch_db:l10n_cu_stock_account.l10n_cu_stock_account_submayor_report_form
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: l10n_cu_stock_account
+#: model:ir.ui.view,arch_db:l10n_cu_stock_account.operation_report
+msgid "Cantidad"
+msgstr "Cantidad"
+
+#. module: l10n_cu_stock_account
+#: model:ir.ui.view,arch_db:l10n_cu_stock_account.operation_report
+msgid "Cantidad entregada"
+msgstr "Cantidad entregada"
+
+#. module: l10n_cu_stock_account
+#: model:ir.ui.view,arch_db:l10n_cu_stock_account.operation_report
+msgid "Cantidad recibida"
+msgstr "Cantidad recibida"
+
+#. module: l10n_cu_stock_account
+#: model:ir.model,name:l10n_cu_stock_account.model_stock_change_product_qty
+msgid "Change Product Quantity"
+msgstr "Cambiar cantidad de producto"
+
+#. module: l10n_cu_stock_account
+#: model:ir.ui.view,arch_db:l10n_cu_stock_account.operation_report
+msgid "Cliente"
+msgstr "Cliente"
+
+#. module: l10n_cu_stock_account
+#: model:ir.model.fields,field_description:l10n_cu_stock_account.field_l10n_cu_stock_account_template_code
+msgid "Code"
+msgstr "Código"
+
+#. module: l10n_cu_stock_account
+#: model:ir.model,name:l10n_cu_stock_account.model_res_company
+msgid "Companies"
+msgstr "Compañías"
+
+#. module: l10n_cu_stock_account
+#: model:ir.ui.view,arch_db:l10n_cu_stock_account.operation_report
+msgid "Conocimiento de embarque"
+msgstr "Conocimiento de embarque"
+
+#. module: l10n_cu_stock_account
+#: model:ir.ui.view,arch_db:l10n_cu_stock_account.operation_report
+msgid "Consignatario"
+msgstr "Consignatario"
+
+#. module: l10n_cu_stock_account
+#: model:ir.model.fields,field_description:l10n_cu_stock_account.field_stock_quant_package_consignee_name
+msgid "Consignee"
+msgstr "Consignatario"
+
+#. module: l10n_cu_stock_account
+#: model:ir.model.fields,help:l10n_cu_stock_account.field_stock_quant_package_consignee_name
+msgid "Consignee's name"
+msgstr "Nombre del consignatario"
+
+#. module: l10n_cu_stock_account
+#: model:ir.ui.view,arch_db:l10n_cu_stock_account.operation_report
+msgid "Costo real unitario"
+msgstr "Costo real unitario"
+
+#. module: l10n_cu_stock_account
+#: model:ir.model.fields,field_description:l10n_cu_stock_account.field_inventory_lock_date_wizard_create_uid
+#: model:ir.model.fields,field_description:l10n_cu_stock_account.field_inventory_lock_date_wizard_line_create_uid
+#: model:ir.model.fields,field_description:l10n_cu_stock_account.field_l10n_cu_stock_account_template_create_uid
+#: model:ir.model.fields,field_description:l10n_cu_stock_account.field_stock_account_submayor_wizard_create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: l10n_cu_stock_account
+#: model:ir.model.fields,field_description:l10n_cu_stock_account.field_inventory_lock_date_wizard_create_date
+#: model:ir.model.fields,field_description:l10n_cu_stock_account.field_inventory_lock_date_wizard_line_create_date
+#: model:ir.model.fields,field_description:l10n_cu_stock_account.field_l10n_cu_stock_account_template_create_date
+#: model:ir.model.fields,field_description:l10n_cu_stock_account.field_stock_account_submayor_wizard_create_date
+msgid "Created on"
+msgstr "Creado en"
+
+#. module: l10n_cu_stock_account
+#: model:ir.ui.view,arch_db:l10n_cu_stock_account.l10n_cu_stock_res_config_settings_view_inherit_form
+msgid "Currency"
+msgstr "Moneda"
+
+#. module: l10n_cu_stock_account
+#: model:ir.ui.view,arch_db:l10n_cu_stock_account.l10n_cu_stock_account_submayor_report_form
+msgid "Date end"
+msgstr "Fecha final"
+
+#. module: l10n_cu_stock_account
+#: model:ir.model.fields,field_description:l10n_cu_stock_account.field_stock_account_submayor_wizard_date_start
+#: model:ir.ui.view,arch_db:l10n_cu_stock_account.l10n_cu_stock_account_submayor_report_form
+msgid "Date start"
+msgstr "Fecha inicial"
+
+#. module: l10n_cu_stock_account
+#: model:ir.model.fields,field_description:l10n_cu_stock_account.field_stock_account_submayor_wizard_date_stop
+msgid "Date stop"
+msgstr "Fecha parada"
+
+#. module: l10n_cu_stock_account
+#: model:ir.model.fields,field_description:l10n_cu_stock_account.field_stock_quant_package_departure
+msgid "Departure"
+msgstr "Salida"
+
+#. module: l10n_cu_stock_account
+#: model:ir.ui.view,arch_db:l10n_cu_stock_account.operation_report
+msgid "Descripción"
+msgstr "Descripción"
+
+#. module: l10n_cu_stock_account
+#: model:ir.model.fields,field_description:l10n_cu_stock_account.field_stock_quant_package_destination
+msgid "Destination"
+msgstr "Destino"
+
+#. module: l10n_cu_stock_account
+#: model:ir.model.fields,field_description:l10n_cu_stock_account.field_inventory_lock_date_wizard_line_difference
+msgid "Difference"
+msgstr "Diferencia"
+
+#. module: l10n_cu_stock_account
+#: model:ir.model.fields,field_description:l10n_cu_stock_account.field_inventory_lock_date_wizard_display_name
+#: model:ir.model.fields,field_description:l10n_cu_stock_account.field_inventory_lock_date_wizard_line_display_name
+#: model:ir.model.fields,field_description:l10n_cu_stock_account.field_l10n_cu_stock_account_template_display_name
+#: model:ir.model.fields,field_description:l10n_cu_stock_account.field_stock_account_submayor_wizard_display_name
+msgid "Display Name"
+msgstr "Nombre mostrado"
+
+#. module: l10n_cu_stock_account
+#: model:ir.model.fields,field_description:l10n_cu_stock_account.field_res_config_settings_module_l10n_cu_dualcurrency_stock_account
+#: model:ir.ui.view,arch_db:l10n_cu_stock_account.l10n_cu_stock_res_config_settings_view_inherit_form
+msgid "Dual currency management"
+msgstr "Administración de la doble moneda"
+
+#. module: l10n_cu_stock_account
+#: model:ir.ui.view,arch_db:l10n_cu_stock_account.operation_report
+msgid "Entrega"
+msgstr "Entrega"
+
+#. module: l10n_cu_stock_account
+#: model:ir.model.fields,field_description:l10n_cu_stock_account.field_stock_move_warehouse_existing_qty_dest
+msgid "Existencia Destino"
+msgstr "Existencia destino"
+
+#. module: l10n_cu_stock_account
+#: model:ir.model.fields,field_description:l10n_cu_stock_account.field_stock_move_warehouse_existing_qty
+msgid "Existencia Origen"
+msgstr "Existencia origen"
+
+#. module: l10n_cu_stock_account
+#: model:ir.model.fields,help:l10n_cu_stock_account.field_stock_move_warehouse_existing_qty_dest
+msgid "Existencia según almacén destino"
+msgstr "Existencia según almacén destino"
+
+#. module: l10n_cu_stock_account
+#: model:ir.model.fields,help:l10n_cu_stock_account.field_stock_move_warehouse_existing_qty
+msgid "Existencia según almacén origen"
+msgstr "Existencia según almacén origen"
+
+#. module: l10n_cu_stock_account
+#: model:ir.ui.view,arch_db:l10n_cu_stock_account.l10n_cu_stock_account_submayor_report_form
+msgid "Filters"
+msgstr "Filtros"
+
+#. module: l10n_cu_stock_account
+#: model:ir.ui.view,arch_db:l10n_cu_stock_account.l10n_cu_blind_report_inventory
+#: model:ir.ui.view,arch_db:l10n_cu_stock_account.l10n_cu_report_physical_inventory
+msgid "Firma del jefe de almacén"
+msgstr "Firma del jefe de almacén"
+
+#. module: l10n_cu_stock_account
+#: model:ir.ui.view,arch_db:l10n_cu_stock_account.l10n_cu_stock_account_submayor_wizard_template
+msgid "Firma del dependiente de almacén"
+msgstr "Firma del dependiente de almacén"
+
+#. module: l10n_cu_stock_account
+#: model:ir.ui.view,arch_db:l10n_cu_stock_account.l10n_cu_blind_report_inventory
+msgid "Firma del jefe de almacén"
+msgstr "Firma del jefe de almacén"
+
+#. module: l10n_cu_stock_account
+#: model:ir.ui.view,arch_db:l10n_cu_stock_account.l10n_cu_blind_report_inventory
+#: model:ir.ui.view,arch_db:l10n_cu_stock_account.l10n_cu_report_physical_inventory
+msgid "Firma del jefe de inventario"
+msgstr "Firma del jefe de inventario"
+
+#. module: l10n_cu_stock_account
+#: model:ir.ui.view,arch_db:l10n_cu_stock_account.l10n_cu_blind_report_inventory
+#: model:ir.ui.view,arch_db:l10n_cu_stock_account.l10n_cu_report_physical_inventory
+msgid "Firma del que comprueba el modelo"
+msgstr "Firma del que comprueba el modelo"
+
+#. module: l10n_cu_stock_account
+#: model:ir.ui.view,arch_db:l10n_cu_stock_account.l10n_cu_blind_report_inventory
+#: model:ir.ui.view,arch_db:l10n_cu_stock_account.l10n_cu_report_physical_inventory
+msgid "Firma del que elabora el modelo"
+msgstr "Firma del que elabora el modelo"
+
+#. module: l10n_cu_stock_account
+#: model:ir.model.fields,field_description:l10n_cu_stock_account.field_inventory_lock_date_wizard_id
+#: model:ir.model.fields,field_description:l10n_cu_stock_account.field_inventory_lock_date_wizard_line_id
+#: model:ir.model.fields,field_description:l10n_cu_stock_account.field_l10n_cu_stock_account_template_id
+#: model:ir.model.fields,field_description:l10n_cu_stock_account.field_stock_account_submayor_wizard_id
+msgid "ID"
+msgstr "ID (identificación)"
+
+#. module: l10n_cu_stock_account
+#: model:ir.model.fields,field_description:l10n_cu_stock_account.field_stock_move_import_move
+msgid "Import Move"
+msgstr "Importe del movimiento"
+
+#. module: l10n_cu_stock_account
+#: model:ir.model.fields,field_description:l10n_cu_stock_account.field_stock_inventory_line_import_physical_count
+msgid "Import Product Physical Count"
+msgstr "Importe físico del conteo de productos"
+
+#. module: l10n_cu_stock_account
+#: model:ir.model.fields,field_description:l10n_cu_stock_account.field_stock_inventory_line_import_theoretical_count
+msgid "Import Product Theoretical Count"
+msgstr "Importe teórico del conteo de productos"
+
+#. module: l10n_cu_stock_account
+#: model:ir.model.fields,field_description:l10n_cu_stock_account.field_stock_inventory_line_import_surplus
+msgid "Import Surplus"
+msgstr "Importe sobrante"
+
+#. module: l10n_cu_stock_account
+#: model:ir.model.fields,field_description:l10n_cu_stock_account.field_stock_inventory_import_total
+msgid "Import Total"
+msgstr "Importe total"
+
+#. module: l10n_cu_stock_account
+#: selection:l10n_cu_stock_account.template,operation_type:0
+msgid "Incoming"
+msgstr "Entrante"
+
+#. module: l10n_cu_stock_account
+#: selection:l10n_cu_stock_account.template,operation_type:0
+msgid "Internal"
+msgstr "Interno"
+
+#. module: l10n_cu_stock_account
+#: model:ir.model,name:l10n_cu_stock_account.model_stock_inventory
+msgid "Inventory"
+msgstr "Inventario"
+
+#. module: l10n_cu_stock_account
+#: model:ir.model,name:l10n_cu_stock_account.model_stock_inventory_line
+msgid "Inventory Line"
+msgstr "Línea de inventario"
+
+#. module: l10n_cu_stock_account
+#: code:addons/l10n_cu_stock_account/models/res_config_settings.py:48
+#, python-format
+msgid "Inventory Lock Date"
+msgstr "Fecha de cierre de inventario"
+
+#. module: l10n_cu_stock_account
+#: model:ir.ui.view,arch_db:l10n_cu_stock_account.inventory_lock_date_form
+msgid "Invoice"
+msgstr "Factura"
+
+#. module: l10n_cu_stock_account
+#: model:ir.model.fields,field_description:l10n_cu_stock_account.field_inventory_lock_date_wizard_item_ids
+msgid "Item"
+msgstr "Artículo"
+
+#. module: l10n_cu_stock_account
+#: model:ir.ui.view,arch_db:l10n_cu_stock_account.operation_report
+msgid "Jefe del almacén"
+msgstr "Jefe del almacén"
+
+#. module: l10n_cu_stock_account
+#: model:ir.model.fields,field_description:l10n_cu_stock_account.field_stock_quant_last_date
+msgid "Last Date"
+msgstr "Ultima Fecha"
+
+#. module: l10n_cu_stock_account
+#: model:ir.model.fields,field_description:l10n_cu_stock_account.field_inventory_lock_date_wizard___last_update
+#: model:ir.model.fields,field_description:l10n_cu_stock_account.field_inventory_lock_date_wizard_line___last_update
+#: model:ir.model.fields,field_description:l10n_cu_stock_account.field_l10n_cu_stock_account_template___last_update
+#: model:ir.model.fields,field_description:l10n_cu_stock_account.field_stock_account_submayor_wizard___last_update
+msgid "Last Modified on"
+msgstr "Última modificación en"
+
+#. module: l10n_cu_stock_account
+#: model:ir.model.fields,field_description:l10n_cu_stock_account.field_inventory_lock_date_wizard_line_write_uid
+#: model:ir.model.fields,field_description:l10n_cu_stock_account.field_inventory_lock_date_wizard_write_uid
+#: model:ir.model.fields,field_description:l10n_cu_stock_account.field_l10n_cu_stock_account_template_write_uid
+#: model:ir.model.fields,field_description:l10n_cu_stock_account.field_stock_account_submayor_wizard_write_uid
+msgid "Last Updated by"
+msgstr "Última actualización de"
+
+#. module: l10n_cu_stock_account
+#: model:ir.model.fields,field_description:l10n_cu_stock_account.field_inventory_lock_date_wizard_line_write_date
+#: model:ir.model.fields,field_description:l10n_cu_stock_account.field_inventory_lock_date_wizard_write_date
+#: model:ir.model.fields,field_description:l10n_cu_stock_account.field_l10n_cu_stock_account_template_write_date
+#: model:ir.model.fields,field_description:l10n_cu_stock_account.field_stock_account_submayor_wizard_write_date
+msgid "Last Updated on"
+msgstr "Última actualización en"
+
+#. module: l10n_cu_stock_account
+#: model:ir.model.fields,field_description:l10n_cu_stock_account.field_stock_account_submayor_wizard_location_ids
+#: model:ir.model.fields,field_description:l10n_cu_stock_account.field_stock_quant_package_location
+msgid "Location"
+msgstr "Ubicación"
+
+#. module: l10n_cu_stock_account
+#: model:ir.ui.view,arch_db:l10n_cu_stock_account.l10n_cu_stock_account_submayor_report_form
+msgid "Locations"
+msgstr "Ubicaciones"
+
+#. module: l10n_cu_stock_account
+#: model:ir.model.fields,field_description:l10n_cu_stock_account.field_inventory_lock_date_wizard_inventory_lock_date
+#: model:ir.model.fields,field_description:l10n_cu_stock_account.field_res_company_inventory_lock_date
+#: model:ir.model.fields,field_description:l10n_cu_stock_account.field_res_config_settings_inventory_lock_date
+#: model:ir.ui.view,arch_db:l10n_cu_stock_account.l10n_cu_stock_res_config_settings_view_inherit_form
+msgid "Lock Date"
+msgstr "Fecha establecida"
+
+#. module: l10n_cu_stock_account
+#: model:ir.ui.view,arch_db:l10n_cu_stock_account.l10n_cu_stock_res_config_settings_view_inherit_form
+msgid "Low move days configuration to manage low movement filter in Inventory"
+msgstr "Configuracion de días de lento movimiento para administrar el filtro lento movimiento en inventario"
+
+#. module: l10n_cu_stock_account
+#: model:ir.ui.view,arch_db:l10n_cu_stock_account.operation_report
+msgid "Lugar de entrega:"
+msgstr "Lugar de entrega:"
+
+#. module: l10n_cu_stock_account
+#: model:ir.model.fields,help:l10n_cu_stock_account.field_stock_quant_package_manifest_number
+msgid "Manifest number"
+msgstr "Número de minifiesto"
+
+#. module: l10n_cu_stock_account
+#: model:ir.model.fields,field_description:l10n_cu_stock_account.field_stock_quant_package_manifest_number
+#: model:ir.ui.view,arch_db:l10n_cu_stock_account.operation_report
+msgid "Manifiesto"
+msgstr "Manifiesto"
+
+#. module: l10n_cu_stock_account
+#: model:ir.model.fields,help:l10n_cu_stock_account.field_stock_quant_percent_save_point
+msgid "Mark inventory percent status"
+msgstr "Marcar el estado del porcentaje de inventario"
+
+#. module: l10n_cu_stock_account
+#: model:ir.model.fields,field_description:l10n_cu_stock_account.field_inventory_lock_date_wizard_message
+msgid "Message"
+msgstr "Mensaje"
+
+#. module: l10n_cu_stock_account
+#: model:ir.model.fields,field_description:l10n_cu_stock_account.field_l10n_cu_stock_account_template_name
+msgid "Name"
+msgstr "Nombre"
+
+#. module: l10n_cu_stock_account
+#: model:ir.ui.view,arch_db:l10n_cu_stock_account.operation_report
+msgid "Nombre y código del área, centro de costo o producto al que se cargan o minoran los productos"
+msgstr "Nombre y código del área, centro de costo o producto al que se cargan o minoran los productos"
+
+#. module: l10n_cu_stock_account
+#: model:ir.model.fields,field_description:l10n_cu_stock_account.field_res_config_settings_default_not_use_movement_type
+msgid "Not use this movement type"
+msgstr "No usar este tipo de movimiento"
+
+#. module: l10n_cu_stock_account
+#: model:ir.model.fields,field_description:l10n_cu_stock_account.field_res_config_settings_default_not_use_product
+msgid "Not use this product"
+msgstr "No usar este producto"
+
+#. module: l10n_cu_stock_account
+#: model:ir.model.fields,field_description:l10n_cu_stock_account.field_res_config_settings_default_not_used_warehouse
+msgid "Not use this warehouse"
+msgstr "No usar este almacen"
+
+#. module: l10n_cu_stock_account
+#: model:ir.model.fields,help:l10n_cu_stock_account.field_res_config_settings_default_not_use_movement_type
+msgid "Not used this movement type"
+msgstr "No usar este tipo de movimiento"
+
+#. module: l10n_cu_stock_account
+#: model:ir.ui.view,arch_db:l10n_cu_stock_account.l10n_cu_stock_res_config_settings_view_inherit_form
+msgid "Not used this movement type in the filter low movement"
+msgstr "No usar este tipo de movimiento en el filtro lento movimiento"
+
+#. module: l10n_cu_stock_account
+#: model:ir.ui.view,arch_db:l10n_cu_stock_account.l10n_cu_stock_res_config_settings_view_inherit_form
+msgid "Not used this product in the filter low movement"
+msgstr "No utilizar este producto en el filtro de lento movimiento "
+
+#. module: l10n_cu_stock_account
+#: model:ir.ui.view,arch_db:l10n_cu_stock_account.l10n_cu_stock_res_config_settings_view_inherit_form
+msgid "Not used this warehouse in the filter low movement"
+msgstr "No utilizar este almacén en el filtro de lento movimiento"
+
+#. module: l10n_cu_stock_account
+#: model:ir.model.fields,field_description:l10n_cu_stock_account.field_stock_quant_package_number
+msgid "Number"
+msgstr "Número"
+
+#. module: l10n_cu_stock_account
+#: model:ir.model.fields,field_description:l10n_cu_stock_account.field_res_config_settings_default_low_move_day
+msgid "Number of Days"
+msgstr "Número de días"
+
+#. module: l10n_cu_stock_account
+#: model:ir.model.fields,help:l10n_cu_stock_account.field_res_config_settings_default_low_move_day
+msgid "Number of days used in the filter Low Move."
+msgstr "Numero de dias usados en el filtro lento movimiento."
+
+#. module: l10n_cu_stock_account
+#: model:ir.model.fields,field_description:l10n_cu_stock_account.field_stock_picking_sequence_id
+msgid "Número consecutivo"
+msgstr "Número consecutivo"
+
+#. module: l10n_cu_stock_account
+#: model:ir.ui.view,arch_db:l10n_cu_stock_account.operation_report
+msgid "Número de la cuenta"
+msgstr "Número de la cuenta"
+
+#. module: l10n_cu_stock_account
+#: model:ir.ui.view,arch_db:l10n_cu_stock_account.operation_report
+msgid "Número de la orden de producción o del lote:"
+msgstr "Número de la orden de producción o del lote:"
+
+#. module: l10n_cu_stock_account
+#: model:ir.ui.view,arch_db:l10n_cu_stock_account.operation_report
+msgid "Número de sello"
+msgstr "Número de sello"
+
+#. module: l10n_cu_stock_account
+#: model:ir.ui.view,arch_db:l10n_cu_stock_account.operation_report
+msgid "Números"
+msgstr "Números"
+
+#. module: l10n_cu_stock_account
+#: model:ir.model.fields,field_description:l10n_cu_stock_account.field_stock_quant_package_origin
+msgid "Origin"
+msgstr "Origen"
+
+#. module: l10n_cu_stock_account
+#: selection:l10n_cu_stock_account.template,operation_type:0
+msgid "Outgoing"
+msgstr "Salida"
+
+#. module: l10n_cu_stock_account
+#: model:ir.model,name:l10n_cu_stock_account.model_stock_move_line
+msgid "Packing Operation"
+msgstr "Operación de empaquetado"
+
+#. module: l10n_cu_stock_account
+#: model:ir.ui.view,arch_db:l10n_cu_stock_account.operation_report
+msgid "Partida"
+msgstr "Partida"
+
+#. module: l10n_cu_stock_account
+#: model:ir.model.fields,field_description:l10n_cu_stock_account.field_stock_quant_percent_save_point
+msgid "Percent Save Point"
+msgstr "Percent Save Point"
+
+#. module: l10n_cu_stock_account
+#: model:ir.ui.view,arch_db:l10n_cu_stock_account.operation_report
+msgid "Peso"
+msgstr "Peso"
+
+#. module: l10n_cu_stock_account
+#: model:ir.actions.report,name:l10n_cu_stock_account.action_report_physical_inventory
+msgid "Physical Inventory"
+msgstr "Inventario físico"
+
+#. module: l10n_cu_stock_account
+#: model:ir.model,name:l10n_cu_stock_account.model_stock_quant_package
+msgid "Physical Packages"
+msgstr "Paquetes físicos"
+
+#. module: l10n_cu_stock_account
+#: model:ir.model.fields,field_description:l10n_cu_stock_account.field_stock_inventory_stock_inventory_picking_in
+msgid "Picking Type In"
+msgstr "Tipo de operación de entrada"
+
+#. module: l10n_cu_stock_account
+#: model:ir.model.fields,field_description:l10n_cu_stock_account.field_stock_inventory_stock_inventory_picking_out
+msgid "Picking Type Out"
+msgstr "Tipo de operación de salida"
+
+#. module: l10n_cu_stock_account
+#: model:ir.model.fields,field_description:l10n_cu_stock_account.field_stock_picking_type_template
+msgid "Plantilla"
+msgstr "Plantilla"
+
+#. module: l10n_cu_stock_account
+#: model:ir.ui.view,arch_db:l10n_cu_stock_account.view_picking_analytic_account_form
+msgid "Post"
+msgstr "Validar"
+
+#. module: l10n_cu_stock_account
+#: model:ir.ui.view,arch_db:l10n_cu_stock_account.operation_report
+msgid "Precio"
+msgstr "Precio"
+
+#. module: l10n_cu_stock_account
+#: model:ir.ui.view,arch_db:l10n_cu_stock_account.operation_report
+msgid "Precio unitario total"
+msgstr "Precio unitario total"
+
+#. module: l10n_cu_stock_account
+#: model:ir.ui.view,arch_db:l10n_cu_stock_account.l10n_cu_stock_account_submayor_report_form
+msgid "Print"
+msgstr "Imprimir"
+
+#. module: l10n_cu_stock_account
+#: model:ir.model,name:l10n_cu_stock_account.model_product_product
+#: model:ir.model.fields,field_description:l10n_cu_stock_account.field_stock_account_submayor_wizard_product_ids
+msgid "Product"
+msgstr "Producto"
+
+#. module: l10n_cu_stock_account
+#: model:ir.model.fields,field_description:l10n_cu_stock_account.field_inventory_lock_date_wizard_line_product_category
+msgid "Product Category"
+msgstr "Categoría de producto"
+
+#. module: l10n_cu_stock_account
+#: model:ir.model.fields,field_description:l10n_cu_stock_account.field_stock_inventory_percent_number
+msgid "Product Percent"
+msgstr "Porcentaje de producto"
+
+#. module: l10n_cu_stock_account
+#: model:ir.model,name:l10n_cu_stock_account.model_product_template
+msgid "Product Template"
+msgstr "Plantilla de producto"
+
+#. module: l10n_cu_stock_account
+#: model:ir.ui.menu,name:l10n_cu_stock_account.menu_stock_account_low_movement
+#: code:addons/l10n_cu_stock_account/models/stock_account_quant.py:33
+msgid "Product low movement"
+msgstr "Productos con lento movimiento"
+
+#. module: l10n_cu_stock_account
+#: model:ir.ui.view,arch_db:l10n_cu_stock_account.l10n_cu_stock_account_submayor_report_form
+msgid "Products"
+msgstr "Productos"
+
+#. module: l10n_cu_stock_account
+#: model:ir.ui.view,arch_db:l10n_cu_stock_account.operation_report
+msgid "Proveedor"
+msgstr "Proveedor"
+
+#. module: l10n_cu_stock_account
+#: model:ir.ui.view,arch_db:l10n_cu_stock_account.operation_report
+msgid "Puerto de destino"
+msgstr "Puerto de destino"
+
+#. module: l10n_cu_stock_account
+#: model:ir.ui.view,arch_db:l10n_cu_stock_account.operation_report
+msgid "Puerto de embarque"
+msgstr "Puerto de embarque"
+
+#. module: l10n_cu_stock_account
+#: model:ir.model,name:l10n_cu_stock_account.model_stock_quant
+msgid "Quants"
+msgstr "Quants"
+
+#. module: l10n_cu_stock_account
+#: model:ir.model.fields,field_description:l10n_cu_stock_account.field_stock_quant_package_rate
+msgid "Rate"
+msgstr "Tasa"
+
+#. module: l10n_cu_stock_account
+#: model:ir.ui.view,arch_db:l10n_cu_stock_account.operation_report
+msgid "Recibe"
+msgstr "Recibe"
+
+#. module: l10n_cu_stock_account
+#: model:ir.ui.view,arch_db:l10n_cu_stock_account.l10n_cu_stock_res_config_settings_view_inherit_form
+msgid "Regulatory Document for Exclusion"
+msgstr "Documento reglamentario de exclusión"
+
+#. module: l10n_cu_stock_account
+#: model:ir.actions.report,name:l10n_cu_stock_account.action_report_operation_report
+msgid "Reporte de transferencia de inventario"
+msgstr "Reporte de transferencia de inventario"
+
+#. module: l10n_cu_stock_account
+#: model:ir.ui.view,arch_db:l10n_cu_stock_account.l10n_cu_stock_account_submayor_report_form
+msgid "Required Fields"
+msgstr "Campos requeridos"
+
+#. module: l10n_cu_stock_account
+#: model:ir.model.fields,field_description:l10n_cu_stock_account.field_stock_quant_package_seal_number
+msgid "Seal number"
+msgstr "Numero de sello"
+
+#. module: l10n_cu_stock_account
+#: model:ir.ui.view,arch_db:l10n_cu_stock_account.inventory_lock_date_form
+#: model:ir.ui.view,arch_db:l10n_cu_stock_account.l10n_cu_stock_res_config_settings_view_inherit_form
+msgid "Set Inventory Lock Date"
+msgstr "Establecer fecha de cierre de inventario"
+
+#. module: l10n_cu_stock_account
+#: model:ir.ui.view,arch_db:l10n_cu_stock_account.operation_report
+msgid "Sigla"
+msgstr "Sigla"
+
+#. module: l10n_cu_stock_account
+#: model:ir.ui.view,arch_db:l10n_cu_stock_account.l10n_cu_blind_report_inventory
+#: model:ir.ui.view,arch_db:l10n_cu_stock_account.l10n_cu_report_physical_inventory
+msgid "Stock Inventory"
+msgstr "Inventario de stock"
+
+#. module: l10n_cu_stock_account
+#: model:ir.model,name:l10n_cu_stock_account.model_stock_move
+msgid "Stock Move"
+msgstr "Movimiento de stock"
+
+#. module: l10n_cu_stock_account
+#: model:ir.actions.act_window,name:l10n_cu_stock_account.l10n_cu_stock_account_submayor_report_action
+#: model:ir.actions.report,name:l10n_cu_stock_account.l10n_cu_action_report_html_stock_submayor
+#: model:ir.actions.report,name:l10n_cu_stock_account.l10n_cu_action_report_stock_submayor
+#: model:ir.model,name:l10n_cu_stock_account.model_stock_account_submayor_wizard
+#: model:ir.ui.menu,name:l10n_cu_stock_account.menu_stock_account_submayor
+#: model:ir.ui.view,arch_db:l10n_cu_stock_account.l10n_cu_stock_account_submayor_report_form
+#: model:ir.ui.view,arch_db:l10n_cu_stock_account.l10n_cu_stock_account_submayor_wizard_template
+msgid "Stock submayor"
+msgstr "Submayor de existencias"
+
+#. module: l10n_cu_stock_account
+#: model:ir.ui.view,arch_db:l10n_cu_stock_account.operation_report
+msgid "Sucursal"
+msgstr "Sucursal"
+
+#. module: l10n_cu_stock_account
+#: model:ir.model.fields,field_description:l10n_cu_stock_account.field_stock_inventory_line_surplus_physical_quantity
+msgid "Surplus Physical Quantity"
+msgstr "Sobrante de cantidad física"
+
+#. module: l10n_cu_stock_account
+#: model:ir.ui.view,arch_db:l10n_cu_stock_account.operation_report
+msgid "Tasa"
+msgstr "Tasa"
+
+#. module: l10n_cu_stock_account
+#: code:addons/l10n_cu_stock_account/models/stock_inventory.py:14
+#: code:addons/l10n_cu_stock_account/models/stock_picking.py:258
+#, python-format
+msgid "The date: %s, must be greater than the inventory lock date: %s"
+msgstr "La fecha: %s, debe ser mayor que la fecha de cierre de inventario: %s"
+
+#. module: l10n_cu_stock_account
+#: code:addons/l10n_cu_stock_account/models/res_company.py:29
+#, python-format
+msgid "The inventory lock date must be equal or greater than the lock date for non-advisers: %s"
+msgstr "La fecha de cierre de inventario debe ser igual o mayor que la fecha de bloqueo para los no asesores: %s"
+
+#. module: l10n_cu_stock_account
+#: code:addons/l10n_cu_stock_account/wizard/inventory_lock_date_wizard.py:112
+#, python-format
+msgid "The inventory lock date must be equal or greater than the lock date for non-advisers: %s. "
+msgstr "La fecha de cierre de inventario debe ser igual o mayor que la fecha de bloqueo para los no asesores: %s. "
+
+#. module: l10n_cu_stock_account
+#: code:addons/l10n_cu_stock_account/wizard/inventory_lock_date_wizard.py:24
+#, python-format
+msgid "The inventory lock date must be less than today. "
+msgstr "La fecha de cierre de inventario debe ser menor que la fecha actual. "
+
+#. module: l10n_cu_stock_account
+#: code:addons/l10n_cu_stock_account/wizard/inventory_lock_date_wizard.py:20
+#, python-format
+msgid "The new inventory lock date must be greater than the old inventory lock date: %s. "
+msgstr "La nueva fecha de cierre de inventario debe ser mayor que la anterior: %s. "
+
+#. module: l10n_cu_stock_account
+#: model:ir.model,name:l10n_cu_stock_account.model_stock_picking_type
+msgid "The operation type determines the picking view"
+msgstr "El tipo de operación determina la vista de la operación"
+
+#. module: l10n_cu_stock_account
+#: code:addons/l10n_cu_stock_account/models/res_company.py:25
+#, python-format
+msgid "There are %s stock inventories with same date or earlier than lock date that are in state different from Validated or Cancelled."
+msgstr "Hay %s inventario/s con la misma fecha o con fecha anterior a la fecha de cierre de inventario y que está/n en un estado diferente a Validado o Cancelado."
+
+#. module: l10n_cu_stock_account
+#: code:addons/l10n_cu_stock_account/wizard/inventory_lock_date_wizard.py:107
+#, python-format
+msgid "There are %s stock inventories with same date or earlier than lock date that are in state different from Validated or Cancelled. "
+msgstr "Hay %s inventario/s con la misma fecha o con fecha anterior a la fecha de cierre de inventario y que está/n en un estado diferente a Validado o Cancelado. "
+
+#. module: l10n_cu_stock_account
+#: code:addons/l10n_cu_stock_account/models/res_company.py:20
+#, python-format
+msgid "There are %s stock pickings with same date or earlier than lock date that are in state different from Done or Cancelled."
+msgstr "Hay %s transferencia/s con la misma fecha o con fecha anterior a la fecha de cierre de inventario y que está/n en un estado diferente a Hecho o Cancelado."
+
+#. module: l10n_cu_stock_account
+#: code:addons/l10n_cu_stock_account/wizard/inventory_lock_date_wizard.py:101
+#, python-format
+msgid "There are %s stock pickings with same date or earlier than lock date that are in state different from Done or Cancelled. "
+msgstr "Hay %s transferencia/s con la misma fecha o con fecha anterior a la fecha de cierre de inventario y que está/n en un estado diferente a Hecho o Cancelado. "
+
+#. module: l10n_cu_stock_account
+#: code:addons/l10n_cu_stock_account/wizard/inventory_lock_date_wizard.py:116
+#, python-format
+msgid "There are differences between the inventory amount and accounting for some product category. Please, must resolve this before continue."
+msgstr "Existen diferencias entre el importe según inventario y el de la contabilidad para algunas categorías de productos. Por favor, debe resolver esto antes de continuar."
+
+#. module: l10n_cu_stock_account
+#: model:ir.model.fields,field_description:l10n_cu_stock_account.field_stock_picking_total_import
+msgid "Total Import"
+msgstr "Importe total"
+
+#. module: l10n_cu_stock_account
+#: model:ir.model,name:l10n_cu_stock_account.model_stock_picking
+msgid "Transfer"
+msgstr "Transferir"
+
+#. module: l10n_cu_stock_account
+#: model:ir.ui.view,arch_db:l10n_cu_stock_account.operation_report
+#: model:ir.ui.view,arch_db:l10n_cu_stock_account.view_package_form
+msgid "Transportación en contenedores"
+msgstr "Transportación en contenedores"
+
+#. module: l10n_cu_stock_account
+#: model:ir.ui.view,arch_db:l10n_cu_stock_account.operation_report
+msgid "Transportador"
+msgstr "Transportador"
+
+#. module: l10n_cu_stock_account
+#: model:ir.model.fields,field_description:l10n_cu_stock_account.field_l10n_cu_stock_account_template_operation_type
+msgid "Type of Operation"
+msgstr "Tipo de operación"
+
+#. module: l10n_cu_stock_account
+#: model:ir.ui.view,arch_db:l10n_cu_stock_account.operation_report
+msgid "Unidad de medida"
+msgstr "Unidad de medida"
+
+#. module: l10n_cu_stock_account
+#: model:ir.model.fields,field_description:l10n_cu_stock_account.field_stock_picking_location_id_usage
+msgid "Usage"
+msgstr "Uso"
+
+#. module: l10n_cu_stock_account
+#: model:ir.model.fields,field_description:l10n_cu_stock_account.field_stock_picking_location_dest_id_usage
+msgid "Usage1"
+msgstr "Uso"
+
+#. module: l10n_cu_stock_account
+#: model:ir.model.fields,field_description:l10n_cu_stock_account.field_stock_quant_value
+msgid "Value"
+msgstr "Valor"
+
+#. module: l10n_cu_stock_account
+#: model:ir.ui.view,arch_db:l10n_cu_stock_account.l10n_cu_stock_account_submayor_report_form
+msgid "View"
+msgstr "Vista"
+
+#. module: l10n_cu_stock_account
+#: model:ir.model.fields,field_description:l10n_cu_stock_account.field_stock_quant_package_weight
+msgid "Weight"
+msgstr "Peso"
+
+#. module: l10n_cu_stock_account
+#: model:ir.model.fields,field_description:l10n_cu_stock_account.field_inventory_lock_date_wizard_line_wizard_id
+msgid "Wizard"
+msgstr "Asistente"
+
+#. module: l10n_cu_stock_account
+#: code:addons/l10n_cu_stock_account/models/stock_picking.py:204
+#, python-format
+msgid "You cannot validate a transfer if you have not processed any quantity for %s."
+msgstr "No puede validar una transferencia si no ha procesado ninguna cantidad para %s."
+
+#. module: l10n_cu_stock_account
+#: code:addons/l10n_cu_stock_account/models/stock_picking.py:150
+#, python-format
+msgid "You cannot validate a transfer if you have not processed any quantity. You should rather cancel the transfer."
+msgstr "No puede validar una transferencia si no ha procesado ninguna cantidad. Deberías cancelar la transferencia."
+
+#. module: l10n_cu_stock_account
+#: code:addons/l10n_cu_stock_account/models/stock_picking.py:200
+#, python-format
+msgid "You need to supply a lot/serial number for %s."
+msgstr "Debe proporcionar un lote / número de serie para %s."
+
+#. module: l10n_cu_stock_account
+#: model:ir.ui.view,arch_db:l10n_cu_stock_account.l10n_cu_blind_report_inventory
+msgid "__________"
+msgstr "__________"
+
+#. module: l10n_cu_stock_account
+#: model:ir.model,name:l10n_cu_stock_account.model_inventory_lock_date_wizard
+msgid "inventory.lock.date.wizard"
+msgstr "inventory.lock.date.wizard"
+
+#. module: l10n_cu_stock_account
+#: model:ir.model,name:l10n_cu_stock_account.model_inventory_lock_date_wizard_line
+msgid "inventory.lock.date.wizard.line"
+msgstr "inventory.lock.date.wizard.line"
+
+#. module: l10n_cu_stock_account
+#: model:ir.model,name:l10n_cu_stock_account.model_l10n_cu_stock_account_template
+msgid "l10n_cu_stock_account.template"
+msgstr "l10n_cu_stock_account.template"
+
+#. module: l10n_cu_stock_account
+#: model:ir.model,name:l10n_cu_stock_account.model_res_config_settings
+msgid "res.config.settings"
+msgstr "res.config.settings"
+
+#. module: l10n_cu_stock_account
+#: model:ir.ui.view,arch_db:l10n_cu_stock_account.l10n_cu_stock_account_submayor_wizard_template
+msgid "to"
+msgstr "a"
+
+#. module: l10n_cu_stock_account
+#: model:ir.ui.view,arch_db:l10n_cu_stock_account.operation_report
+msgid "Área productora:"
+msgstr "Área productora:"
+
+#. module: l10n_cu_stock_account
+#: selection:stock.picking,state:0
+msgid "Pending For Accounting"
+msgstr "Pendiente de contabilizar"
+
+#. module: l10n_cu_stock_account
+#: code:addons/l10n_cu_stock_account/models/stock_picking.py:143
+#, python-format
+msgid "The document can't validate because there are %s documents in state Pending or Done and date greater than the document date."
+msgstr "El documento no puede ser validado porque hay %s documento/s en estado Pendiente de contabilizar o Hecho y fecha mayor que la Fecha de operación del documento."
+
+#. module: l10n_cu_stock_account
+#: model:ir.module.module,shortdesc:base.module_l10n_cu_stock_account
+msgid "Cuban - Stock Account"
+msgstr "Cuba - Contabilidad de inventario"
+
+#. module: l10n_cu_stock_account
+#: model:ir.module.module,description:base.module_l10n_cu_stock_account
+msgid ""
+"\n"
+"This module extends the functionalities of the stock module, allowing to generate printable reports for:\n"
+"========================================================================================================\n"
+"* Informe de Recepción\n"
+"* Vale de Entrega o Devolución\n"
+"* Transferencia entre Almacenes\n"
+"* Conduce\n"
+"* Factura\n"
+"* Submayor de Inventario\n"
+"according to the type of movement of the products, containing the mandatory fields in line with the document Resolución No. 011/2007, Ministerio de Finanzas y Precios, 18/01/2007\n"
+msgstr ""
+"\n"
+"Este módulo extiende las funcionalidades del módulo de inventario, permitiendo generar informes imprimibles para:\n"
+"=================================================================================================================\n"
+"* Informe de Recepción\n"
+"* Vale de Entrega o Devolución\n"
+"* Transferencia entre Almacenes\n"
+"* Conduce\n"
+"* Factura\n"
+"* Submayor de Inventario\n"
+" de acuerdo con el tipo de movimiento de los productos, conteniendo los campos obligatorios en línea con el documento Resolución No. 011/2007, Ministerio de Finanzas y Precios, 18/01/2007.\n"
